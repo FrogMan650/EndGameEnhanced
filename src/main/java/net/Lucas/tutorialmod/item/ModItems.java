@@ -1,6 +1,7 @@
 package net.Lucas.tutorialmod.item;
 
 import net.Lucas.tutorialmod.TutorialMod;
+import net.Lucas.tutorialmod.item.custom.raw_sapphire;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,7 +15,7 @@ public class ModItems {
     public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RAW_SAPPHIRE = ITEMS.register("raw_sapphire",
-            () -> new Item(new Item.Properties()));
+            () -> new raw_sapphire(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -2,8 +2,14 @@
   "item.tutorialmod.sapphire": "Sapphire",
   "item.tutorialmod.raw_sapphire": "Raw Sapphire",
 
+
   "block.tutorialmod.sapphire_block": "Block of Sapphire",
   "block.tutorialmod.raw_sapphire_block": "Block of Raw Sapphire",
+  "block.tutorialmod.sapphire_ore": "Sapphire Ore",
+  "block.tutorialmod.copper_sprinkler": "Copper Sprinkler",
+  "tooltip.tutorialmod.raw_sapphire.tooltip": "A raw sapphire",
+  "tooltip.copper_sprinkler.tooltip": "Affects your crops in various ways.",
 
-  "creativetab.tutorial_tab": "Sapphire Tutorial Tab"
+  "creativetab.tutorial_tab": "Sapphire Tutorial",
+  "creativetab.farming_tab": "Farming"
 }

@@ -1,11 +1,15 @@
 package net.Lucas.tutorialmod.block;
 
 import net.Lucas.tutorialmod.TutorialMod;
+import net.Lucas.tutorialmod.block.custom.copper_sprinkler;
 import net.Lucas.tutorialmod.item.ModItems;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DropExperienceBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,6 +26,13 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> RAW_SAPPHIRE_BLOCK = registerBlock("raw_sapphire_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final RegistryObject<Block> COPPER_SPRINKLER = registerBlock("copper_sprinkler",
+            () -> new copper_sprinkler(BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> SAPPHIRE_ORE = registerBlock("sapphire_ore", () ->
+            new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.COAL_ORE),
+                    UniformInt.of(3, 6)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

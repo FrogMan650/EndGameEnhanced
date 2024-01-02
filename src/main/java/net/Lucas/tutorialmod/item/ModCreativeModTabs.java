@@ -26,9 +26,25 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.RAW_SAPPHIRE.get());
                         pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
                         pOutput.accept(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
+                        pOutput.accept(ModBlocks.SAPPHIRE_ORE.get());
 
                         //adding vanilla items
                         pOutput.accept(Items.DIAMOND);
+                    })
+                    .build());
+
+    public static final RegistryObject<CreativeModeTab> FARMING_TAB = CREATIVE_MODE_TABS.register("farming_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(Items.WHEAT_SEEDS))
+                    .title(Component.translatable("creativetab.farming_tab"))
+                    .displayItems((pParameters, pOutput) -> {
+                        //adding my custom items
+                        pOutput.accept(ModBlocks.COPPER_SPRINKLER.get());
+
+                        //adding vanilla items
+                        pOutput.accept(Items.DIRT);
+                        pOutput.accept(Items.FARMLAND);
+                        pOutput.accept(Items.WATER_BUCKET);
+                        pOutput.accept(Items.NETHERITE_HOE);
                     })
                     .build());
 
