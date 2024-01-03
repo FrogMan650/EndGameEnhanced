@@ -1,0 +1,5 @@
+// 1.20.1	2024-01-02T21:10:39.9872394	Loot Tables
+509dc3615104f2cb2708b82d75a914dbff074898 data/tutorialmod/loot_tables/blocks/copper_sprinkler.json
+81e9322ae4c5141fd110a8f87cc92d7af008fd1e data/tutorialmod/loot_tables/blocks/raw_sapphire_block.json
+d844cbb192590a5e4278fd1a5c5906e40c594e24 data/tutorialmod/loot_tables/blocks/sapphire_block.json
+aa2b1c8deec50b57ad0574814e62f77133a5f3f5 data/tutorialmod/loot_tables/blocks/sapphire_ore.json

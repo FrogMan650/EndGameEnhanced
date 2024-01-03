@@ -1,0 +1,4 @@
+// 1.20.1	2024-01-02T23:04:18.1657083	Global Loot Modifiers : tutorialmod
+5d24d8a9d670d49a4d51b36638ca4e63c48f85eb data/forge/loot_modifiers/global_loot_modifiers.json
+ec5dd8d6e9d6e1fc587339ea50cefe867c96a70e data/tutorialmod/loot_modifiers/raw_sapphire_from_coal_ore.json
+ed9f056267153a5fb6d1d70af3abb31c306c71f8 data/tutorialmod/loot_modifiers/raw_sapphire_from_zombie.json
