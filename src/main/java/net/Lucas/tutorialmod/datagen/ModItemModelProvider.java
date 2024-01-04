@@ -20,6 +20,11 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.RAW_SAPPHIRE);
         simpleItem(ModItems.SAPPHIRE);
+        simpleItem(ModItems.METAL_DETECTOR);
+        simpleItem(ModItems.OPAL);
+        simpleItem(ModItems.JADE);
+        simpleItem(ModItems.RUBY);
+        simpleItem(ModItems.ONYX);
 
     }
 

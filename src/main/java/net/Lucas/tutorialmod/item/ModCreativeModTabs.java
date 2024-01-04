@@ -16,7 +16,7 @@ public class ModCreativeModTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TutorialMod.MOD_ID);
 
-    //setting the icon of the tab and adding the items to the tab
+    //setting the icon and name of the tab and adding the items to the tab
     public static final RegistryObject<CreativeModeTab> TUTORIAL_TAB = CREATIVE_MODE_TABS.register("tutorial_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SAPPHIRE.get()))
                     .title(Component.translatable("creativetab.tutorial_tab"))
@@ -27,24 +27,33 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
                         pOutput.accept(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
                         pOutput.accept(ModBlocks.SAPPHIRE_ORE.get());
+                        pOutput.accept(ModItems.METAL_DETECTOR.get());
 
                         //adding vanilla items
                         pOutput.accept(Items.DIAMOND);
                     })
                     .build());
 
-    public static final RegistryObject<CreativeModeTab> FARMING_TAB = CREATIVE_MODE_TABS.register("farming_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(Items.WHEAT_SEEDS))
-                    .title(Component.translatable("creativetab.farming_tab"))
+    public static final RegistryObject<CreativeModeTab> FARMING_TAB = CREATIVE_MODE_TABS.register("gem_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(Items.DIAMOND))
+                    .title(Component.translatable("creativetab.gem_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         //adding my custom items
-                        pOutput.accept(ModBlocks.COPPER_SPRINKLER.get());
+                        pOutput.accept(ModItems.OPAL.get());
+                        pOutput.accept(ModBlocks.OPAL_BLOCK.get());
+                        pOutput.accept(ModItems.JADE.get());
+                        pOutput.accept(ModBlocks.JADE_BLOCK.get());
+                        pOutput.accept(ModItems.SAPPHIRE.get());
+                        pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
+                        pOutput.accept(Items.EMERALD);
+                        pOutput.accept(Items.EMERALD_BLOCK);
+                        pOutput.accept(ModItems.RUBY.get());
+                        pOutput.accept(ModBlocks.RUBY_BLOCK.get());
+                        pOutput.accept(Items.DIAMOND);
+                        pOutput.accept(Items.DIAMOND_BLOCK);
+                        pOutput.accept(ModItems.ONYX.get());
+                        pOutput.accept(ModBlocks.ONYX_BLOCK.get());
 
-                        //adding vanilla items
-                        pOutput.accept(Items.DIRT);
-                        pOutput.accept(Items.FARMLAND);
-                        pOutput.accept(Items.WATER_BUCKET);
-                        pOutput.accept(Items.NETHERITE_HOE);
                     })
                     .build());
 

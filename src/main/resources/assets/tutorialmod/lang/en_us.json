@@ -1,15 +1,23 @@
 {
   "item.tutorialmod.sapphire": "Sapphire",
   "item.tutorialmod.raw_sapphire": "Raw Sapphire",
+  "item.tutorialmod.metal_detector": "Metal Detector",
+  "item.tutorialmod.opal": "Opal",
+  "item.tutorialmod.jade": "Jade",
+  "item.tutorialmod.ruby": "Ruby",
+  "item.tutorialmod.onyx": "Onyx",
 
 
   "block.tutorialmod.sapphire_block": "Block of Sapphire",
   "block.tutorialmod.raw_sapphire_block": "Block of Raw Sapphire",
   "block.tutorialmod.sapphire_ore": "Sapphire Ore",
-  "block.tutorialmod.copper_sprinkler": "Copper Sprinkler",
   "tooltip.tutorialmod.raw_sapphire.tooltip": "A raw sapphire",
-  "tooltip.copper_sprinkler.tooltip": "Affects your crops in various ways.",
+  "block.tutorialmod.opal_block": "Block of Opal",
+  "block.tutorialmod.jade_block": "Block of Jade",
+  "block.tutorialmod.ruby_block": "Block of Ruby",
+  "block.tutorialmod.onyx_block": "Block of Onyx",
+
 
   "creativetab.tutorial_tab": "Sapphire Tutorial",
-  "creativetab.farming_tab": "Farming"
+  "creativetab.gem_tab": "Gems and gem accessories"
 }

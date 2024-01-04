@@ -29,7 +29,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //and then specify the drops or use a method like below
         this.dropSelf(ModBlocks.SAPPHIRE_BLOCK.get());
         this.dropSelf(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
-        this.dropSelf(ModBlocks.COPPER_SPRINKLER.get());
+        this.dropSelf(ModBlocks.OPAL_BLOCK.get());
+        this.dropSelf(ModBlocks.JADE_BLOCK.get());
+        this.dropSelf(ModBlocks.RUBY_BLOCK.get());
+        this.dropSelf(ModBlocks.ONYX_BLOCK.get());
 
         this.add(ModBlocks.SAPPHIRE_ORE.get(), block -> createCopperLikeOreDrops(ModBlocks.SAPPHIRE_ORE.get(), ModItems.RAW_SAPPHIRE.get()));
 

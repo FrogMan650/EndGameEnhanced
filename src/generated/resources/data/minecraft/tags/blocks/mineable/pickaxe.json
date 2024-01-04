@@ -2,6 +2,9 @@
   "values": [
     "tutorialmod:sapphire_ore",
     "tutorialmod:sapphire_block",
-    "tutorialmod:raw_sapphire_block"
+    "tutorialmod:opal_block",
+    "tutorialmod:jade_block",
+    "tutorialmod:ruby_block",
+    "tutorialmod:onyx_block"
   ]
 }

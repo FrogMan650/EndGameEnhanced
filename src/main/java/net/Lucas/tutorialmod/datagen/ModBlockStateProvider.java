@@ -19,8 +19,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
 //ex: blockWithItem(ModBlocks.SAPPHIRE_BLOCK);
         blockWithItem(ModBlocks.RAW_SAPPHIRE_BLOCK);
         blockWithItem(ModBlocks.SAPPHIRE_BLOCK);
-        blockWithItem(ModBlocks.COPPER_SPRINKLER);
         blockWithItem(ModBlocks.SAPPHIRE_ORE);
+        blockWithItem(ModBlocks.OPAL_BLOCK);
+        blockWithItem(ModBlocks.JADE_BLOCK);
+        blockWithItem(ModBlocks.RUBY_BLOCK);
+        blockWithItem(ModBlocks.ONYX_BLOCK);
 
 
     }

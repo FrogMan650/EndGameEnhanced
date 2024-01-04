@@ -25,9 +25,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(ModTags.Blocks.METAL_DETECTOR_VALUABLES).add(ModBlocks.SAPPHIRE_ORE.get()).addTag(Tags.Blocks.ORES);
 
         //this adds 3 mod blocks to the tag: MINEABLE_WITH_PICKAXE
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.SAPPHIRE_ORE.get(),
-        ModBlocks.SAPPHIRE_BLOCK.get(),
-        ModBlocks.RAW_SAPPHIRE_BLOCK.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.SAPPHIRE_ORE.get()
+                , ModBlocks.SAPPHIRE_BLOCK.get()
+                , ModBlocks.OPAL_BLOCK.get()
+                , ModBlocks.JADE_BLOCK.get()
+                , ModBlocks.RUBY_BLOCK.get()
+                , ModBlocks.ONYX_BLOCK.get()
+
+        );
 
         //Ex: this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.SAPPHIRE_ORE.get());
     }
