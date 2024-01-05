@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "tutorialmod:onyx"
+  },
+  "base": {
+    "item": "minecraft:diamond_axe"
+  },
+  "result": {
+    "item": "tutorialmod:onyx_axe"
+  },
+  "template": {
+    "item": "tutorialmod:diamond_upgrade_smithing_template"
+  }
+}

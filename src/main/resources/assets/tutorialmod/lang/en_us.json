@@ -6,6 +6,42 @@
   "item.tutorialmod.jade": "Jade",
   "item.tutorialmod.ruby": "Ruby",
   "item.tutorialmod.onyx": "Onyx",
+  "item.tutorialmod.smouldering_stone": "Smouldering Stone",
+  "item.tutorialmod.ender_dragon_scale": "Ender Dragon Scale",
+  "item.tutorialmod.sculk_crystal": "Sculk Crystal",
+  "item.tutorialmod.diamond_upgrade_smithing_template": "Diamond Upgrade Smithing Template",
+  "item.tutorialmod.onyx_upgrade_smithing_template": "Onyx Upgrade Smithing Template",
+  "item.tutorialmod.onyx_sword": "Onyx Sword",
+  "item.tutorialmod.onyx_shovel": "Onyx Shovel",
+  "item.tutorialmod.onyx_pickaxe": "Onyx Pickaxe",
+  "item.tutorialmod.onyx_axe": "Onyx Axe",
+  "item.tutorialmod.onyx_hoe": "Onyx Hoe",
+    "item.tutorialmod.opal_sword": "Opal Sword",
+  "item.tutorialmod.opalshovel": "Opal Shovel",
+  "item.tutorialmod.opal_pickaxe": "Opal Pickaxe",
+  "item.tutorialmod.opal_axe": "Opal Axe",
+  "item.tutorialmod.opal_hoe": "Opal Hoe",
+    "item.tutorialmod.jade_sword": "Jade Sword",
+  "item.tutorialmod.jade_shovel": "Jade Shovel",
+  "item.tutorialmod.jade_pickaxe": "Jade Pickaxe",
+  "item.tutorialmod.jade_axe": "Jade Axe",
+  "item.tutorialmod.jade_hoe": "Jade Hoe",
+    "item.tutorialmod.sapphire_sword": "Sapphire Sword",
+  "item.tutorialmod.sapphire_shovel": "Sapphire Shovel",
+  "item.tutorialmod.sapphire_pickaxe": "Sapphire Pickaxe",
+  "item.tutorialmod.sapphire_axe": "Sapphire Axe",
+  "item.tutorialmod.sapphire_hoe": "Sapphire Hoe",
+    "item.tutorialmod.emerald_sword": "Emerald Sword",
+  "item.tutorialmod.emerald_shovel": "Emerald Shovel",
+  "item.tutorialmod.emerald_pickaxe": "Emerald Pickaxe",
+  "item.tutorialmod.emerald_axe": "Emerald Axe",
+  "item.tutorialmod.emerald_hoe": "Emerald Hoe",
+    "item.tutorialmod.ruby_sword": "Ruby Sword",
+  "item.tutorialmod.ruby_shovel": "Ruby Shovel",
+  "item.tutorialmod.ruby_pickaxe": "Ruby Pickaxe",
+  "item.tutorialmod.ruby_axe": "Ruby Axe",
+  "item.tutorialmod.ruby_hoe": "Ruby Hoe",
+
 
 
   "block.tutorialmod.sapphire_block": "Block of Sapphire",
@@ -19,5 +55,9 @@
 
 
   "creativetab.tutorial_tab": "Sapphire Tutorial",
-  "creativetab.gem_tab": "Gems and gem accessories"
+  "creativetab.gem_tab": "Gems and gem accessories",
+
+  "upgrade.minecraft.onyx_upgrade": "Onyx Upgrade",
+  "item.minecraft.smithing_template.diamond_upgrade": "Diamond Tools and Swords",
+  "item.minecraft.smithing_template.netherite_upgrade.onyx_equipment": "Onyx Tools and Swords"
 }

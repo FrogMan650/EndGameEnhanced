@@ -354,19 +354,20 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootTableIdCondition.builder(new ResourceLocation("entities/ravager")).build(),
                 LootItemRandomChanceCondition.randomChance(oneInNumber(1F, 250F)).build()}, ModItems.ONYX.get()));
 
+        //smouldering stone
+        add("smouldering_stone_from_wither", new AddItemModifier(new LootItemCondition[]{
+                LootTableIdCondition.builder(new ResourceLocation("entities/wither")).build(),
+                LootItemRandomChanceCondition.randomChance(oneInNumber(1F, 5F)).build()}, ModItems.SMOULDERING_STONE.get()));
 
+        //ender dragon scale
+        add("ender_dragon_scale_from_ender_dragon", new AddItemModifier(new LootItemCondition[]{
+                LootTableIdCondition.builder(new ResourceLocation("entities/ender_dragon")).build(),
+                LootItemRandomChanceCondition.randomChance(oneInNumber(1F, 5F)).build()}, ModItems.ENDER_DRAGON_SCALE.get()));
 
-
-
-
-
-
-
-
-
-
-
-
+        //sculk crystal
+        add("sculk_crystal_from_warden", new AddItemModifier(new LootItemCondition[]{
+                LootTableIdCondition.builder(new ResourceLocation("entities/warden")).build(),
+                LootItemRandomChanceCondition.randomChance(oneInNumber(1F, 5F)).build()}, ModItems.SCULK_CRYSTAL.get()));
 
 
 

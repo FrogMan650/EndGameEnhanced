@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "tutorialmod:onyx"
+  },
+  "base": {
+    "item": "minecraft:diamond_shovel"
+  },
+  "result": {
+    "item": "tutorialmod:onyx_shovel"
+  },
+  "template": {
+    "item": "tutorialmod:diamond_upgrade_smithing_template"
+  }
+}
