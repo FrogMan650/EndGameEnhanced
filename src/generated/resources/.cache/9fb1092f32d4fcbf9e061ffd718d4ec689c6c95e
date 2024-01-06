@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-04T23:31:42.8782338	Recipes
+// 1.20.1	2024-01-05T20:11:26.6372626	Recipes
 cf8bc63900f3c1f9a472f85c8fbe16c603f6f196 data/tutorialmod/advancements/recipes/misc/diamond_upgrade_smithing_template.json
 470fbf8a8e9b1075c9f02ad041eddc1bd403dc73 data/tutorialmod/advancements/recipes/misc/emerald_axe.json
 641d44a2c4b6c1d73936f8e5b629f5a6b3a7bf4e data/tutorialmod/advancements/recipes/misc/emerald_hoe.json
@@ -42,7 +42,7 @@ bb422f1ec66bcd9239cdc8b99ced8412fa20f238 data/tutorialmod/advancements/recipes/m
 2f12eb0246ce6afb7af1c6e3bcd1f5bb05fd2c64 data/tutorialmod/advancements/recipes/misc/sapphire_pickaxe.json
 38c50b82f9dcbb005b06ba655a9492358491c6a4 data/tutorialmod/advancements/recipes/misc/sapphire_shovel.json
 aac0476d1f80b771890350bba46dc92d048f8555 data/tutorialmod/advancements/recipes/misc/sapphire_sword.json
-5ab0f125d7c4941b144c1ab7d40907dfd5915655 data/tutorialmod/recipes/diamond_upgrade_smithing_template.json
+f9b058527a55af487f706691093427a286ad163b data/tutorialmod/recipes/diamond_upgrade_smithing_template.json
 9dff42c07a7fcb895a28889aec6f43cd07ffbd81 data/tutorialmod/recipes/emerald_axe.json
 28ef1bb24039d0fa4f1a172f7c78e3b03c2cdaef data/tutorialmod/recipes/emerald_hoe.json
 0bfaf7230efd7995bb3cad787bd85c5f2195460c data/tutorialmod/recipes/emerald_pickaxe.json

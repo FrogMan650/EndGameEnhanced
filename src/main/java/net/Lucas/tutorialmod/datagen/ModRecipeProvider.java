@@ -328,7 +328,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("DPD")
                 .pattern("DSD")
                 .pattern("DDD")
-                .define('S', Items.DIAMOND)
+                .define('S', Items.DEEPSLATE)
                 .define('P', ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get())
                 .define('D', Items.DIAMOND)
                 .unlockedBy(getHasName(ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get()), has(ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get()))
