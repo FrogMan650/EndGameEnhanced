@@ -2,6 +2,7 @@ package net.Lucas.tutorialmod.item;
 
 import net.Lucas.tutorialmod.TutorialMod;
 import net.Lucas.tutorialmod.item.custom.MetalDetectorItem;
+import net.Lucas.tutorialmod.item.custom.ModArmorMaterials;
 import net.Lucas.tutorialmod.item.custom.ModToolTiers;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
@@ -37,6 +38,20 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> SCULK_CRYSTAL = ITEMS.register("sculk_crystal",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CHARGED_BLAZE_ROD = ITEMS.register("charged_blaze_rod",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> HUGE_NETHER_WART = ITEMS.register("huge_nether_wart",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WITHER_SKELETON_BONE = ITEMS.register("wither_skeleton_bone",
+            () -> new Item(new Item.Properties()));
+
+    //inevitable 3
+    public static final RegistryObject<Item> NETHER_BLADE = ITEMS.register("nether_blade",
+            () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F, new Item.Properties()));
+
+
+
+
 
 
     private static final ChatFormatting TITLE_FORMAT = ChatFormatting.GRAY;
@@ -67,7 +82,7 @@ public class ModItems {
             ONYX_UPGRADE_APPLIES_TO, ONYX_UPGRADE_INGREDIENTS, ONYX_UPGRADE, ONYX_UPGRADE_BASE_SLOT_DESCRIPTION, ONYX_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
             createOnyxUpgradeIconList(), createOnyxUpgradeMaterialList()));
     private static List<ResourceLocation> createOnyxUpgradeIconList() {
-        return List.of(EMPTY_SLOT_SWORD, EMPTY_SLOT_PICKAXE, EMPTY_SLOT_AXE, EMPTY_SLOT_HOE, EMPTY_SLOT_SHOVEL);
+        return List.of(EMPTY_SLOT_SWORD, EMPTY_SLOT_PICKAXE, EMPTY_SLOT_AXE, EMPTY_SLOT_HOE, EMPTY_SLOT_SHOVEL, EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS);
     }
     private static List<ResourceLocation> createOnyxUpgradeMaterialList() {
         return List.of(EMPTY_SLOT_EMERALD);
@@ -85,7 +100,7 @@ public class ModItems {
     createNetheriteUpgradeIconList(), createNetheriteUpgradeMaterialList()));
 
     private static List<ResourceLocation> createNetheriteUpgradeIconList() {
-        return List.of(EMPTY_SLOT_SWORD, EMPTY_SLOT_PICKAXE, EMPTY_SLOT_AXE, EMPTY_SLOT_HOE, EMPTY_SLOT_SHOVEL);
+        return List.of(EMPTY_SLOT_SWORD, EMPTY_SLOT_PICKAXE, EMPTY_SLOT_AXE, EMPTY_SLOT_HOE, EMPTY_SLOT_SHOVEL, EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS);
     }
     private static List<ResourceLocation> createNetheriteUpgradeMaterialList() {
         return List.of(EMPTY_SLOT_INGOT);
@@ -162,6 +177,18 @@ public class ModItems {
             () -> new AxeItem(ModToolTiers.RUBY, 5, -3.1F, new Item.Properties()));
     public static final RegistryObject<Item> RUBY_HOE = ITEMS.register("ruby_hoe",
             () -> new HoeItem(ModToolTiers.RUBY, -3, 0, new Item.Properties()));
+
+
+    public static final RegistryObject<Item> ONYX_HELMET = ITEMS.register("onyx_helmet",
+            () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> ONYX_CHESTPLATE = ITEMS.register("onyx_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> ONYX_LEGGINGS = ITEMS.register("onyx_leggings",
+            () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> ONYX_BOOTS = ITEMS.register("onyx_boots",
+            () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+
 
 
 

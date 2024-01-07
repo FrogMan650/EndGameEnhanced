@@ -17,7 +17,7 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_ONYX_TOOL = tag("needs_onyx_tool");
         public static final TagKey<Block> NEEDS_JADE_TOOL = tag("needs_jade_tool");
         public static final TagKey<Block> NEEDS_OPAL_TOOL = tag("needs_opal_tool");
-        public static final TagKey<Block> CHANGE_THIS_AS_BLOCK_TAG_NAME = tag("name_of_the_json_file_for_tag");
+        public static final TagKey<Block> NEEDS_INEVITABLE_TOOL = tag("needs_inevitable_tool");
 
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(TutorialMod.MOD_ID, name));

@@ -9,6 +9,9 @@
   "item.tutorialmod.smouldering_stone": "Smouldering Stone",
   "item.tutorialmod.ender_dragon_scale": "Ender Dragon Scale",
   "item.tutorialmod.sculk_crystal": "Sculk Crystal",
+  "item.tutorialmod.charged_blaze_rod": "Charged Blaze Rod",
+  "item.tutorialmod.huge_nether_wart": "Huge Nether Wart",
+  "item.tutorialmod.wither_skeleton_bone": "Wither Skeleton Bone",
   "item.tutorialmod.diamond_upgrade_smithing_template": "Diamond Upgrade Smithing Template",
   "item.tutorialmod.onyx_upgrade_smithing_template": "Onyx Upgrade Smithing Template",
   "item.tutorialmod.onyx_sword": "Onyx Sword",
@@ -41,6 +44,11 @@
   "item.tutorialmod.ruby_pickaxe": "Ruby Pickaxe",
   "item.tutorialmod.ruby_axe": "Ruby Axe",
   "item.tutorialmod.ruby_hoe": "Ruby Hoe",
+  "item.tutorialmod.onyx_helmet": "Onyx Helmet",
+  "item.tutorialmod.onyx_chestplate": "Onyx Chestplate",
+  "item.tutorialmod.onyx_leggings": "Onyx Leggings",
+  "item.tutorialmod.onyx_boots": "Onyx Boots",
+  "item.tutorialmod.nether_blade": "Nether Blade",
 
 
 
@@ -58,6 +66,6 @@
   "creativetab.gem_tab": "Gems and gem accessories",
 
   "upgrade.minecraft.onyx_upgrade": "Onyx Upgrade",
-  "item.minecraft.smithing_template.diamond_upgrade": "Diamond Tools and Swords",
-  "item.minecraft.smithing_template.netherite_upgrade.onyx_equipment": "Onyx Tools and Swords"
+  "item.minecraft.smithing_template.diamond_upgrade": "Diamond Equipment",
+  "item.minecraft.smithing_template.netherite_upgrade.onyx_equipment": "Onyx Equipment"
 }

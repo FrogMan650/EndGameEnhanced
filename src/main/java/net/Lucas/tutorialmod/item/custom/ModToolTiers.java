@@ -38,6 +38,10 @@ public class ModToolTiers {
             new ForgeTier(4, 1790, 8F, 3F, 13,
                     ModTags.Blocks.NEEDS_ONYX_TOOL, () -> Ingredient.of(ModItems.ONYX.get())),
             new ResourceLocation(TutorialMod.MOD_ID, "onyx"), List.of(Tiers.NETHERITE), List.of());
+    public static final Tier INEVITABLE = TierSortingRegistry.registerTier(
+            new ForgeTier(5, 5000, 10F, 5F, 20,
+                    ModTags.Blocks.NEEDS_INEVITABLE_TOOL, () -> Ingredient.of(ModItems.ONYX.get())),
+            new ResourceLocation(TutorialMod.MOD_ID, "inevitable"), List.of(Tiers.NETHERITE), List.of());
 
 
 
