@@ -48,6 +48,9 @@ public class ModItems {
     //inevitable 3
     public static final RegistryObject<Item> NETHER_BLADE = ITEMS.register("nether_blade",
             () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> END_BLADE = ITEMS.register("end_blade",
+            () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F, new Item.Properties()));
+
 
 
 

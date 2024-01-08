@@ -108,6 +108,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(Items.NETHERITE_LEGGINGS);
                         pOutput.accept(Items.NETHERITE_BOOTS);
                         pOutput.accept(ModItems.NETHER_BLADE.get());
+                        pOutput.accept(ModItems.END_BLADE.get());
                         pOutput.accept(ModItems.SMOULDERING_STONE.get());
                         pOutput.accept(ModItems.ENDER_DRAGON_SCALE.get());
                         pOutput.accept(ModItems.SCULK_CRYSTAL.get());
