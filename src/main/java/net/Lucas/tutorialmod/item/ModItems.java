@@ -50,6 +50,9 @@ public class ModItems {
             () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F, new Item.Properties()));
     public static final RegistryObject<Item> END_BLADE = ITEMS.register("end_blade",
             () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> SCULK_BLADE = ITEMS.register("sculk_blade",
+            () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F, new Item.Properties()));
+
 
 
 
