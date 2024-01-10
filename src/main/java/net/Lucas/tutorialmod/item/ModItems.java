@@ -1,6 +1,7 @@
 package net.Lucas.tutorialmod.item;
 
 import net.Lucas.tutorialmod.TutorialMod;
+import net.Lucas.tutorialmod.item.custom.CustomBowItem;
 import net.Lucas.tutorialmod.item.custom.MetalDetectorItem;
 import net.Lucas.tutorialmod.item.custom.ModArmorMaterials;
 import net.Lucas.tutorialmod.item.custom.ModToolTiers;
@@ -19,6 +20,11 @@ import java.util.List;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, TutorialMod.MOD_ID);
+    //Common = white text
+    //Uncommon = yellow text
+    //Rare = cyan text
+    //Epic = purple text
+    //when enchanted they go up a rarity tier
 
     public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire",
             () -> new Item(new Item.Properties()));
@@ -31,27 +37,33 @@ public class ModItems {
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ONYX = ITEMS.register("onyx",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SMOULDERING_STONE = ITEMS.register("smouldering_stone",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> ENDER_DRAGON_SCALE = ITEMS.register("ender_dragon_scale",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> SCULK_CRYSTAL = ITEMS.register("sculk_crystal",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> CHARGED_BLAZE_ROD = ITEMS.register("charged_blaze_rod",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> HUGE_NETHER_WART = ITEMS.register("huge_nether_wart",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> WITHER_SKELETON_BONE = ITEMS.register("wither_skeleton_bone",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
 
     //inevitable 3
     public static final RegistryObject<Item> NETHER_BLADE = ITEMS.register("nether_blade",
-            () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F, new Item.Properties()));
+            () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F,
+                    new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> END_BLADE = ITEMS.register("end_blade",
-            () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F, new Item.Properties()));
+            () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F,
+                    new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SCULK_BLADE = ITEMS.register("sculk_blade",
-            () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F, new Item.Properties()));
+            () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F,
+                    new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> WEBWEAVER_BOW = ITEMS.register("webweaver_bow",
+            () -> new CustomBowItem(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON).durability(5000)));
+
 
 
 

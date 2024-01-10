@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-08T20:07:58.0483579	Item Models: tutorialmod
+// 1.20.1	2024-01-09T19:33:52.0336781	Item Models: tutorialmod
 09193f016ee5733c018b51bdd732dbf14dc52508 assets/tutorialmod/models/item/charged_blaze_rod.json
 3adbadc050c44d2083d60172a563627673f2c8de assets/tutorialmod/models/item/diamond_upgrade_smithing_template.json
 1723135a063354071f3908d3826e5cf600e9d990 assets/tutorialmod/models/item/emerald_axe.json
@@ -90,4 +90,5 @@ e01fd164f2417618581deb8e7b3f8af8a746c6a7 assets/tutorialmod/models/item/sapphire
 c7c0c6e7934e19af991a8cca0e4c66db1c2b343a assets/tutorialmod/models/item/sculk_blade.json
 2310b2106b70dd83a5f5a7fe1abb97a42668be74 assets/tutorialmod/models/item/sculk_crystal.json
 e65e6b65d16137e8ca5819058b2d0457b1d5f80e assets/tutorialmod/models/item/smouldering_stone.json
+11b9137aa321c3092702b411ad53062ae7bdf6d6 assets/tutorialmod/models/item/webweaver_bow.json
 908c38d6e56d9d1f875c0654f6b3bea917937f6b assets/tutorialmod/models/item/wither_skeleton_bone.json

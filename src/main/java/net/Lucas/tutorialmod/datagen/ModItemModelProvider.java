@@ -87,6 +87,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.NETHER_BLADE);
         handheldItem(ModItems.END_BLADE);
         handheldItem(ModItems.SCULK_BLADE);
+        //handheldItem(ModItems.WEBWEAVER_BOW);
 
         trimmedArmorItem(ModItems.ONYX_HELMET);
         trimmedArmorItem(ModItems.ONYX_CHESTPLATE);
