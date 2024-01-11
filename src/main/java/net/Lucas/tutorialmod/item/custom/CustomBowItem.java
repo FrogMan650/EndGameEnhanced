@@ -1,5 +1,6 @@
 package net.Lucas.tutorialmod.item.custom;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -42,7 +43,7 @@ public class CustomBowItem extends BowItem {
                         ArrowItem arrowitem = (ArrowItem)(ammoStack.getItem() instanceof ArrowItem ? ammoStack.getItem() : Items.ARROW);
                         AbstractArrow arrowEntity = createArrow(worldIn, ammoStack, player, arrowitem);
                         arrowEntity = customArrow(arrowEntity);
-                        arrowEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, velocity * 10.0F, 5.0F);
+                        arrowEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, velocity * 10.0F, 0.5F);
                         if (velocity >= 1.0F) {
                             arrowEntity.setCritArrow(true);
                         }
@@ -82,6 +83,16 @@ public class CustomBowItem extends BowItem {
         }
     }
 
+    public static float getPowerForTime(int pCharge) {
+        float f = (float)pCharge / 20.0F;
+        f = (f * f + f * 2.0F) / 3.0F;
+        if (f > 1.0F) {
+            f = 1.0F;
+        }
+
+        return f;
+    }
+
     protected AbstractArrow createArrow(Level worldIn, ItemStack ammoStack, Player player, ArrowItem arrowitem) {
         return arrowitem.createArrow(worldIn, ammoStack, player);
     }
@@ -92,8 +103,9 @@ public class CustomBowItem extends BowItem {
     }
 
     protected double getArrowDamage(ItemStack bowStack, AbstractArrow arrowEntity) {
+        double baseDamage = 2D;
         int bowPower = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, bowStack);
-        if (bowPower > 0) return arrowEntity.getBaseDamage() + (double)bowPower * 0.5D + 0.5D;
-        else return arrowEntity.getBaseDamage();
+        if (bowPower > 0) return baseDamage + (double)bowPower * 0.5D + 0.5D;
+        else return baseDamage;
     }
 }

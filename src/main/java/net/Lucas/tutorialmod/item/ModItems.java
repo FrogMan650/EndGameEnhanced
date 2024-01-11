@@ -1,10 +1,7 @@
 package net.Lucas.tutorialmod.item;
 
 import net.Lucas.tutorialmod.TutorialMod;
-import net.Lucas.tutorialmod.item.custom.CustomBowItem;
-import net.Lucas.tutorialmod.item.custom.MetalDetectorItem;
-import net.Lucas.tutorialmod.item.custom.ModArmorMaterials;
-import net.Lucas.tutorialmod.item.custom.ModToolTiers;
+import net.Lucas.tutorialmod.item.custom.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
@@ -53,16 +50,19 @@ public class ModItems {
 
     //inevitable 3
     public static final RegistryObject<Item> NETHER_BLADE = ITEMS.register("nether_blade",
-            () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F,
+            () -> new NetherBlade(ModToolTiers.INEVITABLE, 4, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> END_BLADE = ITEMS.register("end_blade",
-            () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F,
+            () -> new EndBlade(ModToolTiers.INEVITABLE, 4, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SCULK_BLADE = ITEMS.register("sculk_blade",
-            () -> new SwordItem(ModToolTiers.INEVITABLE, 4, -2.4F,
+            () -> new SculkBlade(ModToolTiers.INEVITABLE, 4, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> WEBWEAVER_BOW = ITEMS.register("webweaver_bow",
-            () -> new CustomBowItem(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON).durability(5000)));
+            () -> new WebweaverBow(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON).durability(5000)));
+    public static final RegistryObject<Item> SCULK_SLINGER = ITEMS.register("sculk_slinger",
+            () -> new SculkSlinger(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON).durability(5000)));
+
 
 
 

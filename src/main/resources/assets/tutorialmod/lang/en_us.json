@@ -52,6 +52,13 @@
   "item.tutorialmod.end_blade": "Voidwaker",
   "item.tutorialmod.sculk_blade": "Sculk Bringer",
   "item.tutorialmod.webweaver_bow": "Webweaver",
+  "item.tutorialmod.sculk_slinger": "Sculk Slinger",
+
+  "item.minecraft.end_blade_lore.red_text": "A sword created from the essence of the End itself",
+  "item.minecraft.nether_blade_lore.red_text": "A sword created from the essence of the Nether itself",
+  "item.minecraft.sculk_blade_lore.red_text": "A sword created from the essence of the Deep Dark itself",
+  "item.minecraft.webweaver_lore.red_text": "A bow created from the essence of Evil itself",
+  "item.minecraft.sculkslinger_lore.red_text": "A crossbow created from the essence of the Deep Dark itself",
 
 
 
