@@ -23,9 +23,33 @@ public class NetherBlade extends SwordItem {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
+        final ChatFormatting PURPLE_TEXT = ChatFormatting.LIGHT_PURPLE;
+        final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         Component netherblade_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("nether_blade_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        Component netherblade_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("nether_blade_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        Component netherblade_lore_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("nether_blade_lore.red_text_three"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        Component netherblade_lore_four = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("nether_blade_lore.red_text_four"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        Component netherblade_lore_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("nether_blade_lore.red_text_five"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        Component netherblade_lore_prereq_header = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("nether_blade_lore_prereq_header"))).withStyle(GREY_TEXT);
+        Component netherblade_lore_prereq_item = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("nether_blade_lore_prereq_item"))).withStyle(PURPLE_TEXT);
+
+
+
+
         pTooltipComponents.add(netherblade_lore);
+        pTooltipComponents.add(netherblade_lore_two);
+        pTooltipComponents.add(netherblade_lore_three);
+        pTooltipComponents.add(netherblade_lore_four);
+        pTooltipComponents.add(netherblade_lore_five);
+        pTooltipComponents.add(netherblade_lore_prereq_header);
+        pTooltipComponents.add(netherblade_lore_prereq_item);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 

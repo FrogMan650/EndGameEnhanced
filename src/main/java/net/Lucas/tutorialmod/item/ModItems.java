@@ -19,8 +19,8 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, TutorialMod.MOD_ID);
     //Common = white text
     //Uncommon = yellow text
-    //Rare = cyan text
-    //Epic = purple text
+    //Rare = aqua text
+    //Epic = light_purple text
     //when enchanted they go up a rarity tier
 
     public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire",
@@ -36,19 +36,19 @@ public class ModItems {
     public static final RegistryObject<Item> ONYX = ITEMS.register("onyx",
             () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SMOULDERING_STONE = ITEMS.register("smouldering_stone",
-            () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
+            () -> new SmoulderingStone(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> ENDER_DRAGON_SCALE = ITEMS.register("ender_dragon_scale",
-            () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
+            () -> new EnderDragonScale(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> SCULK_CRYSTAL = ITEMS.register("sculk_crystal",
-            () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
+            () -> new SculkCrystal(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> CHARGED_BLAZE_ROD = ITEMS.register("charged_blaze_rod",
-            () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+            () -> new ChargedBlazeRod(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> HUGE_NETHER_WART = ITEMS.register("huge_nether_wart",
-            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+            () -> new HugeNetherWart(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> WITHER_SKELETON_BONE = ITEMS.register("wither_skeleton_bone",
-            () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+            () -> new WitherSkeletonBone(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
 
-    //inevitable 3
+    //inevitable
     public static final RegistryObject<Item> NETHER_BLADE = ITEMS.register("nether_blade",
             () -> new NetherBlade(ModToolTiers.INEVITABLE, 4, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));

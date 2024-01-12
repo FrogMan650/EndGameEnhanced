@@ -4,6 +4,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -70,8 +71,17 @@ public class CustomBowItem extends BowItem {
 
                     worldIn.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (worldIn.getRandom().nextFloat() * 0.4F + 1.2F) + velocity * 0.5F);
                     boolean shouldConsumeArrow = !hasInfinity || isTippedArrow;
+
+                    //25% chance to save ammo
+                    float randomFloat = RandomSource.create().nextFloat();
+                    int saveChance = 0;
+                    if (randomFloat >= 0 && randomFloat <= 0.25F) {
+                        saveChance = 1;
+                    }
+
                     if (shouldConsumeArrow) {
                         ammoStack.shrink(1);
+                        ammoStack.grow(saveChance);
                         if (ammoStack.isEmpty()) {
                             player.getInventory().removeItem(ammoStack);
                         }
@@ -99,13 +109,13 @@ public class CustomBowItem extends BowItem {
 
     protected int getArrowKnockback(ItemStack bowStack, AbstractArrow arrowEntity) {
         int bowKnockback = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PUNCH_ARROWS, bowStack);
-        return EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FLAMING_ARROWS, bowStack);
+        return bowKnockback;
     }
 
     protected double getArrowDamage(ItemStack bowStack, AbstractArrow arrowEntity) {
-        double baseDamage = 2D;
+        double baseDamage = 2.0D;
         int bowPower = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, bowStack);
-        if (bowPower > 0) return baseDamage + (double)bowPower * 0.5D + 0.5D;
+        if (bowPower > 0) return baseDamage + (double)bowPower * 0.1D + 0.25D;
         else return baseDamage;
     }
 }

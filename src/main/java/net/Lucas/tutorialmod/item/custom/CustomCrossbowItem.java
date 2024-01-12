@@ -48,8 +48,9 @@ public class CustomCrossbowItem extends CrossbowItem {
     private boolean midLoadSoundPlayed = false;
     private static final float START_SOUND_PERCENT = 0.2F;
     private static final float MID_SOUND_PERCENT = 0.5F;
-    private static final float ARROW_POWER = 3.15F;
+    private static final float CROSSBOW_ARROW_POWER = 20F;
     private static final float FIREWORK_POWER = 1.6F;
+    private static final float ARROW_POWER = 7F;
 
     public Predicate<ItemStack> getSupportedHeldProjectiles() {
         return ARROW_OR_FIREWORK;
@@ -66,7 +67,7 @@ public class CustomCrossbowItem extends CrossbowItem {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         if (isCharged(itemstack)) {
-            performShooting(pLevel, pPlayer, pHand, itemstack, getShootingPower(itemstack), 0.5F);
+            performShooting(pLevel, pPlayer, pHand, itemstack, getShootingPower(itemstack), 1.0F);
             setCharged(itemstack, false);
             return InteractionResultHolder.consume(itemstack);
         } else if (!pPlayer.getProjectile(itemstack).isEmpty()) {
@@ -83,7 +84,7 @@ public class CustomCrossbowItem extends CrossbowItem {
     }
 
     private static float getShootingPower(ItemStack pCrossbowStack) {
-        return containsChargedProjectile(pCrossbowStack, Items.FIREWORK_ROCKET) ? 1.6F : 12F;
+        return containsChargedProjectile(pCrossbowStack, Items.FIREWORK_ROCKET) ? FIREWORK_POWER : CROSSBOW_ARROW_POWER;
     }
 
     /**
@@ -133,6 +134,19 @@ public class CustomCrossbowItem extends CrossbowItem {
             ItemStack itemstack;
             if (!flag && !pIsCreative && !pHasAmmo) {
                 itemstack = pAmmoStack.split(1);
+
+                //25% chance to not use arrows and 10% chance to not use rockets
+                if (pAmmoStack.is(Items.FIREWORK_ROCKET)) { }
+                float randomFloat = RandomSource.create().nextFloat();
+                int saveChance = 0;
+                if (randomFloat >= 0 && randomFloat <= 0.25F && !pAmmoStack.is(Items.FIREWORK_ROCKET)) {
+                    saveChance = 1;
+                }
+                if (randomFloat >= 0 && randomFloat <= 0.1F && pAmmoStack.is(Items.FIREWORK_ROCKET)) {
+                    saveChance = 1;
+                }
+                pAmmoStack.grow(saveChance);
+
                 if (pAmmoStack.isEmpty() && pShooter instanceof Player) {
                     ((Player)pShooter).getInventory().removeItem(pAmmoStack);
                 }
@@ -204,11 +218,11 @@ public class CustomCrossbowItem extends CrossbowItem {
 
     public static void shootProjectile(Level pLevel, LivingEntity pShooter, InteractionHand pHand, ItemStack pCrossbowStack, ItemStack pAmmoStack, float pSoundPitch, boolean pIsCreativeMode, float pVelocity, float pInaccuracy, float pProjectileAngle) {
         if (!pLevel.isClientSide) {
-            float damageDonee;
             boolean flag = pAmmoStack.is(Items.FIREWORK_ROCKET);
             Projectile projectile;
             if (flag) {
                 projectile = new FireworkRocketEntity(pLevel, pAmmoStack, pShooter, pShooter.getX(), pShooter.getEyeY() - (double)0.15F, pShooter.getZ(), true);
+
             } else {
                 projectile = getArrow(pLevel, pShooter, pCrossbowStack, pAmmoStack);
                 if (pIsCreativeMode || pProjectileAngle != 0.0F) {
@@ -224,11 +238,13 @@ public class CustomCrossbowItem extends CrossbowItem {
                 Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double)(pProjectileAngle * ((float)Math.PI / 180F)), vec31.x, vec31.y, vec31.z);
                 Vec3 vec3 = pShooter.getViewVector(1.0F);
                 Vector3f vector3f = vec3.toVector3f().rotate(quaternionf);
-                projectile.shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), pVelocity, pInaccuracy);
+                projectile.shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), 3.0F, pInaccuracy);
             }
+            //durability
             pCrossbowStack.hurtAndBreak(flag ? 3 : 1, pShooter, (p_40858_) -> {
                 p_40858_.broadcastBreakEvent(pHand);
             });
+            //arrow entity is created
             pLevel.addFreshEntity(projectile);
             pLevel.playSound((Player)null, pShooter.getX(), pShooter.getY(), pShooter.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, pSoundPitch);
 
@@ -240,6 +256,9 @@ public class CustomCrossbowItem extends CrossbowItem {
         AbstractArrow abstractarrow = arrowitem.createArrow(pLevel, pAmmoStack, pLivingEntity);
         if (pLivingEntity instanceof Player) {
             abstractarrow.setCritArrow(true);
+
+            //set abstract arrow damage
+            abstractarrow.setBaseDamage(ARROW_POWER);
         }
 
         abstractarrow.setSoundEvent(SoundEvents.CROSSBOW_HIT);
@@ -248,7 +267,6 @@ public class CustomCrossbowItem extends CrossbowItem {
         if (i > 0) {
             abstractarrow.setPierceLevel((byte)i);
         }
-
         return abstractarrow;
     }
 
@@ -262,11 +280,11 @@ public class CustomCrossbowItem extends CrossbowItem {
             boolean flag = pShooter instanceof Player && ((Player)pShooter).getAbilities().instabuild;
             if (!itemstack.isEmpty()) {
                 if (i == 0) {
-                    shootProjectile(pLevel, pShooter, pUsedHand, pCrossbowStack, itemstack, afloat[i], flag, pVelocity, pInaccuracy, 0.0F);
+                    shootProjectile(pLevel, pShooter, pUsedHand, pCrossbowStack, itemstack, afloat[i], flag, 3.0F, pInaccuracy, 0.0F);
                 } else if (i == 1) {
-                    shootProjectile(pLevel, pShooter, pUsedHand, pCrossbowStack, itemstack, afloat[i], flag, pVelocity, pInaccuracy, -10.0F);
+                    shootProjectile(pLevel, pShooter, pUsedHand, pCrossbowStack, itemstack, afloat[i], flag, 3.0F, pInaccuracy, -5.0F);
                 } else if (i == 2) {
-                    shootProjectile(pLevel, pShooter, pUsedHand, pCrossbowStack, itemstack, afloat[i], flag, pVelocity, pInaccuracy, 10.0F);
+                    shootProjectile(pLevel, pShooter, pUsedHand, pCrossbowStack, itemstack, afloat[i], flag, 3.0F, pInaccuracy, 5.0F);
                 }
             }
         }
