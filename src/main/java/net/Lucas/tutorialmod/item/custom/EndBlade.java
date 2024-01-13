@@ -45,9 +45,9 @@ public class EndBlade extends SwordItem {
         pTooltipComponents.add(endblade_lore_two);
         pTooltipComponents.add(endblade_lore_three);
         pTooltipComponents.add(endblade_lore_four);
-        pTooltipComponents.add(endblade_lore_five);
-        pTooltipComponents.add(endblade_lore_prereq_header);
-        pTooltipComponents.add(endblade_lore_prereq_item);
+//        pTooltipComponents.add(endblade_lore_five);
+//        pTooltipComponents.add(endblade_lore_prereq_header);
+//        pTooltipComponents.add(endblade_lore_prereq_item);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

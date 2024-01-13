@@ -4,6 +4,8 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
@@ -13,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class SculkBlade extends SwordItem {
+public class SculkBlade extends CustomSwordItem {
 
     public SculkBlade(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
@@ -40,6 +42,11 @@ public class SculkBlade extends SwordItem {
         Component sculkblade_lore_prereq_item = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("sculk_blade_lore_prereq_item"))).withStyle(PURPLE_TEXT);
 
+//        Player pPlayer = null;
+//        List<Component> tooltiplines = pStack.getTooltipLines(pPlayer, TooltipFlag.NORMAL);
+//        pTooltipComponents.add(tooltiplines.get(10));
+//        pTooltipComponents.add(tooltiplines.get(1));
+//        pTooltipComponents.add(tooltiplines.get(2));
 
 
 
@@ -47,9 +54,10 @@ public class SculkBlade extends SwordItem {
         pTooltipComponents.add(sculkblade_lore_two);
         pTooltipComponents.add(sculkblade_lore_three);
         pTooltipComponents.add(sculkblade_lore_four);
-        pTooltipComponents.add(sculkblade_lore_five);
-        pTooltipComponents.add(sculkblade_lore_prereq_header);
-        pTooltipComponents.add(sculkblade_lore_prereq_item);
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+//        pTooltipComponents.add(sculkblade_lore_five);
+//        pTooltipComponents.add(sculkblade_lore_prereq_header);
+//        pTooltipComponents.add(sculkblade_lore_prereq_item);
     }
+
+
 }

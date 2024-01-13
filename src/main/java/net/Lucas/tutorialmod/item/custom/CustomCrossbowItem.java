@@ -2,11 +2,14 @@ package net.Lucas.tutorialmod.item.custom;
 
 import com.google.common.collect.Lists;
 import net.minecraft.ChatFormatting;
+import net.minecraft.Util;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -27,10 +30,10 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -51,6 +54,8 @@ public class CustomCrossbowItem extends CrossbowItem {
     private static final float CROSSBOW_ARROW_POWER = 20F;
     private static final float FIREWORK_POWER = 1.6F;
     private static final float ARROW_POWER = 7F;
+
+
 
     public Predicate<ItemStack> getSupportedHeldProjectiles() {
         return ARROW_OR_FIREWORK;
@@ -396,4 +401,52 @@ public class CustomCrossbowItem extends CrossbowItem {
     public int getDefaultProjectileRange() {
         return 8;
     }
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
+        final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
+        final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
+        final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
+        Component sculkslinger_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("sculkslinger_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        Component sculkslinger_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("sculkslinger_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        Component sculkslinger_lore_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("sculkslinger_lore.red_text_three"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        Component sculkslinger_lore_four = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("sculkslinger_lore.red_text_four"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        Component sculkslinger_lore_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("sculkslinger_lore.red_text_five"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+
+
+        Component sculkslinger_stats_header_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("sculkslinger_lore.grey_text_arrow"))).withStyle(GREY_TEXT);
+        Component sculkslinger_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("sculkslinger_lore.green_text_arrow"))).withStyle(GREEN_TEXT);
+        Component sculkslinger_stats_arrow_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("sculkslinger_lore.green_text_arrow_two"))).withStyle(GREEN_TEXT);
+        Component sculkslinger_stats_arrow_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("sculkslinger_lore.green_text_arrow_three"))).withStyle(GREEN_TEXT);
+        Component sculkslinger_stats_arrow_four = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("sculkslinger_lore.green_text_arrow_four"))).withStyle(GREEN_TEXT);
+//        Player pPlayer = null;
+//        List<Component> tooltiplines = pStack.getTooltipLines(pPlayer, TooltipFlag.NORMAL);
+//        int t = tooltiplines.size();
+//        while (int i = 0; i < tooltiplines.size(); i++) {
+//
+//        }
+
+        pTooltipComponents.add(sculkslinger_lore);
+        pTooltipComponents.add(sculkslinger_lore_two);
+        pTooltipComponents.add(sculkslinger_lore_three);
+        pTooltipComponents.add(sculkslinger_lore_four);
+        pTooltipComponents.add(sculkslinger_lore_five);
+        pTooltipComponents.add(sculkslinger_stats_header_arrow);
+        pTooltipComponents.add(sculkslinger_stats_arrow);
+        pTooltipComponents.add(sculkslinger_stats_arrow_two);
+        pTooltipComponents.add(sculkslinger_stats_arrow_three);
+        pTooltipComponents.add(sculkslinger_stats_arrow_four);
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+    }
+
 }

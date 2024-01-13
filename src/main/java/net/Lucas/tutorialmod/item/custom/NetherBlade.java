@@ -47,9 +47,9 @@ public class NetherBlade extends SwordItem {
         pTooltipComponents.add(netherblade_lore_two);
         pTooltipComponents.add(netherblade_lore_three);
         pTooltipComponents.add(netherblade_lore_four);
-        pTooltipComponents.add(netherblade_lore_five);
-        pTooltipComponents.add(netherblade_lore_prereq_header);
-        pTooltipComponents.add(netherblade_lore_prereq_item);
+//        pTooltipComponents.add(netherblade_lore_five);
+//        pTooltipComponents.add(netherblade_lore_prereq_header);
+//        pTooltipComponents.add(netherblade_lore_prereq_item);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 

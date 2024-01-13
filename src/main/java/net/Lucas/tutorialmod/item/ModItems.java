@@ -59,9 +59,9 @@ public class ModItems {
             () -> new SculkBlade(ModToolTiers.INEVITABLE, 4, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> WEBWEAVER_BOW = ITEMS.register("webweaver_bow",
-            () -> new WebweaverBow(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON).durability(5000)));
+            () -> new CustomBowItem(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON).durability(5000)));
     public static final RegistryObject<Item> SCULK_SLINGER = ITEMS.register("sculk_slinger",
-            () -> new SculkSlinger(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON).durability(5000)));
+            () -> new CustomCrossbowItem(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON).durability(5000)));
 
 
 

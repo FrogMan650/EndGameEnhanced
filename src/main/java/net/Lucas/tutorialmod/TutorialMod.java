@@ -6,11 +6,15 @@ import net.Lucas.tutorialmod.item.ModCreativeModTabs;
 import net.Lucas.tutorialmod.item.ModItems;
 import net.Lucas.tutorialmod.loot.ModLootModifier;
 import net.Lucas.tutorialmod.util.ModItemProperties;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -67,6 +71,15 @@ public class TutorialMod
     public void onServerStarting(ServerStartingEvent event) {
     }
 
+    @SubscribeEvent
+    public static void onLivingHurt(LivingHurtEvent event) {
+        if (event.getEntity() instanceof Sheep) {
+            if (event.getSource().getEntity() instanceof Player player) {
+                player.sendSystemMessage(Component.literal(player.getName().getString() + " hurt a sheep"));
+            }
+        }
+    }
+
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
@@ -74,5 +87,7 @@ public class TutorialMod
         public static void onClientSetup(FMLClientSetupEvent event) {
             ModItemProperties.addCustomItemProperties();
         }
+
+
     }
 }
