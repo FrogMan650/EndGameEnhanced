@@ -54,6 +54,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CHARGED_BLAZE_ROD);
         simpleItem(ModItems.HUGE_NETHER_WART);
         simpleItem(ModItems.WITHER_SKELETON_BONE);
+        simpleItem(ModItems.BASIC_ESSENCE);
+        simpleItem(ModItems.NETHERRATH_UPGRADE_SMITHING_TEMPLATE);
+        simpleItem(ModItems.PURE_NETHER_ESSENCE);
+        simpleItem(ModItems.VOIDWAKER_UPGRADE_SMITHING_TEMPLATE);
+        simpleItem(ModItems.PURE_SCULK_ESSENCE);
+        simpleItem(ModItems.SCULK_BRINGER_UPGRADE_SMITHING_TEMPLATE);
+        simpleItem(ModItems.PURE_EVIL_ESSENCE);
+        simpleItem(ModItems.SCULK_SLINGER_UPGRADE_SMITHING_TEMPLATE);
+        simpleItem(ModItems.PURE_SPIDER_ESSENCE);
+        simpleItem(ModItems.WEBWEAVER_UPGRADE_SMITHING_TEMPLATE);
+
+        simpleItem(ModItems.PURE_END_ESSENCE);
         handheldItem(ModItems.ONYX_SWORD);
         handheldItem(ModItems.ONYX_SHOVEL);
         handheldItem(ModItems.ONYX_PICKAXE);
@@ -87,7 +99,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.NETHER_BLADE);
         handheldItem(ModItems.END_BLADE);
         handheldItem(ModItems.SCULK_BLADE);
-        //handheldItem(ModItems.WEBWEAVER_BOW);
+        //handheldItem(ModItems.TIDE_BREAKER);
 
         trimmedArmorItem(ModItems.ONYX_HELMET);
         trimmedArmorItem(ModItems.ONYX_CHESTPLATE);

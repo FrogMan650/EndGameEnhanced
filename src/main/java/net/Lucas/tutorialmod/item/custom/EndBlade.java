@@ -28,14 +28,8 @@ public class EndBlade extends SwordItem {
                 ("end_blade_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         Component endblade_lore_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("end_blade_lore.red_text_three"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component endblade_lore_four = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("end_blade_lore.red_text_four"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component endblade_lore_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("end_blade_lore.red_text_five"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component endblade_lore_prereq_header = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("end_blade_lore_prereq_header"))).withStyle(GREY_TEXT);
-        Component endblade_lore_prereq_item = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("end_blade_lore_prereq_item"))).withStyle(PURPLE_TEXT);
+
+
 
 
 
@@ -44,10 +38,6 @@ public class EndBlade extends SwordItem {
         pTooltipComponents.add(endblade_lore);
         pTooltipComponents.add(endblade_lore_two);
         pTooltipComponents.add(endblade_lore_three);
-        pTooltipComponents.add(endblade_lore_four);
-//        pTooltipComponents.add(endblade_lore_five);
-//        pTooltipComponents.add(endblade_lore_prereq_header);
-//        pTooltipComponents.add(endblade_lore_prereq_item);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

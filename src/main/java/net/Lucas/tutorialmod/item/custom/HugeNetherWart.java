@@ -25,14 +25,11 @@ public class HugeNetherWart extends Item {
                 ("huge_nether_wart_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         Component huge_nether_wart_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("huge_nether_wart_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component huge_nether_wart_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("huge_nether_wart_lore.red_text_three"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
 
 
 
         pTooltipComponents.add(huge_nether_wart_lore);
         pTooltipComponents.add(huge_nether_wart_two);
-        pTooltipComponents.add(huge_nether_wart_three);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

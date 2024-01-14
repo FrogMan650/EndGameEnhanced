@@ -25,14 +25,11 @@ public class ChargedBlazeRod extends Item {
                 ("charged_blaze_rod_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         Component charged_blaze_rod_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("charged_blaze_rod_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component charged_blaze_rod_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("charged_blaze_rod_lore.red_text_three"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
 
 
 
         pTooltipComponents.add(charged_blaze_rod_lore);
         pTooltipComponents.add(charged_blaze_rod_two);
-        pTooltipComponents.add(charged_blaze_rod_three);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

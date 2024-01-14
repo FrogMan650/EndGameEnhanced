@@ -411,13 +411,6 @@ public class CustomCrossbowItem extends CrossbowItem {
                 ("sculkslinger_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         Component sculkslinger_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("sculkslinger_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component sculkslinger_lore_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("sculkslinger_lore.red_text_three"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component sculkslinger_lore_four = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("sculkslinger_lore.red_text_four"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component sculkslinger_lore_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("sculkslinger_lore.red_text_five"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-
 
         Component sculkslinger_stats_header_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("sculkslinger_lore.grey_text_arrow"))).withStyle(GREY_TEXT);
@@ -429,18 +422,8 @@ public class CustomCrossbowItem extends CrossbowItem {
                 ("sculkslinger_lore.green_text_arrow_three"))).withStyle(GREEN_TEXT);
         Component sculkslinger_stats_arrow_four = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("sculkslinger_lore.green_text_arrow_four"))).withStyle(GREEN_TEXT);
-//        Player pPlayer = null;
-//        List<Component> tooltiplines = pStack.getTooltipLines(pPlayer, TooltipFlag.NORMAL);
-//        int t = tooltiplines.size();
-//        while (int i = 0; i < tooltiplines.size(); i++) {
-//
-//        }
-
         pTooltipComponents.add(sculkslinger_lore);
         pTooltipComponents.add(sculkslinger_lore_two);
-        pTooltipComponents.add(sculkslinger_lore_three);
-        pTooltipComponents.add(sculkslinger_lore_four);
-        pTooltipComponents.add(sculkslinger_lore_five);
         pTooltipComponents.add(sculkslinger_stats_header_arrow);
         pTooltipComponents.add(sculkslinger_stats_arrow);
         pTooltipComponents.add(sculkslinger_stats_arrow_two);

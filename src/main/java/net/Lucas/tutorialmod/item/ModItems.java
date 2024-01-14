@@ -50,79 +50,30 @@ public class ModItems {
 
     //inevitable
     public static final RegistryObject<Item> NETHER_BLADE = ITEMS.register("nether_blade",
-            () -> new NetherBlade(ModToolTiers.INEVITABLE, 4, -2.4F,
-                    new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+            () -> new NetherBlade(ModToolTiers.INEVITABLE, 11, -2.4F,
+                    new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> END_BLADE = ITEMS.register("end_blade",
-            () -> new EndBlade(ModToolTiers.INEVITABLE, 4, -2.4F,
-                    new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+            () -> new EndBlade(ModToolTiers.INEVITABLE, 11, -2.4F,
+                    new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> SCULK_BLADE = ITEMS.register("sculk_blade",
-            () -> new SculkBlade(ModToolTiers.INEVITABLE, 4, -2.4F,
-                    new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+            () -> new SculkBlade(ModToolTiers.INEVITABLE, 11, -2.4F,
+                    new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> WEBWEAVER_BOW = ITEMS.register("webweaver_bow",
-            () -> new CustomBowItem(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON).durability(5000)));
+            () -> new CustomBowItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(5000)));
     public static final RegistryObject<Item> SCULK_SLINGER = ITEMS.register("sculk_slinger",
-            () -> new CustomCrossbowItem(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON).durability(5000)));
+            () -> new CustomCrossbowItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(5000)));
+    public static final RegistryObject<Item> TIDE_BREAKER = ITEMS.register("tide_breaker",
+            () -> new CustomTridentItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(5000)));
 
 
 
 
 
+    public static final RegistryObject<Item> DIAMOND_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("diamond_upgrade_smithing_template", CustomSmithingTemplateItem::createOnyxUpgradeTemplate);
+    public static final RegistryObject<Item> ONYX_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("onyx_upgrade_smithing_template", CustomSmithingTemplateItem::createNetheriteUpgradeTemplate);
 
 
 
-
-
-    private static final ChatFormatting TITLE_FORMAT = ChatFormatting.GRAY;
-    private static final ChatFormatting DESCRIPTION_FORMAT = ChatFormatting.BLUE;
-    private static final Component ONYX_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.diamond_upgrade"))).withStyle(DESCRIPTION_FORMAT);
-    private static final Component ONYX_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:onyx"))).withStyle(DESCRIPTION_FORMAT);
-    private static final Component ONYX_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("onyx_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component ONYX_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component ONYX_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
-    private static final ResourceLocation EMPTY_SLOT_HELMET = new ResourceLocation("item/empty_armor_slot_helmet");
-    private static final ResourceLocation EMPTY_SLOT_CHESTPLATE = new ResourceLocation("item/empty_armor_slot_chestplate");
-    private static final ResourceLocation EMPTY_SLOT_LEGGINGS = new ResourceLocation("item/empty_armor_slot_leggings");
-    private static final ResourceLocation EMPTY_SLOT_BOOTS = new ResourceLocation("item/empty_armor_slot_boots");
-    private static final ResourceLocation EMPTY_SLOT_HOE = new ResourceLocation("item/empty_slot_hoe");
-    private static final ResourceLocation EMPTY_SLOT_AXE = new ResourceLocation("item/empty_slot_axe");
-    private static final ResourceLocation EMPTY_SLOT_SWORD = new ResourceLocation("item/empty_slot_sword");
-    private static final ResourceLocation EMPTY_SLOT_SHOVEL = new ResourceLocation("item/empty_slot_shovel");
-    private static final ResourceLocation EMPTY_SLOT_PICKAXE = new ResourceLocation("item/empty_slot_pickaxe");
-    private static final ResourceLocation EMPTY_SLOT_INGOT = new ResourceLocation("item/empty_slot_ingot");
-    private static final ResourceLocation EMPTY_SLOT_REDSTONE_DUST = new ResourceLocation("item/empty_slot_redstone_dust");
-    private static final ResourceLocation EMPTY_SLOT_QUARTZ = new ResourceLocation("item/empty_slot_quartz");
-    private static final ResourceLocation EMPTY_SLOT_EMERALD = new ResourceLocation("item/empty_slot_emerald");
-    private static final ResourceLocation EMPTY_SLOT_DIAMOND = new ResourceLocation("item/empty_slot_diamond");
-    private static final ResourceLocation EMPTY_SLOT_LAPIS_LAZULI = new ResourceLocation("item/empty_slot_lapis_lazuli");
-    private static final ResourceLocation EMPTY_SLOT_AMETHYST_SHARD = new ResourceLocation("item/empty_slot_amethyst_shard");
-
-    public static final RegistryObject<Item> DIAMOND_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("diamond_upgrade_smithing_template", () -> new SmithingTemplateItem(
-            ONYX_UPGRADE_APPLIES_TO, ONYX_UPGRADE_INGREDIENTS, ONYX_UPGRADE, ONYX_UPGRADE_BASE_SLOT_DESCRIPTION, ONYX_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-            createOnyxUpgradeIconList(), createOnyxUpgradeMaterialList()));
-    private static List<ResourceLocation> createOnyxUpgradeIconList() {
-        return List.of(EMPTY_SLOT_SWORD, EMPTY_SLOT_PICKAXE, EMPTY_SLOT_AXE, EMPTY_SLOT_HOE, EMPTY_SLOT_SHOVEL, EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS);
-    }
-    private static List<ResourceLocation> createOnyxUpgradeMaterialList() {
-        return List.of(EMPTY_SLOT_EMERALD);
-    }
-
-
-    private static final Component NETHERITE_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.onyx_equipment"))).withStyle(DESCRIPTION_FORMAT);
-    private static final Component NETHERITE_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.ingredients"))).withStyle(DESCRIPTION_FORMAT);
-    private static final Component NETHERITE_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("netherite_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component NETHERITE_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component NETHERITE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
-
-    public static final RegistryObject<Item> ONYX_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("onyx_upgrade_smithing_template", () -> new SmithingTemplateItem(
-            NETHERITE_UPGRADE_APPLIES_TO, NETHERITE_UPGRADE_INGREDIENTS, NETHERITE_UPGRADE, NETHERITE_UPGRADE_BASE_SLOT_DESCRIPTION, NETHERITE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-    createNetheriteUpgradeIconList(), createNetheriteUpgradeMaterialList()));
-
-    private static List<ResourceLocation> createNetheriteUpgradeIconList() {
-        return List.of(EMPTY_SLOT_SWORD, EMPTY_SLOT_PICKAXE, EMPTY_SLOT_AXE, EMPTY_SLOT_HOE, EMPTY_SLOT_SHOVEL, EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS);
-    }
-    private static List<ResourceLocation> createNetheriteUpgradeMaterialList() {
-        return List.of(EMPTY_SLOT_INGOT);
-    }
 
     //onyx tools
     public static final RegistryObject<Item> ONYX_SWORD = ITEMS.register("onyx_sword",
@@ -205,6 +156,29 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> ONYX_BOOTS = ITEMS.register("onyx_boots",
             () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> BASIC_ESSENCE = ITEMS.register("basic_essence",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> NETHERRATH_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("netherrath_upgrade_smithing_template", CustomSmithingTemplateItem::createNetherrathUpgradeTemplate);
+    public static final RegistryObject<Item> PURE_NETHER_ESSENCE = ITEMS.register("pure_nether_essence",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> VOIDWAKER_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("voidwaker_upgrade_smithing_template", CustomSmithingTemplateItem::createVoidwakerUpgradeTemplate);
+    public static final RegistryObject<Item> PURE_END_ESSENCE = ITEMS.register("pure_end_essence",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> SCULK_BRINGER_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("sculk_bringer_upgrade_smithing_template", CustomSmithingTemplateItem::createSculkBringerUpgradeTemplate);
+    public static final RegistryObject<Item> PURE_SCULK_ESSENCE = ITEMS.register("pure_sculk_essence",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> SCULK_SLINGER_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("sculk_slinger_upgrade_smithing_template", CustomSmithingTemplateItem::createSculkSlingerUpgradeTemplate);
+    public static final RegistryObject<Item> PURE_EVIL_ESSENCE = ITEMS.register("pure_evil_essence",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> WEBWEAVER_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("webweaver_upgrade_smithing_template", CustomSmithingTemplateItem::createWebweaverUpgradeTemplate);
+    public static final RegistryObject<Item> PURE_SPIDER_ESSENCE = ITEMS.register("pure_spider_essence",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+
+
+
+
+
+
 
 
 

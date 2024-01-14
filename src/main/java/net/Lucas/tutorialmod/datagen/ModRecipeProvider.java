@@ -339,14 +339,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
 
-
-
-
-//        netheriteSmithing(pWriter, ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get(), Items.DIAMOND_PICKAXE, ModItems.ONYX.get(), RecipeCategory.MISC, ModItems.ONYX_PICKAXE.get());
-//        netheriteSmithing(pWriter, ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get(), Items.DIAMOND_AXE, ModItems.ONYX.get(), RecipeCategory.MISC, ModItems.ONYX_AXE.get());
-//        netheriteSmithing(pWriter, ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get(), Items.DIAMOND_SHOVEL, ModItems.ONYX.get(), RecipeCategory.MISC, ModItems.ONYX_SHOVEL.get());
-//        netheriteSmithing(pWriter, ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get(), Items.DIAMOND_HOE, ModItems.ONYX.get(), RecipeCategory.MISC, ModItems.ONYX_HOE.get());
-//        netheriteSmithing(pWriter, ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get(), Items.DIAMOND_HOE, ModItems.ONYX.get(), RecipeCategory.MISC, ModItems.ONYX_HOE.get());
+        netheriteSmithing(pWriter, ModItems.VOIDWAKER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_END_ESSENCE.get(), RecipeCategory.MISC, ModItems.END_BLADE.get());
+        netheriteSmithing(pWriter, ModItems.NETHERRATH_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_NETHER_ESSENCE.get(), RecipeCategory.MISC, ModItems.NETHER_BLADE.get());
+        netheriteSmithing(pWriter, ModItems.SCULK_BRINGER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_SCULK_ESSENCE.get(), RecipeCategory.MISC, ModItems.SCULK_BLADE.get());
+        netheriteSmithing(pWriter, ModItems.SCULK_SLINGER_UPGRADE_SMITHING_TEMPLATE.get(), Items.CROSSBOW, ModItems.PURE_EVIL_ESSENCE.get(), RecipeCategory.MISC, ModItems.SCULK_SLINGER.get());
+        netheriteSmithing(pWriter, ModItems.WEBWEAVER_UPGRADE_SMITHING_TEMPLATE.get(), Items.BOW, ModItems.PURE_SPIDER_ESSENCE.get(), RecipeCategory.MISC, ModItems.WEBWEAVER_BOW.get());
     }
 
 

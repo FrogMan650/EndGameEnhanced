@@ -26,15 +26,12 @@ public class EnderDragonScale extends Item {
                 ("ender_dragon_scale_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         Component ender_dragon_scale_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("ender_dragon_scale_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component ender_dragon_scale_lore_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("ender_dragon_scale_lore.red_text_three"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
 
 
 
 
         pTooltipComponents.add(ender_dragon_scale_lore);
         pTooltipComponents.add(ender_dragon_scale_lore_two);
-        pTooltipComponents.add(ender_dragon_scale_lore_three);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

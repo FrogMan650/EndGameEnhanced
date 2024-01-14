@@ -118,7 +118,7 @@ public class CustomBowItem extends BowItem {
     protected double getArrowDamage(ItemStack bowStack, AbstractArrow arrowEntity) {
         double baseDamage = 2.0D;
         int bowPower = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, bowStack);
-        if (bowPower > 0) return baseDamage + (double)bowPower * 0.1D + 0.25D;
+        if (bowPower > 0) return baseDamage + (double)bowPower * 0.1D + 0.2D;
         else return baseDamage;
     }
 
@@ -128,17 +128,20 @@ public class CustomBowItem extends BowItem {
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
+        int bowPower = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, pStack);
+        int bowDamage = (bowPower*2) + 25;
+        String damageTranslation = "webweaver_lore.green_text_arrow."+ bowDamage;
         Component webweaver_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("webweaver_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         Component webweaver_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("webweaver_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component webweaver_lore_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("webweaver_lore.red_text_three"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
 
         Component webweaver_stats_header_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("webweaver_lore.grey_text_arrow"))).withStyle(GREY_TEXT);
+
         Component webweaver_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("webweaver_lore.green_text_arrow"))).withStyle(GREEN_TEXT);
+                (damageTranslation))).withStyle(GREEN_TEXT);
+
         Component webweaver_stats_arrow_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("webweaver_lore.green_text_arrow_two"))).withStyle(GREEN_TEXT);
         Component webweaver_stats_arrow_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
@@ -150,7 +153,6 @@ public class CustomBowItem extends BowItem {
 
         pTooltipComponents.add(webweaver_lore);
         pTooltipComponents.add(webweaver_lore_two);
-        pTooltipComponents.add(webweaver_lore_three);
         pTooltipComponents.add(webweaver_stats_header_arrow);
         pTooltipComponents.add(webweaver_stats_arrow);
         pTooltipComponents.add(webweaver_stats_arrow_two);

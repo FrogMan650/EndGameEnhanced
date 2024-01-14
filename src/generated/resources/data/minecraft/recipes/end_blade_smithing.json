@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "tutorialmod:pure_end_essence"
+  },
+  "base": {
+    "item": "minecraft:netherite_sword"
+  },
+  "result": {
+    "item": "tutorialmod:end_blade"
+  },
+  "template": {
+    "item": "tutorialmod:voidwaker_upgrade_smithing_template"
+  }
+}

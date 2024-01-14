@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "tutorialmod:pure_sculk_essence"
+  },
+  "base": {
+    "item": "minecraft:netherite_sword"
+  },
+  "result": {
+    "item": "tutorialmod:sculk_blade"
+  },
+  "template": {
+    "item": "tutorialmod:sculk_bringer_upgrade_smithing_template"
+  }
+}

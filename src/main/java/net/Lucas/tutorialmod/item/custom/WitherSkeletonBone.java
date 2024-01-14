@@ -25,18 +25,12 @@ public class WitherSkeletonBone extends Item {
                 ("wither_skeleton_bone_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         Component wither_skeleton_bone_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("wither_skeleton_bone_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component wither_skeleton_bone_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("wither_skeleton_bone_lore.red_text_three"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component wither_skeleton_bone_four = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("wither_skeleton_bone_lore.red_text_four"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
 
 
 
 
         pTooltipComponents.add(wither_skeleton_bone_lore);
         pTooltipComponents.add(wither_skeleton_bone_two);
-        pTooltipComponents.add(wither_skeleton_bone_three);
-        pTooltipComponents.add(wither_skeleton_bone_four);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

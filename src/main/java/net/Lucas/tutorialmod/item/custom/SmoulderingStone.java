@@ -25,15 +25,12 @@ public class SmoulderingStone extends Item {
                 ("smouldering_stone_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         Component smouldering_stone_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("smouldering_stone_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component smouldering_stone_lore_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("smouldering_stone_lore.red_text_three"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
 
 
 
 
         pTooltipComponents.add(smouldering_stone_lore);
         pTooltipComponents.add(smouldering_stone_lore_two);
-        pTooltipComponents.add(smouldering_stone_lore_three);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

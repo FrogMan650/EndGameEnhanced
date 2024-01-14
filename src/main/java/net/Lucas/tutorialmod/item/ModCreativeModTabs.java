@@ -112,6 +112,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.SCULK_BLADE.get());
                         pOutput.accept(ModItems.WEBWEAVER_BOW.get());
                         pOutput.accept(ModItems.SCULK_SLINGER.get());
+                        pOutput.accept(ModItems.TIDE_BREAKER.get());
                         pOutput.accept(ModItems.SMOULDERING_STONE.get());
                         pOutput.accept(ModItems.ENDER_DRAGON_SCALE.get());
                         pOutput.accept(ModItems.SCULK_CRYSTAL.get());
@@ -120,6 +121,20 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.WITHER_SKELETON_BONE.get());
                         pOutput.accept(ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get());
                         pOutput.accept(ModItems.ONYX_UPGRADE_SMITHING_TEMPLATE.get());
+                        pOutput.accept(ModItems.BASIC_ESSENCE.get());
+                        pOutput.accept(ModItems.PURE_NETHER_ESSENCE.get());
+                        pOutput.accept(ModItems.NETHERRATH_UPGRADE_SMITHING_TEMPLATE.get());
+                        pOutput.accept(ModItems.PURE_END_ESSENCE.get());
+                        pOutput.accept(ModItems.VOIDWAKER_UPGRADE_SMITHING_TEMPLATE.get());
+                        pOutput.accept(ModItems.PURE_SCULK_ESSENCE.get());
+                        pOutput.accept(ModItems.SCULK_BRINGER_UPGRADE_SMITHING_TEMPLATE.get());
+                        pOutput.accept(ModItems.PURE_EVIL_ESSENCE.get());
+                        pOutput.accept(ModItems.SCULK_SLINGER_UPGRADE_SMITHING_TEMPLATE.get());
+                        pOutput.accept(ModItems.PURE_SPIDER_ESSENCE.get());
+                        pOutput.accept(ModItems.WEBWEAVER_UPGRADE_SMITHING_TEMPLATE.get());
+
+
+
 
 
                     })

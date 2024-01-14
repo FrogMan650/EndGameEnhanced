@@ -71,15 +71,6 @@ public class TutorialMod
     public void onServerStarting(ServerStartingEvent event) {
     }
 
-    @SubscribeEvent
-    public static void onLivingHurt(LivingHurtEvent event) {
-        if (event.getEntity() instanceof Sheep) {
-            if (event.getSource().getEntity() instanceof Player player) {
-                player.sendSystemMessage(Component.literal(player.getName().getString() + " hurt a sheep"));
-            }
-        }
-    }
-
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {

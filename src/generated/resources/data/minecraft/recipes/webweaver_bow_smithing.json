@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "tutorialmod:pure_spider_essence"
+  },
+  "base": {
+    "item": "minecraft:bow"
+  },
+  "result": {
+    "item": "tutorialmod:webweaver_bow"
+  },
+  "template": {
+    "item": "tutorialmod:webweaver_upgrade_smithing_template"
+  }
+}

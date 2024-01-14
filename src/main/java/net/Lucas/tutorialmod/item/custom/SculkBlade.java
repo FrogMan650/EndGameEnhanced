@@ -33,30 +33,13 @@ public class SculkBlade extends CustomSwordItem {
                 ("sculk_blade_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         Component sculkblade_lore_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("sculk_blade_lore.red_text_three"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component sculkblade_lore_four = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("sculk_blade_lore.red_text_four"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component sculkblade_lore_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("sculk_blade_lore.red_text_five"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component sculkblade_lore_prereq_header = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("sculk_blade_lore_prereq_header"))).withStyle(GREY_TEXT);
-        Component sculkblade_lore_prereq_item = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("sculk_blade_lore_prereq_item"))).withStyle(PURPLE_TEXT);
 
-//        Player pPlayer = null;
-//        List<Component> tooltiplines = pStack.getTooltipLines(pPlayer, TooltipFlag.NORMAL);
-//        pTooltipComponents.add(tooltiplines.get(10));
-//        pTooltipComponents.add(tooltiplines.get(1));
-//        pTooltipComponents.add(tooltiplines.get(2));
 
 
 
         pTooltipComponents.add(sculkblade_lore);
         pTooltipComponents.add(sculkblade_lore_two);
         pTooltipComponents.add(sculkblade_lore_three);
-        pTooltipComponents.add(sculkblade_lore_four);
-//        pTooltipComponents.add(sculkblade_lore_five);
-//        pTooltipComponents.add(sculkblade_lore_prereq_header);
-//        pTooltipComponents.add(sculkblade_lore_prereq_item);
     }
 
 
