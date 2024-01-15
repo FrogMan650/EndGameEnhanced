@@ -11,6 +11,7 @@ public class ModItemProperties {
     public static void addCustomItemProperties() {
         makeBow(ModItems.WEBWEAVER_BOW.get());
         makeCrossbow(ModItems.SCULK_SLINGER.get());
+        makeTrident(ModItems.TIDE_BREAKER.get());
 
     }
 
@@ -43,6 +44,11 @@ public class ModItemProperties {
         });
         ItemProperties.register(item, new ResourceLocation("firework"), (p_275887_, p_275888_, p_275889_, p_275890_) -> {
             return CrossbowItem.isCharged(p_275887_) && CrossbowItem.containsChargedProjectile(p_275887_, Items.FIREWORK_ROCKET) ? 1.0F : 0.0F;
+        });
+    }
+    private static void makeTrident (Item item) {
+        ItemProperties.register(item, new ResourceLocation("throwing"), (p_234996_, p_234997_, p_234998_, p_234999_) -> {
+            return p_234998_ != null && p_234998_.isUsingItem() && p_234998_.getUseItem() == p_234996_ ? 1.0F : 0.0F;
         });
     }
 

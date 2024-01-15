@@ -1,6 +1,196 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "tutorialmod:item/tide_breaker"
-  }
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"particle": "tutorialmod:item/jade",
+		"1": "tutorialmod:item/tide_breaker"
+	},
+	"elements": [
+		{
+			"name": "body",
+			"from": [8, 0, 8],
+			"to": [9, 31, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0.5, 0.5, 1, 16], "texture": "#1"},
+				"east": {"uv": [0, 0.5, 0.5, 16], "texture": "#1"},
+				"south": {"uv": [1.5, 0.5, 2, 16], "texture": "#1"},
+				"west": {"uv": [1, 0.5, 1.5, 16], "texture": "#1"},
+				"up": {"uv": [1, 0.5, 0.5, 0], "texture": "#1"},
+				"down": {"uv": [1.5, 0, 1, 0.5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [9, 23, 8],
+			"to": [11, 25, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [3.5, 0.5, 4.5, 1.5], "texture": "#1"},
+				"east": {"uv": [3, 0.5, 3.5, 1.5], "texture": "#1"},
+				"south": {"uv": [5, 0.5, 6, 1.5], "texture": "#1"},
+				"west": {"uv": [4.5, 0.5, 5, 1.5], "texture": "#1"},
+				"up": {"uv": [4.5, 0.5, 3.5, 0], "texture": "#1"},
+				"down": {"uv": [5.5, 0, 4.5, 0.5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [6, 23, 8],
+			"to": [8, 25, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [2.5, 0.5, 3.5, 1.5], "texture": "#1"},
+				"east": {"uv": [2, 0.5, 2.5, 1.5], "texture": "#1"},
+				"south": {"uv": [4, 0.5, 5, 1.5], "texture": "#1"},
+				"west": {"uv": [3.5, 0.5, 4, 1.5], "texture": "#1"},
+				"up": {"uv": [3.5, 0.5, 2.5, 0], "texture": "#1"},
+				"down": {"uv": [4.5, 0, 3.5, 0.5], "texture": "#1"}
+			}
+		},
+		{
+			"name": "tine 1",
+			"from": [5, 24, 8],
+			"to": [6, 29, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0.5, 0.5, 1, 3], "texture": "#1"},
+				"east": {"uv": [0, 0.5, 0.5, 3], "texture": "#1"},
+				"south": {"uv": [1.5, 0.5, 2, 3], "texture": "#1"},
+				"west": {"uv": [1, 0.5, 1.5, 3], "texture": "#1"},
+				"up": {"uv": [1, 0.5, 0.5, 0], "texture": "#1"},
+				"down": {"uv": [1.5, 0, 1, 0.5], "texture": "#1"}
+			}
+		},
+		{
+			"name": "tine 2",
+			"from": [11, 24, 8],
+			"to": [12, 29, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0.5, 0.5, 1, 3], "texture": "#1"},
+				"east": {"uv": [0, 0.5, 0.5, 3], "texture": "#1"},
+				"south": {"uv": [1.5, 0.5, 2, 3], "texture": "#1"},
+				"west": {"uv": [1, 0.5, 1.5, 3], "texture": "#1"},
+				"up": {"uv": [1, 0.5, 0.5, 0], "texture": "#1"},
+				"down": {"uv": [1.5, 0, 1, 0.5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [7, 25, 8],
+			"to": [8, 26, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [1, 1, 1.5, 1.5], "texture": "#1"},
+				"east": {"uv": [0.5, 1, 1, 1.5], "texture": "#1"},
+				"south": {"uv": [2, 1, 2.5, 1.5], "texture": "#1"},
+				"west": {"uv": [1.5, 1, 2, 1.5], "texture": "#1"},
+				"up": {"uv": [1.5, 1, 1, 0.5], "texture": "#1"},
+				"down": {"uv": [2, 0.5, 1.5, 1], "texture": "#1"}
+			}
+		},
+		{
+			"from": [5, 25, 8],
+			"to": [6, 26, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [1, 1, 1.5, 1.5], "texture": "#1"},
+				"east": {"uv": [0.5, 1, 1, 1.5], "texture": "#1"},
+				"south": {"uv": [2, 1, 2.5, 1.5], "texture": "#1"},
+				"west": {"uv": [1.5, 1, 2, 1.5], "texture": "#1"},
+				"up": {"uv": [1.5, 1, 1, 0.5], "texture": "#1"},
+				"down": {"uv": [2, 0.5, 1.5, 1], "texture": "#1"}
+			}
+		},
+		{
+			"from": [5, 27, 8],
+			"to": [6, 28, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [1, 1, 1.5, 1.5], "texture": "#1"},
+				"east": {"uv": [0.5, 1, 1, 1.5], "texture": "#1"},
+				"south": {"uv": [2, 1, 2.5, 1.5], "texture": "#1"},
+				"west": {"uv": [1.5, 1, 2, 1.5], "texture": "#1"},
+				"up": {"uv": [1.5, 1, 1, 0.5], "texture": "#1"},
+				"down": {"uv": [2, 0.5, 1.5, 1], "texture": "#1"}
+			}
+		},
+		{
+			"from": [3, 27, 8],
+			"to": [4, 28, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [1, 1, 1.5, 1.5], "texture": "#1"},
+				"east": {"uv": [0.5, 1, 1, 1.5], "texture": "#1"},
+				"south": {"uv": [2, 1, 2.5, 1.5], "texture": "#1"},
+				"west": {"uv": [1.5, 1, 2, 1.5], "texture": "#1"},
+				"up": {"uv": [1.5, 1, 1, 0.5], "texture": "#1"},
+				"down": {"uv": [2, 0.5, 1.5, 1], "texture": "#1"}
+			}
+		},
+		{
+			"from": [9, 25, 8],
+			"to": [10, 26, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [1, 1, 1.5, 1.5], "texture": "#1"},
+				"east": {"uv": [0.5, 1, 1, 1.5], "texture": "#1"},
+				"south": {"uv": [2, 1, 2.5, 1.5], "texture": "#1"},
+				"west": {"uv": [1.5, 1, 2, 1.5], "texture": "#1"},
+				"up": {"uv": [1.5, 1, 1, 0.5], "texture": "#1"},
+				"down": {"uv": [2, 0.5, 1.5, 1], "texture": "#1"}
+			}
+		},
+		{
+			"from": [11, 25, 8],
+			"to": [12, 26, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [1, 1, 1.5, 1.5], "texture": "#1"},
+				"east": {"uv": [0.5, 1, 1, 1.5], "texture": "#1"},
+				"south": {"uv": [2, 1, 2.5, 1.5], "texture": "#1"},
+				"west": {"uv": [1.5, 1, 2, 1.5], "texture": "#1"},
+				"up": {"uv": [1.5, 1, 1, 0.5], "texture": "#1"},
+				"down": {"uv": [2, 0.5, 1.5, 1], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 55, 7],
+			"translation": [0, -10, 0]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 55, 1],
+			"translation": [0, -10, 0]
+		},
+		"firstperson_righthand": {
+			"rotation": [-27, -90, 0],
+			"translation": [8.75, -9, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-27, -90, 0],
+			"translation": [8.75, -9, 0]
+		},
+		"ground": {
+			"rotation": [90, 0, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [0, 0, -46],
+			"translation": [-3.5, -3, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"fixed": {
+			"rotation": [0, 1, 46],
+			"translation": [4, -4.5, 0],
+			"scale": [0.8, 0.8, 0.8]
+		}
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"throwing": 1
+			},
+			"model": "tutorialmod:item/tide_breaker_in_hand"
+		}
+	]
 }

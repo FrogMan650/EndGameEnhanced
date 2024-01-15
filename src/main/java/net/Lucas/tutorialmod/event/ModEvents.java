@@ -12,6 +12,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.world.entity.monster.ElderGuardian;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
@@ -29,7 +30,7 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = TutorialMod.MOD_ID)
 public class ModEvents {
     @SubscribeEvent
-    public static void onLivingHurt(LivingHurtEvent event) {
+    public static void onLivingHurtWarden(LivingHurtEvent event) {
         if (event.getEntity() instanceof Warden) {
             if (event.getSource().getEntity() instanceof Player player) {
                 String weaponName = player.getItemInHand(InteractionHand.MAIN_HAND).toString();
@@ -38,6 +39,18 @@ public class ModEvents {
             }
         }
     }
+
+    @SubscribeEvent
+    public static void onLivingHurtElderGuardian(LivingHurtEvent event) {
+        if (event.getEntity() instanceof ElderGuardian) {
+            if (event.getSource().getEntity() instanceof Player player) {
+                String weaponName = player.getItemInHand(InteractionHand.MAIN_HAND).toString();
+                String[] weaponNameSplit = weaponName.split(" ");
+                player.sendSystemMessage(Component.literal( weaponNameSplit[1] + " damage: " + event.getAmount()));
+            }
+        }
+    }
+
     @SubscribeEvent
     public static void changeTooltip(RenderTooltipEvent.GatherComponents event) {
         event.setMaxWidth(250);
@@ -48,6 +61,12 @@ public class ModEvents {
                 tooltipElements.remove(tooltipElements.size() - 1);
             }
             tooltipElements.remove(tooltipElements.size() - 1);
+            tooltipElements.remove(tooltipElements.size() - 1);
+        }
+        if (event.getItemStack().is(ModItems.TIDE_BREAKER.get())) {
+            for (int i = 0; i < 4; i ++) {
+                tooltipElements.remove(tooltipElements.size() - 1);
+            }
         }
 
     }

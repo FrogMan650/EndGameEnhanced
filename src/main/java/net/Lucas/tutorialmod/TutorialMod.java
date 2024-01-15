@@ -2,10 +2,13 @@ package net.Lucas.tutorialmod;
 
 import com.mojang.logging.LogUtils;
 import net.Lucas.tutorialmod.block.ModBlocks;
+import net.Lucas.tutorialmod.entity.ModEntities;
+import net.Lucas.tutorialmod.entity.client.TideBreakerRenderer;
 import net.Lucas.tutorialmod.item.ModCreativeModTabs;
 import net.Lucas.tutorialmod.item.ModItems;
 import net.Lucas.tutorialmod.loot.ModLootModifier;
 import net.Lucas.tutorialmod.util.ModItemProperties;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.player.Player;
@@ -45,6 +48,7 @@ public class TutorialMod
         ModBlocks.register(modEventBus);
 
         ModLootModifier.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -77,6 +81,7 @@ public class TutorialMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ModItemProperties.addCustomItemProperties();
+            EntityRenderers.register(ModEntities.TIDE_BREAKER.get(), TideBreakerRenderer::new);
         }
 
 
