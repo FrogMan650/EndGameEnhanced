@@ -10,7 +10,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class EndBlade extends SwordItem {
+public class EndBlade extends CustomSwordItem {
 
     public EndBlade(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);

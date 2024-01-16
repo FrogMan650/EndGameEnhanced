@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import net.Lucas.tutorialmod.entity.custom.TideBreakerEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -28,6 +29,7 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
@@ -53,7 +55,7 @@ public class CustomTridentItem extends TridentItem {
                 int j = EnchantmentHelper.getRiptide(pStack);
                 if (j <= 0 || player.isInWaterOrRain()) {
                     if (!pLevel.isClientSide) {
-                        pStack.hurtAndBreak(1, player, (p_43388_) -> {
+                        pStack.hurtAndBreak(0, player, (p_43388_) -> {
                             p_43388_.broadcastBreakEvent(pEntityLiving.getUsedItemHand());
                         });
                         if (j == 0) {
@@ -79,7 +81,7 @@ public class CustomTridentItem extends TridentItem {
                         float f2 = -Mth.sin(f * ((float)Math.PI / 180F));
                         float f3 = Mth.cos(f7 * ((float)Math.PI / 180F)) * Mth.cos(f * ((float)Math.PI / 180F));
                         float f4 = Mth.sqrt(f1 * f1 + f2 * f2 + f3 * f3);
-                        float f5 = 3.0F * ((1.0F + (float)j) / 4.0F);
+                        float f5 = 3.0F * ((4.0F + (float)j) / 4.0F);
                         f1 *= f5 / f4;
                         f2 *= f5 / f4;
                         f3 *= f5 / f4;
@@ -117,6 +119,27 @@ public class CustomTridentItem extends TridentItem {
 
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
         return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
+    }
+
+    public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
+        pStack.hurtAndBreak(0, pAttacker, (p_43414_) -> {
+            p_43414_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+        });
+        return true;
+    }
+
+    /**
+     * Called when a {@link net.minecraft.world.level.block.Block} is destroyed using this Item. Return {@code true} to
+     * trigger the "Use Item" statistic.
+     */
+    public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
+        if ((double)pState.getDestroySpeed(pLevel, pPos) != 0.0D) {
+            pStack.hurtAndBreak(0, pEntityLiving, (p_43385_) -> {
+                p_43385_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+            });
+        }
+
+        return true;
     }
 
     @Override

@@ -246,7 +246,7 @@ public class CustomCrossbowItem extends CrossbowItem {
                 projectile.shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), 3.0F, pInaccuracy);
             }
             //durability
-            pCrossbowStack.hurtAndBreak(flag ? 3 : 1, pShooter, (p_40858_) -> {
+            pCrossbowStack.hurtAndBreak(0, pShooter, (p_40858_) -> {
                 p_40858_.broadcastBreakEvent(pHand);
             });
             //arrow entity is created

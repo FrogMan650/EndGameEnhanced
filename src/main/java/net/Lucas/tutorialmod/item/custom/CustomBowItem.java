@@ -62,7 +62,7 @@ public class CustomBowItem extends BowItem {
                             arrowEntity.setSecondsOnFire(100);
                         }
 
-                        bowStack.hurtAndBreak(1, player, (p_289501_) -> {
+                        bowStack.hurtAndBreak(0, player, (p_289501_) -> {
                             p_289501_.broadcastBreakEvent(player.getUsedItemHand());
                         });
                         if (hasInfinity && !isTippedArrow) {
