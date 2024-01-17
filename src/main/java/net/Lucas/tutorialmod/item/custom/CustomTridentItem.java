@@ -51,7 +51,7 @@ public class CustomTridentItem extends TridentItem {
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
         if (pEntityLiving instanceof Player player) {
             int i = this.getUseDuration(pStack) - pTimeLeft;
-            if (i >= 5) {
+            if (i >= 7) {
                 int j = EnchantmentHelper.getRiptide(pStack);
                 if (j <= 0 || player.isInWaterOrRain()) {
                     if (!pLevel.isClientSide) {

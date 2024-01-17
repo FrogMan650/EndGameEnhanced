@@ -1,6 +1,7 @@
 package net.Lucas.tutorialmod.entity;
 
 import net.Lucas.tutorialmod.TutorialMod;
+import net.Lucas.tutorialmod.entity.custom.LeviathansAxeEntity;
 import net.Lucas.tutorialmod.entity.custom.TideBreakerEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -17,6 +18,11 @@ public class ModEntities {
             ENTITY_TYPES.register("tide_breaker", () -> EntityType.Builder.<TideBreakerEntity>of(TideBreakerEntity::new,
                     MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4)
                     .updateInterval(20).build("tide_breaker"));
+    public static final RegistryObject<EntityType<LeviathansAxeEntity>> LEVIATHANS_AXE =
+            ENTITY_TYPES.register("leviathans_axe", () -> EntityType.Builder.<LeviathansAxeEntity>of(LeviathansAxeEntity::new,
+                    MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4)
+                    .updateInterval(20).build("leviathans_axe"));
+
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

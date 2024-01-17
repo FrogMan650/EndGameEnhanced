@@ -1,7 +1,6 @@
 package net.Lucas.tutorialmod.entity.custom;
 
 import net.Lucas.tutorialmod.entity.ModEntities;
-import net.Lucas.tutorialmod.entity.client.TideBreakerModel;
 import net.Lucas.tutorialmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -17,38 +16,33 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.entity.projectile.ThrownTrident;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.TridentItem;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
-public class TideBreakerEntity extends AbstractArrow {
-    private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(TideBreakerEntity.class, EntityDataSerializers.BYTE);
-    private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(TideBreakerEntity.class, EntityDataSerializers.BOOLEAN);
-    private ItemStack tridentItem = new ItemStack(ModItems.TIDE_BREAKER.get());
+public class LeviathansAxeEntity extends AbstractArrow {
+    private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(LeviathansAxeEntity.class, EntityDataSerializers.BYTE);
+    private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(LeviathansAxeEntity.class, EntityDataSerializers.BOOLEAN);
+    private ItemStack tridentItem = new ItemStack(ModItems.LEVIATHANS_AXE.get());
     private boolean dealtDamage;
     public int clientSideReturnTridentTickCount;
 
-    public TideBreakerEntity(EntityType<? extends TideBreakerEntity> pEntityType, Level pLevel) {
+    public LeviathansAxeEntity(EntityType<? extends LeviathansAxeEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
-    public TideBreakerEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntities.TIDE_BREAKER.get(), pShooter, pLevel);
+    public LeviathansAxeEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
+        super(ModEntities.LEVIATHANS_AXE.get(), pShooter, pLevel);
         this.tridentItem = pStack.copy();
-        this.entityData.set(ID_LOYALTY, (byte)2);
+        this.entityData.set(ID_LOYALTY, (byte)5);
         this.entityData.set(ID_FOIL, pStack.hasFoil());
     }
 
@@ -70,7 +64,7 @@ public class TideBreakerEntity extends AbstractArrow {
         int i = this.entityData.get(ID_LOYALTY);
         if (i > 0 && (this.dealtDamage || this.isNoPhysics()) && entity != null) {
             if (!this.isAcceptibleReturnOwner()) {
-                if (!this.level().isClientSide && this.pickup == AbstractArrow.Pickup.ALLOWED) {
+                if (!this.level().isClientSide && this.pickup == Pickup.ALLOWED) {
                     this.spawnAtLocation(this.getPickupItem(), 0.1F);
                 }
 
@@ -126,9 +120,9 @@ public class TideBreakerEntity extends AbstractArrow {
      */
     protected void onHitEntity(EntityHitResult pResult) {
         Entity entity = pResult.getEntity();
-        float f = 25.0F;
+        float f = 20.0F;
         if (entity instanceof LivingEntity livingentity) {
-            f += EnchantmentHelper.getDamageBonus(this.tridentItem, livingentity.getMobType());
+                f += EnchantmentHelper.getDamageBonus(this.tridentItem, livingentity.getMobType());
         }
 
         Entity entity1 = this.getOwner();
@@ -216,17 +210,18 @@ public class TideBreakerEntity extends AbstractArrow {
 
     public void tickDespawn() {
         int i = this.entityData.get(ID_LOYALTY);
-        if (this.pickup != AbstractArrow.Pickup.ALLOWED || i <= 0) {
+        if (this.pickup != Pickup.ALLOWED || i <= 0) {
             super.tickDespawn();
         }
 
     }
 
     protected float getWaterInertia() {
-        return 0.99F;
+        return 0.5F;
     }
 
     public boolean shouldRender(double pX, double pY, double pZ) {
         return true;
     }
+
 }

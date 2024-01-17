@@ -113,6 +113,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.WEBWEAVER_BOW.get());
                         pOutput.accept(ModItems.SCULK_SLINGER.get());
                         pOutput.accept(ModItems.TIDE_BREAKER.get());
+                        pOutput.accept(ModItems.LEVIATHANS_AXE.get());
                         pOutput.accept(ModItems.SMOULDERING_STONE.get());
                         pOutput.accept(ModItems.ENDER_DRAGON_SCALE.get());
                         pOutput.accept(ModItems.SCULK_CRYSTAL.get());

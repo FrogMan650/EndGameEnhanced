@@ -12,6 +12,7 @@ public class ModItemProperties {
         makeBow(ModItems.WEBWEAVER_BOW.get());
         makeCrossbow(ModItems.SCULK_SLINGER.get());
         makeTrident(ModItems.TIDE_BREAKER.get());
+        makeLeviAxe(ModItems.LEVIATHANS_AXE.get());
 
     }
 
@@ -47,6 +48,11 @@ public class ModItemProperties {
         });
     }
     private static void makeTrident (Item item) {
+        ItemProperties.register(item, new ResourceLocation("throwing"), (p_234996_, p_234997_, p_234998_, p_234999_) -> {
+            return p_234998_ != null && p_234998_.isUsingItem() && p_234998_.getUseItem() == p_234996_ ? 1.0F : 0.0F;
+        });
+    }
+    private static void makeLeviAxe (Item item) {
         ItemProperties.register(item, new ResourceLocation("throwing"), (p_234996_, p_234997_, p_234998_, p_234999_) -> {
             return p_234998_ != null && p_234998_.isUsingItem() && p_234998_.getUseItem() == p_234996_ ? 1.0F : 0.0F;
         });

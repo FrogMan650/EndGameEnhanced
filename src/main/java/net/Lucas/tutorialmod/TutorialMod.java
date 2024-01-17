@@ -3,11 +3,13 @@ package net.Lucas.tutorialmod;
 import com.mojang.logging.LogUtils;
 import net.Lucas.tutorialmod.block.ModBlocks;
 import net.Lucas.tutorialmod.entity.ModEntities;
+import net.Lucas.tutorialmod.entity.client.LeviathansAxeRenderer;
 import net.Lucas.tutorialmod.entity.client.TideBreakerRenderer;
 import net.Lucas.tutorialmod.item.ModCreativeModTabs;
 import net.Lucas.tutorialmod.item.ModItems;
 import net.Lucas.tutorialmod.loot.ModLootModifier;
 import net.Lucas.tutorialmod.util.ModItemProperties;
+import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.animal.Sheep;
@@ -82,6 +84,7 @@ public class TutorialMod
         public static void onClientSetup(FMLClientSetupEvent event) {
             ModItemProperties.addCustomItemProperties();
             EntityRenderers.register(ModEntities.TIDE_BREAKER.get(), TideBreakerRenderer::new);
+            EntityRenderers.register(ModEntities.LEVIATHANS_AXE.get(), LeviathansAxeRenderer::new);
         }
 
 

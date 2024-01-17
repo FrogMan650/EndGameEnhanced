@@ -2,10 +2,12 @@ package net.Lucas.tutorialmod.event;
 
 import com.mojang.datafixers.util.Either;
 import net.Lucas.tutorialmod.TutorialMod;
+import net.Lucas.tutorialmod.entity.custom.LeviathansAxeEntity;
 import net.Lucas.tutorialmod.item.ModItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FormattedText;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -14,6 +16,7 @@ import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -28,6 +31,25 @@ import java.util.Objects;
 
 @Mod.EventBusSubscriber(modid = TutorialMod.MOD_ID)
 public class ModEvents {
+
+    @SubscribeEvent
+    public static void onLivingHurtSweepIncrease(LivingHurtEvent event) {
+        if (event.getSource().getEntity() instanceof Player player && player.isHolding(ModItems.NETHER_BLADE.get())) {
+                float damageDone = event.getAmount();
+                if (damageDone == 1) {
+                    event.setAmount(17);
+                }
+            }
+        }
+//    @SubscribeEvent
+//    public static void onLivingHurtLeviathanThrowFix(LivingHurtEvent event) {
+//        if (event.getSource().getEntity() instanceof LeviathansAxeEntity) {
+//            int sharpnessLevel = player.getItemInHand(InteractionHand.MAIN_HAND).getEnchantmentLevel(Enchantments.SHARPNESS);
+//            int sharpnessMod = sharpnessLevel*2;
+//            float damageDone = event.getAmount();
+//            event.setAmount(500);
+//            }
+//        }
     @SubscribeEvent
     public static void onLivingHurtWarden(LivingHurtEvent event) {
         if (event.getEntity() instanceof Warden) {
@@ -35,21 +57,6 @@ public class ModEvents {
                 String weaponName = player.getItemInHand(InteractionHand.MAIN_HAND).toString();
                 String[] weaponNameSplit = weaponName.split(" ");
                 player.sendSystemMessage(Component.literal( weaponNameSplit[1] + " damage: " + event.getAmount()));
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void onLivingHurtSweepIncrease(LivingHurtEvent event) {
-        if (event.getSource().getEntity() instanceof Player player) {
-            String weaponName = player.getItemInHand(InteractionHand.MAIN_HAND).toString();
-            String[] weaponNameSplit = weaponName.split(" ");
-            if (Objects.equals(weaponNameSplit[1], "nether_blade")) {
-                float damageDone = event.getAmount();
-                if (damageDone == 1) {
-                    event.setAmount(17);
-            }
-
             }
         }
     }
