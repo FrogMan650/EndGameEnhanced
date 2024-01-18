@@ -37,7 +37,7 @@ import java.util.List;
 
 public class CustomTridentItem extends TridentItem {
     public static final int THROW_THRESHOLD_TIME = 10;
-    public static final float BASE_DAMAGE = 15.0F;
+    public static final float BASE_DAMAGE = 9.0F;
     public static final float SHOOT_POWER = 2.5F;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
     public CustomTridentItem(Properties pProperties) {
@@ -60,7 +60,7 @@ public class CustomTridentItem extends TridentItem {
                         });
                         if (j == 0) {
                             TideBreakerEntity throwntidebreaker = new TideBreakerEntity(pLevel, player, pStack);
-                            throwntidebreaker.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 8F + (float)j * 0.5F, 0.5F);
+                            throwntidebreaker.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 4.5F + (float)j * 0.5F, 0.5F);
                             if (player.getAbilities().instabuild) {
                                 throwntidebreaker.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                             }

@@ -120,7 +120,7 @@ public class LeviathansAxeEntity extends AbstractArrow {
      */
     protected void onHitEntity(EntityHitResult pResult) {
         Entity entity = pResult.getEntity();
-        float f = 20.0F;
+        float f = 18.0F;
         if (entity instanceof LivingEntity livingentity) {
                 f += EnchantmentHelper.getDamageBonus(this.tridentItem, livingentity.getMobType());
         }

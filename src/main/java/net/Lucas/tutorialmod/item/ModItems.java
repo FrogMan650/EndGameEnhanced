@@ -50,13 +50,13 @@ public class ModItems {
 
     //inevitable
     public static final RegistryObject<Item> NETHER_BLADE = ITEMS.register("nether_blade",
-            () -> new NetherBlade(ModToolTiers.INEVITABLE, 11, -2.4F,
+            () -> new NetherBlade(ModToolTiers.INEVITABLE, 6, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> END_BLADE = ITEMS.register("end_blade",
-            () -> new EndBlade(ModToolTiers.INEVITABLE, 11, -2.4F,
+            () -> new EndBlade(ModToolTiers.INEVITABLE, 6, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> SCULK_BLADE = ITEMS.register("sculk_blade",
-            () -> new SculkBlade(ModToolTiers.INEVITABLE, 11, -2.4F,
+            () -> new SculkBlade(ModToolTiers.INEVITABLE, 6, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> WEBWEAVER_BOW = ITEMS.register("webweaver_bow",
             () -> new CustomBowItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(5000)));
@@ -65,7 +65,7 @@ public class ModItems {
     public static final RegistryObject<Item> TIDE_BREAKER = ITEMS.register("tide_breaker",
             () -> new CustomTridentItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(5000)));
     public static final RegistryObject<Item> LEVIATHANS_AXE = ITEMS.register("leviathans_axe",
-            () -> new LeviathansAxe(ModToolTiers.INEVITABLE, 10, -3F, new
+            () -> new LeviathansAxe(ModToolTiers.INEVITABLE, 19, -3F, new
                     Item.Properties().rarity(Rarity.EPIC).fireResistant()));
 
 

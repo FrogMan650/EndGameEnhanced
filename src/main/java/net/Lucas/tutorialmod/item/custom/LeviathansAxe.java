@@ -4,8 +4,13 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.Lucas.tutorialmod.entity.custom.LeviathansAxeEntity;
+import net.Lucas.tutorialmod.item.ModItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.Util;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -29,6 +34,7 @@ import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -38,7 +44,9 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -53,12 +61,10 @@ public class LeviathansAxe extends AxeItem {
     public LeviathansAxe(Tier pTier, float pAttackDamageModifier, float pAttackSpeedModifier, Item.Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 10.0D, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 9.0D, AttributeModifier.Operation.ADDITION));
         builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -3.0F, AttributeModifier.Operation.ADDITION));
         this.defaultModifiers = builder.build();
     }
-
-
     //TridentItem Start
     public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
         return !pPlayer.isCreative();
@@ -227,5 +233,76 @@ public class LeviathansAxe extends AxeItem {
         } else {
             return InteractionResult.PASS;
         }
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
+        final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
+        final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
+        final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
+        int sharpnessLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SHARPNESS, pStack);
+        int smiteLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SMITE, pStack);
+        int arthropodLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BANE_OF_ARTHROPODS, pStack);
+        double axeSharpnessThrownDamage = sharpnessLevel+19;
+        double axeSharpnessMeleeDamage = sharpnessLevel+19;
+        double axeSmiteThrownDamage = smiteLevel+9;
+        double axeSmiteMeleeDamage = smiteLevel+9;
+        double axeArthropodThrownDamage = arthropodLevel+9;
+        double axeArthropodMeleeDamage = arthropodLevel+9;
+        String thrownDamageTranslation = "leviathans_axe_lore.green_text_arrow.thrown.0";
+        String meleeDamageTranslation = "leviathans_axe_lore.green_text_arrow.melee.0";
+        Component leviathans_axe_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                (thrownDamageTranslation))).withStyle(GREEN_TEXT);
+        Component leviathans_axe_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                (meleeDamageTranslation))).withStyle(GREEN_TEXT);
+
+        if (sharpnessLevel > 0) {
+            thrownDamageTranslation = "leviathans_axe_lore.green_text_arrow.thrown."+ axeSharpnessThrownDamage;
+            meleeDamageTranslation = "leviathans_axe_lore.green_text_arrow.melee."+ axeSharpnessMeleeDamage;
+            leviathans_axe_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                    (thrownDamageTranslation))).withStyle(GREEN_TEXT);
+            leviathans_axe_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                    (meleeDamageTranslation))).withStyle(GREEN_TEXT);
+        }
+        if (smiteLevel > 0) {
+            thrownDamageTranslation = "leviathans_axe_lore.green_text_arrow.thrown."+ axeSmiteThrownDamage;
+            meleeDamageTranslation = "leviathans_axe_lore.green_text_arrow.melee."+ axeSmiteMeleeDamage;
+            leviathans_axe_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                    (thrownDamageTranslation))).withStyle(GREEN_TEXT);
+            leviathans_axe_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                    (meleeDamageTranslation))).withStyle(GREEN_TEXT);
+        }
+        if (arthropodLevel > 0) {
+            thrownDamageTranslation = "leviathans_axe_lore.green_text_arrow.thrown."+ axeArthropodThrownDamage;
+            meleeDamageTranslation = "leviathans_axe_lore.green_text_arrow.melee."+ axeArthropodMeleeDamage;
+            leviathans_axe_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                    (thrownDamageTranslation))).withStyle(GREEN_TEXT);
+            leviathans_axe_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                    (meleeDamageTranslation))).withStyle(GREEN_TEXT);
+        }
+        Component leviathans_axe_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("leviathans_axe_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        Component leviathans_axe_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("leviathans_axe_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        Component leviathans_axe_stats_header_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("leviathans_axe_lore.grey_text_arrow"))).withStyle(GREY_TEXT);
+        Component leviathans_axe_stats_header_arrow_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("leviathans_axe_lore.grey_text_arrow_two"))).withStyle(GREY_TEXT);
+        Component leviathans_axe_stats_arrow_six = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("leviathans_axe_lore.green_text_arrow_six"))).withStyle(GREEN_TEXT);
+        Component leviathans_axe_stats_arrow_seven = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("leviathans_axe_lore.green_text_arrow_seven"))).withStyle(GREEN_TEXT);
+
+
+        pTooltipComponents.add(leviathans_axe_lore);
+        pTooltipComponents.add(leviathans_axe_lore_two);
+        pTooltipComponents.add(leviathans_axe_stats_header_arrow);
+        pTooltipComponents.add(leviathans_axe_stats_arrow);
+        pTooltipComponents.add(leviathans_axe_stats_header_arrow_two);
+        pTooltipComponents.add(leviathans_axe_stats_arrow_five);
+        pTooltipComponents.add(leviathans_axe_stats_arrow_six);
+        pTooltipComponents.add(leviathans_axe_stats_arrow_seven);
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

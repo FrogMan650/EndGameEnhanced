@@ -48,7 +48,7 @@ public class TideBreakerEntity extends AbstractArrow {
     public TideBreakerEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
         super(ModEntities.TIDE_BREAKER.get(), pShooter, pLevel);
         this.tridentItem = pStack.copy();
-        this.entityData.set(ID_LOYALTY, (byte)2);
+        this.entityData.set(ID_LOYALTY, (byte)(EnchantmentHelper.getLoyalty(pStack)+2));
         this.entityData.set(ID_FOIL, pStack.hasFoil());
     }
 
@@ -126,7 +126,7 @@ public class TideBreakerEntity extends AbstractArrow {
      */
     protected void onHitEntity(EntityHitResult pResult) {
         Entity entity = pResult.getEntity();
-        float f = 25.0F;
+        float f = 15.0F;
         if (entity instanceof LivingEntity livingentity) {
             f += EnchantmentHelper.getDamageBonus(this.tridentItem, livingentity.getMobType());
         }

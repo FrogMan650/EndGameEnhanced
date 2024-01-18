@@ -47,7 +47,7 @@ public class CustomBowItem extends BowItem {
                         ArrowItem arrowitem = (ArrowItem)(ammoStack.getItem() instanceof ArrowItem ? ammoStack.getItem() : Items.ARROW);
                         AbstractArrow arrowEntity = createArrow(worldIn, ammoStack, player, arrowitem);
                         arrowEntity = customArrow(arrowEntity);
-                        arrowEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, velocity * 10.0F, 0.5F);
+                        arrowEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, velocity * 4.5F, 0.5F);
                         if (velocity >= 1.0F) {
                             arrowEntity.setCritArrow(true);
                         }
@@ -118,7 +118,7 @@ public class CustomBowItem extends BowItem {
     protected double getArrowDamage(ItemStack bowStack, AbstractArrow arrowEntity) {
         double baseDamage = 2.0D;
         int bowPower = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, bowStack);
-        if (bowPower > 0) return baseDamage + (double)bowPower * 0.1D + 0.2D;
+        if (bowPower > 0) return baseDamage + (double)bowPower * 0.15D + 0.2D;
         else return baseDamage;
     }
 
