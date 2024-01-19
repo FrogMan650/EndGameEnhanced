@@ -55,6 +55,7 @@
   "item.tutorialmod.sculk_slinger": "Sculk Slinger",
   "item.tutorialmod.tide_breaker": "Tide Breaker",
   "item.tutorialmod.leviathans_axe": "Leviathan's Axe",
+  "item.tutorialmod.scythe_of_vitur": "Sanguine Scythe",
 
   "item.tutorialmod.basic_essence": "Basic Essence",
 
@@ -98,6 +99,13 @@
 
   "item.minecraft.sculk_blade_lore.red_text": "The last known remnant of an ancient civilization wiped out by the Sculk. The Sculk may soon reclaim the sword as well.",
   "item.minecraft.sculk_blade_lore.red_text_two": " ",
+
+  "item.minecraft.scythe_lore.red_text": "Originating from another world, this vampiric weapon is able to use blood to enhance it's users abilities.",
+  "item.minecraft.scythe_lore.red_text_two": " ",
+  "item.minecraft.scythe_lore.grey_text_arrow": "When in Main Hand:",
+  "item.minecraft.scythe_lore.green_text_arrow_seven": " 12 Damage",
+  "item.minecraft.scythe_lore.green_text_arrow_eight": " 1 Attack Speed",
+  "item.minecraft.scythe_lore.green_text_arrow_nine": " ",
 
   "item.minecraft.webweaver_lore.red_text": "A bow made from the legendary spider Venenatis. Somehow transported to this world from another dimension.",
   "item.minecraft.webweaver_lore.red_text_two": " ",

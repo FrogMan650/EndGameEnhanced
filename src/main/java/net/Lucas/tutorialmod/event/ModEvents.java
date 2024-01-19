@@ -7,10 +7,9 @@ import net.Lucas.tutorialmod.item.ModItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FormattedText;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MobType;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Cow;
@@ -20,6 +19,8 @@ import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PotionItem;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.enchantment.DamageEnchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.client.event.RenderTooltipEvent;
@@ -37,11 +38,21 @@ import java.util.Objects;
 @Mod.EventBusSubscriber(modid = TutorialMod.MOD_ID)
 public class ModEvents {
 
-//    @SubscribeEvent
-//    public static void onLivingHurtDamageFixes(LivingHurtEvent event) {
-//        LivingEntity damagedMob = event.getEntity();
-//        float initialDamage = event.getAmount();
-//        if (event.getSource().getEntity() instanceof Player player) {
+    @SubscribeEvent
+    public static void onLivingHurtDamageFixes(LivingHurtEvent event) {
+        LivingEntity damagedMob = event.getEntity();
+        float initialDamage = event.getAmount();
+        if (event.getSource().getEntity() instanceof Player player) {
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.SCYTHE_OF_VITUR.get())) {
+                if (initialDamage == 1) {
+                    if (damagedMob.isBaby()) {
+                        event.setAmount(0);
+                    } else event.setAmount(12);
+                }
+            }
+        }
+    }
+    //attempt at rewriting the damage when having certain enchantments
 //            if (player.isHolding(ModItems.TIDE_BREAKER.get()) && damagedMob.isInWaterOrRain()) {
 //                int impalingLevel = player.getMainHandItem().getEnchantmentLevel(Enchantments.IMPALING);
 //                int riptideLevel = player.getMainHandItem().getEnchantmentLevel(Enchantments.RIPTIDE);
@@ -132,22 +143,12 @@ public class ModEvents {
     public static void changeTooltip(RenderTooltipEvent.GatherComponents event) {
         event.setMaxWidth(200);
         final List<Either<FormattedText, TooltipComponent>> tooltipElements = event.getTooltipElements();
-        if (event.getItemStack().is(ModItems.SCULK_BLADE.get()) || event.getItemStack().is(ModItems.NETHER_BLADE.get()) || event.getItemStack().is(ModItems.END_BLADE.get())) {
+        if (event.getItemStack().is(ModItems.SCULK_BLADE.get()) || event.getItemStack().is(ModItems.NETHER_BLADE.get())
+                || event.getItemStack().is(ModItems.END_BLADE.get()) || event.getItemStack().is(ModItems.TIDE_BREAKER.get())
+                || event.getItemStack().is(ModItems.LEVIATHANS_AXE.get()) || event.getItemStack().is(ModItems.SCYTHE_OF_VITUR.get())) {
             for (int i = 0; i < 4; i ++) {
                 tooltipElements.remove(tooltipElements.size() - 1);
             }
         }
-        if (event.getItemStack().is(ModItems.TIDE_BREAKER.get())) {
-            for (int i = 0; i < 4; i ++) {
-                tooltipElements.remove(tooltipElements.size() - 1);
-            }
-        }
-        if (event.getItemStack().is(ModItems.LEVIATHANS_AXE.get())) {
-            for (int i = 0; i < 4; i ++) {
-                tooltipElements.remove(tooltipElements.size() - 1);
-            }
-        }
-
-
     }
 }

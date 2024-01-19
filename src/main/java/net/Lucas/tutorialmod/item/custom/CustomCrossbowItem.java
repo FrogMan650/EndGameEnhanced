@@ -141,7 +141,6 @@ public class CustomCrossbowItem extends CrossbowItem {
                 itemstack = pAmmoStack.split(1);
 
                 //25% chance to not use arrows and 10% chance to not use rockets
-                if (pAmmoStack.is(Items.FIREWORK_ROCKET)) { }
                 float randomFloat = RandomSource.create().nextFloat();
                 int saveChance = 0;
                 if (randomFloat >= 0 && randomFloat <= 0.25F && !pAmmoStack.is(Items.FIREWORK_ROCKET)) {

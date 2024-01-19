@@ -65,8 +65,12 @@ public class ModItems {
     public static final RegistryObject<Item> TIDE_BREAKER = ITEMS.register("tide_breaker",
             () -> new CustomTridentItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(5000)));
     public static final RegistryObject<Item> LEVIATHANS_AXE = ITEMS.register("leviathans_axe",
-            () -> new LeviathansAxe(ModToolTiers.INEVITABLE, 19, -3F, new
+            () -> new LeviathansAxe(ModToolTiers.INEVITABLE, 9, -3F, new
                     Item.Properties().rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<Item> SCYTHE_OF_VITUR = ITEMS.register("scythe_of_vitur",
+            () -> new ScytheOfVitur(ModToolTiers.INEVITABLE, 6, -3F, new
+                    Item.Properties().rarity(Rarity.EPIC).fireResistant()));
+
 
 
 
