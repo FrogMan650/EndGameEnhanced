@@ -59,17 +59,21 @@ public class ModItems {
             () -> new SculkBlade(ModToolTiers.INEVITABLE, 6, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> WEBWEAVER_BOW = ITEMS.register("webweaver_bow",
-            () -> new CustomBowItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(5000)));
+            () -> new CustomBowItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(6969)));
     public static final RegistryObject<Item> SCULK_SLINGER = ITEMS.register("sculk_slinger",
-            () -> new CustomCrossbowItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(5000)));
+            () -> new CustomCrossbowItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(6969)));
     public static final RegistryObject<Item> TIDE_BREAKER = ITEMS.register("tide_breaker",
-            () -> new CustomTridentItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(5000)));
+            () -> new CustomTridentItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(6969)));
     public static final RegistryObject<Item> LEVIATHANS_AXE = ITEMS.register("leviathans_axe",
             () -> new LeviathansAxe(ModToolTiers.INEVITABLE, 9, -3F, new
                     Item.Properties().rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> SCYTHE_OF_VITUR = ITEMS.register("scythe_of_vitur",
             () -> new ScytheOfVitur(ModToolTiers.INEVITABLE, 6, -3F, new
                     Item.Properties().rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<Item> UNKEMPT_HAROLD = ITEMS.register("unkempt_harold",
+            () -> new UnkemptHarold(ModToolTiers.INEVITABLE, 1.5f, -3F, new
+                    Item.Properties().rarity(Rarity.EPIC).fireResistant()));
+
 
 
 

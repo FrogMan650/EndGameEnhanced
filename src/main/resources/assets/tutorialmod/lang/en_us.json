@@ -56,6 +56,7 @@
   "item.tutorialmod.tide_breaker": "Tide Breaker",
   "item.tutorialmod.leviathans_axe": "Leviathan's Axe",
   "item.tutorialmod.scythe_of_vitur": "Sanguine Scythe",
+  "item.tutorialmod.unkempt_harold": "Unkempt Harold",
 
   "item.tutorialmod.basic_essence": "Basic Essence",
 
@@ -107,7 +108,14 @@
   "item.minecraft.scythe_lore.green_text_arrow_eight": " 1 Attack Speed",
   "item.minecraft.scythe_lore.green_text_arrow_nine": " ",
 
-  "item.minecraft.webweaver_lore.red_text": "A bow made from the legendary spider Venenatis. Somehow transported to this world from another dimension.",
+  "item.minecraft.unkempt_harold_lore.red_text": "Did I dig six blocks, or only five? Three? Seven. Whatever.",
+  "item.minecraft.unkempt_harold_lore.red_text_two": " ",
+  "item.minecraft.unkempt_harold_lore.grey_text_arrow": "When in Main Hand:",
+  "item.minecraft.unkempt_harold_lore.green_text_arrow_seven": " 7.5 Damage",
+  "item.minecraft.unkempt_harold_lore.green_text_arrow_eight": " 1 Attack Speed",
+  "item.minecraft.unkempt_harold_lore.green_text_arrow_nine": " ",
+
+  "item.minecraft.webweaver_lore.red_text": "A bow made from the legendary spider Venenatis. Somehow transported to this world from another.",
   "item.minecraft.webweaver_lore.red_text_two": " ",
   "item.minecraft.webweaver_lore.grey_text_arrow": "When Fully Drawn:",
   "item.minecraft.webweaver_lore.green_text_arrow.25": " 18 Average Damage",
@@ -221,5 +229,8 @@
   "item.minecraft.smithing_template.netherite_upgrade.onyx_equipment": "Onyx Equipment",
   "item.minecraft.smithing_template.inevitable_upgrade.sword": "Netherite Sword",
   "item.minecraft.smithing_template.inevitable_upgrade.crossbow": "Crossbow",
-  "item.minecraft.smithing_template.inevitable_upgrade.bow": "Bow"
+  "item.minecraft.smithing_template.inevitable_upgrade.bow": "Bow",
+
+  "key.category.tutorialmod.tutorial": "Tutorial Mod",
+  "key.tutorialmod.change_tool_effect": "Change Tool Effect"
 }

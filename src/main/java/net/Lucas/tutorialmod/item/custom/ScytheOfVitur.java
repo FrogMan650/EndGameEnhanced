@@ -16,21 +16,14 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
-import org.apache.commons.lang3.ObjectUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -66,12 +59,10 @@ public class ScytheOfVitur extends HoeItem {
     }
 
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
-        if (!pLevel.isClientSide && pState.getDestroySpeed(pLevel, pPos) != 0.0F && !pState.is(BlockTags.FIRE)) {
-            pStack.hurtAndBreak(0, pEntityLiving, (p_40992_) -> {
-                p_40992_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-            });
-        }
-        return pState.is(BlockTags.LEAVES) || pState.is(Blocks.COBWEB) || pState.is(Blocks.GRASS) || pState.is(Blocks.FERN) || pState.is(Blocks.DEAD_BUSH) || pState.is(Blocks.HANGING_ROOTS) || pState.is(Blocks.VINE) || pState.is(Blocks.TRIPWIRE) || pState.is(BlockTags.WOOL) || super.mineBlock(pStack, pLevel, pState, pPos, pEntityLiving);
+        pStack.hurtAndBreak(0, pEntityLiving, (p_40992_) -> {
+            p_40992_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+        });
+        return true;
     }
 
     @Override
@@ -79,16 +70,14 @@ public class ScytheOfVitur extends HoeItem {
         return super.isCorrectToolForDrops(stack, state) || state.is(Blocks.COBWEB) || state.is(Blocks.REDSTONE_WIRE) || state.is(Blocks.TRIPWIRE);
     }
 
-    public float getDestroySpeed(ItemStack pStack, BlockState pState) {//shears
-        if (!pState.is(Blocks.COBWEB) && !pState.is(BlockTags.LEAVES)) {
-            if (pState.is(BlockTags.WOOL)) {
-                return 5.0F;
-            } else {
-                return !pState.is(Blocks.VINE) && !pState.is(Blocks.GLOW_LICHEN) ? super.getDestroySpeed(pStack, pState) : 2.0F;
-            }
-        } else {
+    @Override
+    public float getDestroySpeed(ItemStack pStack, BlockState pState) {
+        if (pState.is(Blocks.COBWEB) && pState.is(BlockTags.LEAVES)) {
             return 15.0F;
         }
+        if (pState.is(BlockTags.WOOL) || pState.is(Blocks.VINE) || pState.is(Blocks.GLOW_LICHEN)) {
+                return 5.0F;
+            } else return super.getDestroySpeed(pStack, pState);
     }
 
     @Override
@@ -128,7 +117,9 @@ public class ScytheOfVitur extends HoeItem {
             if (cropGrown) {
                 pContext.getLevel().destroyBlock(blockpos, true);
                 pContext.getLevel().setBlockAndUpdate(blockpos, blockstate.getBlock().defaultBlockState());
+                return InteractionResult.sidedSuccess(level.isClientSide);
             }
+
         }
         if (block instanceof PotatoBlock) {
             int cropAge = ((PotatoBlock) block).getAge(blockstate);
@@ -137,6 +128,7 @@ public class ScytheOfVitur extends HoeItem {
             if (cropGrown) {
                 pContext.getLevel().destroyBlock(blockpos, true);
                 pContext.getLevel().setBlockAndUpdate(blockpos, blockstate.getBlock().defaultBlockState());
+                return InteractionResult.sidedSuccess(level.isClientSide);
             }
         }
         if (block instanceof BeetrootBlock) {
@@ -146,6 +138,7 @@ public class ScytheOfVitur extends HoeItem {
             if (cropGrown) {
                 pContext.getLevel().destroyBlock(blockpos, true);
                 pContext.getLevel().setBlockAndUpdate(blockpos, blockstate.getBlock().defaultBlockState());
+                return InteractionResult.sidedSuccess(level.isClientSide);
             }
         }
         if (block instanceof CarrotBlock) {
@@ -155,6 +148,17 @@ public class ScytheOfVitur extends HoeItem {
             if (cropGrown) {
                 pContext.getLevel().destroyBlock(blockpos, true);
                 pContext.getLevel().setBlockAndUpdate(blockpos, blockstate.getBlock().defaultBlockState());
+                return InteractionResult.sidedSuccess(level.isClientSide);
+            }
+        }
+        if (block instanceof NetherWartBlock) {
+            int cropAge = blockstate.getValue(NetherWartBlock.AGE);
+            int cropMaxAge = 3;
+            boolean cropGrown = cropAge == cropMaxAge;
+            if (cropGrown) {
+                pContext.getLevel().destroyBlock(blockpos, true);
+                pContext.getLevel().setBlockAndUpdate(blockpos, blockstate.getBlock().defaultBlockState());
+                return InteractionResult.sidedSuccess(level.isClientSide);
             }
         }
         if (block instanceof GrowingPlantHeadBlock growingplantheadblock) {//shears

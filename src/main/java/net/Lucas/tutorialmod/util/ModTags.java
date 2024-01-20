@@ -18,6 +18,7 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_JADE_TOOL = tag("needs_jade_tool");
         public static final TagKey<Block> NEEDS_OPAL_TOOL = tag("needs_opal_tool");
         public static final TagKey<Block> NEEDS_INEVITABLE_TOOL = tag("needs_inevitable_tool");
+        public static final TagKey<Block> UNKEMPT_HAROLD_SHOVELABLES = tag("unkempt_harold_shovelables");
 
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(TutorialMod.MOD_ID, name));
