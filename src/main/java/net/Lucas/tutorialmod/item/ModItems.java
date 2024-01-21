@@ -73,6 +73,10 @@ public class ModItems {
     public static final RegistryObject<Item> UNKEMPT_HAROLD = ITEMS.register("unkempt_harold",
             () -> new UnkemptHarold(ModToolTiers.INEVITABLE, 1.5f, -3F, new
                     Item.Properties().rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<Item> INFERNAL_PICKAXE = ITEMS.register("infernal_pickaxe",
+            () -> new InfernalPickaxe(ModToolTiers.INEVITABLE, 1, -2.8F, new
+                    Item.Properties().rarity(Rarity.EPIC).fireResistant()));
+
 
 
 

@@ -1,5 +1,8 @@
 package net.Lucas.tutorialmod.event;
 
+import net.Lucas.tutorialmod.Networking.ModMessages;
+import net.Lucas.tutorialmod.Networking.packet.ExampleC2SPacket;
+import net.Lucas.tutorialmod.Networking.packet.ToolEffectChangeC2SPacket;
 import net.Lucas.tutorialmod.TutorialMod;
 import net.Lucas.tutorialmod.item.custom.UnkemptHarold;
 import net.Lucas.tutorialmod.util.KeyBinding;
@@ -16,7 +19,7 @@ public class ClientEvents {
         @SubscribeEvent
         public static void onKeyInput(InputEvent.Key event) {
             if (KeyBinding.CHANGE_TOOL_EFFECT_KEY.consumeClick()) {
-
+                ModMessages.sendToServer(new ToolEffectChangeC2SPacket());
             }
         }
 

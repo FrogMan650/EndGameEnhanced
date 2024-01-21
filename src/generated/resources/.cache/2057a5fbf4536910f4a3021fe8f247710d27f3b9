@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-19T14:06:14.8038115	Item Models: tutorialmod
+// 1.20.1	2024-01-20T19:00:10.4540419	Item Models: tutorialmod
 5f7c2489e4b46644bcda93e1b69fda016a9dfcda assets/tutorialmod/models/item/basic_essence.json
 09193f016ee5733c018b51bdd732dbf14dc52508 assets/tutorialmod/models/item/charged_blaze_rod.json
 3adbadc050c44d2083d60172a563627673f2c8de assets/tutorialmod/models/item/diamond_upgrade_smithing_template.json
@@ -10,6 +10,7 @@ ff6bc477a87a0761b13e6aa2ee5796cfa3bf1559 assets/tutorialmod/models/item/emerald_
 28eea1b143704ec8b3172998fc91cfca8b5da177 assets/tutorialmod/models/item/ender_dragon_scale.json
 4b23c8e8a3aa6042475baf78e424b70565644dbc assets/tutorialmod/models/item/end_blade.json
 04e129320d2eb24a5eaccbc2cb319c3903e05449 assets/tutorialmod/models/item/huge_nether_wart.json
+eeb1c0f79608cb79c271f45197482356eb6ca10c assets/tutorialmod/models/item/infernal_pickaxe.json
 95ba1cbecdfd9d204ce9cf5214c1be1afd2c53ca assets/tutorialmod/models/item/jade.json
 5f8bca7a0af6233a3d127d4222a2e496a57a6f70 assets/tutorialmod/models/item/jade_axe.json
 eba66c3921f91050d66c68adc71114ece5aae390 assets/tutorialmod/models/item/jade_hoe.json

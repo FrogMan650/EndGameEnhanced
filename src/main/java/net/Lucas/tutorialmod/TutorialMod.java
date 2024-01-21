@@ -1,6 +1,7 @@
 package net.Lucas.tutorialmod;
 
 import com.mojang.logging.LogUtils;
+import net.Lucas.tutorialmod.Networking.ModMessages;
 import net.Lucas.tutorialmod.block.ModBlocks;
 import net.Lucas.tutorialmod.entity.ModEntities;
 import net.Lucas.tutorialmod.entity.client.LeviathansAxeRenderer;
@@ -60,6 +61,9 @@ public class TutorialMod
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            ModMessages.register();;
+        });
     }
 
     // Add the example block item to the building blocks tab

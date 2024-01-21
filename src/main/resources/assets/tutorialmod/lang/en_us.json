@@ -57,6 +57,7 @@
   "item.tutorialmod.leviathans_axe": "Leviathan's Axe",
   "item.tutorialmod.scythe_of_vitur": "Sanguine Scythe",
   "item.tutorialmod.unkempt_harold": "Unkempt Harold",
+  "item.tutorialmod.infernal_pickaxe": "Infernal Pickaxe",
 
   "item.tutorialmod.basic_essence": "Basic Essence",
 
@@ -114,6 +115,13 @@
   "item.minecraft.unkempt_harold_lore.green_text_arrow_seven": " 7.5 Damage",
   "item.minecraft.unkempt_harold_lore.green_text_arrow_eight": " 1 Attack Speed",
   "item.minecraft.unkempt_harold_lore.green_text_arrow_nine": " ",
+
+  "item.minecraft.infernal_pickaxe_lore.red_text": "A very powerful, fiery pickaxe.",
+  "item.minecraft.infernal_pickaxe_lore.red_text_two": " ",
+  "item.minecraft.infernal_pickaxe_lore.grey_text_arrow": "When in Main Hand:",
+  "item.minecraft.infernal_pickaxe_lore.green_text_arrow_seven": " 7 Damage",
+  "item.minecraft.infernal_pickaxe_lore.green_text_arrow_eight": " 1.2 Attack Speed",
+  "item.minecraft.infernal_pickaxe_lore.green_text_arrow_nine": " ",
 
   "item.minecraft.webweaver_lore.red_text": "A bow made from the legendary spider Venenatis. Somehow transported to this world from another.",
   "item.minecraft.webweaver_lore.red_text_two": " ",
@@ -223,6 +231,9 @@
 
   "creativetab.tutorial_tab": "Sapphire Tutorial",
   "creativetab.gem_tab": "Gems and gem accessories",
+
+  "tutorialmod.translated.destruction.1.x.1": "Destruction mode set to 1x1.",
+  "tutorialmod.translated.destruction.3.x.3": "Destruction mode set to 3x3.",
 
   "upgrade.minecraft.onyx_upgrade": "Onyx Upgrade",
   "item.minecraft.smithing_template.diamond_upgrade": "Diamond Equipment",

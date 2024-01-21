@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-19T20:52:06.9423669	Tags for minecraft:block mod id tutorialmod
+// 1.20.1	2024-01-20T19:00:10.4520584	Tags for minecraft:block mod id tutorialmod
 def8900833e73fa9f3f83b9d6ef951b5517d5cb1 data/minecraft/tags/blocks/mineable/pickaxe.json
 031ec7111c8b7c57f798acd0b3605ceb1912498b data/tutorialmod/tags/blocks/metal_detector_valuables.json
-5f6f1de6ce3b39c34489433f72701f8ca4061bcb data/tutorialmod/tags/blocks/unkempt_harold_shovelables.json
+90cdf9f1f61bc5600bbe8f2e96128b1f9d7acb7b data/tutorialmod/tags/blocks/unkempt_harold_shovelables.json

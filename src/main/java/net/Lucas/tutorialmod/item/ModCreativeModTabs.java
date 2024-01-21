@@ -116,6 +116,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.LEVIATHANS_AXE.get());
                         pOutput.accept(ModItems.SCYTHE_OF_VITUR.get());
                         pOutput.accept(ModItems.UNKEMPT_HAROLD.get());
+                        pOutput.accept(ModItems.INFERNAL_PICKAXE.get());
                         pOutput.accept(ModItems.SMOULDERING_STONE.get());
                         pOutput.accept(ModItems.ENDER_DRAGON_SCALE.get());
                         pOutput.accept(ModItems.SCULK_CRYSTAL.get());
