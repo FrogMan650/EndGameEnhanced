@@ -1,6 +1,7 @@
 package net.Lucas.tutorialmod.Networking;
 
 import net.Lucas.tutorialmod.Networking.packet.ExampleC2SPacket;
+import net.Lucas.tutorialmod.Networking.packet.PlayerBlockFacingC2SPacket;
 import net.Lucas.tutorialmod.Networking.packet.ToolEffectChangeC2SPacket;
 import net.Lucas.tutorialmod.TutorialMod;
 import net.minecraft.resources.ResourceLocation;
@@ -29,6 +30,12 @@ public class ModMessages {
                 .encoder(ToolEffectChangeC2SPacket::toBytes)
                 .consumerMainThread(ToolEffectChangeC2SPacket::handle)
                 .add();
+        INSTANCE.messageBuilder(PlayerBlockFacingC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(PlayerBlockFacingC2SPacket::new)
+                .encoder(PlayerBlockFacingC2SPacket::toBytes)
+                .consumerMainThread(PlayerBlockFacingC2SPacket::handle)
+                .add();
+
     }
 
     public static <MSG> void sendToServer(MSG message) {

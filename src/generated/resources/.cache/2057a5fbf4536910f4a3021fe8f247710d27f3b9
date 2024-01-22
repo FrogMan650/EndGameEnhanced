@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-20T19:00:10.4540419	Item Models: tutorialmod
+// 1.20.1	2024-01-21T20:57:39.5382567	Item Models: tutorialmod
 5f7c2489e4b46644bcda93e1b69fda016a9dfcda assets/tutorialmod/models/item/basic_essence.json
 09193f016ee5733c018b51bdd732dbf14dc52508 assets/tutorialmod/models/item/charged_blaze_rod.json
 3adbadc050c44d2083d60172a563627673f2c8de assets/tutorialmod/models/item/diamond_upgrade_smithing_template.json
@@ -10,7 +10,6 @@ ff6bc477a87a0761b13e6aa2ee5796cfa3bf1559 assets/tutorialmod/models/item/emerald_
 28eea1b143704ec8b3172998fc91cfca8b5da177 assets/tutorialmod/models/item/ender_dragon_scale.json
 4b23c8e8a3aa6042475baf78e424b70565644dbc assets/tutorialmod/models/item/end_blade.json
 04e129320d2eb24a5eaccbc2cb319c3903e05449 assets/tutorialmod/models/item/huge_nether_wart.json
-eeb1c0f79608cb79c271f45197482356eb6ca10c assets/tutorialmod/models/item/infernal_pickaxe.json
 95ba1cbecdfd9d204ce9cf5214c1be1afd2c53ca assets/tutorialmod/models/item/jade.json
 5f8bca7a0af6233a3d127d4222a2e496a57a6f70 assets/tutorialmod/models/item/jade_axe.json
 eba66c3921f91050d66c68adc71114ece5aae390 assets/tutorialmod/models/item/jade_hoe.json
@@ -100,7 +99,6 @@ c7c0c6e7934e19af991a8cca0e4c66db1c2b343a assets/tutorialmod/models/item/sculk_bl
 2310b2106b70dd83a5f5a7fe1abb97a42668be74 assets/tutorialmod/models/item/sculk_crystal.json
 3b6bbebb8996316844178a4169888deb2b9236e9 assets/tutorialmod/models/item/sculk_slinger_upgrade_smithing_template.json
 e65e6b65d16137e8ca5819058b2d0457b1d5f80e assets/tutorialmod/models/item/smouldering_stone.json
-715b09e67aca1a83c796b6a546cbffbd060db6de assets/tutorialmod/models/item/unkempt_harold.json
 5af560641a16634921412460134006cf69c56ea9 assets/tutorialmod/models/item/voidwaker_upgrade_smithing_template.json
 55136cfae4c5a169d06b91854e5498d5f154d252 assets/tutorialmod/models/item/webweaver_upgrade_smithing_template.json
 908c38d6e56d9d1f875c0654f6b3bea917937f6b assets/tutorialmod/models/item/wither_skeleton_bone.json

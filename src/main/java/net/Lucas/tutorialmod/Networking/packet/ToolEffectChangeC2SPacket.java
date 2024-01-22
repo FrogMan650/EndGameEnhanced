@@ -13,7 +13,6 @@ import net.minecraftforge.network.NetworkEvent;
 import java.util.function.Supplier;
 
 public class ToolEffectChangeC2SPacket {
-    //TRANSLATE THESE INSTEAD FOR OFFICIAL IMPLEMENTATION
     String oneByOne = "tutorialmod.translated.destruction.1.x.1";
     String threeByThree = "tutorialmod.translated.destruction.3.x.3";
     int effectSetting = 0;

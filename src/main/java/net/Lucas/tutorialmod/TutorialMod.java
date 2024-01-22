@@ -9,6 +9,7 @@ import net.Lucas.tutorialmod.entity.client.TideBreakerRenderer;
 import net.Lucas.tutorialmod.item.ModCreativeModTabs;
 import net.Lucas.tutorialmod.item.ModItems;
 import net.Lucas.tutorialmod.loot.ModLootModifier;
+import net.Lucas.tutorialmod.loot.condition.InfernalPickaxeCondition;
 import net.Lucas.tutorialmod.util.ModItemProperties;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -17,6 +18,7 @@ import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.predicates.LootItemConditions;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -28,6 +30,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -62,8 +65,9 @@ public class TutorialMod
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            ModMessages.register();;
+            ModMessages.register();
         });
+
     }
 
     // Add the example block item to the building blocks tab

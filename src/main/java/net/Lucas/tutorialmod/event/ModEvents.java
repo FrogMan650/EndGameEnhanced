@@ -1,9 +1,13 @@
 package net.Lucas.tutorialmod.event;
 
+import com.mojang.datafixers.util.Pair;
 import net.Lucas.tutorialmod.TutorialMod;
 import net.Lucas.tutorialmod.item.ModItems;
+import net.Lucas.tutorialmod.blockFacing.PlayerBlockFacing;
+import net.Lucas.tutorialmod.blockFacing.PlayerBlockFacingProvider;
 import net.Lucas.tutorialmod.toolChange.PlayerToolChange;
 import net.Lucas.tutorialmod.toolChange.PlayerToolChangeProvider;
+import net.Lucas.tutorialmod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -15,6 +19,8 @@ import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.monster.ElderGuardian;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,10 +31,13 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 @Mod.EventBusSubscriber(modid = TutorialMod.MOD_ID)
 public class ModEvents {
@@ -39,8 +48,12 @@ public class ModEvents {
             if (!event.getObject().getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).isPresent()) {
                 event.addCapability(new ResourceLocation(TutorialMod.MOD_ID, "properties"), new PlayerToolChangeProvider());
             }
+            if (!event.getObject().getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).isPresent()) {
+                event.addCapability(new ResourceLocation(TutorialMod.MOD_ID, "properties_two"), new PlayerBlockFacingProvider());
+            }
         }
     }
+
     @SubscribeEvent
     public static void onPlayerCloned(PlayerEvent.Clone event) {
         if (event.isWasDeath()) {
@@ -49,11 +62,17 @@ public class ModEvents {
                     newStore.copyFrom(oldStore);
                 });
             });
+            event.getOriginal().getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(oldStore -> {
+                event.getOriginal().getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(newStore -> {
+                    newStore.copyFrom(oldStore);
+                });
+            });
         }
     }
     @SubscribeEvent
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
         event.register(PlayerToolChange.class);
+        event.register(PlayerBlockFacing.class);
     }
 
     @SubscribeEvent
@@ -196,7 +215,8 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void UnkemptHaroldTech(PlayerInteractEvent.LeftClickBlock event) {
+    public static void setPlayerBlockFacing(PlayerInteractEvent.LeftClickBlock event) {
+        //changes the player stored value for which face of the block youre facing
         BlockPos blockPos = event.getPos();
         BlockState blockState = event.getLevel().getBlockState(blockPos);
         Block block = blockState.getBlock();
@@ -207,265 +227,421 @@ public class ModEvents {
         int blockPosX = blockPos.getX();
         int blockPosY = blockPos.getY();
         int blockPosZ = blockPos.getZ();
-        player.getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).ifPresent(toolChange -> {
-            int currentToolChange = toolChange.getToolChange();
-            if (currentToolChange == 1) {
-                if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.UNKEMPT_HAROLD.get()) {
-                    if (level.getBlockState(blockPos).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                        //Statement below makes the blocks insta mine, id rather this not be the case but dono how to fix atm
-                        //perhaps doesnt matter because theyll insta mine with efficiency 5 anyways
-                        if (block.onDestroyedByPlayer(blockState, level, blockPos, player, true, block.getFluidState(blockState))) {
-                            if (facing.equals("north") || facing.equals("south")) {
-                                int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
-                                int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
-                                BlockPos blockToDestroy0 = new BlockPos(newblockX[0] + blockPosX, newblockY[0] + blockPosY, blockPosZ);
-                                BlockPos blockToDestroy1 = new BlockPos(newblockX[1] + blockPosX, newblockY[1] + blockPosY, blockPosZ);
-                                BlockPos blockToDestroy2 = new BlockPos(newblockX[2] + blockPosX, newblockY[2] + blockPosY, blockPosZ);
-                                BlockPos blockToDestroy3 = new BlockPos(newblockX[3] + blockPosX, newblockY[3] + blockPosY, blockPosZ);
-                                BlockPos blockToDestroy4 = new BlockPos(newblockX[4] + blockPosX, newblockY[4] + blockPosY, blockPosZ);
-                                BlockPos blockToDestroy5 = new BlockPos(newblockX[5] + blockPosX, newblockY[5] + blockPosY, blockPosZ);
-                                BlockPos blockToDestroy6 = new BlockPos(newblockX[6] + blockPosX, newblockY[6] + blockPosY, blockPosZ);
-                                BlockPos blockToDestroy7 = new BlockPos(newblockX[7] + blockPosX, newblockY[7] + blockPosY, blockPosZ);
-                                BlockPos blockToDestroy8 = new BlockPos(newblockX[8] + blockPosX, newblockY[8] + blockPosY, blockPosZ);
-                                if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy0, true);
-                                }
-                                if (level.getBlockState(blockToDestroy1).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy1, true);
-                                }
-                                if (level.getBlockState(blockToDestroy2).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy2, true);
-                                }
-                                if (level.getBlockState(blockToDestroy3).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy3, true);
-                                }
-                                if (level.getBlockState(blockToDestroy4).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy4, true);
-                                }
-                                if (level.getBlockState(blockToDestroy5).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy5, true);
-                                }
-                                if (level.getBlockState(blockToDestroy6).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy6, true);
-                                }
-                                if (level.getBlockState(blockToDestroy7).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy7, true);
-                                }
-//                                if (level.getBlockState(blockToDestroy8).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                                    level.destroyBlock(blockToDestroy8, true);
-//                                }
-                            }
-                            if (facing.equals("east") || facing.equals("west")) {
-                                int[] newblockZ = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
-                                int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
-                                BlockPos blockToDestroy0 = new BlockPos(blockPosX, newblockY[0] + blockPosY, newblockZ[0] + blockPosZ);
-                                BlockPos blockToDestroy1 = new BlockPos(blockPosX, newblockY[1] + blockPosY, newblockZ[1] + blockPosZ);
-                                BlockPos blockToDestroy2 = new BlockPos(blockPosX, newblockY[2] + blockPosY, newblockZ[2] + blockPosZ);
-                                BlockPos blockToDestroy3 = new BlockPos(blockPosX, newblockY[3] + blockPosY, newblockZ[3] + blockPosZ);
-                                BlockPos blockToDestroy4 = new BlockPos(blockPosX, newblockY[4] + blockPosY, newblockZ[4] + blockPosZ);
-                                BlockPos blockToDestroy5 = new BlockPos(blockPosX, newblockY[5] + blockPosY, newblockZ[5] + blockPosZ);
-                                BlockPos blockToDestroy6 = new BlockPos(blockPosX, newblockY[6] + blockPosY, newblockZ[6] + blockPosZ);
-                                BlockPos blockToDestroy7 = new BlockPos(blockPosX, newblockY[7] + blockPosY, newblockZ[7] + blockPosZ);
-                                BlockPos blockToDestroy8 = new BlockPos(blockPosX, newblockY[8] + blockPosY, newblockZ[8] + blockPosZ);
-                                if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy0, true);
-                                }
-                                if (level.getBlockState(blockToDestroy1).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy1, true);
-                                }
-                                if (level.getBlockState(blockToDestroy2).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy2, true);
-                                }
-                                if (level.getBlockState(blockToDestroy3).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy3, true);
-                                }
-                                if (level.getBlockState(blockToDestroy4).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy4, true);
-                                }
-                                if (level.getBlockState(blockToDestroy5).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy5, true);
-                                }
-                                if (level.getBlockState(blockToDestroy6).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy6, true);
-                                }
-                                if (level.getBlockState(blockToDestroy7).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy7, true);
-                                }
-//                                if (level.getBlockState(blockToDestroy8).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                                    level.destroyBlock(blockToDestroy8, true);
-//                                }
-                            }
-                            if (facing.equals("up") || facing.equals("down")) {
-                                int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
-                                int[] newblockZ = {1, 1, 1, 0, -1, -1, -1, 0, 0};
-                                BlockPos blockToDestroy0 = new BlockPos(newblockX[0] + blockPosX, blockPosY, newblockZ[0] + blockPosZ);
-                                BlockPos blockToDestroy1 = new BlockPos(newblockX[1] + blockPosX, blockPosY, newblockZ[1] + blockPosZ);
-                                BlockPos blockToDestroy2 = new BlockPos(newblockX[2] + blockPosX, blockPosY, newblockZ[2] + blockPosZ);
-                                BlockPos blockToDestroy3 = new BlockPos(newblockX[3] + blockPosX, blockPosY, newblockZ[3] + blockPosZ);
-                                BlockPos blockToDestroy4 = new BlockPos(newblockX[4] + blockPosX, blockPosY, newblockZ[4] + blockPosZ);
-                                BlockPos blockToDestroy5 = new BlockPos(newblockX[5] + blockPosX, blockPosY, newblockZ[5] + blockPosZ);
-                                BlockPos blockToDestroy6 = new BlockPos(newblockX[6] + blockPosX, blockPosY, newblockZ[6] + blockPosZ);
-                                BlockPos blockToDestroy7 = new BlockPos(newblockX[7] + blockPosX, blockPosY, newblockZ[7] + blockPosZ);
-                                BlockPos blockToDestroy8 = new BlockPos(newblockX[8] + blockPosX, blockPosY, newblockZ[8] + blockPosZ);
-                                if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy0, true);
-                                }
-                                if (level.getBlockState(blockToDestroy1).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy1, true);
-                                }
-                                if (level.getBlockState(blockToDestroy2).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy2, true);
-                                }
-                                if (level.getBlockState(blockToDestroy3).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy3, true);
-                                }
-                                if (level.getBlockState(blockToDestroy4).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy4, true);
-                                }
-                                if (level.getBlockState(blockToDestroy5).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy5, true);
-                                }
-                                if (level.getBlockState(blockToDestroy6).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy6, true);
-                                }
-                                if (level.getBlockState(blockToDestroy7).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy7, true);
-                                }
-//                                if (level.getBlockState(blockToDestroy8).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                                    level.destroyBlock(blockToDestroy8, true);
-//                                }
-                            }
-                        }
-                    }
-                }
+        player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
+            if (facing.equals("up") || facing.equals("down")) {
+                blockFacing.changeToZero();
+            }
+            if (facing.equals("north") || facing.equals("south")) {
+                blockFacing.changeToOne();
+            }
+            if (facing.equals("east") || facing.equals("west")) {
+                blockFacing.changeToTwo();
             }
         });
-//        if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.UNKEMPT_HAROLD.get()) {
-//            if (level.getBlockState(blockPos).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                if (block.onDestroyedByPlayer(blockState, level, blockPos, player, true, block.getFluidState(blockState))) {
-//                    if (facing.equals("north") || facing.equals("south")) {
-//                        int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
-//                        int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
-//                        BlockPos blockToDestroy0 = new BlockPos(newblockX[0] + blockPosX, newblockY[0] + blockPosY, blockPosZ);
-//                        BlockPos blockToDestroy1 = new BlockPos(newblockX[1] + blockPosX, newblockY[1] + blockPosY, blockPosZ);
-//                        BlockPos blockToDestroy2 = new BlockPos(newblockX[2] + blockPosX, newblockY[2] + blockPosY, blockPosZ);
-//                        BlockPos blockToDestroy3 = new BlockPos(newblockX[3] + blockPosX, newblockY[3] + blockPosY, blockPosZ);
-//                        BlockPos blockToDestroy4 = new BlockPos(newblockX[4] + blockPosX, newblockY[4] + blockPosY, blockPosZ);
-//                        BlockPos blockToDestroy5 = new BlockPos(newblockX[5] + blockPosX, newblockY[5] + blockPosY, blockPosZ);
-//                        BlockPos blockToDestroy6 = new BlockPos(newblockX[6] + blockPosX, newblockY[6] + blockPosY, blockPosZ);
-//                        BlockPos blockToDestroy7 = new BlockPos(newblockX[7] + blockPosX, newblockY[7] + blockPosY, blockPosZ);
-//                        BlockPos blockToDestroy8 = new BlockPos(newblockX[8] + blockPosX, newblockY[8] + blockPosY, blockPosZ);
-//                        if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy0, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy1).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy1, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy2).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy2, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy3).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy3, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy4).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy4, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy5).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy5, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy6).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy6, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy7).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy7, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy8).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy8, true);
-//                        }
-//                    }
-//                    if (facing.equals("east") || facing.equals("west")) {
-//                        int[] newblockZ = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
-//                        int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
-//                        BlockPos blockToDestroy0 = new BlockPos(blockPosX, newblockY[0] + blockPosY, newblockZ[0] + blockPosZ);
-//                        BlockPos blockToDestroy1 = new BlockPos(blockPosX, newblockY[1] + blockPosY, newblockZ[1] + blockPosZ);
-//                        BlockPos blockToDestroy2 = new BlockPos(blockPosX, newblockY[2] + blockPosY, newblockZ[2] + blockPosZ);
-//                        BlockPos blockToDestroy3 = new BlockPos(blockPosX, newblockY[3] + blockPosY, newblockZ[3] + blockPosZ);
-//                        BlockPos blockToDestroy4 = new BlockPos(blockPosX, newblockY[4] + blockPosY, newblockZ[4] + blockPosZ);
-//                        BlockPos blockToDestroy5 = new BlockPos(blockPosX, newblockY[5] + blockPosY, newblockZ[5] + blockPosZ);
-//                        BlockPos blockToDestroy6 = new BlockPos(blockPosX, newblockY[6] + blockPosY, newblockZ[6] + blockPosZ);
-//                        BlockPos blockToDestroy7 = new BlockPos(blockPosX, newblockY[7] + blockPosY, newblockZ[7] + blockPosZ);
-//                        BlockPos blockToDestroy8 = new BlockPos(blockPosX, newblockY[8] + blockPosY, newblockZ[8] + blockPosZ);
-//                        if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy0, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy1).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy1, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy2).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy2, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy3).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy3, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy4).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy4, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy5).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy5, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy6).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy6, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy7).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy7, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy8).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy8, true);
-//                        }
-//                    }
-//                    if (facing.equals("up") || facing.equals("down")) {
-//                        int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
-//                        int[] newblockZ = {1, 1, 1, 0, -1, -1, -1, 0, 0};
-//                        BlockPos blockToDestroy0 = new BlockPos(newblockX[0] + blockPosX, blockPosY, newblockZ[0] + blockPosZ);
-//                        BlockPos blockToDestroy1 = new BlockPos(newblockX[1] + blockPosX, blockPosY, newblockZ[1] + blockPosZ);
-//                        BlockPos blockToDestroy2 = new BlockPos(newblockX[2] + blockPosX, blockPosY, newblockZ[2] + blockPosZ);
-//                        BlockPos blockToDestroy3 = new BlockPos(newblockX[3] + blockPosX, blockPosY, newblockZ[3] + blockPosZ);
-//                        BlockPos blockToDestroy4 = new BlockPos(newblockX[4] + blockPosX, blockPosY, newblockZ[4] + blockPosZ);
-//                        BlockPos blockToDestroy5 = new BlockPos(newblockX[5] + blockPosX, blockPosY, newblockZ[5] + blockPosZ);
-//                        BlockPos blockToDestroy6 = new BlockPos(newblockX[6] + blockPosX, blockPosY, newblockZ[6] + blockPosZ);
-//                        BlockPos blockToDestroy7 = new BlockPos(newblockX[7] + blockPosX, blockPosY, newblockZ[7] + blockPosZ);
-//                        BlockPos blockToDestroy8 = new BlockPos(newblockX[8] + blockPosX, blockPosY, newblockZ[8] + blockPosZ);
-//                        if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy0, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy1).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy1, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy2).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy2, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy3).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy3, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy4).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy4, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy5).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy5, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy6).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy6, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy7).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy7, true);
-//                        }
-//                        if (level.getBlockState(blockToDestroy8).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-//                            level.destroyBlock(blockToDestroy8, true);
+//        player.getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).ifPresent(toolChange -> {
+//            int currentToolChange = toolChange.getToolChange();
+//            if (currentToolChange == 1) {
+//                if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.UNKEMPT_HAROLD.get()) {
+//                    if (level.getBlockState(blockPos).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                        //Statement below makes the blocks insta mine, id rather this not be the case but dono how to fix atm
+//                        //perhaps doesnt matter because theyll insta mine with efficiency 5 anyways
+//                        if (block.onDestroyedByPlayer(blockState, level, blockPos, player, true, block.getFluidState(blockState))) {
+//                            if (facing.equals("north") || facing.equals("south")) {
+//                                int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+//                                int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+//                                BlockPos blockToDestroy0 = new BlockPos(newblockX[0] + blockPosX, newblockY[0] + blockPosY, blockPosZ);
+//                                BlockPos blockToDestroy1 = new BlockPos(newblockX[1] + blockPosX, newblockY[1] + blockPosY, blockPosZ);
+//                                BlockPos blockToDestroy2 = new BlockPos(newblockX[2] + blockPosX, newblockY[2] + blockPosY, blockPosZ);
+//                                BlockPos blockToDestroy3 = new BlockPos(newblockX[3] + blockPosX, newblockY[3] + blockPosY, blockPosZ);
+//                                BlockPos blockToDestroy4 = new BlockPos(newblockX[4] + blockPosX, newblockY[4] + blockPosY, blockPosZ);
+//                                BlockPos blockToDestroy5 = new BlockPos(newblockX[5] + blockPosX, newblockY[5] + blockPosY, blockPosZ);
+//                                BlockPos blockToDestroy6 = new BlockPos(newblockX[6] + blockPosX, newblockY[6] + blockPosY, blockPosZ);
+//                                BlockPos blockToDestroy7 = new BlockPos(newblockX[7] + blockPosX, newblockY[7] + blockPosY, blockPosZ);
+//                                BlockPos blockToDestroy8 = new BlockPos(newblockX[8] + blockPosX, newblockY[8] + blockPosY, blockPosZ);
+//                                if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy0, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy1).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy1, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy2).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy2, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy3).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy3, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy4).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy4, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy5).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy5, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy6).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy6, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy7).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy7, true);
+//                                }
+////                                if (level.getBlockState(blockToDestroy8).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+////                                    level.destroyBlock(blockToDestroy8, true);
+////                                }
+//                            }
+//                            if (facing.equals("east") || facing.equals("west")) {
+//                                int[] newblockZ = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+//                                int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+//                                BlockPos blockToDestroy0 = new BlockPos(blockPosX, newblockY[0] + blockPosY, newblockZ[0] + blockPosZ);
+//                                BlockPos blockToDestroy1 = new BlockPos(blockPosX, newblockY[1] + blockPosY, newblockZ[1] + blockPosZ);
+//                                BlockPos blockToDestroy2 = new BlockPos(blockPosX, newblockY[2] + blockPosY, newblockZ[2] + blockPosZ);
+//                                BlockPos blockToDestroy3 = new BlockPos(blockPosX, newblockY[3] + blockPosY, newblockZ[3] + blockPosZ);
+//                                BlockPos blockToDestroy4 = new BlockPos(blockPosX, newblockY[4] + blockPosY, newblockZ[4] + blockPosZ);
+//                                BlockPos blockToDestroy5 = new BlockPos(blockPosX, newblockY[5] + blockPosY, newblockZ[5] + blockPosZ);
+//                                BlockPos blockToDestroy6 = new BlockPos(blockPosX, newblockY[6] + blockPosY, newblockZ[6] + blockPosZ);
+//                                BlockPos blockToDestroy7 = new BlockPos(blockPosX, newblockY[7] + blockPosY, newblockZ[7] + blockPosZ);
+//                                BlockPos blockToDestroy8 = new BlockPos(blockPosX, newblockY[8] + blockPosY, newblockZ[8] + blockPosZ);
+//                                if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy0, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy1).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy1, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy2).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy2, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy3).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy3, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy4).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy4, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy5).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy5, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy6).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy6, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy7).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy7, true);
+//                                }
+////                                if (level.getBlockState(blockToDestroy8).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+////                                    level.destroyBlock(blockToDestroy8, true);
+////                                }
+//                            }
+//                            if (facing.equals("up") || facing.equals("down")) {
+//                                int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+//                                int[] newblockZ = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+//                                BlockPos blockToDestroy0 = new BlockPos(newblockX[0] + blockPosX, blockPosY, newblockZ[0] + blockPosZ);
+//                                BlockPos blockToDestroy1 = new BlockPos(newblockX[1] + blockPosX, blockPosY, newblockZ[1] + blockPosZ);
+//                                BlockPos blockToDestroy2 = new BlockPos(newblockX[2] + blockPosX, blockPosY, newblockZ[2] + blockPosZ);
+//                                BlockPos blockToDestroy3 = new BlockPos(newblockX[3] + blockPosX, blockPosY, newblockZ[3] + blockPosZ);
+//                                BlockPos blockToDestroy4 = new BlockPos(newblockX[4] + blockPosX, blockPosY, newblockZ[4] + blockPosZ);
+//                                BlockPos blockToDestroy5 = new BlockPos(newblockX[5] + blockPosX, blockPosY, newblockZ[5] + blockPosZ);
+//                                BlockPos blockToDestroy6 = new BlockPos(newblockX[6] + blockPosX, blockPosY, newblockZ[6] + blockPosZ);
+//                                BlockPos blockToDestroy7 = new BlockPos(newblockX[7] + blockPosX, blockPosY, newblockZ[7] + blockPosZ);
+//                                BlockPos blockToDestroy8 = new BlockPos(newblockX[8] + blockPosX, blockPosY, newblockZ[8] + blockPosZ);
+//                                if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy0, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy1).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy1, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy2).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy2, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy3).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy3, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy4).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy4, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy5).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy5, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy6).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy6, true);
+//                                }
+//                                if (level.getBlockState(blockToDestroy7).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+//                                    level.destroyBlock(blockToDestroy7, true);
+//                                }
+////                                if (level.getBlockState(blockToDestroy8).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+////                                    level.destroyBlock(blockToDestroy8, true);
+////                                }
+//                            }
 //                        }
 //                    }
 //                }
 //            }
-//        }
+//        });
     }
+    @SubscribeEvent
+    public static void threeByThreeBreaking(BlockEvent.BreakEvent event) {
+        //determines if/how inevitable tools should act, based on the destruction setting
+        BlockPos blockPos = event.getPos();
+        BlockState blockState = event.getLevel().getBlockState(blockPos);
+        Block block = blockState.getBlock();
+        Level level = (Level) event.getLevel();
+        Player player = event.getPlayer();
+        int blockPosX = blockPos.getX();
+        int blockPosY = blockPos.getY();
+        int blockPosZ = blockPos.getZ();
+        player.getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).ifPresent(toolChange -> {
+            int currentToolChange = toolChange.getToolChange();
+            if (currentToolChange == 1) {
+                if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.UNKEMPT_HAROLD.get() && level.getBlockState(blockPos).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                    player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
+                        int facing = blockFacing.getBlockFacing();
+                        if (facing == 1) {
+                            int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+                            int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+                            BlockPos blockToDestroy0 = new BlockPos(newblockX[0] + blockPosX, newblockY[0] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy1 = new BlockPos(newblockX[1] + blockPosX, newblockY[1] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy2 = new BlockPos(newblockX[2] + blockPosX, newblockY[2] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy3 = new BlockPos(newblockX[3] + blockPosX, newblockY[3] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy4 = new BlockPos(newblockX[4] + blockPosX, newblockY[4] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy5 = new BlockPos(newblockX[5] + blockPosX, newblockY[5] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy6 = new BlockPos(newblockX[6] + blockPosX, newblockY[6] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy7 = new BlockPos(newblockX[7] + blockPosX, newblockY[7] + blockPosY, blockPosZ);
+                            if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy0, true);
+                            }
+                            if (level.getBlockState(blockToDestroy1).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy1, true);
+                            }
+                            if (level.getBlockState(blockToDestroy2).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy2, true);
+                            }
+                            if (level.getBlockState(blockToDestroy3).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy3, true);
+                            }
+                            if (level.getBlockState(blockToDestroy4).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy4, true);
+                            }
+                            if (level.getBlockState(blockToDestroy5).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy5, true);
+                            }
+                            if (level.getBlockState(blockToDestroy6).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy6, true);
+                            }
+                            if (level.getBlockState(blockToDestroy7).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy7, true);
+                            }
+                        }
+                        if (facing == 2) {
+                            int[] newblockZ = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+                            int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+                            BlockPos blockToDestroy0 = new BlockPos(blockPosX, newblockY[0] + blockPosY, newblockZ[0] + blockPosZ);
+                            BlockPos blockToDestroy1 = new BlockPos(blockPosX, newblockY[1] + blockPosY, newblockZ[1] + blockPosZ);
+                            BlockPos blockToDestroy2 = new BlockPos(blockPosX, newblockY[2] + blockPosY, newblockZ[2] + blockPosZ);
+                            BlockPos blockToDestroy3 = new BlockPos(blockPosX, newblockY[3] + blockPosY, newblockZ[3] + blockPosZ);
+                            BlockPos blockToDestroy4 = new BlockPos(blockPosX, newblockY[4] + blockPosY, newblockZ[4] + blockPosZ);
+                            BlockPos blockToDestroy5 = new BlockPos(blockPosX, newblockY[5] + blockPosY, newblockZ[5] + blockPosZ);
+                            BlockPos blockToDestroy6 = new BlockPos(blockPosX, newblockY[6] + blockPosY, newblockZ[6] + blockPosZ);
+                            BlockPos blockToDestroy7 = new BlockPos(blockPosX, newblockY[7] + blockPosY, newblockZ[7] + blockPosZ);
+                            if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy0, true);
+                            }
+                            if (level.getBlockState(blockToDestroy1).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy1, true);
+                            }
+                            if (level.getBlockState(blockToDestroy2).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy2, true);
+                            }
+                            if (level.getBlockState(blockToDestroy3).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy3, true);
+                            }
+                            if (level.getBlockState(blockToDestroy4).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy4, true);
+                            }
+                            if (level.getBlockState(blockToDestroy5).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy5, true);
+                            }
+                            if (level.getBlockState(blockToDestroy6).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy6, true);
+                            }
+                            if (level.getBlockState(blockToDestroy7).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy7, true);
+                            }
+                        }
+                        if (facing == 0) {
+                            int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+                            int[] newblockZ = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+                            BlockPos blockToDestroy0 = new BlockPos(newblockX[0] + blockPosX, blockPosY, newblockZ[0] + blockPosZ);
+                            BlockPos blockToDestroy1 = new BlockPos(newblockX[1] + blockPosX, blockPosY, newblockZ[1] + blockPosZ);
+                            BlockPos blockToDestroy2 = new BlockPos(newblockX[2] + blockPosX, blockPosY, newblockZ[2] + blockPosZ);
+                            BlockPos blockToDestroy3 = new BlockPos(newblockX[3] + blockPosX, blockPosY, newblockZ[3] + blockPosZ);
+                            BlockPos blockToDestroy4 = new BlockPos(newblockX[4] + blockPosX, blockPosY, newblockZ[4] + blockPosZ);
+                            BlockPos blockToDestroy5 = new BlockPos(newblockX[5] + blockPosX, blockPosY, newblockZ[5] + blockPosZ);
+                            BlockPos blockToDestroy6 = new BlockPos(newblockX[6] + blockPosX, blockPosY, newblockZ[6] + blockPosZ);
+                            BlockPos blockToDestroy7 = new BlockPos(newblockX[7] + blockPosX, blockPosY, newblockZ[7] + blockPosZ);
+                            if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy0, true);
+                            }
+                            if (level.getBlockState(blockToDestroy1).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy1, true);
+                            }
+                            if (level.getBlockState(blockToDestroy2).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy2, true);
+                            }
+                            if (level.getBlockState(blockToDestroy3).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy3, true);
+                            }
+                            if (level.getBlockState(blockToDestroy4).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy4, true);
+                            }
+                            if (level.getBlockState(blockToDestroy5).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy5, true);
+                            }
+                            if (level.getBlockState(blockToDestroy6).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy6, true);
+                            }
+                            if (level.getBlockState(blockToDestroy7).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                                level.destroyBlock(blockToDestroy7, true);
+                            }
+                        }
+                    });
+                }
+                if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.INFERNAL_PICKAXE.get() && level.getBlockState(blockPos).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                    player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
+                        int facing = blockFacing.getBlockFacing();
+                        if (facing == 1) {
+                            int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+                            int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+                            BlockPos blockToDestroy0 = new BlockPos(newblockX[0] + blockPosX, newblockY[0] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy1 = new BlockPos(newblockX[1] + blockPosX, newblockY[1] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy2 = new BlockPos(newblockX[2] + blockPosX, newblockY[2] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy3 = new BlockPos(newblockX[3] + blockPosX, newblockY[3] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy4 = new BlockPos(newblockX[4] + blockPosX, newblockY[4] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy5 = new BlockPos(newblockX[5] + blockPosX, newblockY[5] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy6 = new BlockPos(newblockX[6] + blockPosX, newblockY[6] + blockPosY, blockPosZ);
+                            BlockPos blockToDestroy7 = new BlockPos(newblockX[7] + blockPosX, newblockY[7] + blockPosY, blockPosZ);
+                            if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy0, true);
+                            }
+                            if (level.getBlockState(blockToDestroy1).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy1, true);
+                            }
+                            if (level.getBlockState(blockToDestroy2).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy2, true);
+                            }
+                            if (level.getBlockState(blockToDestroy3).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy3, true);
+                            }
+                            if (level.getBlockState(blockToDestroy4).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy4, true);
+                            }
+                            if (level.getBlockState(blockToDestroy5).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy5, true);
+                            }
+                            if (level.getBlockState(blockToDestroy6).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy6, true);
+                            }
+                            if (level.getBlockState(blockToDestroy7).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy7, true);
+                            }
+                        }
+                        if (facing == 2) {
+                            int[] newblockZ = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+                            int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+                            BlockPos blockToDestroy0 = new BlockPos(blockPosX, newblockY[0] + blockPosY, newblockZ[0] + blockPosZ);
+                            BlockPos blockToDestroy1 = new BlockPos(blockPosX, newblockY[1] + blockPosY, newblockZ[1] + blockPosZ);
+                            BlockPos blockToDestroy2 = new BlockPos(blockPosX, newblockY[2] + blockPosY, newblockZ[2] + blockPosZ);
+                            BlockPos blockToDestroy3 = new BlockPos(blockPosX, newblockY[3] + blockPosY, newblockZ[3] + blockPosZ);
+                            BlockPos blockToDestroy4 = new BlockPos(blockPosX, newblockY[4] + blockPosY, newblockZ[4] + blockPosZ);
+                            BlockPos blockToDestroy5 = new BlockPos(blockPosX, newblockY[5] + blockPosY, newblockZ[5] + blockPosZ);
+                            BlockPos blockToDestroy6 = new BlockPos(blockPosX, newblockY[6] + blockPosY, newblockZ[6] + blockPosZ);
+                            BlockPos blockToDestroy7 = new BlockPos(blockPosX, newblockY[7] + blockPosY, newblockZ[7] + blockPosZ);
+                            if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy0, true);
+                            }
+                            if (level.getBlockState(blockToDestroy1).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy1, true);
+                            }
+                            if (level.getBlockState(blockToDestroy2).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy2, true);
+                            }
+                            if (level.getBlockState(blockToDestroy3).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy3, true);
+                            }
+                            if (level.getBlockState(blockToDestroy4).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy4, true);
+                            }
+                            if (level.getBlockState(blockToDestroy5).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy5, true);
+                            }
+                            if (level.getBlockState(blockToDestroy6).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy6, true);
+                            }
+                            if (level.getBlockState(blockToDestroy7).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy7, true);
+                            }
+                        }
+                        if (facing == 0) {
+                            int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+                            int[] newblockZ = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+                            BlockPos blockToDestroy0 = new BlockPos(newblockX[0] + blockPosX, blockPosY, newblockZ[0] + blockPosZ);
+                            BlockPos blockToDestroy1 = new BlockPos(newblockX[1] + blockPosX, blockPosY, newblockZ[1] + blockPosZ);
+                            BlockPos blockToDestroy2 = new BlockPos(newblockX[2] + blockPosX, blockPosY, newblockZ[2] + blockPosZ);
+                            BlockPos blockToDestroy3 = new BlockPos(newblockX[3] + blockPosX, blockPosY, newblockZ[3] + blockPosZ);
+                            BlockPos blockToDestroy4 = new BlockPos(newblockX[4] + blockPosX, blockPosY, newblockZ[4] + blockPosZ);
+                            BlockPos blockToDestroy5 = new BlockPos(newblockX[5] + blockPosX, blockPosY, newblockZ[5] + blockPosZ);
+                            BlockPos blockToDestroy6 = new BlockPos(newblockX[6] + blockPosX, blockPosY, newblockZ[6] + blockPosZ);
+                            BlockPos blockToDestroy7 = new BlockPos(newblockX[7] + blockPosX, blockPosY, newblockZ[7] + blockPosZ);
+                            if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy0, true);
+                            }
+                            if (level.getBlockState(blockToDestroy1).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy1, true);
+                            }
+                            if (level.getBlockState(blockToDestroy2).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy2, true);
+                            }
+                            if (level.getBlockState(blockToDestroy3).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy3, true);
+                            }
+                            if (level.getBlockState(blockToDestroy4).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy4, true);
+                            }
+                            if (level.getBlockState(blockToDestroy5).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy5, true);
+                            }
+                            if (level.getBlockState(blockToDestroy6).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy6, true);
+                            }
+                            if (level.getBlockState(blockToDestroy7).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
+                                level.destroyBlock(blockToDestroy7, true);
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    }
+//    @SubscribeEvent
+//    public static void threeByThreeTill(BlockEvent.BlockToolModificationEvent event) {
+//        BlockPos blockPos = event.getPos();
+//        BlockState blockState = event.getLevel().getBlockState(blockPos);
+//        Block block = blockState.getBlock();
+//        Level level = (Level) event.getLevel();
+//        Player player = event.getPlayer();
+//        int blockPosX = blockPos.getX();
+//        int blockPosY = blockPos.getY();
+//        int blockPosZ = blockPos.getZ();
+//        player.getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).ifPresent(toolChange -> {
+//            int currentToolChange = toolChange.getToolChange();
+//            int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+//            int[] newblockZ = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+//            BlockPos blockToTill0 = new BlockPos(newblockX[0] + blockPosX, blockPosY, newblockZ[0] + blockPosZ);
+//            BlockPos blockToTill1 = new BlockPos(newblockX[1] + blockPosX, blockPosY, newblockZ[1] + blockPosZ);
+//            BlockPos blockToTill2 = new BlockPos(newblockX[2] + blockPosX, blockPosY, newblockZ[2] + blockPosZ);
+//            BlockPos blockToTill3 = new BlockPos(newblockX[3] + blockPosX, blockPosY, newblockZ[3] + blockPosZ);
+//            BlockPos blockToTill4 = new BlockPos(newblockX[4] + blockPosX, blockPosY, newblockZ[4] + blockPosZ);
+//            BlockPos blockToTill5 = new BlockPos(newblockX[5] + blockPosX, blockPosY, newblockZ[5] + blockPosZ);
+//            BlockPos blockToTill6 = new BlockPos(newblockX[6] + blockPosX, blockPosY, newblockZ[6] + blockPosZ);
+//            BlockPos blockToTill7 = new BlockPos(newblockX[7] + blockPosX, blockPosY, newblockZ[7] + blockPosZ);
+//            if (currentToolChange == 1) {
+//                if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.SCYTHE_OF_VITUR.get()) {
+//                }
+//            }
+//        });
+//    }
 }
 

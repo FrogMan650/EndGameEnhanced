@@ -26,10 +26,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         //this adds a mod block and a tag to the tag: METAL_DETECTOR_VALUABLES
         this.tag(ModTags.Blocks.METAL_DETECTOR_VALUABLES).add(ModBlocks.SAPPHIRE_ORE.get()).addTag(Tags.Blocks.ORES);
 
-        this.tag(ModTags.Blocks.UNKEMPT_HAROLD_SHOVELABLES).add(Blocks.CLAY).add(Blocks.COARSE_DIRT).add(Blocks.DIRT)
-                .add(Blocks.DIRT_PATH).add(Blocks.FARMLAND).add(Blocks.GRASS_BLOCK).add(Blocks.GRAVEL).add(Blocks.RED_SAND)
-                .add(Blocks.SOUL_SAND).add(Blocks.SOUL_SOIL).add(Blocks.SAND).add(Blocks.MUD).add(Blocks.MYCELIUM)
-                .add(Blocks.PODZOL).add(Blocks.ROOTED_DIRT).add(Blocks.ROOTED_DIRT);
+        this.tag(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES).add(Blocks.STONE).add(Blocks.COBBLESTONE).add(Blocks.DEEPSLATE)
+                .add(Blocks.NETHERRACK).add(Blocks.END_STONE).add(Blocks.COBBLED_DEEPSLATE).add(Blocks.ANDESITE).add(Blocks.DIORITE)
+                .add(Blocks.GRANITE).add(Blocks.BLACKSTONE);
 
         //this adds 3 mod blocks to the tag: MINEABLE_WITH_PICKAXE
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.SAPPHIRE_ORE.get()
