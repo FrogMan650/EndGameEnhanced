@@ -136,6 +136,16 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.SCULK_SLINGER_UPGRADE_SMITHING_TEMPLATE.get());
                         pOutput.accept(ModItems.PURE_SPIDER_ESSENCE.get());
                         pOutput.accept(ModItems.WEBWEAVER_UPGRADE_SMITHING_TEMPLATE.get());
+                        pOutput.accept(ModItems.PURE_OCEAN_ESSENCE.get());
+                        pOutput.accept(ModItems.TIDE_BREAKER_UPGRADE_SMITHING_TEMPLATE.get());
+                        pOutput.accept(ModItems.PURE_FIRE_ESSENCE.get());
+                        pOutput.accept(ModItems.INFERNAL_PICKAXE_UPGRADE_SMITHING_TEMPLATE.get());
+                        pOutput.accept(ModItems.PURE_EXPLOSIVE_ESSENCE.get());
+                        pOutput.accept(ModItems.UNKEMPT_HAROLD_UPGRADE_SMITHING_TEMPLATE.get());
+                        pOutput.accept(ModItems.PURE_NATURE_ESSENCE.get());
+                        pOutput.accept(ModItems.LEVIATHANS_AXE_UPGRADE_SMITHING_TEMPLATE.get());
+                        pOutput.accept(ModItems.PURE_BLOOD_ESSENCE.get());
+                        pOutput.accept(ModItems.SCYTHE_OF_VITUR_UPGRADE_SMITHING_TEMPLATE.get());
 
 
 

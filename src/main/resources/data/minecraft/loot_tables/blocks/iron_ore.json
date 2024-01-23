@@ -28,6 +28,19 @@
             },
             {
               "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "killer",
+                  "predicate": {
+                    "equipment": {
+                      "mainhand": {
+                        "item": "minecraft:iron_pickaxe"
+                      }
+                    }
+                  }
+                }
+              ],
               "functions": [
                 {
                   "enchantment": "minecraft:fortune",

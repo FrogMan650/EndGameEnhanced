@@ -174,6 +174,8 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.BOOTS, new Item.Properties()));
     public static final RegistryObject<Item> BASIC_ESSENCE = ITEMS.register("basic_essence",
             () -> new Item(new Item.Properties()));
+
+
     public static final RegistryObject<Item> NETHERRATH_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("netherrath_upgrade_smithing_template", CustomSmithingTemplateItem::createNetherrathUpgradeTemplate);
     public static final RegistryObject<Item> PURE_NETHER_ESSENCE = ITEMS.register("pure_nether_essence",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
@@ -189,22 +191,21 @@ public class ModItems {
     public static final RegistryObject<Item> WEBWEAVER_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("webweaver_upgrade_smithing_template", CustomSmithingTemplateItem::createWebweaverUpgradeTemplate);
     public static final RegistryObject<Item> PURE_SPIDER_ESSENCE = ITEMS.register("pure_spider_essence",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static final RegistryObject<Item> TIDE_BREAKER_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("tide_breaker_upgrade_smithing_template", CustomSmithingTemplateItem::createTideBreakerUpgradeTemplate);
+    public static final RegistryObject<Item> PURE_OCEAN_ESSENCE = ITEMS.register("pure_ocean_essence",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> INFERNAL_PICKAXE_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("infernal_pickaxe_upgrade_smithing_template", CustomSmithingTemplateItem::createInfernalPickaxeUpgradeTemplate);
+    public static final RegistryObject<Item> PURE_FIRE_ESSENCE = ITEMS.register("pure_fire_essence",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> UNKEMPT_HAROLD_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("unkempt_harold_upgrade_smithing_template", CustomSmithingTemplateItem::createUnkemptHaroldUpgradeTemplate);
+    public static final RegistryObject<Item> PURE_EXPLOSIVE_ESSENCE = ITEMS.register("pure_explosive_essence",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> LEVIATHANS_AXE_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("leviathans_axe_upgrade_smithing_template", CustomSmithingTemplateItem::createLeviathansAxeUpgradeTemplate);
+    public static final RegistryObject<Item> PURE_NATURE_ESSENCE = ITEMS.register("pure_nature_essence",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> SCYTHE_OF_VITUR_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("scythe_of_vitur_upgrade_smithing_template", CustomSmithingTemplateItem::createScytheOfViturUpgradeTemplate);
+    public static final RegistryObject<Item> PURE_BLOOD_ESSENCE = ITEMS.register("pure_blood_essence",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
 
 
 

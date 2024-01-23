@@ -76,6 +76,26 @@
   "item.tutorialmod.pure_spider_essence": "Pure Spider Essence",
   "upgrade.minecraft.inevitable_bow_upgrade": "Webweaver Upgrade",
   "item.tutorialmod.webweaver_upgrade_smithing_template": "Webweaver Upgrade Smithing Template",
+  "item.tutorialmod.pure_ocean_essence": "Pure Ocean Essence",
+  "upgrade.minecraft.inevitable_trident_upgrade": "Tide Breaker Upgrade",
+  "item.tutorialmod.tide_breaker_upgrade_smithing_template": "Tide Breaker Upgrade Smithing Template",
+  "item.tutorialmod.pure_fire_essence": "Pure Fire Essence",
+  "upgrade.minecraft.inevitable_pickaxe_upgrade": "Infernal Pickaxe Upgrade",
+  "item.tutorialmod.infernal_pickaxe_upgrade_smithing_template": "Infernal Pickaxe Upgrade Smithing Template",
+  "item.tutorialmod.pure_explosive_essence": "Pure Explosive Essence",
+  "upgrade.minecraft.inevitable_shovel_upgrade": "Unkempt Harold Upgrade",
+  "item.tutorialmod.unkempt_harold_upgrade_smithing_template": "Unkempt Harold Upgrade Smithing Template",
+  "item.tutorialmod.pure_nature_essence": "Pure Nature Essence",
+  "upgrade.minecraft.inevitable_axe_upgrade": "Leviathan's Axe Upgrade",
+  "item.tutorialmod.leviathans_axe_upgrade_smithing_template": "Leviathan's Axe Upgrade Smithing Template",
+  "item.tutorialmod.pure_blood_essence": "Pure Blood Essence",
+  "upgrade.minecraft.inevitable_hoe_upgrade": "Sanguine Scythe Upgrade",
+  "item.tutorialmod.scythe_of_vitur_upgrade_smithing_template": "Sanguine Scythe Upgrade Smithing Template",
+
+
+
+
+
 
   "item.minecraft.sword_lore.grey_text_arrow": "When in Main Hand:",
   "item.minecraft.sword_lore.green_text_arrow.melee.0": " 12 Damage",
@@ -241,6 +261,11 @@
   "item.minecraft.smithing_template.inevitable_upgrade.sword": "Netherite Sword",
   "item.minecraft.smithing_template.inevitable_upgrade.crossbow": "Crossbow",
   "item.minecraft.smithing_template.inevitable_upgrade.bow": "Bow",
+  "item.minecraft.smithing_template.inevitable_upgrade.trident": "Trident",
+  "item.minecraft.smithing_template.inevitable_upgrade.pickaxe": "Netherite Pickaxe",
+  "item.minecraft.smithing_template.inevitable_upgrade.shovel": "Netherite Shovel",
+  "item.minecraft.smithing_template.inevitable_upgrade.axe": "Netherite Axe",
+  "item.minecraft.smithing_template.inevitable_upgrade.hoe": "Netherite Hoe",
 
   "key.category.tutorialmod.tutorial": "Tutorial Mod",
   "key.tutorialmod.change_tool_effect": "Change Tool Effect"

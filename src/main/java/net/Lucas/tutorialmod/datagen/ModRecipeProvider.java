@@ -344,6 +344,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         netheriteSmithing(pWriter, ModItems.SCULK_BRINGER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_SCULK_ESSENCE.get(), RecipeCategory.MISC, ModItems.SCULK_BLADE.get());
         netheriteSmithing(pWriter, ModItems.SCULK_SLINGER_UPGRADE_SMITHING_TEMPLATE.get(), Items.CROSSBOW, ModItems.PURE_EVIL_ESSENCE.get(), RecipeCategory.MISC, ModItems.SCULK_SLINGER.get());
         netheriteSmithing(pWriter, ModItems.WEBWEAVER_UPGRADE_SMITHING_TEMPLATE.get(), Items.BOW, ModItems.PURE_SPIDER_ESSENCE.get(), RecipeCategory.MISC, ModItems.WEBWEAVER_BOW.get());
+        netheriteSmithing(pWriter, ModItems.TIDE_BREAKER_UPGRADE_SMITHING_TEMPLATE.get(), Items.TRIDENT, ModItems.PURE_OCEAN_ESSENCE.get(), RecipeCategory.MISC, ModItems.TIDE_BREAKER.get());
+        netheriteSmithing(pWriter, ModItems.INFERNAL_PICKAXE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_PICKAXE, ModItems.PURE_FIRE_ESSENCE.get(), RecipeCategory.MISC, ModItems.INFERNAL_PICKAXE.get());
+        netheriteSmithing(pWriter, ModItems.UNKEMPT_HAROLD_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SHOVEL, ModItems.PURE_EXPLOSIVE_ESSENCE.get(), RecipeCategory.MISC, ModItems.UNKEMPT_HAROLD.get());
+        netheriteSmithing(pWriter, ModItems.LEVIATHANS_AXE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_AXE, ModItems.PURE_NATURE_ESSENCE.get(), RecipeCategory.MISC, ModItems.LEVIATHANS_AXE.get());
+        netheriteSmithing(pWriter, ModItems.SCYTHE_OF_VITUR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_HOE, ModItems.PURE_BLOOD_ESSENCE.get(), RecipeCategory.MISC, ModItems.SCYTHE_OF_VITUR.get());
+
     }
 
 

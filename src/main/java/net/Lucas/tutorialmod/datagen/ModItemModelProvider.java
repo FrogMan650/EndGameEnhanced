@@ -55,8 +55,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.HUGE_NETHER_WART);
         simpleItem(ModItems.WITHER_SKELETON_BONE);
         simpleItem(ModItems.BASIC_ESSENCE);
-        simpleItem(ModItems.NETHERRATH_UPGRADE_SMITHING_TEMPLATE);
         simpleItem(ModItems.PURE_NETHER_ESSENCE);
+        simpleItem(ModItems.NETHERRATH_UPGRADE_SMITHING_TEMPLATE);
+        simpleItem(ModItems.PURE_END_ESSENCE);
         simpleItem(ModItems.VOIDWAKER_UPGRADE_SMITHING_TEMPLATE);
         simpleItem(ModItems.PURE_SCULK_ESSENCE);
         simpleItem(ModItems.SCULK_BRINGER_UPGRADE_SMITHING_TEMPLATE);
@@ -64,8 +65,22 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SCULK_SLINGER_UPGRADE_SMITHING_TEMPLATE);
         simpleItem(ModItems.PURE_SPIDER_ESSENCE);
         simpleItem(ModItems.WEBWEAVER_UPGRADE_SMITHING_TEMPLATE);
+        simpleItem(ModItems.PURE_OCEAN_ESSENCE);
+        simpleItem(ModItems.TIDE_BREAKER_UPGRADE_SMITHING_TEMPLATE);
+        simpleItem(ModItems.PURE_FIRE_ESSENCE);
+        simpleItem(ModItems.INFERNAL_PICKAXE_UPGRADE_SMITHING_TEMPLATE);
+        simpleItem(ModItems.PURE_EXPLOSIVE_ESSENCE);
+        simpleItem(ModItems.UNKEMPT_HAROLD_UPGRADE_SMITHING_TEMPLATE);
+        simpleItem(ModItems.PURE_NATURE_ESSENCE);
+        simpleItem(ModItems.LEVIATHANS_AXE_UPGRADE_SMITHING_TEMPLATE);
+        simpleItem(ModItems.PURE_BLOOD_ESSENCE);
+        simpleItem(ModItems.SCYTHE_OF_VITUR_UPGRADE_SMITHING_TEMPLATE);
 
-        simpleItem(ModItems.PURE_END_ESSENCE);
+
+
+
+
+
         handheldItem(ModItems.ONYX_SWORD);
         handheldItem(ModItems.ONYX_SHOVEL);
         handheldItem(ModItems.ONYX_PICKAXE);

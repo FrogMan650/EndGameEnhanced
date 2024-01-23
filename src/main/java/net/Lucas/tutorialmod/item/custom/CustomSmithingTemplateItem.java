@@ -49,6 +49,33 @@ public class CustomSmithingTemplateItem extends SmithingTemplateItem {
     private static final Component INEVITABLE_BOW_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_bow_upgrade"))).withStyle(TITLE_FORMAT);
     private static final Component INEVITABLE_BOW_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
     private static final Component INEVITABLE_BOW_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_TRIDENT_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.trident"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component INEVITABLE_TRIDENT_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_ocean_essence"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component INEVITABLE_TRIDENT_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_trident_upgrade"))).withStyle(TITLE_FORMAT);
+    private static final Component INEVITABLE_TRIDENT_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_TRIDENT_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_PICKAXE_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.pickaxe"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component INEVITABLE_PICKAXE_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_fire_essence"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component INEVITABLE_PICKAXE_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_pickaxe_upgrade"))).withStyle(TITLE_FORMAT);
+    private static final Component INEVITABLE_PICKAXE_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_PICKAXE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_SHOVEL_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.shovel"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component INEVITABLE_SHOVEL_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_explosive_essence"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component INEVITABLE_SHOVEL_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_shovel_upgrade"))).withStyle(TITLE_FORMAT);
+    private static final Component INEVITABLE_SHOVEL_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_SHOVEL_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_AXE_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.axe"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component INEVITABLE_AXE_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_nature_essence"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component INEVITABLE_AXE_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_axe_upgrade"))).withStyle(TITLE_FORMAT);
+    private static final Component INEVITABLE_AXE_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_AXE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_HOE_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.hoe"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component INEVITABLE_HOE_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_blood_essence"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component INEVITABLE_HOE_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_hoe_upgrade"))).withStyle(TITLE_FORMAT);
+    private static final Component INEVITABLE_HOE_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_HOE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+
+
 
 
     private static final ResourceLocation EMPTY_SLOT_HELMET = new ResourceLocation("item/empty_armor_slot_helmet");
@@ -70,6 +97,7 @@ public class CustomSmithingTemplateItem extends SmithingTemplateItem {
     private static final ResourceLocation EMPTY_SLOT_ESSENCE = new ResourceLocation("tutorialmod:item/empty_essence");
     private static final ResourceLocation EMPTY_SLOT_CROSSBOW = new ResourceLocation("tutorialmod:item/empty_crossbow");
     private static final ResourceLocation EMPTY_SLOT_BOW = new ResourceLocation("tutorialmod:item/empty_bow");
+    private static final ResourceLocation EMPTY_SLOT_TRIDENT = new ResourceLocation("tutorialmod:item/empty_trident");
 
     private static List<ResourceLocation> createOnyxUpgradeIconList() {
         return List.of(EMPTY_SLOT_SWORD, EMPTY_SLOT_PICKAXE, EMPTY_SLOT_AXE, EMPTY_SLOT_HOE, EMPTY_SLOT_SHOVEL,
@@ -152,6 +180,66 @@ public class CustomSmithingTemplateItem extends SmithingTemplateItem {
                 INEVITABLE_BOW_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
                 createWebweaverUpgradeIconList(), createWebweaverUpgradeMaterialList());
     }
+    private static List<ResourceLocation> createTideBreakerUpgradeIconList() {
+        return List.of(EMPTY_SLOT_TRIDENT); }
+    private static List<ResourceLocation> createTideBreakerUpgradeMaterialList() {
+        return List.of(EMPTY_SLOT_ESSENCE); }
+    public static CustomSmithingTemplateItem createTideBreakerUpgradeTemplate() {
+        return new CustomSmithingTemplateItem(
+                INEVITABLE_TRIDENT_UPGRADE_APPLIES_TO, INEVITABLE_TRIDENT_UPGRADE_INGREDIENTS,
+                INEVITABLE_TRIDENT_UPGRADE, INEVITABLE_TRIDENT_UPGRADE_BASE_SLOT_DESCRIPTION,
+                INEVITABLE_TRIDENT_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
+                createTideBreakerUpgradeIconList(), createTideBreakerUpgradeMaterialList());
+    }
+    private static List<ResourceLocation> createInfernalPickaxeUpgradeIconList() {
+        return List.of(EMPTY_SLOT_PICKAXE); }
+    private static List<ResourceLocation> createInfernalPickaxeUpgradeMaterialList() {
+        return List.of(EMPTY_SLOT_ESSENCE); }
+    public static CustomSmithingTemplateItem createInfernalPickaxeUpgradeTemplate() {
+        return new CustomSmithingTemplateItem(
+                INEVITABLE_PICKAXE_UPGRADE_APPLIES_TO, INEVITABLE_PICKAXE_UPGRADE_INGREDIENTS,
+                INEVITABLE_PICKAXE_UPGRADE, INEVITABLE_PICKAXE_UPGRADE_BASE_SLOT_DESCRIPTION,
+                INEVITABLE_PICKAXE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
+                createInfernalPickaxeUpgradeIconList(), createInfernalPickaxeUpgradeMaterialList());
+    }
+    private static List<ResourceLocation> createUnkemptHaroldUpgradeIconList() {
+        return List.of(EMPTY_SLOT_SHOVEL); }
+    private static List<ResourceLocation> createUnkemptHaroldUpgradeMaterialList() {
+        return List.of(EMPTY_SLOT_ESSENCE); }
+    public static CustomSmithingTemplateItem createUnkemptHaroldUpgradeTemplate() {
+        return new CustomSmithingTemplateItem(
+                INEVITABLE_SHOVEL_UPGRADE_APPLIES_TO, INEVITABLE_SHOVEL_UPGRADE_INGREDIENTS,
+                INEVITABLE_SHOVEL_UPGRADE, INEVITABLE_SHOVEL_UPGRADE_BASE_SLOT_DESCRIPTION,
+                INEVITABLE_SHOVEL_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
+                createUnkemptHaroldUpgradeIconList(), createUnkemptHaroldUpgradeMaterialList());
+    }
+    private static List<ResourceLocation> createLeviathansAxeUpgradeIconList() {
+        return List.of(EMPTY_SLOT_AXE); }
+    private static List<ResourceLocation> createLeviathansAxeUpgradeMaterialList() {
+        return List.of(EMPTY_SLOT_ESSENCE); }
+    public static CustomSmithingTemplateItem createLeviathansAxeUpgradeTemplate() {
+        return new CustomSmithingTemplateItem(
+                INEVITABLE_AXE_UPGRADE_APPLIES_TO, INEVITABLE_AXE_UPGRADE_INGREDIENTS,
+                INEVITABLE_AXE_UPGRADE, INEVITABLE_AXE_UPGRADE_BASE_SLOT_DESCRIPTION,
+                INEVITABLE_AXE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
+                createLeviathansAxeUpgradeIconList(), createLeviathansAxeUpgradeMaterialList());
+    }
+    private static List<ResourceLocation> createScytheOfViturUpgradeIconList() {
+        return List.of(EMPTY_SLOT_HOE); }
+    private static List<ResourceLocation> createScytheOfViturUpgradeMaterialList() {
+        return List.of(EMPTY_SLOT_ESSENCE); }
+    public static CustomSmithingTemplateItem createScytheOfViturUpgradeTemplate() {
+        return new CustomSmithingTemplateItem(
+                INEVITABLE_HOE_UPGRADE_APPLIES_TO, INEVITABLE_HOE_UPGRADE_INGREDIENTS,
+                INEVITABLE_HOE_UPGRADE, INEVITABLE_HOE_UPGRADE_BASE_SLOT_DESCRIPTION,
+                INEVITABLE_HOE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
+                createScytheOfViturUpgradeIconList(), createScytheOfViturUpgradeMaterialList());
+    }
+
+
+
+
+
 
 
 

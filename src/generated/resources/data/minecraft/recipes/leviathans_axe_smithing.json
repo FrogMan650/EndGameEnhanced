@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "tutorialmod:pure_nature_essence"
+  },
+  "base": {
+    "item": "minecraft:netherite_axe"
+  },
+  "result": {
+    "item": "tutorialmod:leviathans_axe"
+  },
+  "template": {
+    "item": "tutorialmod:leviathans_axe_upgrade_smithing_template"
+  }
+}
