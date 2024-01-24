@@ -72,7 +72,7 @@ public class ScytheOfVitur extends HoeItem {
 
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
-        if (pState.is(Blocks.COBWEB) && pState.is(BlockTags.LEAVES)) {
+        if (pState.is(Blocks.COBWEB) || pState.is(BlockTags.LEAVES)) {
             return 15.0F;
         }
         if (pState.is(BlockTags.WOOL) || pState.is(Blocks.VINE) || pState.is(Blocks.GLOW_LICHEN)) {

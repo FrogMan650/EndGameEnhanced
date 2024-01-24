@@ -79,12 +79,6 @@ public class ModItems {
 
 
 
-
-
-
-
-
-
     public static final RegistryObject<Item> DIAMOND_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("diamond_upgrade_smithing_template", CustomSmithingTemplateItem::createOnyxUpgradeTemplate);
     public static final RegistryObject<Item> ONYX_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("onyx_upgrade_smithing_template", CustomSmithingTemplateItem::createNetheriteUpgradeTemplate);
 

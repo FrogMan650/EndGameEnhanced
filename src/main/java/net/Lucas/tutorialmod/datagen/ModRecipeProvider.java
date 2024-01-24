@@ -5,6 +5,7 @@ import net.Lucas.tutorialmod.block.ModBlocks;
 import net.Lucas.tutorialmod.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
@@ -333,6 +334,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('D', Items.DIAMOND)
                 .unlockedBy(getHasName(ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get()), has(ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get()))
                 .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ARROW, 3)
+                .pattern(" P ")
+                .pattern(" S ")
+                .pattern(" D ")
+                .define('P', ModItems.OPAL.get())
+                .define('S', Items.STICK)
+                .define('D', Items.FEATHER)
+                .unlockedBy(getHasName(Items.ARROW), has(Items.ARROW))
+                .save(pWriter, new ResourceLocation(TutorialMod.MOD_ID, "arrow_from_opal"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ARROW, 4)
+                .pattern(" P ")
+                .pattern(" S ")
+                .pattern(" D ")
+                .define('P', ModItems.JADE.get())
+                .define('S', Items.STICK)
+                .define('D', Items.FEATHER)
+                .unlockedBy(getHasName(Items.ARROW), has(Items.ARROW))
+                .save(pWriter, new ResourceLocation(TutorialMod.MOD_ID, "arrow_from_jade"));
+
+
 
 
 

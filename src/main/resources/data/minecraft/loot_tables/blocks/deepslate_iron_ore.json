@@ -11,6 +11,38 @@
               "type": "minecraft:item",
               "conditions": [
                 {
+                  "condition": "minecraft:any_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": [
+                          "tutorialmod:infernal_pickaxe"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "functions": [
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops",
+                  "function": "minecraft:apply_bonus"
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                },
+                {
+                  "function": "minecraft:furnace_smelt"
+                }
+              ],
+              "name": "minecraft:raw_iron"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
                   "condition": "minecraft:match_tool",
                   "predicate": {
                     "enchantments": [
@@ -48,28 +80,6 @@
     {
       "bonus_rolls": 0.0,
       "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:deepslate_iron_ore"
-            },
             {
               "type": "minecraft:item",
               "conditions": [
@@ -83,37 +93,13 @@
               ],
               "name": "tutorialmod:sapphire"
             }
-          ]
-        }
-      ],
+          ],
       "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:deepslate_iron_ore"
-            },
-            {
               "type": "minecraft:item",
               "conditions": [
                 {
@@ -126,38 +112,14 @@
               ],
               "name": "minecraft:emerald"
             }
-          ]
-        }
-      ],
+          ],
       "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:deepslate_iron_ore"
-            },
-            {
-              "type": "minecraft:item",
+          "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:survives_explosion"
@@ -169,37 +131,13 @@
               ],
               "name": "tutorialmod:ruby"
             }
-          ]
-        }
-      ],
+          ],
       "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:deepslate_iron_ore"
-            },
-            {
               "type": "minecraft:item",
               "conditions": [
                 {
@@ -212,9 +150,7 @@
               ],
               "name": "minecraft:diamond"
             }
-          ]
-        }
-      ],
+          ],
       "rolls": 1.0
     }
   ],

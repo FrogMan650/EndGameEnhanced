@@ -19,6 +19,7 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_OPAL_TOOL = tag("needs_opal_tool");
         public static final TagKey<Block> NEEDS_INEVITABLE_TOOL = tag("needs_inevitable_tool");
         public static final TagKey<Block> INFERNAL_PICKAXE_MINEABLES = tag("infernal_pickaxe_mineables");
+        public static final TagKey<Block> SANGUINE_SCYTHE_HOEABLES = tag("sanguine_scythe_hoeables");
 
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(TutorialMod.MOD_ID, name));

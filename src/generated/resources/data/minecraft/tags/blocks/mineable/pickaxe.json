@@ -5,6 +5,7 @@
     "tutorialmod:opal_block",
     "tutorialmod:jade_block",
     "tutorialmod:ruby_block",
-    "tutorialmod:onyx_block"
+    "tutorialmod:onyx_block",
+    "minecraft:reinforced_deepslate"
   ]
 }

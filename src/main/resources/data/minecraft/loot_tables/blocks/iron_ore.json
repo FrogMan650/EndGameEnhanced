@@ -11,6 +11,38 @@
               "type": "minecraft:item",
               "conditions": [
                 {
+                  "condition": "minecraft:any_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": [
+                          "tutorialmod:infernal_pickaxe"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "functions": [
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops",
+                  "function": "minecraft:apply_bonus"
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                },
+                {
+                  "function": "minecraft:furnace_smelt"
+                }
+              ],
+              "name": "minecraft:raw_iron"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
                   "condition": "minecraft:match_tool",
                   "predicate": {
                     "enchantments": [
@@ -28,19 +60,6 @@
             },
             {
               "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:entity_properties",
-                  "entity": "killer",
-                  "predicate": {
-                    "equipment": {
-                      "mainhand": {
-                        "item": "minecraft:iron_pickaxe"
-                      }
-                    }
-                  }
-                }
-              ],
               "functions": [
                 {
                   "enchantment": "minecraft:fortune",
@@ -49,9 +68,6 @@
                 },
                 {
                   "function": "minecraft:explosion_decay"
-                },
-                {
-                  "function": "minecraft:furnace_smelt"
                 }
               ],
               "name": "minecraft:raw_iron"

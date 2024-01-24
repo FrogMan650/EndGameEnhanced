@@ -49,29 +49,7 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:coal_ore"
-            },
-            {
-              "type": "minecraft:item",
+          "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:survives_explosion"
@@ -83,38 +61,14 @@
               ],
               "name": "tutorialmod:opal"
             }
-          ]
-        }
-      ],
+          ],
       "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:coal_ore"
-            },
-            {
-              "type": "minecraft:item",
+          "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:survives_explosion"
@@ -126,38 +80,14 @@
               ],
               "name": "tutorialmod:jade"
             }
-          ]
-        }
-      ],
+          ],
       "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:coal_ore"
-            },
-            {
-              "type": "minecraft:item",
+          "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:survives_explosion"
@@ -169,38 +99,14 @@
               ],
               "name": "tutorialmod:sapphire"
             }
-          ]
-        }
-      ],
+          ],
       "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:coal_ore"
-            },
-            {
-              "type": "minecraft:item",
+          "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:survives_explosion"
@@ -212,9 +118,7 @@
               ],
               "name": "minecraft:emerald"
             }
-          ]
-        }
-      ],
+          ],
       "rolls": 1.0
     }
   ],
