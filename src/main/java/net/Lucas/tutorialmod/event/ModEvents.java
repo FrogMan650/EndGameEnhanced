@@ -8,8 +8,10 @@ import net.Lucas.tutorialmod.blockFacing.PlayerBlockFacingProvider;
 import net.Lucas.tutorialmod.toolChange.PlayerToolChange;
 import net.Lucas.tutorialmod.toolChange.PlayerToolChangeProvider;
 import net.Lucas.tutorialmod.util.ModTags;
+import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -358,10 +360,59 @@ public class ModEvents {
                                 BlockPos blockToDestroy0 = new BlockPos(newblockX[i] + blockPosX, blockPosY, newblockZ[i] + blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.SANGUINE_SCYTHE_HOEABLES)) {
                                     level.destroyBlock(blockToDestroy0, true);
+
                                 }
                             }
                         }
                     });
+                }
+                if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.LEVIATHANS_AXE.get() && level.getBlockState(blockPos).is(ModTags.Blocks.LEVIATHANS_AXE_AXEABLES)) {
+                    player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
+                        int facing = blockFacing.getBlockFacing();
+                        if (facing == 1) {
+                            int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+                            int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+                            for (int i = 0; i < 8; i ++) {
+                                BlockPos blockToDestroy0 = new BlockPos(newblockX[i] + blockPosX, newblockY[i] + blockPosY, blockPosZ);
+                                if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.LEVIATHANS_AXE_AXEABLES)) {
+                                    level.destroyBlock(blockToDestroy0, true);
+                                }
+                            }
+                        }
+                        if (facing == 2) {
+                            int[] newblockZ = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+                            int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+                            for (int i = 0; i < 8; i ++) {
+                                BlockPos blockToDestroy0 = new BlockPos(blockPosX, newblockY[i] + blockPosY, newblockZ[i] + blockPosZ);
+                                if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.LEVIATHANS_AXE_AXEABLES)) {
+                                    level.destroyBlock(blockToDestroy0, true);
+                                }
+                            }
+                        }
+                        if (facing == 0) {
+                            int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
+                            int[] newblockZ = {1, 1, 1, 0, -1, -1, -1, 0, 0};
+                            for (int i = 0; i < 8; i ++) {
+                                BlockPos blockToDestroy0 = new BlockPos(newblockX[i] + blockPosX, blockPosY, newblockZ[i] + blockPosZ);
+                                if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.LEVIATHANS_AXE_AXEABLES)) {
+                                    level.destroyBlock(blockToDestroy0, true);
+
+                                }
+                            }
+                        }
+                    });
+                }
+                if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.LEVIATHANS_AXE.get() && level.getBlockState(blockPos).is(BlockTags.LOGS)) {
+                    boolean stillFindLogs = true;
+                    List<BlockPos> logPos = new ArrayList<>();
+                    logPos.add(blockPos);
+                    while (stillFindLogs) {
+                        BlockPos newLogToCheck = logPos.get(logPos.size() - 1).above();
+                        logPos.add(newLogToCheck);
+                        if (level.getBlockState(newLogToCheck).is(BlockTags.LOGS)) {
+                            level.destroyBlock(newLogToCheck, true);
+                        } else stillFindLogs = false;
+                    }
                 }
             }
         });

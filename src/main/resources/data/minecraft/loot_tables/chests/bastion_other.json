@@ -535,11 +535,11 @@
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 9
+          "weight": 4
         },
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:onyx_upgrade_smithing_template"
+          "name": "tutorialmod:infernal_pickaxe_upgrade_smithing_template"
         }
       ],
       "rolls": 1.0

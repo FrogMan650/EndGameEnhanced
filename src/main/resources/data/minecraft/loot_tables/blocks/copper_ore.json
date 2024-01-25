@@ -11,47 +11,6 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:any_of",
-                  "terms": [
-                    {
-                      "condition": "minecraft:match_tool",
-                      "predicate": {
-                        "items": [
-                          "tutorialmod:infernal_pickaxe"
-                        ]
-                      }
-                    }
-                  ]
-                }
-              ],
-              "functions": [
-                {
-                  "add": false,
-                  "count": {
-                    "type": "minecraft:uniform",
-                    "max": 5.0,
-                    "min": 2.0
-                  },
-                  "function": "minecraft:set_count"
-                },
-                {
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:ore_drops",
-                  "function": "minecraft:apply_bonus"
-                },
-                {
-                  "function": "minecraft:explosion_decay"
-                },
-                {
-                  "function": "minecraft:furnace_smelt"
-                }
-              ],
-              "name": "minecraft:raw_copper"
-            },
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
                   "condition": "minecraft:match_tool",
                   "predicate": {
                     "enchantments": [
@@ -86,6 +45,24 @@
                 },
                 {
                   "function": "minecraft:explosion_decay"
+                },
+                {
+                  "conditions": [
+                    {
+                      "condition": "minecraft:any_of",
+                      "terms": [
+                        {
+                          "condition": "minecraft:match_tool",
+                          "predicate": {
+                            "items": [
+                              "tutorialmod:infernal_pickaxe"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "function": "minecraft:furnace_smelt"
                 }
               ],
               "name": "minecraft:raw_copper"
@@ -99,7 +76,29 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "minecraft:air"
+            },
+            {
+              "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:survives_explosion"
@@ -111,14 +110,38 @@
               ],
               "name": "tutorialmod:opal"
             }
-          ],
+          ]
+        }
+      ],
       "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "minecraft:air"
+            },
+            {
+              "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:survives_explosion"
@@ -130,14 +153,38 @@
               ],
               "name": "tutorialmod:jade"
             }
-          ],
+          ]
+        }
+      ],
       "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "minecraft:air"
+            },
+            {
+              "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:survives_explosion"
@@ -149,14 +196,38 @@
               ],
               "name": "tutorialmod:sapphire"
             }
-          ],
+          ]
+        }
+      ],
       "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "minecraft:air"
+            },
+            {
+              "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:survives_explosion"
@@ -168,7 +239,9 @@
               ],
               "name": "minecraft:emerald"
             }
-          ],
+          ]
+        }
+      ],
       "rolls": 1.0
     }
   ],

@@ -252,8 +252,8 @@
   "creativetab.tutorial_tab": "Sapphire Tutorial",
   "creativetab.gem_tab": "Gems and gem accessories",
 
-  "tutorialmod.translated.destruction.1.x.1": "Destruction mode set to 1x1.",
-  "tutorialmod.translated.destruction.3.x.3": "Destruction mode set to 3x3.",
+  "tutorialmod.translated.destruction.1.x.1": "Destruction mode: OFF",
+  "tutorialmod.translated.destruction.3.x.3": "Destruction mode: ON",
 
   "upgrade.minecraft.onyx_upgrade": "Onyx Upgrade",
   "item.minecraft.smithing_template.diamond_upgrade": "Diamond Equipment",

@@ -36,6 +36,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(Blocks.WARPED_WART_BLOCK).add(Blocks.SHROOMLIGHT).add(Blocks.TARGET).addTag(BlockTags.LEAVES)
                 .addTag(BlockTags.WOOL).add(Blocks.COBWEB);
 
+        this.tag(ModTags.Blocks.LEVIATHANS_AXE_AXEABLES).add(Blocks.BAMBOO).add(Blocks.PUMPKIN).add(Blocks.MELON)
+                .add(Blocks.BOOKSHELF).addTag(BlockTags.PLANKS).add(Blocks.BAMBOO_BLOCK);
+
         this.tag(ModTags.Blocks.NEEDS_INEVITABLE_TOOL).add(Blocks.REINFORCED_DEEPSLATE);
 
         //this adds 3 mod blocks to the tag: MINEABLE_WITH_PICKAXE

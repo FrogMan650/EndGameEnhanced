@@ -11,38 +11,6 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:any_of",
-                  "terms": [
-                    {
-                      "condition": "minecraft:match_tool",
-                      "predicate": {
-                        "items": [
-                          "tutorialmod:infernal_pickaxe"
-                        ]
-                      }
-                    }
-                  ]
-                }
-              ],
-              "functions": [
-                {
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:ore_drops",
-                  "function": "minecraft:apply_bonus"
-                },
-                {
-                  "function": "minecraft:explosion_decay"
-                },
-                {
-                  "function": "minecraft:furnace_smelt"
-                }
-              ],
-              "name": "minecraft:raw_iron"
-            },
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
                   "condition": "minecraft:match_tool",
                   "predicate": {
                     "enchantments": [
@@ -68,6 +36,24 @@
                 },
                 {
                   "function": "minecraft:explosion_decay"
+                },
+                {
+                  "conditions": [
+                    {
+                      "condition": "minecraft:any_of",
+                      "terms": [
+                        {
+                          "condition": "minecraft:match_tool",
+                          "predicate": {
+                            "items": [
+                              "tutorialmod:infernal_pickaxe"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "function": "minecraft:furnace_smelt"
                 }
               ],
               "name": "minecraft:raw_iron"
@@ -83,6 +69,25 @@
         {
           "type": "minecraft:alternatives",
           "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "minecraft:air"
+            },
             {
               "type": "minecraft:item",
               "conditions": [
@@ -111,6 +116,25 @@
               "type": "minecraft:item",
               "conditions": [
                 {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "minecraft:air"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
                   "condition": "minecraft:survives_explosion"
                 },
                 {
@@ -135,6 +159,25 @@
               "type": "minecraft:item",
               "conditions": [
                 {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "minecraft:air"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
                   "condition": "minecraft:survives_explosion"
                 },
                 {
@@ -155,6 +198,25 @@
         {
           "type": "minecraft:alternatives",
           "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "minecraft:air"
+            },
             {
               "type": "minecraft:item",
               "conditions": [
