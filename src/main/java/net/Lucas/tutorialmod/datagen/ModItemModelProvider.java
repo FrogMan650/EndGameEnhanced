@@ -119,6 +119,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.ONYX_CHESTPLATE);
         trimmedArmorItem(ModItems.ONYX_LEGGINGS);
         trimmedArmorItem(ModItems.ONYX_BOOTS);
+        trimmedArmorItem(ModItems.INEVITABLE_HELMET);
+        trimmedArmorItem(ModItems.INEVITABLE_CHESTPLATE);
+        trimmedArmorItem(ModItems.INEVITABLE_LEGGINGS);
+        trimmedArmorItem(ModItems.INEVITABLE_BOOTS);
 
 
     }
@@ -136,6 +140,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject) {
+        //method made by El_Redstoniano
         final String MOD_ID = TutorialMod.MOD_ID;
 
         if (itemRegistryObject.get() instanceof ArmorItem armorItem) {

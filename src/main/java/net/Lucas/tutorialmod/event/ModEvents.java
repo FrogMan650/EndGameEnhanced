@@ -21,11 +21,16 @@ import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.monster.ElderGuardian;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.InventoryMenu;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.common.Tags;
@@ -254,6 +259,7 @@ public class ModEvents {
         Block block = blockState.getBlock();
         Level level = (Level) event.getLevel();
         Player player = event.getPlayer();
+        boolean silkTouch = EnchantmentHelper.hasSilkTouch(player.getMainHandItem());
         int blockPosX = blockPos.getX();
         int blockPosY = blockPos.getY();
         int blockPosZ = blockPos.getZ();
@@ -263,13 +269,20 @@ public class ModEvents {
                 if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.UNKEMPT_HAROLD.get() && level.getBlockState(blockPos).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
                     player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
                         int facing = blockFacing.getBlockFacing();
+                        ItemStack silkShovel = new ItemStack(Items.DIAMOND_SHOVEL);
+                        silkShovel.enchant(Enchantments.SILK_TOUCH, 1);
                         if (facing == 1) {
                             int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
                             int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
                             for (int i = 0; i < 8; i ++) {
                                 BlockPos blockToDestroy0 = new BlockPos(newblockX[i] + blockPosX, newblockY[i] + blockPosY, blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy0, true);
+                                    if (silkTouch) {
+                                        BlockState blockToDestroy0BlockState = level.getBlockState(blockToDestroy0);
+                                        BlockEntity blockentity = blockToDestroy0BlockState.hasBlockEntity() ? level.getBlockEntity(blockToDestroy0) : null;
+                                        Block.dropResources(blockToDestroy0BlockState, level, blockToDestroy0, blockentity, null, silkShovel);
+                                        level.destroyBlock(blockToDestroy0, false);
+                                    } else level.destroyBlock(blockToDestroy0, true);
                                 }
                             }
                         }
@@ -279,7 +292,12 @@ public class ModEvents {
                             for (int i = 0; i < 8; i ++) {
                                 BlockPos blockToDestroy0 = new BlockPos(blockPosX, newblockY[i] + blockPosY, newblockZ[i] + blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy0, true);
+                                    if (silkTouch) {
+                                        BlockState blockToDestroy0BlockState = level.getBlockState(blockToDestroy0);
+                                        BlockEntity blockentity = blockToDestroy0BlockState.hasBlockEntity() ? level.getBlockEntity(blockToDestroy0) : null;
+                                        Block.dropResources(blockToDestroy0BlockState, level, blockToDestroy0, blockentity, null, silkShovel);
+                                        level.destroyBlock(blockToDestroy0, false);
+                                    } else level.destroyBlock(blockToDestroy0, true);
                                 }
                             }
                         }
@@ -289,7 +307,12 @@ public class ModEvents {
                             for (int i = 0; i < 8; i ++) {
                                 BlockPos blockToDestroy0 = new BlockPos(newblockX[i] + blockPosX, blockPosY, newblockZ[i] + blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-                                    level.destroyBlock(blockToDestroy0, true);
+                                    if (silkTouch) {
+                                        BlockState blockToDestroy0BlockState = level.getBlockState(blockToDestroy0);
+                                        BlockEntity blockentity = blockToDestroy0BlockState.hasBlockEntity() ? level.getBlockEntity(blockToDestroy0) : null;
+                                        Block.dropResources(blockToDestroy0BlockState, level, blockToDestroy0, blockentity, null, silkShovel);
+                                        level.destroyBlock(blockToDestroy0, false);
+                                    } else level.destroyBlock(blockToDestroy0, true);
                                 }
                             }
                         }
@@ -298,13 +321,20 @@ public class ModEvents {
                 if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.INFERNAL_PICKAXE.get() && level.getBlockState(blockPos).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
                     player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
                         int facing = blockFacing.getBlockFacing();
+                        ItemStack silkPick = new ItemStack(Items.DIAMOND_PICKAXE);
+                        silkPick.enchant(Enchantments.SILK_TOUCH, 1);
                         if (facing == 1) {
                             int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
                             int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
                             for (int i = 0; i < 8; i ++) {
                                 BlockPos blockToDestroy0 = new BlockPos(newblockX[i] + blockPosX, newblockY[i] + blockPosY, blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
-                                    level.destroyBlock(blockToDestroy0, true);
+                                    if (silkTouch) {
+                                        BlockState blockToDestroy0BlockState = level.getBlockState(blockToDestroy0);
+                                        BlockEntity blockentity = blockToDestroy0BlockState.hasBlockEntity() ? level.getBlockEntity(blockToDestroy0) : null;
+                                        Block.dropResources(blockToDestroy0BlockState, level, blockToDestroy0, blockentity, null, silkPick);
+                                        level.destroyBlock(blockToDestroy0, false);
+                                    } else level.destroyBlock(blockToDestroy0, true);
                                 }
                             }
                         }
@@ -314,7 +344,12 @@ public class ModEvents {
                             for (int i = 0; i < 8; i ++) {
                                 BlockPos blockToDestroy0 = new BlockPos(blockPosX, newblockY[i] + blockPosY, newblockZ[i] + blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
-                                    level.destroyBlock(blockToDestroy0, true);
+                                    if (silkTouch) {
+                                        BlockState blockToDestroy0BlockState = level.getBlockState(blockToDestroy0);
+                                        BlockEntity blockentity = blockToDestroy0BlockState.hasBlockEntity() ? level.getBlockEntity(blockToDestroy0) : null;
+                                        Block.dropResources(blockToDestroy0BlockState, level, blockToDestroy0, blockentity, null, silkPick);
+                                        level.destroyBlock(blockToDestroy0, false);
+                                    } else level.destroyBlock(blockToDestroy0, true);
                                 }
                             }
                         }
@@ -324,7 +359,12 @@ public class ModEvents {
                             for (int i = 0; i < 8; i ++) {
                                 BlockPos blockToDestroy0 = new BlockPos(newblockX[i] + blockPosX, blockPosY, newblockZ[i] + blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
-                                    level.destroyBlock(blockToDestroy0, true);
+                                    if (silkTouch) {
+                                        BlockState blockToDestroy0BlockState = level.getBlockState(blockToDestroy0);
+                                        BlockEntity blockentity = blockToDestroy0BlockState.hasBlockEntity() ? level.getBlockEntity(blockToDestroy0) : null;
+                                        Block.dropResources(blockToDestroy0BlockState, level, blockToDestroy0, blockentity, null, silkPick);
+                                        level.destroyBlock(blockToDestroy0, false);
+                                    } else level.destroyBlock(blockToDestroy0, true);
                                 }
                             }
                         }
@@ -333,13 +373,20 @@ public class ModEvents {
                 if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.SCYTHE_OF_VITUR.get() && level.getBlockState(blockPos).is(ModTags.Blocks.SANGUINE_SCYTHE_HOEABLES)) {
                     player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
                         int facing = blockFacing.getBlockFacing();
+                        ItemStack silkHoe = new ItemStack(Items.DIAMOND_HOE);
+                        silkHoe.enchant(Enchantments.SILK_TOUCH, 1);
                         if (facing == 1) {
                             int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
                             int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
                             for (int i = 0; i < 8; i ++) {
                                 BlockPos blockToDestroy0 = new BlockPos(newblockX[i] + blockPosX, newblockY[i] + blockPosY, blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.SANGUINE_SCYTHE_HOEABLES)) {
-                                    level.destroyBlock(blockToDestroy0, true);
+                                    if (silkTouch) {
+                                        BlockState blockToDestroy0BlockState = level.getBlockState(blockToDestroy0);
+                                        BlockEntity blockentity = blockToDestroy0BlockState.hasBlockEntity() ? level.getBlockEntity(blockToDestroy0) : null;
+                                        Block.dropResources(blockToDestroy0BlockState, level, blockToDestroy0, blockentity, null, silkHoe);
+                                        level.destroyBlock(blockToDestroy0, false);
+                                    } else level.destroyBlock(blockToDestroy0, true);
                                 }
                             }
                         }
@@ -349,7 +396,12 @@ public class ModEvents {
                             for (int i = 0; i < 8; i ++) {
                                 BlockPos blockToDestroy0 = new BlockPos(blockPosX, newblockY[i] + blockPosY, newblockZ[i] + blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.SANGUINE_SCYTHE_HOEABLES)) {
-                                    level.destroyBlock(blockToDestroy0, true);
+                                    if (silkTouch) {
+                                        BlockState blockToDestroy0BlockState = level.getBlockState(blockToDestroy0);
+                                        BlockEntity blockentity = blockToDestroy0BlockState.hasBlockEntity() ? level.getBlockEntity(blockToDestroy0) : null;
+                                        Block.dropResources(blockToDestroy0BlockState, level, blockToDestroy0, blockentity, null, silkHoe);
+                                        level.destroyBlock(blockToDestroy0, false);
+                                    } else level.destroyBlock(blockToDestroy0, true);
                                 }
                             }
                         }
@@ -359,8 +411,12 @@ public class ModEvents {
                             for (int i = 0; i < 8; i ++) {
                                 BlockPos blockToDestroy0 = new BlockPos(newblockX[i] + blockPosX, blockPosY, newblockZ[i] + blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.SANGUINE_SCYTHE_HOEABLES)) {
-                                    level.destroyBlock(blockToDestroy0, true);
-
+                                    if (silkTouch) {
+                                        BlockState blockToDestroy0BlockState = level.getBlockState(blockToDestroy0);
+                                        BlockEntity blockentity = blockToDestroy0BlockState.hasBlockEntity() ? level.getBlockEntity(blockToDestroy0) : null;
+                                        Block.dropResources(blockToDestroy0BlockState, level, blockToDestroy0, blockentity, null, silkHoe);
+                                        level.destroyBlock(blockToDestroy0, false);
+                                    } else level.destroyBlock(blockToDestroy0, true);
                                 }
                             }
                         }
@@ -369,13 +425,20 @@ public class ModEvents {
                 if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.LEVIATHANS_AXE.get() && level.getBlockState(blockPos).is(ModTags.Blocks.LEVIATHANS_AXE_AXEABLES)) {
                     player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
                         int facing = blockFacing.getBlockFacing();
+                        ItemStack silkAxe = new ItemStack(Items.DIAMOND_AXE);
+                        silkAxe.enchant(Enchantments.SILK_TOUCH, 1);
                         if (facing == 1) {
                             int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
                             int[] newblockY = {1, 1, 1, 0, -1, -1, -1, 0, 0};
                             for (int i = 0; i < 8; i ++) {
                                 BlockPos blockToDestroy0 = new BlockPos(newblockX[i] + blockPosX, newblockY[i] + blockPosY, blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.LEVIATHANS_AXE_AXEABLES)) {
-                                    level.destroyBlock(blockToDestroy0, true);
+                                    if (silkTouch) {
+                                        BlockState blockToDestroy0BlockState = level.getBlockState(blockToDestroy0);
+                                        BlockEntity blockentity = blockToDestroy0BlockState.hasBlockEntity() ? level.getBlockEntity(blockToDestroy0) : null;
+                                        Block.dropResources(blockToDestroy0BlockState, level, blockToDestroy0, blockentity, null, silkAxe);
+                                        level.destroyBlock(blockToDestroy0, false);
+                                    } else level.destroyBlock(blockToDestroy0, true);
                                 }
                             }
                         }
@@ -385,7 +448,12 @@ public class ModEvents {
                             for (int i = 0; i < 8; i ++) {
                                 BlockPos blockToDestroy0 = new BlockPos(blockPosX, newblockY[i] + blockPosY, newblockZ[i] + blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.LEVIATHANS_AXE_AXEABLES)) {
-                                    level.destroyBlock(blockToDestroy0, true);
+                                    if (silkTouch) {
+                                        BlockState blockToDestroy0BlockState = level.getBlockState(blockToDestroy0);
+                                        BlockEntity blockentity = blockToDestroy0BlockState.hasBlockEntity() ? level.getBlockEntity(blockToDestroy0) : null;
+                                        Block.dropResources(blockToDestroy0BlockState, level, blockToDestroy0, blockentity, null, silkAxe);
+                                        level.destroyBlock(blockToDestroy0, false);
+                                    } else level.destroyBlock(blockToDestroy0, true);
                                 }
                             }
                         }
@@ -395,7 +463,12 @@ public class ModEvents {
                             for (int i = 0; i < 8; i ++) {
                                 BlockPos blockToDestroy0 = new BlockPos(newblockX[i] + blockPosX, blockPosY, newblockZ[i] + blockPosZ);
                                 if (level.getBlockState(blockToDestroy0).is(ModTags.Blocks.LEVIATHANS_AXE_AXEABLES)) {
-                                    level.destroyBlock(blockToDestroy0, true);
+                                    if (silkTouch) {
+                                        BlockState blockToDestroy0BlockState = level.getBlockState(blockToDestroy0);
+                                        BlockEntity blockentity = blockToDestroy0BlockState.hasBlockEntity() ? level.getBlockEntity(blockToDestroy0) : null;
+                                        Block.dropResources(blockToDestroy0BlockState, level, blockToDestroy0, blockentity, null, silkAxe);
+                                        level.destroyBlock(blockToDestroy0, false);
+                                    } else level.destroyBlock(blockToDestroy0, true);
 
                                 }
                             }

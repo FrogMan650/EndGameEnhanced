@@ -366,8 +366,7 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:empty",
-          "weight": 4
+          "type": "minecraft:empty"
         },
         {
           "type": "minecraft:item",

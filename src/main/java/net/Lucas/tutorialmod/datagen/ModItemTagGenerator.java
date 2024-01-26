@@ -23,6 +23,11 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 ModItems.ONYX_HELMET.get(),
                 ModItems.ONYX_CHESTPLATE.get(),
                 ModItems.ONYX_LEGGINGS.get(),
-                ModItems.ONYX_BOOTS.get());
+                ModItems.ONYX_BOOTS.get(),
+                ModItems.INEVITABLE_HELMET.get(),
+                ModItems.INEVITABLE_CHESTPLATE.get(),
+                ModItems.INEVITABLE_LEGGINGS.get(),
+                ModItems.INEVITABLE_BOOTS.get());
+
     }
 }

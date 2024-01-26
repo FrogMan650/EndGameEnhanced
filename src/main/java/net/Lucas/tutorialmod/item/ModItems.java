@@ -166,6 +166,16 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> ONYX_BOOTS = ITEMS.register("onyx_boots",
             () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final RegistryObject<Item> INEVITABLE_HELMET = ITEMS.register("inevitable_helmet",
+            () -> new CustomArmorItem(ModArmorMaterials.INEVITABLE, ArmorItem.Type.HELMET, new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> INEVITABLE_CHESTPLATE = ITEMS.register("inevitable_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.INEVITABLE, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> INEVITABLE_LEGGINGS = ITEMS.register("inevitable_leggings",
+            () -> new ArmorItem(ModArmorMaterials.INEVITABLE, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> INEVITABLE_BOOTS = ITEMS.register("inevitable_boots",
+            () -> new ArmorItem(ModArmorMaterials.INEVITABLE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
+
     public static final RegistryObject<Item> BASIC_ESSENCE = ITEMS.register("basic_essence",
             () -> new Item(new Item.Properties()));
 

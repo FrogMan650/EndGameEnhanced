@@ -19,34 +19,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class CustomSwordItem extends TieredItem {
-    private final float attackDamage;
-    private final Multimap<Attribute, AttributeModifier> defaultModifiers;
+public class CustomSwordItem extends SwordItem implements Vanishable {
 
-    public CustomSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Item.Properties pProperties) {
-        super(pTier, pProperties);
-        this.attackDamage = (float)pAttackDamageModifier + pTier.getAttackDamageBonus();
-        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", (double)this.attackDamage, AttributeModifier.Operation.ADDITION));
-        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", (double)pAttackSpeedModifier, AttributeModifier.Operation.ADDITION));
-        this.defaultModifiers = builder.build();
+    public CustomSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
+        super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
 
-    public float getDamage() {
-        return this.attackDamage;
-    }
-
-    public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
-        return !pPlayer.isCreative();
-    }
-
-    public float getDestroySpeed(ItemStack pStack, BlockState pState) {
-        if (pState.is(Blocks.COBWEB)) {
-            return 15.0F;
-        } else {
-            return pState.is(BlockTags.SWORD_EFFICIENT) ? 1.5F : 1.0F;
-        }
-    }
 
     /**
      * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise
@@ -71,25 +49,6 @@ public class CustomSwordItem extends TieredItem {
         }
 
         return true;
-    }
-
-    /**
-     * Check whether this Item can harvest the given Block
-     */
-    public boolean isCorrectToolForDrops(BlockState pBlock) {
-        return pBlock.is(Blocks.COBWEB);
-    }
-
-    /**
-     * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
-     */
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
-        return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
-    }
-
-    @Override
-    public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
-        return net.minecraftforge.common.ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction);
     }
 
 }

@@ -48,6 +48,11 @@
   "item.tutorialmod.onyx_chestplate": "Onyx Chestplate",
   "item.tutorialmod.onyx_leggings": "Onyx Leggings",
   "item.tutorialmod.onyx_boots": "Onyx Boots",
+  "item.tutorialmod.inevitable_helmet": "Inevitable Helmet",
+  "item.tutorialmod.inevitable_chestplate": "Inevitable Chestplate",
+  "item.tutorialmod.inevitable_leggings": "Inevitable Leggings",
+  "item.tutorialmod.inevitable_boots": "Inevitable Boots",
+
   "item.tutorialmod.nether_blade": "Netherrath",
   "item.tutorialmod.end_blade": "Voidwaker",
   "item.tutorialmod.sculk_blade": "Sculk Bringer",
@@ -91,11 +96,6 @@
   "item.tutorialmod.pure_blood_essence": "Pure Blood Essence",
   "upgrade.minecraft.inevitable_hoe_upgrade": "Sanguine Scythe Upgrade",
   "item.tutorialmod.scythe_of_vitur_upgrade_smithing_template": "Sanguine Scythe Upgrade Smithing Template",
-
-
-
-
-
 
   "item.minecraft.sword_lore.grey_text_arrow": "When in Main Hand:",
   "item.minecraft.sword_lore.green_text_arrow.melee.0": " 12 Damage",
