@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "endgameenhanced:onyx"
+  },
+  "base": {
+    "item": "minecraft:diamond_helmet"
+  },
+  "result": {
+    "item": "endgameenhanced:onyx_helmet"
+  },
+  "template": {
+    "item": "endgameenhanced:diamond_upgrade_smithing_template"
+  }
+}

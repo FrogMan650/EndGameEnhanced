@@ -65,7 +65,7 @@
               "condition": "minecraft:random_chance"
             }
           ],
-          "name": "tutorialmod:huge_nether_wart"
+          "name": "endgameenhanced:huge_nether_wart"
         }
       ],
       "rolls": 1.0

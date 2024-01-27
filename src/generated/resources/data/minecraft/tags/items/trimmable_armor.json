@@ -1,12 +1,12 @@
 {
   "values": [
-    "tutorialmod:onyx_helmet",
-    "tutorialmod:onyx_chestplate",
-    "tutorialmod:onyx_leggings",
-    "tutorialmod:onyx_boots",
-    "tutorialmod:inevitable_helmet",
-    "tutorialmod:inevitable_chestplate",
-    "tutorialmod:inevitable_leggings",
-    "tutorialmod:inevitable_boots"
+    "endgameenhanced:onyx_helmet",
+    "endgameenhanced:onyx_chestplate",
+    "endgameenhanced:onyx_leggings",
+    "endgameenhanced:onyx_boots",
+    "endgameenhanced:inevitable_helmet",
+    "endgameenhanced:inevitable_chestplate",
+    "endgameenhanced:inevitable_leggings",
+    "endgameenhanced:inevitable_boots"
   ]
 }

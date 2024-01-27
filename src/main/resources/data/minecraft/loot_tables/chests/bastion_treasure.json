@@ -370,7 +370,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:netherrath_upgrade_smithing_template"
+          "name": "endgameenhanced:netherrath_upgrade_smithing_template"
         }
       ],
       "rolls": 1.0

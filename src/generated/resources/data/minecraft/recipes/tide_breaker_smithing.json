@@ -1,15 +1,15 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "tutorialmod:pure_ocean_essence"
+    "item": "endgameenhanced:pure_ocean_essence"
   },
   "base": {
     "item": "minecraft:trident"
   },
   "result": {
-    "item": "tutorialmod:tide_breaker"
+    "item": "endgameenhanced:tide_breaker"
   },
   "template": {
-    "item": "tutorialmod:tide_breaker_upgrade_smithing_template"
+    "item": "endgameenhanced:tide_breaker_upgrade_smithing_template"
   }
 }

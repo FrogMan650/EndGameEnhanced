@@ -1,15 +1,15 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "tutorialmod:pure_evil_essence"
+    "item": "endgameenhanced:pure_evil_essence"
   },
   "base": {
     "item": "minecraft:crossbow"
   },
   "result": {
-    "item": "tutorialmod:sculk_slinger"
+    "item": "endgameenhanced:sculk_slinger"
   },
   "template": {
-    "item": "tutorialmod:sculk_slinger_upgrade_smithing_template"
+    "item": "endgameenhanced:sculk_slinger_upgrade_smithing_template"
   }
 }

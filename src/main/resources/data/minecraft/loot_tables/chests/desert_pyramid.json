@@ -283,7 +283,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:webweaver_upgrade_smithing_template"
+          "name": "endgameenhanced:webweaver_upgrade_smithing_template"
         }
       ],
       "rolls": 1.0

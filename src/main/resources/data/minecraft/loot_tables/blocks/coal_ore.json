@@ -81,7 +81,7 @@
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "tutorialmod:opal"
+              "name": "endgameenhanced:opal"
             }
           ]
         }
@@ -124,7 +124,7 @@
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "tutorialmod:jade"
+              "name": "endgameenhanced:jade"
             }
           ]
         }
@@ -167,7 +167,7 @@
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "tutorialmod:sapphire"
+              "name": "endgameenhanced:sapphire"
             }
           ]
         }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "endgameenhanced:sapphire"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "PP",
+    " S",
+    " S"
+  ],
+  "result": {
+    "item": "endgameenhanced:sapphire_hoe"
+  },
+  "show_notification": true
+}

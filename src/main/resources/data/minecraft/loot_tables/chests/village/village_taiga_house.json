@@ -165,7 +165,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:scythe_of_vitur_upgrade_smithing_template"
+          "name": "endgameenhanced:scythe_of_vitur_upgrade_smithing_template"
         }
       ],
       "rolls": 1.0

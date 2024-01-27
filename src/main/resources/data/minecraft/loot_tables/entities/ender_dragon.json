@@ -16,7 +16,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:ender_dragon_scale"
+          "name": "endgameenhanced:ender_dragon_scale"
         }
       ],
       "rolls": 1.0
@@ -36,7 +36,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:onyx"
+          "name": "endgameenhanced:onyx"
         }
       ],
       "rolls": 1.0

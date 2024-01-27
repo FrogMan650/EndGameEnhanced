@@ -1,15 +1,15 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "tutorialmod:pure_tough_essence"
+    "item": "endgameenhanced:pure_tough_essence"
   },
   "base": {
     "item": "minecraft:netherite_chestplate"
   },
   "result": {
-    "item": "tutorialmod:inevitable_chestplate"
+    "item": "endgameenhanced:inevitable_chestplate"
   },
   "template": {
-    "item": "tutorialmod:obsidian_armor_upgrade_smithing_template"
+    "item": "endgameenhanced:obsidian_armor_upgrade_smithing_template"
   }
 }

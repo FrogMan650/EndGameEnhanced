@@ -1,15 +1,15 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "tutorialmod:pure_fire_essence"
+    "item": "endgameenhanced:pure_fire_essence"
   },
   "base": {
     "item": "minecraft:netherite_pickaxe"
   },
   "result": {
-    "item": "tutorialmod:infernal_pickaxe"
+    "item": "endgameenhanced:infernal_pickaxe"
   },
   "template": {
-    "item": "tutorialmod:infernal_pickaxe_upgrade_smithing_template"
+    "item": "endgameenhanced:infernal_pickaxe_upgrade_smithing_template"
   }
 }

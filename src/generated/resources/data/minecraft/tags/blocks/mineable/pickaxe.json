@@ -1,11 +1,10 @@
 {
   "values": [
-    "tutorialmod:sapphire_ore",
-    "tutorialmod:sapphire_block",
-    "tutorialmod:opal_block",
-    "tutorialmod:jade_block",
-    "tutorialmod:ruby_block",
-    "tutorialmod:onyx_block",
+    "endgameenhanced:sapphire_block",
+    "endgameenhanced:opal_block",
+    "endgameenhanced:jade_block",
+    "endgameenhanced:ruby_block",
+    "endgameenhanced:onyx_block",
     "minecraft:reinforced_deepslate"
   ]
 }

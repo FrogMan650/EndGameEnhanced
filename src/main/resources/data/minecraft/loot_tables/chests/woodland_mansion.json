@@ -306,7 +306,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:leviathans_axe_upgrade_smithing_template"
+          "name": "endgameenhanced:leviathans_axe_upgrade_smithing_template"
         }
       ],
       "rolls": 1.0

@@ -81,7 +81,7 @@
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "tutorialmod:sapphire"
+              "name": "endgameenhanced:sapphire"
             }
           ]
         }
@@ -167,7 +167,7 @@
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "tutorialmod:ruby"
+              "name": "endgameenhanced:ruby"
             }
           ]
         }

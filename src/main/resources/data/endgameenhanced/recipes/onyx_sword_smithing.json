@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "endgameenhanced:onyx"
+  },
+  "base": {
+    "item": "minecraft:diamond_sword"
+  },
+  "result": {
+    "item": "endgameenhanced:onyx_sword"
+  },
+  "template": {
+    "item": "endgameenhanced:diamond_upgrade_smithing_template"
+  }
+}

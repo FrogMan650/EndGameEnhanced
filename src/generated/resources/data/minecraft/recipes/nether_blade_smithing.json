@@ -1,15 +1,15 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "tutorialmod:pure_nether_essence"
+    "item": "endgameenhanced:pure_nether_essence"
   },
   "base": {
     "item": "minecraft:netherite_sword"
   },
   "result": {
-    "item": "tutorialmod:nether_blade"
+    "item": "endgameenhanced:nether_blade"
   },
   "template": {
-    "item": "tutorialmod:netherrath_upgrade_smithing_template"
+    "item": "endgameenhanced:netherrath_upgrade_smithing_template"
   }
 }

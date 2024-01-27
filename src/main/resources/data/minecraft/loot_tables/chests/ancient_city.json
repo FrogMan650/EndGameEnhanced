@@ -434,7 +434,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:sculk_bringer_upgrade_smithing_template"
+          "name": "endgameenhanced:sculk_bringer_upgrade_smithing_template"
         }
       ],
       "rolls": 1.0

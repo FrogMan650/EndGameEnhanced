@@ -200,7 +200,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:unkempt_harold_upgrade_smithing_template"
+          "name": "endgameenhanced:unkempt_harold_upgrade_smithing_template"
         }
       ],
       "rolls": 1.0

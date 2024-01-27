@@ -79,7 +79,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:sapphire"
+          "name": "endgameenhanced:sapphire"
         }
       ],
       "rolls": 1.0
@@ -119,7 +119,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:ruby"
+          "name": "endgameenhanced:ruby"
         }
       ],
       "rolls": 1.0
@@ -159,7 +159,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:onyx"
+          "name": "endgameenhanced:onyx"
         }
       ],
       "rolls": 1.0

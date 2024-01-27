@@ -149,7 +149,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:onyx_upgrade_smithing_template"
+          "name": "endgameenhanced:onyx_upgrade_smithing_template"
         }
       ],
       "rolls": 1.0

@@ -1,0 +1,6 @@
+{
+  "parent": "endgameenhanced:item/webweaver_bow",
+  "textures": {
+    "layer0": "endgameenhanced:item/webweaver_bow_pulling_0"
+  }
+}

@@ -1,6 +1,0 @@
-{
-    "parent": "tutorialmod:item/sculk_slinger",
-    "textures": {
-        "layer0": "tutorialmod:item/sculk_slinger_pulling_1"
-    }
-}

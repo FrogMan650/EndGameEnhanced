@@ -321,7 +321,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:infernal_pickaxe_upgrade_smithing_template"
+          "name": "endgameenhanced:infernal_pickaxe_upgrade_smithing_template"
         }
       ],
       "rolls": 1.0

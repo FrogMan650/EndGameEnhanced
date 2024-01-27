@@ -1,0 +1,6 @@
+{
+    "parent": "endgameenhanced:item/sculk_slinger",
+    "textures": {
+        "layer0": "endgameenhanced:item/sculk_slinger_pulling_0"
+    }
+}

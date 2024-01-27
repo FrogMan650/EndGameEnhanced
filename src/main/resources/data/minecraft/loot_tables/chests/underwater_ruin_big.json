@@ -129,7 +129,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:tide_breaker_upgrade_smithing_template"
+          "name": "endgameenhanced:tide_breaker_upgrade_smithing_template"
         }
       ],
       "rolls": 1.0

@@ -33,7 +33,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:onyx"
+          "name": "endgameenhanced:onyx"
         }
       ],
       "rolls": 1.0

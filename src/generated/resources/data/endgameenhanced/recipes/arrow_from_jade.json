@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:feather"
+    },
+    "P": {
+      "item": "endgameenhanced:jade"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " P ",
+    " S ",
+    " D "
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:arrow"
+  },
+  "show_notification": true
+}

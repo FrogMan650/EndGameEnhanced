@@ -1,15 +1,15 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "tutorialmod:pure_blood_essence"
+    "item": "endgameenhanced:pure_blood_essence"
   },
   "base": {
     "item": "minecraft:netherite_hoe"
   },
   "result": {
-    "item": "tutorialmod:scythe_of_vitur"
+    "item": "endgameenhanced:scythe_of_vitur"
   },
   "template": {
-    "item": "tutorialmod:scythe_of_vitur_upgrade_smithing_template"
+    "item": "endgameenhanced:scythe_of_vitur_upgrade_smithing_template"
   }
 }

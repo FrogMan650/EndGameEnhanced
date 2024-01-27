@@ -1,8 +1,6 @@
-// 1.20.1	2024-01-03T22:04:11.3693614	Loot Tables
-dac5b902c613338e1622c4fcf2106c8424c5a3ba data/tutorialmod/loot_tables/blocks/jade_block.json
-e8a9ae562884a277f84b4512d47603891bf34f2e data/tutorialmod/loot_tables/blocks/onyx_block.json
-1c2ecf3cf388960b00ed85bf57f0cfeb297bfabc data/tutorialmod/loot_tables/blocks/opal_block.json
-81e9322ae4c5141fd110a8f87cc92d7af008fd1e data/tutorialmod/loot_tables/blocks/raw_sapphire_block.json
-e0d215bbde990fd2f6b925b06c967165dcb8f8df data/tutorialmod/loot_tables/blocks/ruby_block.json
-d844cbb192590a5e4278fd1a5c5906e40c594e24 data/tutorialmod/loot_tables/blocks/sapphire_block.json
-aa2b1c8deec50b57ad0574814e62f77133a5f3f5 data/tutorialmod/loot_tables/blocks/sapphire_ore.json
+// 1.20.1	2024-01-27T12:23:50.4883377	Loot Tables
+a4bc53e024f700f5d971bcc50f8b4b4fe91d3980 data/endgameenhanced/loot_tables/blocks/jade_block.json
+b5190a9d467a4bc42540079c43b2c382a34f3851 data/endgameenhanced/loot_tables/blocks/onyx_block.json
+dbec82070244896514edcf99c65106f549957d6c data/endgameenhanced/loot_tables/blocks/opal_block.json
+a12b55caeb978b66294c4d4bebb6c399859cdb92 data/endgameenhanced/loot_tables/blocks/ruby_block.json
+fd95a437d43748eee15d9e342217b758e7dca668 data/endgameenhanced/loot_tables/blocks/sapphire_block.json

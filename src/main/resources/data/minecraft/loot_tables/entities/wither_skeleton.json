@@ -94,7 +94,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:onyx"
+          "name": "endgameenhanced:onyx"
         }
       ],
       "rolls": 1.0
@@ -114,7 +114,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:wither_skeleton_bone"
+          "name": "endgameenhanced:wither_skeleton_bone"
         }
       ],
       "rolls": 1.0

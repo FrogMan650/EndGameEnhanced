@@ -1,15 +1,15 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "tutorialmod:pure_explosive_essence"
+    "item": "endgameenhanced:pure_explosive_essence"
   },
   "base": {
     "item": "minecraft:netherite_shovel"
   },
   "result": {
-    "item": "tutorialmod:unkempt_harold"
+    "item": "endgameenhanced:unkempt_harold"
   },
   "template": {
-    "item": "tutorialmod:unkempt_harold_upgrade_smithing_template"
+    "item": "endgameenhanced:unkempt_harold_upgrade_smithing_template"
   }
 }

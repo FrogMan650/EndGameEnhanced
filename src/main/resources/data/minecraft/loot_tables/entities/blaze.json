@@ -50,7 +50,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:charged_blaze_rod"
+          "name": "endgameenhanced:charged_blaze_rod"
         }
       ],
       "rolls": 1.0

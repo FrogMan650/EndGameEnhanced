@@ -46,7 +46,7 @@
                           "condition": "minecraft:match_tool",
                           "predicate": {
                             "items": [
-                              "tutorialmod:infernal_pickaxe"
+                              "endgameenhanced:infernal_pickaxe"
                             ]
                           }
                         }
@@ -99,7 +99,7 @@
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "tutorialmod:opal"
+              "name": "endgameenhanced:opal"
             }
           ]
         }
@@ -142,7 +142,7 @@
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "tutorialmod:jade"
+              "name": "endgameenhanced:jade"
             }
           ]
         }
@@ -185,7 +185,7 @@
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "tutorialmod:sapphire"
+              "name": "endgameenhanced:sapphire"
             }
           ]
         }

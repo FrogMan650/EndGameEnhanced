@@ -355,7 +355,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:voidwaker_upgrade_smithing_template"
+          "name": "endgameenhanced:voidwaker_upgrade_smithing_template"
         }
       ],
       "rolls": 1.0
