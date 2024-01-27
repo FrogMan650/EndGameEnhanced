@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-25T18:33:17.0401625	Item Models: tutorialmod
+// 1.20.1	2024-01-26T18:48:34.4494302	Item Models: tutorialmod
 5f7c2489e4b46644bcda93e1b69fda016a9dfcda assets/tutorialmod/models/item/basic_essence.json
 09193f016ee5733c018b51bdd732dbf14dc52508 assets/tutorialmod/models/item/charged_blaze_rod.json
 3adbadc050c44d2083d60172a563627673f2c8de assets/tutorialmod/models/item/diamond_upgrade_smithing_template.json
@@ -65,6 +65,7 @@ a9c7ef595670aa273c4667b50e523b4cccee7499 assets/tutorialmod/models/item/jade_swo
 93719e53df04c62d91023fe733206eb93b7aac86 assets/tutorialmod/models/item/metal_detector.json
 bd6a7f863d437fa758935a9ca5a0cce4e18291fa assets/tutorialmod/models/item/netherrath_upgrade_smithing_template.json
 3deb05e524bf5b583a12913bc70ae5809ca2b7fb assets/tutorialmod/models/item/nether_blade.json
+8549fefae2a2949f55da88285a09609ef202aa9a assets/tutorialmod/models/item/obsidian_armor_upgrade_smithing_template.json
 95346cfdd21765029ce871a2e1d3e7221de62f07 assets/tutorialmod/models/item/onyx.json
 601833d0ef3178c83ae040bbcad9ed95de0d7ccf assets/tutorialmod/models/item/onyx_axe.json
 aeb18e2fb431ea59536488d707f9cb4e9a9c7b20 assets/tutorialmod/models/item/onyx_boots.json
@@ -132,6 +133,7 @@ a5057b69a09949a4c180cf54a2da542b35d1a127 assets/tutorialmod/models/item/pure_nat
 527230b65e9ebb42aff9b81649b141e5000916a4 assets/tutorialmod/models/item/pure_ocean_essence.json
 2ea26c3166f44ab3571b295e28b85a70ba8e5366 assets/tutorialmod/models/item/pure_sculk_essence.json
 4e2995ed78e1e2c31fd0c4038aeafa7f6c1da2ac assets/tutorialmod/models/item/pure_spider_essence.json
+9cec13c928f71b87c3df4b56c1375306465929d0 assets/tutorialmod/models/item/pure_tough_essence.json
 d24305376f58c1ef118279a5c8f5b087a07b1d47 assets/tutorialmod/models/item/raw_sapphire.json
 d07fad06b4e5a92363d8d18e034dbd6a8641d34d assets/tutorialmod/models/item/ruby.json
 51873f8f87730b46b130fc3b1c61bb0c554d04a7 assets/tutorialmod/models/item/ruby_axe.json

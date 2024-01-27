@@ -17,8 +17,8 @@ public class CustomSmithingTemplateItem extends SmithingTemplateItem {
     private static final Component ONYX_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.diamond_upgrade"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component ONYX_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:onyx"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component ONYX_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("onyx_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component ONYX_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component ONYX_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component ONYX_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.onyx_upgrade.base_slot_description")));
+    private static final Component ONYX_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.onyx_upgrade.additions_slot_description")));
     private static final Component NETHERITE_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.onyx_equipment"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component NETHERITE_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.ingredients"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component NETHERITE_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("netherite_upgrade"))).withStyle(TITLE_FORMAT);
@@ -27,53 +27,58 @@ public class CustomSmithingTemplateItem extends SmithingTemplateItem {
     private static final Component INEVITABLE_NETHER_SWORD_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.sword"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_NETHER_SWORD_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_nether_essence"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_NETHER_SWORD_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_nether_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component INEVITABLE_NETHER_SWORD_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component INEVITABLE_NETHER_SWORD_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_NETHER_SWORD_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.sword_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_NETHER_SWORD_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.nether_sword_upgrade.additions_slot_description")));
     private static final Component INEVITABLE_END_SWORD_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.sword"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_END_SWORD_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_end_essence"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_END_SWORD_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_end_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component INEVITABLE_END_SWORD_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component INEVITABLE_END_SWORD_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_END_SWORD_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.sword_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_END_SWORD_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.end_sword_upgrade.additions_slot_description")));
     private static final Component INEVITABLE_SCULK_SWORD_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.sword"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_SCULK_SWORD_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_sculk_essence"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_SCULK_SWORD_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_sculk_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component INEVITABLE_SCULK_SWORD_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component INEVITABLE_SCULK_SWORD_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_SCULK_SWORD_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.sword_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_SCULK_SWORD_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.sculk_sword_upgrade.additions_slot_description")));
     private static final Component INEVITABLE_SCULK_CROSSBOW_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.crossbow"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_SCULK_CROSSBOW_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_evil_essence"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_SCULK_CROSSBOW_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_sculk_crossbow_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component INEVITABLE_SCULK_CROSSBOW_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component INEVITABLE_SCULK_CROSSBOW_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_SCULK_CROSSBOW_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.crossbow_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_SCULK_CROSSBOW_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.crossbow_upgrade.additions_slot_description")));
     private static final Component INEVITABLE_BOW_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.bow"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_BOW_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_spider_essence"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_BOW_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_bow_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component INEVITABLE_BOW_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component INEVITABLE_BOW_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_BOW_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.bow_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_BOW_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.bow_upgrade.additions_slot_description")));
     private static final Component INEVITABLE_TRIDENT_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.trident"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_TRIDENT_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_ocean_essence"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_TRIDENT_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_trident_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component INEVITABLE_TRIDENT_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component INEVITABLE_TRIDENT_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_TRIDENT_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.trident_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_TRIDENT_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.trident_upgrade.additions_slot_description")));
     private static final Component INEVITABLE_PICKAXE_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.pickaxe"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_PICKAXE_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_fire_essence"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_PICKAXE_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_pickaxe_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component INEVITABLE_PICKAXE_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component INEVITABLE_PICKAXE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_PICKAXE_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.pickaxe_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_PICKAXE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.pickaxe_upgrade.additions_slot_description")));
     private static final Component INEVITABLE_SHOVEL_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.shovel"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_SHOVEL_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_explosive_essence"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_SHOVEL_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_shovel_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component INEVITABLE_SHOVEL_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component INEVITABLE_SHOVEL_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_SHOVEL_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.shovel_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_SHOVEL_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.shovel_upgrade.additions_slot_description")));
     private static final Component INEVITABLE_AXE_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.axe"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_AXE_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_nature_essence"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_AXE_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_axe_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component INEVITABLE_AXE_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component INEVITABLE_AXE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_AXE_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.axe_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_AXE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.axe_upgrade.additions_slot_description")));
     private static final Component INEVITABLE_HOE_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.hoe"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_HOE_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_blood_essence"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_HOE_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_hoe_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component INEVITABLE_HOE_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component INEVITABLE_HOE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_HOE_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.hoe_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_HOE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.hoe_upgrade.additions_slot_description")));
+    private static final Component INEVITABLE_ARMOR_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.inevitable_upgrade.armor"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component INEVITABLE_ARMOR_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("tutorialmod:pure_tough_essence"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component INEVITABLE_ARMOR_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("inevitable_armor_upgrade"))).withStyle(TITLE_FORMAT);
+    private static final Component INEVITABLE_ARMOR_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.armor_upgrade.base_slot_description")));
+    private static final Component INEVITABLE_ARMOR_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.armor_upgrade.additions_slot_description")));
 
 
 
@@ -235,6 +240,18 @@ public class CustomSmithingTemplateItem extends SmithingTemplateItem {
                 INEVITABLE_HOE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
                 createScytheOfViturUpgradeIconList(), createScytheOfViturUpgradeMaterialList());
     }
+    private static List<ResourceLocation> createObsidianArmorUpgradeIconList() {
+        return List.of(EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS); }
+    private static List<ResourceLocation> createObsidianArmorUpgradeMaterialList() {
+        return List.of(EMPTY_SLOT_ESSENCE); }
+    public static CustomSmithingTemplateItem createObsidianArmorUpgradeTemplate() {
+        return new CustomSmithingTemplateItem(
+                INEVITABLE_ARMOR_UPGRADE_APPLIES_TO, INEVITABLE_ARMOR_UPGRADE_INGREDIENTS,
+                INEVITABLE_ARMOR_UPGRADE, INEVITABLE_ARMOR_UPGRADE_BASE_SLOT_DESCRIPTION,
+                INEVITABLE_ARMOR_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
+                createObsidianArmorUpgradeIconList(), createObsidianArmorUpgradeMaterialList());
+    }
+
 
 
 

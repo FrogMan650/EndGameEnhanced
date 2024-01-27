@@ -150,6 +150,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.LEVIATHANS_AXE_UPGRADE_SMITHING_TEMPLATE.get());
                         pOutput.accept(ModItems.PURE_BLOOD_ESSENCE.get());
                         pOutput.accept(ModItems.SCYTHE_OF_VITUR_UPGRADE_SMITHING_TEMPLATE.get());
+                        pOutput.accept(ModItems.PURE_TOUGH_ESSENCE.get());
+                        pOutput.accept(ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get());
+
 
 
 

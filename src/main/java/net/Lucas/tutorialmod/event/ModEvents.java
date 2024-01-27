@@ -219,6 +219,29 @@ public class ModEvents {
 
             }
         }
+        if (event.getItemStack().is(ModItems.INEVITABLE_HELMET.get()) || event.getItemStack().is(ModItems.INEVITABLE_CHESTPLATE.get())
+                || event.getItemStack().is(ModItems.INEVITABLE_LEGGINGS.get()) || event.getItemStack().is(ModItems.INEVITABLE_BOOTS.get())) {
+            if (!event.getFlags().isAdvanced()) {
+                for (int i = 0; i < 5; i++) {
+                    tooltipElements.remove(tooltipElements.size() - 1);
+                }
+            }
+            if (event.getFlags().isAdvanced()) {
+                String durabilityCheck = String.valueOf(tooltipElements.get(tooltipElements.size() - 3));
+                boolean containsDurability = durabilityCheck.contains("item.durability");
+                if (containsDurability) {
+                    for (int i = 0; i < 5; i++) {
+                        tooltipElements.remove(tooltipElements.size() - 4);
+                    }
+                } else {
+                    for (int i = 0; i < 5; i++) {
+                        tooltipElements.remove(tooltipElements.size() - 3);
+                    }
+
+                }
+
+            }
+        }
     }
 
     @SubscribeEvent

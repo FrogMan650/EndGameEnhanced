@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "tutorialmod:pure_tough_essence"
+  },
+  "base": {
+    "item": "minecraft:netherite_boots"
+  },
+  "result": {
+    "item": "tutorialmod:inevitable_boots"
+  },
+  "template": {
+    "item": "tutorialmod:obsidian_armor_upgrade_smithing_template"
+  }
+}
