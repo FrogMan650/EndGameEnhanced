@@ -102,6 +102,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.CHARGED_BLAZE_ROD.get());
                         pOutput.accept(ModItems.HUGE_NETHER_WART.get());
                         pOutput.accept(ModItems.WITHER_SKELETON_BONE.get());
+                        pOutput.accept(ModItems.EXPERIENCE_BOTTLE_NETHER_WART.get());
+                        pOutput.accept(ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT.get());
                     })
                     .build());
     public static final RegistryObject<CreativeModeTab> TEMPLATE_TAB = CREATIVE_MODE_TABS.register("template_tab",

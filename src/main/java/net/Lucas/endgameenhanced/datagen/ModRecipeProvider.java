@@ -335,12 +335,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Items.ARROW), has(Items.ARROW))
                 .save(pWriter, new ResourceLocation(EndGameEnhanced.MOD_ID, "arrow_from_jade"));
 
-
-
-
-
-
-
+        
 
         netheriteSmithing(pWriter, ModItems.VOIDWAKER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_END_ESSENCE.get(), RecipeCategory.MISC, ModItems.END_BLADE.get());
         netheriteSmithing(pWriter, ModItems.NETHERRATH_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_NETHER_ESSENCE.get(), RecipeCategory.MISC, ModItems.NETHER_BLADE.get());
@@ -360,12 +355,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
 
-    //must manually move generated .json to main and then delete generating code
     protected static void netheriteSmithing(Consumer<FinishedRecipe> pFinishedRecipeConsumer, Item modTemplate, Item itemToUpgrade, Item itemToUpgradeWith, RecipeCategory pCategory, Item pResultItem) {
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(modTemplate), Ingredient.of(itemToUpgrade), Ingredient.of(itemToUpgradeWith), pCategory, pResultItem).unlocks("has_netherite_ingot", has(itemToUpgradeWith)).save(pFinishedRecipeConsumer, getItemName(pResultItem) + "_smithing");
     }
 
-    //these methods are used to build recipes for items or blocks that need to be processed
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");
     }

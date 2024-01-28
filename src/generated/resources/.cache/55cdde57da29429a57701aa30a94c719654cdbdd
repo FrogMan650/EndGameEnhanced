@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-27T12:23:50.4838741	Item Models: endgameenhanced
+// 1.20.1	2024-01-27T18:28:02.4506585	Item Models: endgameenhanced
 f6f34dad317a7eba98ee27b1b735abfb7c0340d4 assets/endgameenhanced/models/item/basic_essence.json
 62220888a7a6ea9f431cc4c16e2521bc99d72aca assets/endgameenhanced/models/item/charged_blaze_rod.json
 64796adba51692257b0cb9c091a58d76313851c5 assets/endgameenhanced/models/item/diamond_upgrade_smithing_template.json
@@ -9,6 +9,8 @@ d507903373a9224c0c937b0ea26046d92e965a8a assets/endgameenhanced/models/item/emer
 82470d86929cb74e5dc4f8df809e5b23ebd6b5be assets/endgameenhanced/models/item/emerald_sword.json
 af3f80352e03071ec5285bbc8fc3009072b44c46 assets/endgameenhanced/models/item/ender_dragon_scale.json
 0a0b134ccbc3a2ca718e13dfcc45ed12082df33b assets/endgameenhanced/models/item/end_blade.json
+dc8439157e865e8348e7cb3af7a6c3a34f9968e1 assets/endgameenhanced/models/item/experience_bottle_nether_wart.json
+9bd668ff1a850d7da209434f64c299d2decac3cd assets/endgameenhanced/models/item/experience_bottle_nether_wart_chorus_fruit.json
 a579156209fadd1b2780f155fce29e1ee8907f3d assets/endgameenhanced/models/item/huge_nether_wart.json
 76cbf384a7d6bcd25b7e7bb75d7d7c8179a58d8b assets/endgameenhanced/models/item/inevitable_boots.json
 71a82fb2a076ae92d17f1414ee0155a9c2a85e34 assets/endgameenhanced/models/item/inevitable_boots_amethyst_trim.json

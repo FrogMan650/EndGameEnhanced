@@ -55,6 +55,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ONYX_UPGRADE_SMITHING_TEMPLATE);
 
         simpleItem(ModItems.BASIC_ESSENCE);
+        simpleItem(ModItems.EXPERIENCE_BOTTLE_NETHER_WART);
+        simpleItem(ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT);
 
         simpleItem(ModItems.PURE_NETHER_ESSENCE);
         simpleItem(ModItems.NETHERRATH_UPGRADE_SMITHING_TEMPLATE);

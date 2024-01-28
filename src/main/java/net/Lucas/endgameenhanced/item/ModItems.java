@@ -168,6 +168,11 @@ public class ModItems {
     public static final RegistryObject<Item> INEVITABLE_BOOTS = ITEMS.register("inevitable_boots",
             () -> new ObsidianBoots(ModArmorMaterials.INEVITABLE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
 
+    public static final RegistryObject<Item> EXPERIENCE_BOTTLE_NETHER_WART = ITEMS.register("experience_bottle_nether_wart",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT = ITEMS.register("experience_bottle_nether_wart_chorus_fruit",
+            () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> BASIC_ESSENCE = ITEMS.register("basic_essence",
             () -> new Item(new Item.Properties()));
 
