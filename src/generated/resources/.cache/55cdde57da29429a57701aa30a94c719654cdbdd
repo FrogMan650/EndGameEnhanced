@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-27T18:28:02.4506585	Item Models: endgameenhanced
+// 1.20.1	2024-01-28T22:21:34.8182213	Item Models: endgameenhanced
 f6f34dad317a7eba98ee27b1b735abfb7c0340d4 assets/endgameenhanced/models/item/basic_essence.json
 62220888a7a6ea9f431cc4c16e2521bc99d72aca assets/endgameenhanced/models/item/charged_blaze_rod.json
 64796adba51692257b0cb9c091a58d76313851c5 assets/endgameenhanced/models/item/diamond_upgrade_smithing_template.json
@@ -132,6 +132,9 @@ f5d54631d20f9bc01f4511d71d260c1cce766781 assets/endgameenhanced/models/item/pure
 52855b7f9a4c1cec1f88e39f77a39be29cbdab8d assets/endgameenhanced/models/item/pure_nature_essence.json
 7b72fb8e8f09518825c0ec0cc5e74eba47e0ce21 assets/endgameenhanced/models/item/pure_nether_essence.json
 d230d877b5835d98b74f1f73205aa929f92aea89 assets/endgameenhanced/models/item/pure_ocean_essence.json
+d6e648e3a62f17100c0fb2279552bd7b5063ef9a assets/endgameenhanced/models/item/pure_resilient_essence.json
+a260012af66513d3aee0e470af3f7bcae2bfadfd assets/endgameenhanced/models/item/pure_resistant_essence.json
+913d1eda780febaa7d0b3fad90d524c9e80ae25f assets/endgameenhanced/models/item/pure_resolute_essence.json
 eb3e8009fe3a731f15f9329e4ac0bc79b213c952 assets/endgameenhanced/models/item/pure_sculk_essence.json
 87c8c5699793e5db308aaf3d5c9631623d7ea289 assets/endgameenhanced/models/item/pure_spider_essence.json
 e5b7cb2e2c8b90679ae750b1b3a4810e896cf85b assets/endgameenhanced/models/item/pure_tough_essence.json

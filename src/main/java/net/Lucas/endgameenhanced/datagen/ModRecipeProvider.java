@@ -347,10 +347,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         netheriteSmithing(pWriter, ModItems.UNKEMPT_HAROLD_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SHOVEL, ModItems.PURE_EXPLOSIVE_ESSENCE.get(), RecipeCategory.MISC, ModItems.UNKEMPT_HAROLD.get());
         netheriteSmithing(pWriter, ModItems.LEVIATHANS_AXE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_AXE, ModItems.PURE_NATURE_ESSENCE.get(), RecipeCategory.MISC, ModItems.LEVIATHANS_AXE.get());
         netheriteSmithing(pWriter, ModItems.SCYTHE_OF_VITUR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_HOE, ModItems.PURE_BLOOD_ESSENCE.get(), RecipeCategory.MISC, ModItems.SCYTHE_OF_VITUR.get());
-        netheriteSmithing(pWriter, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_HELMET, ModItems.PURE_TOUGH_ESSENCE.get(), RecipeCategory.MISC, ModItems.INEVITABLE_HELMET.get());
+        netheriteSmithing(pWriter, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_HELMET, ModItems.PURE_RESOLUTE_ESSENCE.get(), RecipeCategory.MISC, ModItems.INEVITABLE_HELMET.get());
         netheriteSmithing(pWriter, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_CHESTPLATE, ModItems.PURE_TOUGH_ESSENCE.get(), RecipeCategory.MISC, ModItems.INEVITABLE_CHESTPLATE.get());
-        netheriteSmithing(pWriter, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_LEGGINGS, ModItems.PURE_TOUGH_ESSENCE.get(), RecipeCategory.MISC, ModItems.INEVITABLE_LEGGINGS.get());
-        netheriteSmithing(pWriter, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_BOOTS, ModItems.PURE_TOUGH_ESSENCE.get(), RecipeCategory.MISC, ModItems.INEVITABLE_BOOTS.get());
+        netheriteSmithing(pWriter, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_LEGGINGS, ModItems.PURE_RESILIENT_ESSENCE.get(), RecipeCategory.MISC, ModItems.INEVITABLE_LEGGINGS.get());
+        netheriteSmithing(pWriter, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_BOOTS, ModItems.PURE_RESISTANT_ESSENCE.get(), RecipeCategory.MISC, ModItems.INEVITABLE_BOOTS.get());
 
     }
 

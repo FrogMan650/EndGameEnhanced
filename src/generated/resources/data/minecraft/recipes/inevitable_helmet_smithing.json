@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "endgameenhanced:pure_tough_essence"
+    "item": "endgameenhanced:pure_resolute_essence"
   },
   "base": {
     "item": "minecraft:netherite_helmet"

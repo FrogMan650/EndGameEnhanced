@@ -2,6 +2,7 @@ package net.Lucas.endgameenhanced.item.custom;
 
 import com.google.common.collect.Sets;
 import com.mojang.datafixers.util.Pair;
+import net.Lucas.endgameenhanced.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -18,8 +19,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.common.ToolAction;
@@ -87,7 +91,7 @@ public class ScytheOfVitur extends HoeItem {
             BlockPos pos = BlockPos.containing(entity.position());
             if (target.isShearable(stack, entity.level(), pos)) {
                 java.util.List<ItemStack> drops = target.onSheared(playerIn, stack, entity.level(), pos,
-                        net.minecraft.world.item.enchantment.EnchantmentHelper.getItemEnchantmentLevel(net.minecraft.world.item.enchantment.Enchantments.BLOCK_FORTUNE, stack));
+                        net.minecraft.world.item.enchantment.EnchantmentHelper.getTagEnchantmentLevel(net.minecraft.world.item.enchantment.Enchantments.BLOCK_FORTUNE, stack));
                 java.util.Random rand = new java.util.Random();
                 drops.forEach(d -> {
                     net.minecraft.world.entity.item.ItemEntity ent = entity.spawnAtLocation(d, 1.0F);
@@ -107,16 +111,21 @@ public class ScytheOfVitur extends HoeItem {
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
         Block block = blockstate.getBlock();
+        BlockEntity blockentity = blockstate.hasBlockEntity() ? level.getBlockEntity(blockpos) : null;
+        int fortuneLevel = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.BLOCK_FORTUNE, itemInHand);
+        ItemStack fortuneHoe = new ItemStack(ModItems.SCYTHE_OF_VITUR.get());
+        fortuneHoe.enchant(Enchantments.BLOCK_FORTUNE, fortuneLevel);
         BlockState toolModifiedState = level.getBlockState(blockpos).getToolModifiedState(pContext, net.minecraftforge.common.ToolActions.HOE_TILL, false);
         Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = toolModifiedState == null ? null : Pair.of(ctx -> true, changeIntoState(toolModifiedState));
-        //breaks the crop and drops loot, then resets it to its default state
+        //breaks the crop and drops loot based on fortune level, then resets it to its default state
         if (block instanceof CropBlock) {
             int cropAge = ((CropBlock) block).getAge(blockstate);
             int cropMaxAge = ((CropBlock) block).getMaxAge();
             boolean cropGrown = cropAge == cropMaxAge;
             if (cropGrown) {
-                pContext.getLevel().destroyBlock(blockpos, true);
-                pContext.getLevel().setBlockAndUpdate(blockpos, blockstate.getBlock().defaultBlockState());
+                Block.dropResources(blockstate, level, blockpos, blockentity, null, fortuneHoe);
+                level.destroyBlock(blockpos, false);
+                level.setBlockAndUpdate(blockpos, block.defaultBlockState());
                 return InteractionResult.sidedSuccess(level.isClientSide);
             }
 
@@ -126,8 +135,9 @@ public class ScytheOfVitur extends HoeItem {
             int cropMaxAge = ((PotatoBlock) block).getMaxAge();
             boolean cropGrown = cropAge == cropMaxAge;
             if (cropGrown) {
-                pContext.getLevel().destroyBlock(blockpos, true);
-                pContext.getLevel().setBlockAndUpdate(blockpos, blockstate.getBlock().defaultBlockState());
+                Block.dropResources(blockstate, level, blockpos, blockentity, null, fortuneHoe);
+                level.destroyBlock(blockpos, false);
+                level.setBlockAndUpdate(blockpos, block.defaultBlockState());
                 return InteractionResult.sidedSuccess(level.isClientSide);
             }
         }
@@ -136,8 +146,9 @@ public class ScytheOfVitur extends HoeItem {
             int cropMaxAge = ((BeetrootBlock) block).getMaxAge();
             boolean cropGrown = cropAge == cropMaxAge;
             if (cropGrown) {
-                pContext.getLevel().destroyBlock(blockpos, true);
-                pContext.getLevel().setBlockAndUpdate(blockpos, blockstate.getBlock().defaultBlockState());
+                Block.dropResources(blockstate, level, blockpos, blockentity, null, fortuneHoe);
+                level.destroyBlock(blockpos, false);
+                level.setBlockAndUpdate(blockpos, block.defaultBlockState());
                 return InteractionResult.sidedSuccess(level.isClientSide);
             }
         }
@@ -146,8 +157,9 @@ public class ScytheOfVitur extends HoeItem {
             int cropMaxAge = ((CarrotBlock) block).getMaxAge();
             boolean cropGrown = cropAge == cropMaxAge;
             if (cropGrown) {
-                pContext.getLevel().destroyBlock(blockpos, true);
-                pContext.getLevel().setBlockAndUpdate(blockpos, blockstate.getBlock().defaultBlockState());
+                Block.dropResources(blockstate, level, blockpos, blockentity, null, fortuneHoe);
+                level.destroyBlock(blockpos, false);
+                level.setBlockAndUpdate(blockpos, block.defaultBlockState());
                 return InteractionResult.sidedSuccess(level.isClientSide);
             }
         }
@@ -156,8 +168,9 @@ public class ScytheOfVitur extends HoeItem {
             int cropMaxAge = 3;
             boolean cropGrown = cropAge == cropMaxAge;
             if (cropGrown) {
-                pContext.getLevel().destroyBlock(blockpos, true);
-                pContext.getLevel().setBlockAndUpdate(blockpos, blockstate.getBlock().defaultBlockState());
+                Block.dropResources(blockstate, level, blockpos, blockentity, null, fortuneHoe);
+                level.destroyBlock(blockpos, false);
+                level.setBlockAndUpdate(blockpos, block.defaultBlockState());
                 return InteractionResult.sidedSuccess(level.isClientSide);
             }
         }

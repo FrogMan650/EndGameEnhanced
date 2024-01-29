@@ -86,7 +86,7 @@
   "item.endgameenhanced.smithing_template.axe_upgrade.base_slot_description": "Add Netherite Axe",
   "item.endgameenhanced.smithing_template.hoe_upgrade.additions_slot_description": "Add Pure Blood Essence",
   "item.endgameenhanced.smithing_template.hoe_upgrade.base_slot_description": "Add Netherite Hoe",
-  "item.endgameenhanced.smithing_template.armor_upgrade.additions_slot_description": "Add Pure Tough Essence",
+  "item.endgameenhanced.smithing_template.armor_upgrade.additions_slot_description": "Add Pure Resolute, Tough, Resilient, or Resistant Essence",
   "item.endgameenhanced.smithing_template.armor_upgrade.base_slot_description": "Add Netherite Helmet, Chestplate, Leggings, or Boots",
 
   "item.endgameenhanced.experience_bottle_nether_wart": "Basic Essence Potion (1/3)",
@@ -124,6 +124,9 @@
   "upgrade.endgameenhanced.inevitable_hoe_upgrade": "Sanguine Scythe Upgrade",
   "item.endgameenhanced.scythe_of_vitur_upgrade_smithing_template": "Sanguine Scythe Upgrade Smithing Template",
   "item.endgameenhanced.pure_tough_essence": "Pure Tough Essence",
+  "item.endgameenhanced.pure_resolute_essence": "Pure Resolute Essence",
+  "item.endgameenhanced.pure_resilient_essence": "Pure Resilient Essence",
+  "item.endgameenhanced.pure_resistant_essence": "Pure Resistant Essence",
   "upgrade.endgameenhanced.inevitable_armor_upgrade": "Obsidian Armor Upgrade",
   "item.endgameenhanced.obsidian_armor_upgrade_smithing_template": "Obsidian Armor Upgrade Smithing Template",
 

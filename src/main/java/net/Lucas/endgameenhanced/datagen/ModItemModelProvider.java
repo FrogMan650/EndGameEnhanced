@@ -79,6 +79,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.PURE_BLOOD_ESSENCE);
         simpleItem(ModItems.SCYTHE_OF_VITUR_UPGRADE_SMITHING_TEMPLATE);
         simpleItem(ModItems.PURE_TOUGH_ESSENCE);
+        simpleItem(ModItems.PURE_RESOLUTE_ESSENCE);
+        simpleItem(ModItems.PURE_RESILIENT_ESSENCE);
+        simpleItem(ModItems.PURE_RESISTANT_ESSENCE);
         simpleItem(ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE);
 
 

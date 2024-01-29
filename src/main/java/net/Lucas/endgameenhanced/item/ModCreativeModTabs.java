@@ -141,6 +141,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.PURE_NATURE_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_BLOOD_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_TOUGH_ESSENCE.get());
+                        pOutput.accept(ModItems.PURE_RESOLUTE_ESSENCE.get());
+                        pOutput.accept(ModItems.PURE_RESILIENT_ESSENCE.get());
+                        pOutput.accept(ModItems.PURE_RESISTANT_ESSENCE.get());
                     })
                     .build());
     public static final RegistryObject<CreativeModeTab> INEVITABLE_TAB = CREATIVE_MODE_TABS.register("inevitable_tab",

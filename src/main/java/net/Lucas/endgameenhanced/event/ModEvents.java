@@ -240,7 +240,7 @@ public class ModEvents {
                 if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.UNKEMPT_HAROLD.get() && blockState.is(BlockTags.MINEABLE_WITH_SHOVEL)) {
                     player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
                         int facing = blockFacing.getBlockFacing();
-                        ItemStack silkShovel = new ItemStack(Items.DIAMOND_SHOVEL);
+                        ItemStack silkShovel = new ItemStack(ModItems.UNKEMPT_HAROLD.get());
                         silkShovel.enchant(Enchantments.SILK_TOUCH, 1);
                         if (facing == 1) {
                             int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
@@ -292,7 +292,7 @@ public class ModEvents {
                 if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.INFERNAL_PICKAXE.get() && blockState.is(ModTags.Blocks.INFERNAL_PICKAXE_MINEABLES)) {
                     player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
                         int facing = blockFacing.getBlockFacing();
-                        ItemStack silkPick = new ItemStack(Items.DIAMOND_PICKAXE);
+                        ItemStack silkPick = new ItemStack(ModItems.INFERNAL_PICKAXE.get());
                         silkPick.enchant(Enchantments.SILK_TOUCH, 1);
                         if (facing == 1) {
                             int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
@@ -344,7 +344,7 @@ public class ModEvents {
                 if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.SCYTHE_OF_VITUR.get() && blockState.is(ModTags.Blocks.SANGUINE_SCYTHE_HOEABLES)) {
                     player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
                         int facing = blockFacing.getBlockFacing();
-                        ItemStack silkHoe = new ItemStack(Items.DIAMOND_HOE);
+                        ItemStack silkHoe = new ItemStack(ModItems.SCYTHE_OF_VITUR.get());
                         silkHoe.enchant(Enchantments.SILK_TOUCH, 1);
                         if (facing == 1) {
                             int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
@@ -396,7 +396,7 @@ public class ModEvents {
                 if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.LEVIATHANS_AXE.get() && blockState.is(ModTags.Blocks.LEVIATHANS_AXE_AXEABLES)) {
                     player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
                         int facing = blockFacing.getBlockFacing();
-                        ItemStack silkAxe = new ItemStack(Items.DIAMOND_AXE);
+                        ItemStack silkAxe = new ItemStack(ModItems.LEVIATHANS_AXE.get());
                         silkAxe.enchant(Enchantments.SILK_TOUCH, 1);
                         if (facing == 1) {
                             int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
