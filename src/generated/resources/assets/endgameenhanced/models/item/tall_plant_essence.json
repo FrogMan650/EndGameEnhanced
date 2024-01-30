@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "endgameenhanced:item/tall_plant_essence"
+  }
+}

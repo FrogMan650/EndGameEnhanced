@@ -55,6 +55,45 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ONYX_UPGRADE_SMITHING_TEMPLATE);
 
         simpleItem(ModItems.BASIC_ESSENCE);
+        simpleItem(ModItems.SPIDER_ESSENCE);
+        simpleItem(ModItems.DRENCHED_ESSENCE);
+        simpleItem(ModItems.MINESHAFT_ESSENCE);
+        simpleItem(ModItems.VOLATILE_ESSENCE);
+        simpleItem(ModItems.CORRUPTING_ESSENCE);
+        simpleItem(ModItems.PRISMATIC_ESSENCE);
+        simpleItem(ModItems.SCULK_ESSENCE);
+        simpleItem(ModItems.OCEAN_ESSENCE);
+        simpleItem(ModItems.SMOULDERING_ESSENCE);
+        simpleItem(ModItems.VOIDED_ESSENCE);
+        simpleItem(ModItems.PILLAGED_ESSENCE);
+        simpleItem(ModItems.NETHER_ESSENCE);
+        simpleItem(ModItems.END_ESSENCE);
+        simpleItem(ModItems.ANCIENT_ESSENCE);
+        simpleItem(ModItems.WARNING_ESSENCE);
+        simpleItem(ModItems.LAVA_ESSENCE);
+        simpleItem(ModItems.DARKNESS_ESSENCE);
+        simpleItem(ModItems.WATER_ESSENCE);
+        simpleItem(ModItems.ORE_ESSENCE);
+        simpleItem(ModItems.GEM_ESSENCE);
+        simpleItem(ModItems.TREE_ESSENCE);
+        simpleItem(ModItems.HARVEST_ESSENCE);
+        simpleItem(ModItems.SMALL_PLANT_ESSENCE);
+        simpleItem(ModItems.TALL_PLANT_ESSENCE);
+        simpleItem(ModItems.EARTHLY_ESSENCE);
+        simpleItem(ModItems.SECLUDED_ESSENCE);
+        simpleItem(ModItems.EXPLOSIVE_ESSENCE);
+        simpleItem(ModItems.TOUGHNESS_ESSENCE);
+        simpleItem(ModItems.SPEED_ESSENCE);
+        simpleItem(ModItems.BOOST_ESSENCE);
+        simpleItem(ModItems.VISION_ESSENCE);
+        simpleItem(ModItems.CONDUIT_ESSENCE);
+        simpleItem(ModItems.INFERNAL_ESSENCE);
+        simpleItem(ModItems.UNKEMPT_ESSENCE);
+        simpleItem(ModItems.SANGUINE_ESSENCE);
+        simpleItem(ModItems.BREACH_ESSENCE);
+        simpleItem(ModItems.STABILIZED_ESSENCE);
+        simpleItem(ModItems.SWIFT_ESSENCE);
+
         simpleItem(ModItems.EXPERIENCE_BOTTLE_NETHER_WART);
         simpleItem(ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT);
 

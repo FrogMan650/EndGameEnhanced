@@ -24,6 +24,7 @@ public class ModEntities {
                     .updateInterval(20).build("leviathans_axe"));
 
 
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

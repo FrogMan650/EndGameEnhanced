@@ -6,13 +6,14 @@ import net.Lucas.endgameenhanced.block.ModBlocks;
 import net.Lucas.endgameenhanced.entity.ModEntities;
 import net.Lucas.endgameenhanced.entity.client.LeviathansAxeRenderer;
 import net.Lucas.endgameenhanced.entity.client.TideBreakerRenderer;
-import net.Lucas.endgameenhanced.item.ModCreativeModTabs;
+import net.Lucas.endgameenhanced.item.ModCreativeModeTabs;
 import net.Lucas.endgameenhanced.item.ModItems;
 import net.Lucas.endgameenhanced.loot.ModLootModifier;
 import net.Lucas.endgameenhanced.potions.ExperienceBottleOneOfThree;
 import net.Lucas.endgameenhanced.potions.ExperienceBottleThreeOfThree;
 import net.Lucas.endgameenhanced.potions.ExperienceBottleTwoOfThree;
 import net.Lucas.endgameenhanced.util.ModItemProperties;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
@@ -47,7 +48,7 @@ public class EndGameEnhanced
     public EndGameEnhanced() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModCreativeModTabs.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);

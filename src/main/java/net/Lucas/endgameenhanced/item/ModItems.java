@@ -2,6 +2,16 @@ package net.Lucas.endgameenhanced.item;
 
 import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.Lucas.endgameenhanced.item.custom.*;
+import net.Lucas.endgameenhanced.item.custom.armor.ObsidianBoots;
+import net.Lucas.endgameenhanced.item.custom.armor.ObsidianChestplate;
+import net.Lucas.endgameenhanced.item.custom.armor.ObsidianHelmet;
+import net.Lucas.endgameenhanced.item.custom.armor.ObsidianLeggings;
+import net.Lucas.endgameenhanced.item.custom.mobdrops.*;
+import net.Lucas.endgameenhanced.item.custom.tools.InfernalPickaxe;
+import net.Lucas.endgameenhanced.item.custom.tools.LeviathansAxe;
+import net.Lucas.endgameenhanced.item.custom.tools.ScytheOfVitur;
+import net.Lucas.endgameenhanced.item.custom.tools.UnkemptHarold;
+import net.Lucas.endgameenhanced.item.custom.weapons.*;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -17,6 +27,7 @@ public class ModItems {
     //Epic = light_purple text
     //when enchanted they go up a rarity tier
 
+//gems
     public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> OPAL = ITEMS.register("opal",
@@ -27,6 +38,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ONYX = ITEMS.register("onyx",
             () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+
+//mob drops
     public static final RegistryObject<Item> SMOULDERING_STONE = ITEMS.register("smouldering_stone",
             () -> new SmoulderingStone(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> ENDER_DRAGON_SCALE = ITEMS.register("ender_dragon_scale",
@@ -40,7 +53,7 @@ public class ModItems {
     public static final RegistryObject<Item> WITHER_SKELETON_BONE = ITEMS.register("wither_skeleton_bone",
             () -> new WitherSkeletonBone(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
 
-    //inevitable
+    //inevitable weapons/tools
     public static final RegistryObject<Item> NETHER_BLADE = ITEMS.register("nether_blade",
             () -> new NetherBlade(ModToolTiers.INEVITABLE, 6, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
@@ -51,11 +64,11 @@ public class ModItems {
             () -> new SculkBlade(ModToolTiers.INEVITABLE, 6, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> WEBWEAVER_BOW = ITEMS.register("webweaver_bow",
-            () -> new CustomBowItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(6969)));
+            () -> new WebweaverBow(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(6969)));
     public static final RegistryObject<Item> SCULK_SLINGER = ITEMS.register("sculk_slinger",
-            () -> new CustomCrossbowItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(6969)));
+            () -> new SculkSlingerCrossbow(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(6969)));
     public static final RegistryObject<Item> TIDE_BREAKER = ITEMS.register("tide_breaker",
-            () -> new CustomTridentItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(6969)));
+            () -> new TideBreakerTrident(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(6969)));
     public static final RegistryObject<Item> LEVIATHANS_AXE = ITEMS.register("leviathans_axe",
             () -> new LeviathansAxe(ModToolTiers.INEVITABLE, 9, -3F, new
                     Item.Properties().rarity(Rarity.EPIC).fireResistant()));
@@ -149,7 +162,7 @@ public class ModItems {
     public static final RegistryObject<Item> RUBY_HOE = ITEMS.register("ruby_hoe",
             () -> new HoeItem(ModToolTiers.RUBY, -3, 0, new Item.Properties()));
 
-
+//onyx armor
     public static final RegistryObject<Item> ONYX_HELMET = ITEMS.register("onyx_helmet",
             () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> ONYX_CHESTPLATE = ITEMS.register("onyx_chestplate",
@@ -159,6 +172,7 @@ public class ModItems {
     public static final RegistryObject<Item> ONYX_BOOTS = ITEMS.register("onyx_boots",
             () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.BOOTS, new Item.Properties()));
 
+//inevitable armor
     public static final RegistryObject<Item> INEVITABLE_HELMET = ITEMS.register("inevitable_helmet",
             () -> new ObsidianHelmet(ModArmorMaterials.INEVITABLE, ArmorItem.Type.HELMET, new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> INEVITABLE_CHESTPLATE = ITEMS.register("inevitable_chestplate",
@@ -168,15 +182,56 @@ public class ModItems {
     public static final RegistryObject<Item> INEVITABLE_BOOTS = ITEMS.register("inevitable_boots",
             () -> new ObsidianBoots(ModArmorMaterials.INEVITABLE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
 
+//potions
     public static final RegistryObject<Item> EXPERIENCE_BOTTLE_NETHER_WART = ITEMS.register("experience_bottle_nether_wart",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT = ITEMS.register("experience_bottle_nether_wart_chorus_fruit",
             () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> BASIC_ESSENCE = ITEMS.register("basic_essence",
-            () -> new Item(new Item.Properties()));
+//essence
+    public static final RegistryObject<Item> BASIC_ESSENCE = ITEMS.register("basic_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SPIDER_ESSENCE = ITEMS.register("spider_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> DRENCHED_ESSENCE = ITEMS.register("drenched_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MINESHAFT_ESSENCE = ITEMS.register("mineshaft_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> VOLATILE_ESSENCE = ITEMS.register("volatile_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CORRUPTING_ESSENCE = ITEMS.register("corrupting_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PRISMATIC_ESSENCE = ITEMS.register("prismatic_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SCULK_ESSENCE = ITEMS.register("sculk_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> OCEAN_ESSENCE = ITEMS.register("ocean_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SMOULDERING_ESSENCE = ITEMS.register("smouldering_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> VOIDED_ESSENCE = ITEMS.register("voided_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PILLAGED_ESSENCE = ITEMS.register("pillaged_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> NETHER_ESSENCE = ITEMS.register("nether_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> END_ESSENCE = ITEMS.register("end_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ANCIENT_ESSENCE = ITEMS.register("ancient_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WARNING_ESSENCE = ITEMS.register("warning_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> LAVA_ESSENCE = ITEMS.register("lava_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> DARKNESS_ESSENCE = ITEMS.register("darkness_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WATER_ESSENCE = ITEMS.register("water_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ORE_ESSENCE = ITEMS.register("ore_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> GEM_ESSENCE = ITEMS.register("gem_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TREE_ESSENCE = ITEMS.register("tree_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> HARVEST_ESSENCE = ITEMS.register("harvest_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SMALL_PLANT_ESSENCE = ITEMS.register("small_plant_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TALL_PLANT_ESSENCE = ITEMS.register("tall_plant_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> EARTHLY_ESSENCE = ITEMS.register("earthly_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SECLUDED_ESSENCE = ITEMS.register("secluded_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> EXPLOSIVE_ESSENCE = ITEMS.register("explosive_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TOUGHNESS_ESSENCE = ITEMS.register("toughness_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SPEED_ESSENCE = ITEMS.register("speed_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BOOST_ESSENCE = ITEMS.register("boost_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> VISION_ESSENCE = ITEMS.register("vision_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CONDUIT_ESSENCE = ITEMS.register("conduit_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> INFERNAL_ESSENCE = ITEMS.register("infernal_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> UNKEMPT_ESSENCE = ITEMS.register("unkempt_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SANGUINE_ESSENCE = ITEMS.register("sanguine_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BREACH_ESSENCE = ITEMS.register("breach_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> STABILIZED_ESSENCE = ITEMS.register("stabilized_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SWIFT_ESSENCE = ITEMS.register("swift_essence", () -> new Item(new Item.Properties()));
 
 
+
+//inevitable templates and pure essence
     public static final RegistryObject<Item> NETHERRATH_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("netherrath_upgrade_smithing_template", CustomSmithingTemplateItem::createNetherrathUpgradeTemplate);
     public static final RegistryObject<Item> PURE_NETHER_ESSENCE = ITEMS.register("pure_nether_essence",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
@@ -216,7 +271,6 @@ public class ModItems {
             () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> PURE_RESISTANT_ESSENCE = ITEMS.register("pure_resistant_essence",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
-
 
 
 

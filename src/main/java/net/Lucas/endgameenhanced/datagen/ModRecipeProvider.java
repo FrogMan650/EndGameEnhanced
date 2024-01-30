@@ -335,6 +335,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Items.ARROW), has(Items.ARROW))
                 .save(pWriter, new ResourceLocation(EndGameEnhanced.MOD_ID, "arrow_from_jade"));
 
+
         
 
         netheriteSmithing(pWriter, ModItems.VOIDWAKER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_END_ESSENCE.get(), RecipeCategory.MISC, ModItems.END_BLADE.get());
