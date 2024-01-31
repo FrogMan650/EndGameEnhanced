@@ -5,6 +5,7 @@ import net.Lucas.endgameenhanced.Networking.ModMessages;
 import net.Lucas.endgameenhanced.block.ModBlocks;
 import net.Lucas.endgameenhanced.entity.ModEntities;
 import net.Lucas.endgameenhanced.entity.client.LeviathansAxeRenderer;
+import net.Lucas.endgameenhanced.entity.client.ObsidianElytraLayer;
 import net.Lucas.endgameenhanced.entity.client.TideBreakerRenderer;
 import net.Lucas.endgameenhanced.item.ModCreativeModeTabs;
 import net.Lucas.endgameenhanced.item.ModItems;
@@ -13,11 +14,18 @@ import net.Lucas.endgameenhanced.potions.ExperienceBottleOneOfThree;
 import net.Lucas.endgameenhanced.potions.ExperienceBottleThreeOfThree;
 import net.Lucas.endgameenhanced.potions.ExperienceBottleTwoOfThree;
 import net.Lucas.endgameenhanced.util.ModItemProperties;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -76,6 +84,8 @@ public class EndGameEnhanced
 
         });
 
+
+
     }
 
     // Add the example block item to the building blocks tab
@@ -99,7 +109,10 @@ public class EndGameEnhanced
             ModItemProperties.addCustomItemProperties();
             EntityRenderers.register(ModEntities.TIDE_BREAKER.get(), TideBreakerRenderer::new);
             EntityRenderers.register(ModEntities.LEVIATHANS_AXE.get(), LeviathansAxeRenderer::new);
+
         }
+
+
 
 
     }

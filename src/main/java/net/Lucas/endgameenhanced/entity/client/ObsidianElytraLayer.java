@@ -26,7 +26,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class ObsidianElytraLayer<T extends LivingEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
-   private static final ResourceLocation WINGS_LOCATION = new ResourceLocation(EndGameEnhanced.MOD_ID, "textures/entity/obsidian_elytra.png");
+   private static final ResourceLocation WINGS_LOCATION = new ResourceLocation("textures/entity/elytra.png");
    private final ObsidianElytraModel<T> elytraModel;
 
    public ObsidianElytraLayer(RenderLayerParent<T, M> pRenderer, EntityModelSet pModelSet) {

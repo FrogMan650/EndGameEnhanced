@@ -2,6 +2,7 @@ package net.Lucas.endgameenhanced.event;
 
 import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.Lucas.endgameenhanced.entity.client.ObsidianElytraLayer;
+import net.Lucas.endgameenhanced.entity.client.ObsidianElytraModel;
 import net.Lucas.endgameenhanced.item.ModItems;
 import net.Lucas.endgameenhanced.blockFacing.PlayerBlockFacing;
 import net.Lucas.endgameenhanced.blockFacing.PlayerBlockFacingProvider;
@@ -10,6 +11,7 @@ import net.Lucas.endgameenhanced.toolChange.PlayerToolChangeProvider;
 import net.Lucas.endgameenhanced.util.ModTags;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.EntityModelSet;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,6 +29,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
@@ -467,14 +470,17 @@ public class ModEvents {
         });
     }
 
-//    @SubscribeEvent
-//    public static void onRenderPlayer(RenderPlayerEvent.Pre event) {
-//        Player player = event.getEntity();
-//        PlayerRenderer renderer = event.getRenderer();
-//        PlayerModel pModel = event.getRenderer().getModel();
-//        EntityModelSet modelSet = new EntityModelSet();
-//        renderer.addLayer(new ObsidianElytraLayer<>(renderer, modelSet));
-//    }
+
+
+
+    @SubscribeEvent
+    public static void onRenderPlayer(RenderPlayerEvent.Pre event) {
+        Player player = event.getEntity();
+        PlayerRenderer renderer = event.getRenderer();
+        PlayerModel pModel = event.getRenderer().getModel();
+        EntityModelSet modelSet = new EntityModelSet();
+        renderer.addLayer(new ObsidianElytraLayer<>(renderer, modelSet));
+    }
 
 
 //    @SubscribeEvent
