@@ -478,8 +478,8 @@ public class ModEvents {
         Player player = event.getEntity();
         PlayerRenderer renderer = event.getRenderer();
         PlayerModel pModel = event.getRenderer().getModel();
-        EntityModelSet modelSet = new EntityModelSet();
-        renderer.addLayer(new ObsidianElytraLayer<>(renderer, modelSet));
+        //LivingEntityRenderer<Player, PlayerModel<Player>> rendererr = event.getEntity()
+
     }
 
 

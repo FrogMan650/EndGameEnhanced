@@ -1,11 +1,9 @@
 package net.Lucas.endgameenhanced.event;
 
 import net.Lucas.endgameenhanced.EndGameEnhanced;
-import net.Lucas.endgameenhanced.entity.client.LeviathansAxeModel;
-import net.Lucas.endgameenhanced.entity.client.ObsidianElytraLayer;
-import net.Lucas.endgameenhanced.entity.client.ObsidianElytraModel;
-import net.Lucas.endgameenhanced.entity.client.TideBreakerModel;
+import net.Lucas.endgameenhanced.entity.client.*;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ElytraModel;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -26,12 +24,12 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(LeviathansAxeModel.LEVIATHANS_AXE_LAYER_LOCATION, LeviathansAxeModel::createBodyLayer);
         event.registerLayerDefinition(ObsidianElytraModel.WINGS_LAYER_LOCATION, ObsidianElytraModel::createLayer);
     }
+
     @SubscribeEvent
     public static void addPlayerLayers(EntityRenderersEvent.AddLayers event) {
-        LivingEntityRenderer<Player, PlayerModel<Player>> rendererr = event.getSkin("default");
-        LivingEntityRenderer<Player, PlayerModel<Player>> renderer = event.getRenderer(EntityType.PLAYER);
-        ObsidianElytraLayer<Player, PlayerModel<Player>> layer = new ObsidianElytraLayer<>(renderer, event.getEntityModels());
-        rendererr.addLayer(layer);
+        LivingEntityRenderer<Player, PlayerModel<Player>> renderer = event.getSkin("default");
+        ObsidianElytraLayer<Player, PlayerModel<Player>> layer = new ObsidianElytraLayer<>(renderer, event.getContext().getModelSet());
+        renderer.addLayer(layer);
     }
 
 }

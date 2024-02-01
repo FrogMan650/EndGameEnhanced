@@ -1,5 +1,6 @@
 package net.Lucas.endgameenhanced.item.custom;
 
+import net.Lucas.endgameenhanced.entity.client.ObsidianElytraLayer;
 import net.Lucas.endgameenhanced.item.ModItems;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;

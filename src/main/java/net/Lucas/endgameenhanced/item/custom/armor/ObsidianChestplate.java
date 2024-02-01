@@ -1,10 +1,13 @@
 package net.Lucas.endgameenhanced.item.custom.armor;
 
+import net.Lucas.endgameenhanced.item.ModItems;
 import net.Lucas.endgameenhanced.item.custom.CustomArmorItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -23,6 +26,13 @@ public class ObsidianChestplate extends CustomArmorItem {
 
     @Override
     public boolean canElytraFly(ItemStack stack, net.minecraft.world.entity.LivingEntity entity) {
+        if (entity instanceof Player player) {
+            boolean setEffectHead = player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.INEVITABLE_HELMET.get();
+            boolean setEffectChest = player.getItemBySlot(EquipmentSlot.CHEST).getItem() == ModItems.INEVITABLE_CHESTPLATE.get();
+            boolean setEffectLegs = player.getItemBySlot(EquipmentSlot.LEGS).getItem() == ModItems.INEVITABLE_LEGGINGS.get();
+            boolean setEffectBoots = player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.INEVITABLE_BOOTS.get();
+            return setEffectHead && setEffectChest && setEffectLegs && setEffectBoots;
+        }
         return isFlyEnabled(stack);
     }
 

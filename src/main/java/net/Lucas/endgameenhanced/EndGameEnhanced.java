@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.Lucas.endgameenhanced.Networking.ModMessages;
 import net.Lucas.endgameenhanced.block.ModBlocks;
 import net.Lucas.endgameenhanced.entity.ModEntities;
+import net.Lucas.endgameenhanced.entity.client.CustomElytraLayer;
 import net.Lucas.endgameenhanced.entity.client.LeviathansAxeRenderer;
 import net.Lucas.endgameenhanced.entity.client.ObsidianElytraLayer;
 import net.Lucas.endgameenhanced.entity.client.TideBreakerRenderer;
@@ -20,6 +21,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -109,8 +111,8 @@ public class EndGameEnhanced
             ModItemProperties.addCustomItemProperties();
             EntityRenderers.register(ModEntities.TIDE_BREAKER.get(), TideBreakerRenderer::new);
             EntityRenderers.register(ModEntities.LEVIATHANS_AXE.get(), LeviathansAxeRenderer::new);
-
         }
+
 
 
 

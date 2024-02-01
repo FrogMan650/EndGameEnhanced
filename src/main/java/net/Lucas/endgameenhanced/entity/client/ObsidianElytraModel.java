@@ -16,7 +16,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class ObsidianElytraModel<T extends LivingEntity> extends AgeableListModel<T> {
-   public static final ModelLayerLocation WINGS_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EndGameEnhanced.MOD_ID, "obsidian_elytra"), "main");
+   public static final ModelLayerLocation WINGS_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EndGameEnhanced.MOD_ID, "inevitable_chestplate"), "main");
    private final ModelPart rightWing;
    private final ModelPart leftWing;
 

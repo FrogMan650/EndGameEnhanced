@@ -2,10 +2,7 @@ package net.Lucas.endgameenhanced.item;
 
 import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.Lucas.endgameenhanced.item.custom.*;
-import net.Lucas.endgameenhanced.item.custom.armor.ObsidianBoots;
-import net.Lucas.endgameenhanced.item.custom.armor.ObsidianChestplate;
-import net.Lucas.endgameenhanced.item.custom.armor.ObsidianHelmet;
-import net.Lucas.endgameenhanced.item.custom.armor.ObsidianLeggings;
+import net.Lucas.endgameenhanced.item.custom.armor.*;
 import net.Lucas.endgameenhanced.item.custom.mobdrops.*;
 import net.Lucas.endgameenhanced.item.custom.tools.InfernalPickaxe;
 import net.Lucas.endgameenhanced.item.custom.tools.LeviathansAxe;
@@ -181,6 +178,7 @@ public class ModItems {
             () -> new ObsidianLeggings(ModArmorMaterials.INEVITABLE, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> INEVITABLE_BOOTS = ITEMS.register("inevitable_boots",
             () -> new ObsidianBoots(ModArmorMaterials.INEVITABLE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
+
 
 //potions
     public static final RegistryObject<Item> EXPERIENCE_BOTTLE_NETHER_WART = ITEMS.register("experience_bottle_nether_wart",
