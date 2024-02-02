@@ -55,6 +55,9 @@ public class ObsidianBoots extends CustomArmorItem {
                 ("endgameenhanced:obsidian_boots_lore.green_text_arrow_thirteen"))).withStyle(BLUE_TEXT);
         Component obsidian_boots_stats_arrow_fourteen = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:obsidian_boots_lore.green_text_arrow_fourteen"))).withStyle(BLUE_TEXT);
+        Component obsidian_boots_stats_arrow_sixteen = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("endgameenhanced:obsidian_boots_lore.green_text_arrow_sixteen"))).withStyle(BLUE_TEXT);
+
 
 
 
@@ -72,5 +75,6 @@ public class ObsidianBoots extends CustomArmorItem {
         pTooltipComponents.add(obsidian_boots_stats_arrow_twelve);
         pTooltipComponents.add(obsidian_boots_stats_arrow_thirteen);
         pTooltipComponents.add(obsidian_boots_stats_arrow_fourteen);
+        pTooltipComponents.add(obsidian_boots_stats_arrow_sixteen);
     }
 }

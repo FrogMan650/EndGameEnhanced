@@ -27,9 +27,17 @@ public class ModEventBusClientEvents {
 
     @SubscribeEvent
     public static void addPlayerLayers(EntityRenderersEvent.AddLayers event) {
-        LivingEntityRenderer<Player, PlayerModel<Player>> renderer = event.getSkin("default");
-        ObsidianElytraLayer<Player, PlayerModel<Player>> layer = new ObsidianElytraLayer<>(renderer, event.getContext().getModelSet());
-        renderer.addLayer(layer);
+        for (String skin : event.getSkins()) {
+            LivingEntityRenderer renderer = event.getSkin(skin);
+
+            if (renderer != null) {
+                renderer.addLayer(new ObsidianElytraLayer<>(renderer, event.getEntityModels()));
+            }
+        }
+        LivingEntityRenderer renderer = event.getRenderer(EntityType.ARMOR_STAND);
+        if (renderer != null) {
+            renderer.addLayer(new ObsidianElytraLayer<>(renderer, event.getEntityModels()));
+        }
     }
 
 }

@@ -4,9 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.Lucas.endgameenhanced.Networking.ModMessages;
 import net.Lucas.endgameenhanced.block.ModBlocks;
 import net.Lucas.endgameenhanced.entity.ModEntities;
-import net.Lucas.endgameenhanced.entity.client.CustomElytraLayer;
 import net.Lucas.endgameenhanced.entity.client.LeviathansAxeRenderer;
-import net.Lucas.endgameenhanced.entity.client.ObsidianElytraLayer;
 import net.Lucas.endgameenhanced.entity.client.TideBreakerRenderer;
 import net.Lucas.endgameenhanced.item.ModCreativeModeTabs;
 import net.Lucas.endgameenhanced.item.ModItems;
@@ -15,19 +13,10 @@ import net.Lucas.endgameenhanced.potions.ExperienceBottleOneOfThree;
 import net.Lucas.endgameenhanced.potions.ExperienceBottleThreeOfThree;
 import net.Lucas.endgameenhanced.potions.ExperienceBottleTwoOfThree;
 import net.Lucas.endgameenhanced.util.ModItemProperties;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.PlayerModel;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.client.renderer.entity.LivingEntityRenderer;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -83,7 +72,6 @@ public class EndGameEnhanced
                     ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT.get(), Items.CHORUS_FRUIT));
             BrewingRecipeRegistry.addRecipe(new ExperienceBottleThreeOfThree(ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT.get(),
                     ModItems.BASIC_ESSENCE.get(), Items.WHEAT));
-
         });
 
 

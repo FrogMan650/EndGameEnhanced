@@ -20,9 +20,6 @@ public class ObsidianChestplate extends CustomArmorItem {
     public ObsidianChestplate(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
         super(pMaterial, pType, pProperties);
     }
-    public static boolean isFlyEnabled(ItemStack pElytraStack) {
-        return pElytraStack.getDamageValue() < pElytraStack.getMaxDamage() - 1;
-    }
 
     @Override
     public boolean canElytraFly(ItemStack stack, net.minecraft.world.entity.LivingEntity entity) {
@@ -33,7 +30,7 @@ public class ObsidianChestplate extends CustomArmorItem {
             boolean setEffectBoots = player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.INEVITABLE_BOOTS.get();
             return setEffectHead && setEffectChest && setEffectLegs && setEffectBoots;
         }
-        return isFlyEnabled(stack);
+        return false;
     }
 
     @Override
@@ -84,6 +81,9 @@ public class ObsidianChestplate extends CustomArmorItem {
                 ("endgameenhanced:obsidian_chestplate_lore.green_text_arrow_thirteen"))).withStyle(BLUE_TEXT);
         Component obsidian_chestplate_stats_arrow_fourteen = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:obsidian_chestplate_lore.green_text_arrow_fourteen"))).withStyle(BLUE_TEXT);
+        Component obsidian_chestplate_stats_arrow_fifteen = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("endgameenhanced:obsidian_chestplate_lore.green_text_arrow_fifteen"))).withStyle(BLUE_TEXT);
+
 
 
 
@@ -100,5 +100,6 @@ public class ObsidianChestplate extends CustomArmorItem {
         pTooltipComponents.add(obsidian_chestplate_stats_arrow_twelve);
         pTooltipComponents.add(obsidian_chestplate_stats_arrow_thirteen);
         pTooltipComponents.add(obsidian_chestplate_stats_arrow_fourteen);
+        pTooltipComponents.add(obsidian_chestplate_stats_arrow_fifteen);
     }
 }

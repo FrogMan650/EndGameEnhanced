@@ -52,6 +52,9 @@ public class ObsidianHelmet extends CustomArmorItem {
                 ("endgameenhanced:obsidian_helmet_lore.green_text_arrow_thirteen"))).withStyle(BLUE_TEXT);
         Component obsidian_helmet_stats_arrow_fourteen = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:obsidian_helmet_lore.green_text_arrow_fourteen"))).withStyle(BLUE_TEXT);
+        Component obsidian_helmet_stats_arrow_fifteen = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("endgameenhanced:obsidian_helmet_lore.green_text_arrow_fifteen"))).withStyle(BLUE_TEXT);
+
 
 
 
@@ -68,5 +71,6 @@ public class ObsidianHelmet extends CustomArmorItem {
         pTooltipComponents.add(obsidian_helmet_stats_arrow_twelve);
         pTooltipComponents.add(obsidian_helmet_stats_arrow_thirteen);
         pTooltipComponents.add(obsidian_helmet_stats_arrow_fourteen);
+        pTooltipComponents.add(obsidian_helmet_stats_arrow_fifteen);
     }
 }

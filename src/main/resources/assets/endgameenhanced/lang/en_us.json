@@ -52,8 +52,6 @@
   "item.endgameenhanced.inevitable_chestplate": "Obsidian Chestplate",
   "item.endgameenhanced.inevitable_leggings": "Obsidian Legguards",
   "item.endgameenhanced.inevitable_boots": "Obsidian Boots",
-  "item.endgameenhanced.inevitable_elytra": "Obsidian Elytra",
-  "item.endgameenhanced.custom_elytra": "Custom Elytra",
 
   "item.endgameenhanced.nether_blade": "Netherrath",
   "item.endgameenhanced.end_blade": "Voidwaker",
@@ -304,7 +302,8 @@
   "item.endgameenhanced.obsidian_helmet_lore.grey_text_arrow_two": "Set Bonus:",
   "item.endgameenhanced.obsidian_helmet_lore.green_text_arrow_twelve": "Fire Resistance",
   "item.endgameenhanced.obsidian_helmet_lore.green_text_arrow_thirteen": "Resistance I",
-  "item.endgameenhanced.obsidian_helmet_lore.green_text_arrow_fourteen": " ",
+  "item.endgameenhanced.obsidian_helmet_lore.green_text_arrow_fourteen": "Elytra Flight",
+  "item.endgameenhanced.obsidian_helmet_lore.green_text_arrow_fifteen": " ",
 
   "item.endgameenhanced.obsidian_chestplate_lore.red_text": "If you listen closely you can hear a faint pulsing sound coming from the Chestplate.",
   "item.endgameenhanced.obsidian_chestplate_lore.red_text_two": " ",
@@ -317,7 +316,8 @@
   "item.endgameenhanced.obsidian_chestplate_lore.grey_text_arrow_two": "Set Bonus:",
   "item.endgameenhanced.obsidian_chestplate_lore.green_text_arrow_twelve": "Fire Resistance",
   "item.endgameenhanced.obsidian_chestplate_lore.green_text_arrow_thirteen": "Resistance I",
-  "item.endgameenhanced.obsidian_chestplate_lore.green_text_arrow_fourteen": " ",
+  "item.endgameenhanced.obsidian_chestplate_lore.green_text_arrow_fourteen": "Elytra Flight",
+  "item.endgameenhanced.obsidian_chestplate_lore.green_text_arrow_fifteen": " ",
 
   "item.endgameenhanced.obsidian_leggings_lore.red_text": "These Legguards seem to be made with some extremely springy material.",
   "item.endgameenhanced.obsidian_leggings_lore.red_text_two": " ",
@@ -330,7 +330,8 @@
   "item.endgameenhanced.obsidian_leggings_lore.grey_text_arrow_two": "Set Bonus:",
   "item.endgameenhanced.obsidian_leggings_lore.green_text_arrow_twelve": "Fire Resistance",
   "item.endgameenhanced.obsidian_leggings_lore.green_text_arrow_thirteen": "Resistance I",
-  "item.endgameenhanced.obsidian_leggings_lore.green_text_arrow_fourteen": " ",
+  "item.endgameenhanced.obsidian_leggings_lore.green_text_arrow_fourteen": "Elytra Flight",
+  "item.endgameenhanced.obsidian_leggings_lore.green_text_arrow_fifteen": " ",
 
   "item.endgameenhanced.obsidian_boots_lore.red_text": "Sometimes it feels like these Boots are moving faster than you are.",
   "item.endgameenhanced.obsidian_boots_lore.red_text_two": " ",
@@ -344,7 +345,8 @@
   "item.endgameenhanced.obsidian_boots_lore.grey_text_arrow_two": "Set Bonus:",
   "item.endgameenhanced.obsidian_boots_lore.green_text_arrow_twelve": "Fire Resistance",
   "item.endgameenhanced.obsidian_boots_lore.green_text_arrow_thirteen": "Resistance I",
-  "item.endgameenhanced.obsidian_boots_lore.green_text_arrow_fourteen": " ",
+  "item.endgameenhanced.obsidian_boots_lore.green_text_arrow_fourteen": "Elytra Flight",
+  "item.endgameenhanced.obsidian_boots_lore.green_text_arrow_sixteen": " ",
 
   "item.endgameenhanced.ender_dragon_scale_lore.red_text": "It's very dark and has a strange reflective surface.",
   "item.endgameenhanced.ender_dragon_scale_lore.red_text_two": " ",
