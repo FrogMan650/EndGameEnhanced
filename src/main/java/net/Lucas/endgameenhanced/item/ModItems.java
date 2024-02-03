@@ -37,18 +37,49 @@ public class ModItems {
             () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
 
 //mob drops
-    public static final RegistryObject<Item> SMOULDERING_STONE = ITEMS.register("smouldering_stone",
-            () -> new SmoulderingStone(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> ENDER_DRAGON_SCALE = ITEMS.register("ender_dragon_scale",
-            () -> new EnderDragonScale(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> SCULK_CRYSTAL = ITEMS.register("sculk_crystal",
-            () -> new SculkCrystal(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> CHARGED_BLAZE_ROD = ITEMS.register("charged_blaze_rod",
-            () -> new ChargedBlazeRod(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> HUGE_NETHER_WART = ITEMS.register("huge_nether_wart",
-            () -> new HugeNetherWart(new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> WITHER_SKELETON_BONE = ITEMS.register("wither_skeleton_bone",
-            () -> new WitherSkeletonBone(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> SMOULDERING_STONE = ITEMS.register("smouldering_stone", () -> new SmoulderingStone(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> ENDER_DRAGON_SCALE = ITEMS.register("ender_dragon_scale", () -> new EnderDragonScale(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> SCULK_CRYSTAL = ITEMS.register("sculk_crystal", () -> new SculkCrystal(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> CHARGED_BLAZE_ROD = ITEMS.register("charged_blaze_rod", () -> new ChargedBlazeRod(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> HUGE_NETHER_WART = ITEMS.register("huge_nether_wart", () -> new HugeNetherWart(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> WITHER_SKELETON_BONE = ITEMS.register("wither_skeleton_bone", () -> new WitherSkeletonBone(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> SPIDER_FANG = ITEMS.register("spider_fang", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> CREEPER_FUSE = ITEMS.register("creeper_fuse", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> SOAKED_FLESH = ITEMS.register("soaked_flesh", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> FLESH_JERKY = ITEMS.register("flesh_jerky", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> MAGMA_BUTTER = ITEMS.register("magma_butter", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RIP_BONE = ITEMS.register("rib_bone", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> SLIME_GLOB = ITEMS.register("slime_glob", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> FROZEN_BONE = ITEMS.register("frozen_bone", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> NOT_SO_ROTTEN_FLESH = ITEMS.register("not_so_rotten_flesh", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> PIGLINS_GOLD_COIN = ITEMS.register("piglins_gold_coin", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> CAVE_SPIDER_EYE = ITEMS.register("cave_spider_eye", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> ENDERMITE_EGG = ITEMS.register("endermite_egg", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> GHAST_TENTACLE = ITEMS.register("ghast_tentacle", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> GUARDIAN_SPIKE = ITEMS.register("guardian_spike", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> HOGLIN_TUSK = ITEMS.register("hoglin_tusk", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> PHANTOM_WING = ITEMS.register("phantom_wing", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> DAMAGED_CROSSBOW = ITEMS.register("damaged_crossbow", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> DISCOLORED_SHULKER_SHELL = ITEMS.register("discolored_shulker_shell", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> WITCHS_BREW = ITEMS.register("witchs_brew", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> FLAWLESS_ENDER_PEARL = ITEMS.register("flawless_ender_pearl", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> ELDER_GUARDIAN_SPIKE = ITEMS.register("elder_guardian_spike", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RITUAL_BOOK = ITEMS.register("ritual_book", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> AXE_HILT = ITEMS.register("axe_hilt", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RAVAGER_HORN = ITEMS.register("ravager_horn", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> BROKEN_AXE = ITEMS.register("broken_axe", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> SENSOR_TENDRIL = ITEMS.register("sensor_tendril", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> SHRIEKER_NOISE_BOX = ITEMS.register("shrieker_noise_box", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> PLENTIFUL_WHEAT = ITEMS.register("plentiful_wheat", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> ODD_SHAPED_BEETROOT = ITEMS.register("odd_shaped_beetroot", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> SMALL_CARROT = ITEMS.register("small_carrot", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> ODD_SHAPED_POTATO = ITEMS.register("odd_shaped_potato", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> WHITE_PUMPKIN = ITEMS.register("white_pumpkin", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> GOLDEN_WATERMELON = ITEMS.register("golden_watermelon", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> HUGE_PITCHER_PLANT = ITEMS.register("huge_pitcher_plant", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> CACTUS_SPINE = ITEMS.register("cactus_spine", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> BIOLUMINESCENT_TORCHFLOWER = ITEMS.register("bioluminescent_torchflower", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> THICK_SUGAR_CANE = ITEMS.register("thick_sugar_cane", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
 
     //inevitable weapons/tools
     public static final RegistryObject<Item> NETHER_BLADE = ITEMS.register("nether_blade",
