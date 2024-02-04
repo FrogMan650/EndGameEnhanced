@@ -74,8 +74,6 @@ public class ModItems {
     public static final RegistryObject<Item> ODD_SHAPED_BEETROOT = ITEMS.register("odd_shaped_beetroot", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SMALL_CARROT = ITEMS.register("small_carrot", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ODD_SHAPED_POTATO = ITEMS.register("odd_shaped_potato", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> WHITE_PUMPKIN = ITEMS.register("white_pumpkin", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> GOLDEN_WATERMELON = ITEMS.register("golden_watermelon", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> HUGE_PITCHER_PLANT = ITEMS.register("huge_pitcher_plant", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> CACTUS_SPINE = ITEMS.register("cactus_spine", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> BIOLUMINESCENT_TORCHFLOWER = ITEMS.register("bioluminescent_torchflower", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));

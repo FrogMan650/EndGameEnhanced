@@ -40,5 +40,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.OPAL_BLOCK.get(), ModBlocks.JADE_BLOCK.get(), ModBlocks.RUBY_BLOCK.get(),
                 ModBlocks.ONYX_BLOCK.get(), Blocks.REINFORCED_DEEPSLATE
         );
+        this.tag(BlockTags.MINEABLE_WITH_AXE).add(ModBlocks.WHITE_PUMPKIN.get(), ModBlocks.GOLDEN_MELON.get()
+        );
+
     }
 }
