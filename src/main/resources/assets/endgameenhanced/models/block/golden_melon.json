@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "minecraft:block/melon_top",
-    "side": "minecraft:block/melon_side"
+    "end": "endgameenhanced:block/golden_melon_top",
+    "side": "endgameenhanced:block/golden_melon_side"
   }
 }

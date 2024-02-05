@@ -5,15 +5,18 @@
     "D": {
       "item": "minecraft:diamond"
     },
+    "E": {
+      "item": "minecraft:netherite_ingot"
+    },
     "P": {
       "item": "endgameenhanced:onyx_upgrade_smithing_template"
     },
     "S": {
-      "item": "minecraft:obsidian"
+      "item": "minecraft:nether_bricks"
     }
   },
   "pattern": [
-    "DPD",
+    "EPE",
     "DSD",
     "DDD"
   ],

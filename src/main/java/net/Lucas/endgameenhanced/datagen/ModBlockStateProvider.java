@@ -20,8 +20,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.JADE_BLOCK);
         blockWithItem(ModBlocks.RUBY_BLOCK);
         blockWithItem(ModBlocks.ONYX_BLOCK);
-        blockWithItem(ModBlocks.WHITE_PUMPKIN);
-        blockWithItem(ModBlocks.GOLDEN_MELON);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

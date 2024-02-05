@@ -217,21 +217,21 @@ public class ModItems {
 
 //essence
     public static final RegistryObject<Item> BASIC_ESSENCE = ITEMS.register("basic_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SPIDER_ESSENCE = ITEMS.register("spider_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DRENCHED_ESSENCE = ITEMS.register("drenched_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SPIDER_ESSENCE = ITEMS.register("spider_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> DRENCHED_ESSENCE = ITEMS.register("drenched_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> MINESHAFT_ESSENCE = ITEMS.register("mineshaft_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> VOLATILE_ESSENCE = ITEMS.register("volatile_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CORRUPTING_ESSENCE = ITEMS.register("corrupting_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PRISMATIC_ESSENCE = ITEMS.register("prismatic_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> VOLATILE_ESSENCE = ITEMS.register("volatile_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> CORRUPTING_ESSENCE = ITEMS.register("corrupting_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> PRISMATIC_ESSENCE = ITEMS.register("prismatic_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SCULK_ESSENCE = ITEMS.register("sculk_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> OCEAN_ESSENCE = ITEMS.register("ocean_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SMOULDERING_ESSENCE = ITEMS.register("smouldering_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> VOIDED_ESSENCE = ITEMS.register("voided_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PILLAGED_ESSENCE = ITEMS.register("pillaged_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SMOULDERING_ESSENCE = ITEMS.register("smouldering_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> VOIDED_ESSENCE = ITEMS.register("voided_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> PILLAGED_ESSENCE = ITEMS.register("pillaged_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> NETHER_ESSENCE = ITEMS.register("nether_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> END_ESSENCE = ITEMS.register("end_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ANCIENT_ESSENCE = ITEMS.register("ancient_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> WARNING_ESSENCE = ITEMS.register("warning_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WARNING_ESSENCE = ITEMS.register("warning_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> LAVA_ESSENCE = ITEMS.register("lava_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> DARKNESS_ESSENCE = ITEMS.register("darkness_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> WATER_ESSENCE = ITEMS.register("water_essence", () -> new Item(new Item.Properties()));
@@ -242,19 +242,19 @@ public class ModItems {
     public static final RegistryObject<Item> SMALL_PLANT_ESSENCE = ITEMS.register("small_plant_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TALL_PLANT_ESSENCE = ITEMS.register("tall_plant_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> EARTHLY_ESSENCE = ITEMS.register("earthly_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SECLUDED_ESSENCE = ITEMS.register("secluded_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SECLUDED_ESSENCE = ITEMS.register("secluded_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> EXPLOSIVE_ESSENCE = ITEMS.register("explosive_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TOUGHNESS_ESSENCE = ITEMS.register("toughness_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> SPEED_ESSENCE = ITEMS.register("speed_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> BOOST_ESSENCE = ITEMS.register("boost_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> VISION_ESSENCE = ITEMS.register("vision_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CONDUIT_ESSENCE = ITEMS.register("conduit_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> INFERNAL_ESSENCE = ITEMS.register("infernal_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> UNKEMPT_ESSENCE = ITEMS.register("unkempt_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SANGUINE_ESSENCE = ITEMS.register("sanguine_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BREACH_ESSENCE = ITEMS.register("breach_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> STABILIZED_ESSENCE = ITEMS.register("stabilized_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SWIFT_ESSENCE = ITEMS.register("swift_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> INFERNAL_ESSENCE = ITEMS.register("infernal_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> UNKEMPT_ESSENCE = ITEMS.register("unkempt_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> SANGUINE_ESSENCE = ITEMS.register("sanguine_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> BREACH_ESSENCE = ITEMS.register("breach_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> STABILIZED_ESSENCE = ITEMS.register("stabilized_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> SWIFT_ESSENCE = ITEMS.register("swift_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
 
 

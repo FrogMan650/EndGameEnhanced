@@ -1,6 +1,8 @@
-// 1.20.1	2024-01-27T12:23:50.4883377	Loot Tables
+// 1.20.1	2024-02-04T18:46:13.1677413	Loot Tables
+7253256e937896b29e675c487bf71b21a9068422 data/endgameenhanced/loot_tables/blocks/golden_melon.json
 a4bc53e024f700f5d971bcc50f8b4b4fe91d3980 data/endgameenhanced/loot_tables/blocks/jade_block.json
 b5190a9d467a4bc42540079c43b2c382a34f3851 data/endgameenhanced/loot_tables/blocks/onyx_block.json
 dbec82070244896514edcf99c65106f549957d6c data/endgameenhanced/loot_tables/blocks/opal_block.json
 a12b55caeb978b66294c4d4bebb6c399859cdb92 data/endgameenhanced/loot_tables/blocks/ruby_block.json
 fd95a437d43748eee15d9e342217b758e7dca668 data/endgameenhanced/loot_tables/blocks/sapphire_block.json
+60dc3e05a609678562c0cfa887d46cb65f2f0cee data/endgameenhanced/loot_tables/blocks/white_pumpkin.json

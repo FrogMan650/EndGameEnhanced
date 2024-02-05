@@ -32,7 +32,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .addTag(BlockTags.WOOL).add(Blocks.COBWEB);
 
         this.tag(ModTags.Blocks.LEVIATHANS_AXE_AXEABLES).add(Blocks.BAMBOO).add(Blocks.PUMPKIN).add(Blocks.MELON)
-                .add(Blocks.BOOKSHELF).addTag(BlockTags.PLANKS).add(Blocks.BAMBOO_BLOCK);
+                .add(Blocks.BOOKSHELF).addTag(BlockTags.PLANKS).add(Blocks.BAMBOO_BLOCK).add(ModBlocks.GOLDEN_MELON.get())
+                .add(ModBlocks.WHITE_PUMPKIN.get());
 
         this.tag(ModTags.Blocks.NEEDS_INEVITABLE_TOOL).add(Blocks.REINFORCED_DEEPSLATE);
 

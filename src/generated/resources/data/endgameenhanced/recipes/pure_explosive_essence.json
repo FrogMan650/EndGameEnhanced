@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:prismatic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:earthly_essence"
+    },
+    "C": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "D": {
+      "item": "endgameenhanced:unkempt_essence"
+    },
+    "E": {
+      "item": "endgameenhanced:explosive_essence"
+    }
+  },
+  "pattern": [
+    " A ",
+    "BCD",
+    " E "
+  ],
+  "result": {
+    "item": "endgameenhanced:pure_explosive_essence"
+  },
+  "show_notification": true
+}

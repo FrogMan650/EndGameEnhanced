@@ -81,8 +81,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ODD_SHAPED_BEETROOT);
         simpleItem(ModItems.SMALL_CARROT);
         simpleItem(ModItems.ODD_SHAPED_POTATO);
-        simpleItem(ModItems.WHITE_PUMPKIN);
-        simpleItem(ModItems.GOLDEN_WATERMELON);
         simpleItem(ModItems.HUGE_PITCHER_PLANT);
         simpleItem(ModItems.CACTUS_SPINE);
         simpleItem(ModItems.BIOLUMINESCENT_TORCHFLOWER);

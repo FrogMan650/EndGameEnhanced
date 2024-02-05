@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:white_pumpkin"
+    }
+  ],
+  "result": {
+    "count": 25,
+    "item": "minecraft:pumpkin"
+  }
+}

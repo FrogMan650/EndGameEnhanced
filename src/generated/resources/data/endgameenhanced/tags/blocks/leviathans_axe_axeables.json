@@ -5,6 +5,8 @@
     "minecraft:melon",
     "minecraft:bookshelf",
     "#minecraft:planks",
-    "minecraft:bamboo_block"
+    "minecraft:bamboo_block",
+    "endgameenhanced:golden_melon",
+    "endgameenhanced:white_pumpkin"
   ]
 }

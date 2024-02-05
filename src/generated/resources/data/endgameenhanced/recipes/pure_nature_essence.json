@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:volatile_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:harvest_essence"
+    },
+    "C": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "D": {
+      "item": "endgameenhanced:secluded_essence"
+    },
+    "E": {
+      "item": "endgameenhanced:tree_essence"
+    }
+  },
+  "pattern": [
+    " A ",
+    "BCD",
+    " E "
+  ],
+  "result": {
+    "item": "endgameenhanced:pure_nature_essence"
+  },
+  "show_notification": true
+}

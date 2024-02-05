@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pure_end_essence": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endgameenhanced:voidwaker_upgrade_smithing_template"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:pure_end_essence"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_pure_end_essence",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "endgameenhanced:pure_end_essence"
+    ]
+  },
+  "sends_telemetry_event": false
+}

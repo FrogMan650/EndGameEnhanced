@@ -1,6 +1,7 @@
 package net.Lucas.endgameenhanced.event;
 
 import net.Lucas.endgameenhanced.EndGameEnhanced;
+import net.Lucas.endgameenhanced.block.ModBlocks;
 import net.Lucas.endgameenhanced.entity.client.ObsidianElytraLayer;
 import net.Lucas.endgameenhanced.entity.client.ObsidianElytraModel;
 import net.Lucas.endgameenhanced.item.ModItems;
@@ -18,6 +19,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
@@ -26,8 +28,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
@@ -474,12 +477,52 @@ public class ModEvents {
 
 
     @SubscribeEvent
-    public static void onRenderPlayer(RenderPlayerEvent.Pre event) {
-        Player player = event.getEntity();
-        PlayerRenderer renderer = event.getRenderer();
-        PlayerModel pModel = event.getRenderer().getModel();
-        //LivingEntityRenderer<Player, PlayerModel<Player>> rendererr = event.getEntity()
-
+    public static void cropFixes(BlockEvent.CropGrowEvent.Post event) {
+        Level level = (Level) event.getLevel();
+        BlockState newBlockState = event.getState();
+        BlockPos blockPos = event.getPos();
+        if (newBlockState.getBlock() == Blocks.ATTACHED_MELON_STEM) {
+            int randomInt = RandomSource.create().nextIntBetweenInclusive(0, 249);
+            boolean spawnCustom = randomInt == 69;
+            Direction stemFacing = newBlockState.getValue(FaceAttachedHorizontalDirectionalBlock.FACING);
+            if (stemFacing == Direction.NORTH && spawnCustom) {
+                BlockPos spawnBlock = blockPos.north();
+                level.setBlock(spawnBlock, ModBlocks.GOLDEN_MELON.get().defaultBlockState(), 1);
+            }
+            if (stemFacing == Direction.EAST && spawnCustom) {
+                BlockPos spawnBlock = blockPos.east();
+                level.setBlock(spawnBlock, ModBlocks.GOLDEN_MELON.get().defaultBlockState(), 1);
+            }
+            if (stemFacing == Direction.SOUTH && spawnCustom) {
+                BlockPos spawnBlock = blockPos.south();
+                level.setBlock(spawnBlock, ModBlocks.GOLDEN_MELON.get().defaultBlockState(), 1);
+            }
+            if (stemFacing == Direction.WEST && spawnCustom) {
+                BlockPos spawnBlock = blockPos.west();
+                level.setBlock(spawnBlock, ModBlocks.GOLDEN_MELON.get().defaultBlockState(), 1);
+            }
+        }
+        if (newBlockState.getBlock() == Blocks.ATTACHED_PUMPKIN_STEM) {
+            int randomInt = RandomSource.create().nextIntBetweenInclusive(0, 249);
+            boolean spawnCustom = randomInt == 69;
+            Direction stemFacing = newBlockState.getValue(FaceAttachedHorizontalDirectionalBlock.FACING);
+            if (stemFacing == Direction.NORTH && spawnCustom) {
+                BlockPos spawnBlock = blockPos.north();
+                level.setBlock(spawnBlock, ModBlocks.WHITE_PUMPKIN.get().defaultBlockState(), 1);
+            }
+            if (stemFacing == Direction.EAST && spawnCustom) {
+                BlockPos spawnBlock = blockPos.east();
+                level.setBlock(spawnBlock, ModBlocks.WHITE_PUMPKIN.get().defaultBlockState(), 1);
+            }
+            if (stemFacing == Direction.SOUTH && spawnCustom) {
+                BlockPos spawnBlock = blockPos.south();
+                level.setBlock(spawnBlock, ModBlocks.WHITE_PUMPKIN.get().defaultBlockState(), 1);
+            }
+            if (stemFacing == Direction.WEST && spawnCustom) {
+                BlockPos spawnBlock = blockPos.west();
+                level.setBlock(spawnBlock, ModBlocks.WHITE_PUMPKIN.get().defaultBlockState(), 1);
+            }
+        }
     }
 
 

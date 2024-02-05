@@ -39,12 +39,10 @@
   "item.endgameenhanced.broken_axe": "Broken Axe",
   "item.endgameenhanced.sensor_tendril": "Sensor Tendril",
   "item.endgameenhanced.shrieker_noise_box": "Shrieker Noise Box",
-  "item.endgameenhanced.plentiful_wheat": "Plantiful Wheat",
+  "item.endgameenhanced.plentiful_wheat": "Plentiful Wheat",
   "item.endgameenhanced.odd_shaped_beetroot": "Odd Shaped Beetroot",
   "item.endgameenhanced.small_carrot": "Small Carrot",
   "item.endgameenhanced.odd_shaped_potato": "Odd Shaped Potato",
-  "item.endgameenhanced.white_pumpkin": "White Pumpkin",
-  "item.endgameenhanced.golden_watermelon": "Golden Watermelon",
   "item.endgameenhanced.huge_pitcher_plant": "Discolored Pitcher Plant",
   "item.endgameenhanced.cactus_spine": "Cactus Spine",
   "item.endgameenhanced.bioluminescent_torchflower": "Bioluminescent Torchflower",
@@ -411,6 +409,8 @@
   "block.endgameenhanced.jade_block": "Block of Jade",
   "block.endgameenhanced.ruby_block": "Block of Ruby",
   "block.endgameenhanced.onyx_block": "Block of Onyx",
+  "block.endgameenhanced.golden_melon": "Golden Melon",
+  "block.endgameenhanced.white_pumpkin": "White Pumpkin",
 
 
   "endgameenhanced.creativetab.gem_tab": "Gems and gem items",
