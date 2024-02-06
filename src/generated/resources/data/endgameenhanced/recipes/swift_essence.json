@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:spider_fang"
+    },
+    "C": {
+      "item": "endgameenhanced:piglins_gold_coin"
+    },
+    "D": {
+      "item": "endgameenhanced:flawless_ender_pearl"
+    }
+  },
+  "pattern": [
+    " B ",
+    " A ",
+    "C D"
+  ],
+  "result": {
+    "item": "endgameenhanced:swift_essence"
+  },
+  "show_notification": true
+}

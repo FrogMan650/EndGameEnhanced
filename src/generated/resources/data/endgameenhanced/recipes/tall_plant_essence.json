@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:sugar_cane"
+    },
+    "C": {
+      "item": "minecraft:cactus"
+    },
+    "D": {
+      "item": "minecraft:bamboo"
+    },
+    "E": {
+      "item": "minecraft:pitcher_plant"
+    }
+  },
+  "pattern": [
+    "BDC",
+    "EAE",
+    "BDC"
+  ],
+  "result": {
+    "item": "endgameenhanced:tall_plant_essence"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:pumpkin"
+    },
+    "C": {
+      "item": "minecraft:melon"
+    },
+    "D": {
+      "item": "endgameenhanced:golden_melon"
+    },
+    "E": {
+      "item": "endgameenhanced:white_pumpkin"
+    }
+  },
+  "pattern": [
+    "BDC",
+    "BAC",
+    "BEC"
+  ],
+  "result": {
+    "item": "endgameenhanced:harvest_essence"
+  },
+  "show_notification": true
+}

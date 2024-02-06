@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:cod"
+    },
+    "C": {
+      "item": "minecraft:tropical_fish"
+    },
+    "D": {
+      "item": "minecraft:salmon"
+    },
+    "E": {
+      "item": "minecraft:pufferfish"
+    }
+  },
+  "pattern": [
+    "BCD",
+    "EAE",
+    "DCB"
+  ],
+  "result": {
+    "item": "endgameenhanced:water_essence"
+  },
+  "show_notification": true
+}

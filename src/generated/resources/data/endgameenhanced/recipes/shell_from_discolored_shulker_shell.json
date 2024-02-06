@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:discolored_shulker_shell"
+    }
+  ],
+  "result": {
+    "count": 10,
+    "item": "minecraft:shulker_shell"
+  }
+}

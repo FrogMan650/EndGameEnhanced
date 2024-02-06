@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:magma_butter"
+    },
+    "B": {
+      "item": "endgameenhanced:piglins_gold_coin"
+    },
+    "C": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "D": {
+      "item": "endgameenhanced:wither_skeleton_bone"
+    }
+  },
+  "pattern": [
+    " A ",
+    " C ",
+    "B D"
+  ],
+  "result": {
+    "item": "endgameenhanced:smouldering_essence"
+  },
+  "show_notification": true
+}

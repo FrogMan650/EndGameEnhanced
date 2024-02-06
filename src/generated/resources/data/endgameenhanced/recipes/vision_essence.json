@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:elytra"
+    },
+    "C": {
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "count": 1,
+      "nbt": "{Potion:\"minecraft:fire_resistance\"}"
+    },
+    "D": {
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "count": 1,
+      "nbt": "{Potion:\"minecraft:night_vision\"}"
+    }
+  },
+  "pattern": [
+    "CBC",
+    "DAD",
+    "DDD"
+  ],
+  "result": {
+    "item": "endgameenhanced:vision_essence"
+  },
+  "show_notification": true
+}

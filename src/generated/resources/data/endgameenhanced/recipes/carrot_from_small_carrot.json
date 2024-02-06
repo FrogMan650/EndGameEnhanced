@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:small_carrot"
+    }
+  ],
+  "result": {
+    "count": 64,
+    "item": "minecraft:carrot"
+  }
+}

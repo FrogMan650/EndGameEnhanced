@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:prismarine"
+    },
+    "B": {
+      "item": "minecraft:sea_lantern"
+    },
+    "C": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "D": {
+      "item": "minecraft:dark_prismarine"
+    },
+    "E": {
+      "item": "minecraft:sponge"
+    },
+    "F": {
+      "item": "minecraft:gold_block"
+    }
+  },
+  "pattern": [
+    "ABD",
+    "ECE",
+    "DFA"
+  ],
+  "result": {
+    "item": "endgameenhanced:ocean_essence"
+  },
+  "show_notification": true
+}

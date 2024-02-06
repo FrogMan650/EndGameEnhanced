@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:magma_butter"
+    },
+    "C": {
+      "item": "endgameenhanced:elder_guardian_spike"
+    },
+    "D": {
+      "item": "endgameenhanced:wither_skeleton_bone"
+    }
+  },
+  "pattern": [
+    " B ",
+    " A ",
+    "C D"
+  ],
+  "result": {
+    "item": "endgameenhanced:infernal_essence"
+  },
+  "show_notification": true
+}

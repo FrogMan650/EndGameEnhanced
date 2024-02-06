@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:shrieker_noise_box"
+    },
+    "C": {
+      "item": "endgameenhanced:sensor_tendril"
+    },
+    "D": {
+      "item": "minecraft:echo_shard"
+    }
+  },
+  "pattern": [
+    "DBD",
+    "DAD",
+    "DCD"
+  ],
+  "result": {
+    "item": "endgameenhanced:warning_essence"
+  },
+  "show_notification": true
+}

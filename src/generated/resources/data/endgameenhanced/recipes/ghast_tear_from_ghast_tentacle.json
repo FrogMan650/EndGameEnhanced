@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:ghast_tentacle"
+    }
+  ],
+  "result": {
+    "count": 25,
+    "item": "minecraft:ghast_tear"
+  }
+}

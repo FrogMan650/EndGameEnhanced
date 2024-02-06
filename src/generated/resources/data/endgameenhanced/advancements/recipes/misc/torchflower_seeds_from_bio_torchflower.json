@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bioluminescent_torchflower": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endgameenhanced:bioluminescent_torchflower"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:torchflower_seeds_from_bio_torchflower"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_bioluminescent_torchflower",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "endgameenhanced:torchflower_seeds_from_bio_torchflower"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:huge_nether_wart"
+    }
+  ],
+  "result": {
+    "count": 64,
+    "item": "minecraft:nether_wart"
+  }
+}

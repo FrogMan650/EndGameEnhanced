@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:rib_bone"
+    },
+    "B": {
+      "item": "endgameenhanced:smouldering_stone"
+    },
+    "C": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "D": {
+      "item": "endgameenhanced:charged_blaze_rod"
+    },
+    "E": {
+      "item": "endgameenhanced:ghast_tentacle"
+    },
+    "F": {
+      "item": "endgameenhanced:frozen_bone"
+    }
+  },
+  "pattern": [
+    "ABD",
+    " C ",
+    "E F"
+  ],
+  "result": {
+    "item": "endgameenhanced:volatile_essence"
+  },
+  "show_notification": true
+}

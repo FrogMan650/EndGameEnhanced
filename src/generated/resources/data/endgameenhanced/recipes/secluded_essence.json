@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:broken_axe"
+    },
+    "C": {
+      "item": "endgameenhanced:slime_glob"
+    },
+    "D": {
+      "item": "endgameenhanced:phantom_wing"
+    }
+  },
+  "pattern": [
+    " B ",
+    " A ",
+    "C D"
+  ],
+  "result": {
+    "item": "endgameenhanced:secluded_essence"
+  },
+  "show_notification": true
+}

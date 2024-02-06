@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:dragon_breath"
+    },
+    "B": {
+      "item": "endgameenhanced:discolored_shulker_shell"
+    },
+    "C": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "D": {
+      "item": "minecraft:dragon_head"
+    },
+    "E": {
+      "item": "endgameenhanced:flawless_ender_pearl"
+    },
+    "F": {
+      "item": "endgameenhanced:endermite_egg"
+    }
+  },
+  "pattern": [
+    "ABD",
+    " C ",
+    "E F"
+  ],
+  "result": {
+    "item": "endgameenhanced:voided_essence"
+  },
+  "show_notification": true
+}

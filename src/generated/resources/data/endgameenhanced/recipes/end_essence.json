@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:popped_chorus_fruit"
+    },
+    "C": {
+      "item": "minecraft:end_stone"
+    },
+    "D": {
+      "item": "minecraft:chorus_flower"
+    },
+    "E": {
+      "item": "minecraft:purpur_block"
+    },
+    "F": {
+      "item": "minecraft:end_rod"
+    },
+    "G": {
+      "item": "minecraft:end_crystal"
+    },
+    "H": {
+      "item": "minecraft:dragon_head"
+    }
+  },
+  "pattern": [
+    "BCD",
+    "EAF",
+    "GHG"
+  ],
+  "result": {
+    "item": "endgameenhanced:end_essence"
+  },
+  "show_notification": true
+}

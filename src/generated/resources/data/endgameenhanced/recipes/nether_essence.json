@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:soul_sand"
+    },
+    "C": {
+      "item": "endgameenhanced:huge_nether_wart"
+    },
+    "D": {
+      "item": "minecraft:quartz_block"
+    },
+    "E": {
+      "item": "minecraft:netherrack"
+    },
+    "F": {
+      "item": "minecraft:blackstone"
+    },
+    "G": {
+      "item": "minecraft:nether_bricks"
+    },
+    "H": {
+      "item": "minecraft:gold_block"
+    },
+    "I": {
+      "item": "minecraft:magma_block"
+    }
+  },
+  "pattern": [
+    "BCD",
+    "EAF",
+    "GHI"
+  ],
+  "result": {
+    "item": "endgameenhanced:nether_essence"
+  },
+  "show_notification": true
+}

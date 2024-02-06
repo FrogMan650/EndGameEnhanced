@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:deepslate_emerald_ore"
+    },
+    "C": {
+      "item": "minecraft:deepslate_diamond_ore"
+    },
+    "D": {
+      "item": "minecraft:deepslate_redstone_ore"
+    },
+    "E": {
+      "item": "minecraft:deepslate_lapis_ore"
+    },
+    "F": {
+      "item": "minecraft:deepslate_iron_ore"
+    },
+    "G": {
+      "item": "minecraft:deepslate_gold_ore"
+    },
+    "H": {
+      "item": "minecraft:deepslate_copper_ore"
+    },
+    "I": {
+      "item": "minecraft:deepslate_coal_ore"
+    }
+  },
+  "pattern": [
+    "BCD",
+    "EAF",
+    "GHI"
+  ],
+  "result": {
+    "item": "endgameenhanced:ore_essence"
+  },
+  "show_notification": true
+}

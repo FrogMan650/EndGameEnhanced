@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:slime_glob"
+    },
+    "C": {
+      "item": "endgameenhanced:cave_spider_eye"
+    },
+    "D": {
+      "item": "endgameenhanced:wither_skeleton_bone"
+    }
+  },
+  "pattern": [
+    " B ",
+    " A ",
+    "C D"
+  ],
+  "result": {
+    "item": "endgameenhanced:sanguine_essence"
+  },
+  "show_notification": true
+}

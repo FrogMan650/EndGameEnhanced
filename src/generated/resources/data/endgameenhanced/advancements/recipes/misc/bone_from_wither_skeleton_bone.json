@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:bone_from_wither_skeleton_bone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wither_skeleton_bone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endgameenhanced:wither_skeleton_bone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_wither_skeleton_bone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "endgameenhanced:bone_from_wither_skeleton_bone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

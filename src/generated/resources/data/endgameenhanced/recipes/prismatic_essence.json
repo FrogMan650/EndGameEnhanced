@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:creeper_fuse"
+    },
+    "B": {
+      "item": "endgameenhanced:ender_dragon_scale"
+    },
+    "C": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "D": {
+      "item": "endgameenhanced:ritual_book"
+    },
+    "E": {
+      "item": "endgameenhanced:witchs_brew"
+    },
+    "F": {
+      "item": "minecraft:creeper_head"
+    }
+  },
+  "pattern": [
+    "ABD",
+    " C ",
+    "E F"
+  ],
+  "result": {
+    "item": "endgameenhanced:prismatic_essence"
+  },
+  "show_notification": true
+}

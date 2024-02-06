@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:magma_butter"
+    },
+    "C": {
+      "item": "endgameenhanced:phantom_wing"
+    },
+    "D": {
+      "item": "endgameenhanced:flawless_ender_pearl"
+    }
+  },
+  "pattern": [
+    " B ",
+    " A ",
+    "C D"
+  ],
+  "result": {
+    "item": "endgameenhanced:breach_essence"
+  },
+  "show_notification": true
+}

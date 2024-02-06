@@ -330,7 +330,7 @@
   "item.endgameenhanced.obsidian_helmet_lore.red_text": "Somehow you can see better with the Faceguard than without.",
   "item.endgameenhanced.obsidian_helmet_lore.red_text_two": " ",
   "item.endgameenhanced.obsidian_helmet_lore.grey_text_arrow": "When Equipped:",
-  "item.endgameenhanced.obsidian_helmet_lore.green_text_arrow_seven": "+3 Armor",
+  "item.endgameenhanced.obsidian_helmet_lore.green_text_arrow_seven": "+4 Armor",
   "item.endgameenhanced.obsidian_helmet_lore.green_text_arrow_eight": "+4 Armor Toughness",
   "item.endgameenhanced.obsidian_helmet_lore.green_text_arrow_nine": "+2 Knockback Resistance",
   "item.endgameenhanced.obsidian_helmet_lore.green_text_arrow_ten": "Night Vision",
@@ -344,7 +344,7 @@
   "item.endgameenhanced.obsidian_chestplate_lore.red_text": "If you listen closely you can hear a faint pulsing sound coming from the Chestplate.",
   "item.endgameenhanced.obsidian_chestplate_lore.red_text_two": " ",
   "item.endgameenhanced.obsidian_chestplate_lore.grey_text_arrow": "When Equipped:",
-  "item.endgameenhanced.obsidian_chestplate_lore.green_text_arrow_seven": "+8 Armor",
+  "item.endgameenhanced.obsidian_chestplate_lore.green_text_arrow_seven": "+9 Armor",
   "item.endgameenhanced.obsidian_chestplate_lore.green_text_arrow_eight": "+4 Armor Toughness",
   "item.endgameenhanced.obsidian_chestplate_lore.green_text_arrow_nine": "+2 Knockback Resistance",
   "item.endgameenhanced.obsidian_chestplate_lore.green_text_arrow_ten": "Conduit Power",
@@ -358,7 +358,7 @@
   "item.endgameenhanced.obsidian_leggings_lore.red_text": "These Legguards seem to be made with some extremely springy material.",
   "item.endgameenhanced.obsidian_leggings_lore.red_text_two": " ",
   "item.endgameenhanced.obsidian_leggings_lore.grey_text_arrow": "When Equipped:",
-  "item.endgameenhanced.obsidian_leggings_lore.green_text_arrow_seven": "+6 Armor",
+  "item.endgameenhanced.obsidian_leggings_lore.green_text_arrow_seven": "+7 Armor",
   "item.endgameenhanced.obsidian_leggings_lore.green_text_arrow_eight": "+4 Armor Toughness",
   "item.endgameenhanced.obsidian_leggings_lore.green_text_arrow_nine": "+2 Knockback Resistance",
   "item.endgameenhanced.obsidian_leggings_lore.green_text_arrow_ten": "Jump Boost I",
@@ -372,7 +372,7 @@
   "item.endgameenhanced.obsidian_boots_lore.red_text": "Sometimes it feels like these Boots are moving faster than you are.",
   "item.endgameenhanced.obsidian_boots_lore.red_text_two": " ",
   "item.endgameenhanced.obsidian_boots_lore.grey_text_arrow": "When Equipped:",
-  "item.endgameenhanced.obsidian_boots_lore.green_text_arrow_seven": "+3 Armor",
+  "item.endgameenhanced.obsidian_boots_lore.green_text_arrow_seven": "+4 Armor",
   "item.endgameenhanced.obsidian_boots_lore.green_text_arrow_eight": "+4 Armor Toughness",
   "item.endgameenhanced.obsidian_boots_lore.green_text_arrow_nine": "+2 Knockback Resistance",
   "item.endgameenhanced.obsidian_boots_lore.green_text_arrow_ten": "Speed I",
@@ -409,8 +409,8 @@
   "block.endgameenhanced.jade_block": "Block of Jade",
   "block.endgameenhanced.ruby_block": "Block of Ruby",
   "block.endgameenhanced.onyx_block": "Block of Onyx",
-  "block.endgameenhanced.golden_melon": "Golden Melon",
-  "block.endgameenhanced.white_pumpkin": "White Pumpkin",
+  "block.endgameenhanced.golden_melon": "§eGolden Melon",
+  "block.endgameenhanced.white_pumpkin": "§eWhite Pumpkin",
 
 
   "endgameenhanced.creativetab.gem_tab": "Gems and gem items",
@@ -424,6 +424,9 @@
 
   "upgrade.endgameenhanced.onyx_upgrade": "Onyx Upgrade",
   "upgrade.endgameenhanced.netherite_upgrade": "Netherite Upgrade",
+  "item.endgameenhanced.inevitable_smithing_template": "§dSmithing Template",
+  "item.endgameenhanced.diamond_smithing_template": "§eSmithing Template",
+  "item.endgameenhanced.onyx_smithing_template": "§bSmithing Template",
   "item.endgameenhanced.smithing_template.diamond_upgrade": "Diamond Equipment",
   "item.endgameenhanced.smithing_template.netherite_upgrade.onyx_equipment": "Onyx Equipment",
   "item.endgameenhanced.smithing_template.inevitable_upgrade.sword": "Netherite Sword",
@@ -437,5 +440,5 @@
   "item.endgameenhanced.smithing_template.inevitable_upgrade.armor": "Netherite Armor",
 
   "key.category.endgameenhanced.tutorial": "End Game Enhanced",
-  "key.endgameenhanced.change_tool_effect": "Change Inevitable Tool Effect"
+  "key.endgameenhanced.change_tool_effect": "Change Destruction Mode"
 }

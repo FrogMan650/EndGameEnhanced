@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:oak_log"
+    },
+    "C": {
+      "item": "minecraft:spruce_log"
+    },
+    "D": {
+      "item": "minecraft:birch_log"
+    },
+    "E": {
+      "item": "minecraft:jungle_log"
+    },
+    "F": {
+      "item": "minecraft:acacia_log"
+    },
+    "G": {
+      "item": "minecraft:dark_oak_log"
+    },
+    "H": {
+      "item": "minecraft:mangrove_log"
+    },
+    "I": {
+      "item": "minecraft:cherry_log"
+    }
+  },
+  "pattern": [
+    "BCD",
+    "EAF",
+    "GHI"
+  ],
+  "result": {
+    "item": "endgameenhanced:tree_essence"
+  },
+  "show_notification": true
+}

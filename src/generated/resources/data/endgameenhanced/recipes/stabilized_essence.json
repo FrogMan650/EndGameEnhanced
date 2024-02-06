@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:slime_glob"
+    },
+    "C": {
+      "item": "endgameenhanced:damaged_crossbow"
+    },
+    "D": {
+      "item": "endgameenhanced:flawless_ender_pearl"
+    }
+  },
+  "pattern": [
+    " B ",
+    " A ",
+    "C D"
+  ],
+  "result": {
+    "item": "endgameenhanced:stabilized_essence"
+  },
+  "show_notification": true
+}

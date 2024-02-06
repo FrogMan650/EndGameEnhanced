@@ -482,7 +482,7 @@ public class ModEvents {
         BlockState newBlockState = event.getState();
         BlockPos blockPos = event.getPos();
         if (newBlockState.getBlock() == Blocks.ATTACHED_MELON_STEM) {
-            int randomInt = RandomSource.create().nextIntBetweenInclusive(0, 249);
+            int randomInt = RandomSource.create().nextIntBetweenInclusive(0, 999);
             boolean spawnCustom = randomInt == 69;
             Direction stemFacing = newBlockState.getValue(FaceAttachedHorizontalDirectionalBlock.FACING);
             if (stemFacing == Direction.NORTH && spawnCustom) {
@@ -503,7 +503,7 @@ public class ModEvents {
             }
         }
         if (newBlockState.getBlock() == Blocks.ATTACHED_PUMPKIN_STEM) {
-            int randomInt = RandomSource.create().nextIntBetweenInclusive(0, 249);
+            int randomInt = RandomSource.create().nextIntBetweenInclusive(0, 999);
             boolean spawnCustom = randomInt == 69;
             Direction stemFacing = newBlockState.getValue(FaceAttachedHorizontalDirectionalBlock.FACING);
             if (stemFacing == Direction.NORTH && spawnCustom) {

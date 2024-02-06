@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_odd_shaped_beetroot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endgameenhanced:odd_shaped_beetroot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:beetroot_from_odd_beetroot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_odd_shaped_beetroot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "endgameenhanced:beetroot_from_odd_beetroot"
+    ]
+  },
+  "sends_telemetry_event": false
+}

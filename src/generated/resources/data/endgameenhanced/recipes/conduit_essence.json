@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:elytra"
+    },
+    "C": {
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "count": 1,
+      "nbt": "{Potion:\"minecraft:fire_resistance\"}"
+    },
+    "D": {
+      "item": "minecraft:heart_of_the_sea"
+    },
+    "E": {
+      "item": "minecraft:nautilus_shell"
+    },
+    "F": {
+      "item": "minecraft:conduit"
+    }
+  },
+  "pattern": [
+    "CBC",
+    "DAD",
+    "EFE"
+  ],
+  "result": {
+    "item": "endgameenhanced:conduit_essence"
+  },
+  "show_notification": true
+}

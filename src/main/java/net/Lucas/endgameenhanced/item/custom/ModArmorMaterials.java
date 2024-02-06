@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 public enum ModArmorMaterials implements ArmorMaterial {
     ONYX("onyx", 35, new int[]{3, 8, 6, 3}, 13, SoundEvents.ARMOR_EQUIP_NETHERITE,
             2.5F, 0F, () -> Ingredient.of(ModItems.ONYX.get())),
-    INEVITABLE("inevitable", 40, new int[]{3, 8, 6, 3}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE,
+    INEVITABLE("inevitable", 40, new int[]{4, 9, 7, 4}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE,
             4F, 0.2F, () -> Ingredient.of(Items.NETHERITE_INGOT));
 
 

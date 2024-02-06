@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:plentiful_wheat"
+    },
+    "C": {
+      "item": "minecraft:torchflower"
+    },
+    "D": {
+      "item": "endgameenhanced:odd_shaped_potato"
+    },
+    "E": {
+      "item": "endgameenhanced:small_carrot"
+    },
+    "F": {
+      "item": "endgameenhanced:odd_shaped_beetroot"
+    }
+  },
+  "pattern": [
+    "BCD",
+    " A ",
+    "E F"
+  ],
+  "result": {
+    "item": "endgameenhanced:small_plant_essence"
+  },
+  "show_notification": true
+}

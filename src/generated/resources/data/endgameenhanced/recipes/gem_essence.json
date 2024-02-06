@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:opal_block"
+    },
+    "C": {
+      "item": "endgameenhanced:jade_block"
+    },
+    "D": {
+      "item": "endgameenhanced:sapphire_block"
+    },
+    "E": {
+      "item": "endgameenhanced:ruby_block"
+    },
+    "F": {
+      "item": "minecraft:emerald_block"
+    },
+    "G": {
+      "item": "minecraft:diamond_block"
+    },
+    "H": {
+      "item": "minecraft:amethyst_block"
+    },
+    "I": {
+      "item": "minecraft:lapis_block"
+    }
+  },
+  "pattern": [
+    "BCD",
+    "EAF",
+    "GHI"
+  ],
+  "result": {
+    "item": "endgameenhanced:gem_essence"
+  },
+  "show_notification": true
+}

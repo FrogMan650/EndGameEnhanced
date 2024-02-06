@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:broken_axe"
+    }
+  ],
+  "result": {
+    "count": 20,
+    "item": "minecraft:iron_ingot"
+  }
+}

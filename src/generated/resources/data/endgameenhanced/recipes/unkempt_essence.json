@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:spider_fang"
+    },
+    "C": {
+      "item": "endgameenhanced:discolored_shulker_shell"
+    },
+    "D": {
+      "item": "endgameenhanced:wither_skeleton_bone"
+    }
+  },
+  "pattern": [
+    " B ",
+    " A ",
+    "C D"
+  ],
+  "result": {
+    "item": "endgameenhanced:unkempt_essence"
+  },
+  "show_notification": true
+}

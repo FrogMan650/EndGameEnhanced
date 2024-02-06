@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:odd_shaped_potato"
+    }
+  ],
+  "result": {
+    "count": 64,
+    "item": "minecraft:potato"
+  }
+}

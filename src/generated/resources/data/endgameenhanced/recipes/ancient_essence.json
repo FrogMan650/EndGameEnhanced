@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:soul_lantern"
+    },
+    "C": {
+      "item": "minecraft:sculk"
+    },
+    "D": {
+      "item": "minecraft:deepslate"
+    },
+    "E": {
+      "item": "minecraft:deepslate_bricks"
+    },
+    "F": {
+      "item": "minecraft:chiseled_deepslate"
+    },
+    "G": {
+      "item": "minecraft:deepslate_tiles"
+    },
+    "H": {
+      "item": "minecraft:polished_deepslate"
+    }
+  },
+  "pattern": [
+    "BCB",
+    "EAF",
+    "GHD"
+  ],
+  "result": {
+    "item": "endgameenhanced:ancient_essence"
+  },
+  "show_notification": true
+}

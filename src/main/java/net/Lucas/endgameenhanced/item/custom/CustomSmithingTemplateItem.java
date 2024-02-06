@@ -13,18 +13,9 @@ public class CustomSmithingTemplateItem extends SmithingTemplateItem {
     public CustomSmithingTemplateItem(Component pAppliesTo, Component pIngredients, Component pUpdradeDescription, Component pBaseSlotDescription, Component pAdditionsSlotDescription, List<ResourceLocation> pBaseSlotEmptyIcons, List<ResourceLocation> pAdditonalSlotEmptyIcons) {
         super(pAppliesTo, pIngredients, pUpdradeDescription, pBaseSlotDescription, pAdditionsSlotDescription, pBaseSlotEmptyIcons, pAdditonalSlotEmptyIcons);
     }
+    private static final String DESCRIPTION_ID = Util.makeDescriptionId("item", new ResourceLocation("endgameenhanced:inevitable_smithing_template"));
     private static final ChatFormatting TITLE_FORMAT = ChatFormatting.GRAY;
     private static final ChatFormatting DESCRIPTION_FORMAT = ChatFormatting.BLUE;
-    private static final Component ONYX_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("endgameenhanced:smithing_template.diamond_upgrade"))).withStyle(DESCRIPTION_FORMAT);
-    private static final Component ONYX_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("endgameenhanced:onyx"))).withStyle(DESCRIPTION_FORMAT);
-    private static final Component ONYX_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("endgameenhanced:onyx_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component ONYX_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("endgameenhanced:smithing_template.onyx_upgrade.base_slot_description")));
-    private static final Component ONYX_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("endgameenhanced:smithing_template.onyx_upgrade.additions_slot_description")));
-    private static final Component NETHERITE_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("endgameenhanced:smithing_template.netherite_upgrade.onyx_equipment"))).withStyle(DESCRIPTION_FORMAT);
-    private static final Component NETHERITE_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.netherite_upgrade.ingredients"))).withStyle(DESCRIPTION_FORMAT);
-    private static final Component NETHERITE_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("endgameenhanced:netherite_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component NETHERITE_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("endgameenhanced:smithing_template.netherite_upgrade.base_slot_description")));
-    private static final Component NETHERITE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("endgameenhanced:smithing_template.netherite_upgrade.additions_slot_description")));
     private static final Component INEVITABLE_NETHER_SWORD_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("endgameenhanced:smithing_template.inevitable_upgrade.sword"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_NETHER_SWORD_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("endgameenhanced:pure_nether_essence"))).withStyle(DESCRIPTION_FORMAT);
     private static final Component INEVITABLE_NETHER_SWORD_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation("endgameenhanced:inevitable_nether_upgrade"))).withStyle(TITLE_FORMAT);
@@ -105,32 +96,6 @@ public class CustomSmithingTemplateItem extends SmithingTemplateItem {
     private static final ResourceLocation EMPTY_SLOT_BOW = new ResourceLocation("endgameenhanced:item/empty_bow");
     private static final ResourceLocation EMPTY_SLOT_TRIDENT = new ResourceLocation("endgameenhanced:item/empty_trident");
 
-    private static List<ResourceLocation> createOnyxUpgradeIconList() {
-        return List.of(EMPTY_SLOT_SWORD, EMPTY_SLOT_PICKAXE, EMPTY_SLOT_AXE, EMPTY_SLOT_HOE, EMPTY_SLOT_SHOVEL,
-                EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS);
-    }
-    private static List<ResourceLocation> createOnyxUpgradeMaterialList() {
-        return List.of(EMPTY_SLOT_EMERALD);
-    }
-
-    public static CustomSmithingTemplateItem createOnyxUpgradeTemplate() {
-        return new CustomSmithingTemplateItem(ONYX_UPGRADE_APPLIES_TO, ONYX_UPGRADE_INGREDIENTS, ONYX_UPGRADE,
-                ONYX_UPGRADE_BASE_SLOT_DESCRIPTION, ONYX_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createOnyxUpgradeIconList(), createOnyxUpgradeMaterialList());
-    }
-    private static List<ResourceLocation> createNetheriteUpgradeIconList() {
-        return List.of(EMPTY_SLOT_SWORD, EMPTY_SLOT_PICKAXE, EMPTY_SLOT_AXE, EMPTY_SLOT_HOE, EMPTY_SLOT_SHOVEL,
-                EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS);
-    }
-    private static List<ResourceLocation> createNetheriteUpgradeMaterialList() {
-        return List.of(EMPTY_SLOT_INGOT);
-    }
-    public static CustomSmithingTemplateItem createNetheriteUpgradeTemplate() {
-        return new CustomSmithingTemplateItem(
-                NETHERITE_UPGRADE_APPLIES_TO, NETHERITE_UPGRADE_INGREDIENTS, NETHERITE_UPGRADE,
-                NETHERITE_UPGRADE_BASE_SLOT_DESCRIPTION, NETHERITE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createNetheriteUpgradeIconList(), createNetheriteUpgradeMaterialList());
-    }
     private static List<ResourceLocation> createNetherrathUpgradeIconList() { return List.of(EMPTY_SLOT_SWORD); }
     private static List<ResourceLocation> createNetherrathUpgradeMaterialList() {
         return List.of(EMPTY_SLOT_ESSENCE);
@@ -253,12 +218,8 @@ public class CustomSmithingTemplateItem extends SmithingTemplateItem {
                 createObsidianArmorUpgradeIconList(), createObsidianArmorUpgradeMaterialList());
     }
 
-
-
-
-
-
-
-
-
+    @Override
+    public String getDescriptionId() {
+        return DESCRIPTION_ID;
+    }
 }

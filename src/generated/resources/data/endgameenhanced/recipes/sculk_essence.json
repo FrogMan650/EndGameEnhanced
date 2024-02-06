@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:sculk"
+    },
+    "B": {
+      "item": "minecraft:sculk_sensor"
+    },
+    "C": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "D": {
+      "item": "minecraft:sculk_catalyst"
+    },
+    "E": {
+      "item": "minecraft:sculk_shrieker"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "DCD",
+    "AEA"
+  ],
+  "result": {
+    "item": "endgameenhanced:sculk_essence"
+  },
+  "show_notification": true
+}

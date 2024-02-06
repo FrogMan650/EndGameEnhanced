@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:damaged_crossbow"
+    },
+    "B": {
+      "item": "endgameenhanced:ravager_horn"
+    },
+    "C": {
+      "item": "endgameenhanced:basic_essence"
+    }
+  },
+  "pattern": [
+    " A ",
+    " C ",
+    " B "
+  ],
+  "result": {
+    "item": "endgameenhanced:pillaged_essence"
+  },
+  "show_notification": true
+}

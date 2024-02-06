@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:not_so_rotten_flesh"
+    },
+    "B": {
+      "item": "endgameenhanced:sculk_crystal"
+    },
+    "C": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "D": {
+      "item": "endgameenhanced:axe_hilt"
+    },
+    "E": {
+      "item": "endgameenhanced:hoglin_tusk"
+    },
+    "F": {
+      "item": "endgameenhanced:flesh_jerky"
+    }
+  },
+  "pattern": [
+    "ABD",
+    " C ",
+    "E F"
+  ],
+  "result": {
+    "item": "endgameenhanced:corrupting_essence"
+  },
+  "show_notification": true
+}
