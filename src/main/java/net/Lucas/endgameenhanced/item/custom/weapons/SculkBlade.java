@@ -5,10 +5,13 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -17,6 +20,17 @@ public class SculkBlade extends CustomSwordItem implements Vanishable {
 
     public SculkBlade(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+    }
+
+    @Override
+    public float getDestroySpeed(ItemStack pStack, BlockState pState) {
+        if (pState.is(Blocks.SCULK_SHRIEKER) || pState.is(Blocks.SCULK_SENSOR)) {
+            return 100.0F;
+        } else if (pState.is(Blocks.COBWEB)) {
+            return 15.0F;
+        } else {
+            return pState.is(BlockTags.SWORD_EFFICIENT) ? 1.5F : 1.0F;
+        }
     }
 
     @Override

@@ -52,7 +52,7 @@ import java.util.List;
 public class ModEvents {
 
     @SubscribeEvent
-    public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
+    public static void endGameEnhancedOnAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
         if (event.getObject() instanceof Player) {
             if (!event.getObject().getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).isPresent()) {
                 event.addCapability(new ResourceLocation(EndGameEnhanced.MOD_ID, "properties"), new PlayerToolChangeProvider());
@@ -64,7 +64,7 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void onPlayerCloned(PlayerEvent.Clone event) {
+    public static void endGameEnhancedOnPlayerCloned(PlayerEvent.Clone event) {
         if (event.isWasDeath()) {
             event.getOriginal().getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).ifPresent(oldStore -> {
                 event.getOriginal().getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).ifPresent(newStore -> {
@@ -79,13 +79,13 @@ public class ModEvents {
         }
     }
     @SubscribeEvent
-    public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
+    public static void endGameEnhancedOnRegisterCapabilities(RegisterCapabilitiesEvent event) {
         event.register(PlayerToolChange.class);
         event.register(PlayerBlockFacing.class);
     }
 
     @SubscribeEvent
-    public static void onLivingHurtDamageFixes(LivingHurtEvent event) {
+    public static void endGameEnhancedOnLivingHurtDamageFixes(LivingHurtEvent event) {
         LivingEntity damagedMob = event.getEntity();
         float initialDamage = event.getAmount();
         if (event.getSource().getEntity() instanceof Player player) {
@@ -93,71 +93,16 @@ public class ModEvents {
                 if (initialDamage == 1) {
                     if (damagedMob.isBaby()) {
                         event.setAmount(0);
-                    } else event.setAmount(12);
+                    } else {
+                        event.setAmount(12);
+                    }
                 }
             }
         }
     }
 
-    //attempt at rewriting the damage when having certain enchantments
-//            if (player.isHolding(ModItems.TIDE_BREAKER.get()) && damagedMob.isInWaterOrRain()) {
-//                int impalingLevel = player.getMainHandItem().getEnchantmentLevel(Enchantments.IMPALING);
-//                int riptideLevel = player.getMainHandItem().getEnchantmentLevel(Enchantments.RIPTIDE);
-//                event.setAmount(16 + (impalingLevel * 2f) + (riptideLevel * 1.5f));
-//            }
-//            if (player.isHolding(ModItems.SCULK_BLADE.get()) || player.isHolding(ModItems.END_BLADE.get()) || player.isHolding(ModItems.NETHER_BLADE.get())) {
-//                int sharpnessLevel = player.getMainHandItem().getEnchantmentLevel(Enchantments.SHARPNESS);
-//                int smiteLevel = player.getMainHandItem().getEnchantmentLevel(Enchantments.SMITE);
-//                int arthropodLevel = player.getMainHandItem().getEnchantmentLevel(Enchantments.BANE_OF_ARTHROPODS);
-//                if (damagedMob.getMobType() == MobType.UNDEAD) {
-//                    if (initialDamage == ((12 + 6 + (smiteLevel * 2.5)) * 1.5f)) {
-//                        event.setAmount((12 + 6 + (smiteLevel * 4)) * 1.5f);
-//                    } else if (initialDamage == ((12 + 3 + (smiteLevel * 2.5)) * 1.5f)) {
-//                        event.setAmount((12 + 3 + (smiteLevel * 4)) * 1.5f);
-//                    } else if (initialDamage == ((12 + (smiteLevel * 2.5)) * 1.5f)) {
-//                        event.setAmount((12 + (smiteLevel * 4)) * 1.5f);
-//                    } else if (initialDamage == (12 + 6 + (smiteLevel * 2.5))) {
-//                        event.setAmount(12 + 6 + (smiteLevel * 4));
-//                    } else if (initialDamage == (12 + 3 + (smiteLevel * 2.5))) {
-//                        event.setAmount(12 + 3 + (smiteLevel * 4));
-//                    } else if (initialDamage == (12 + (smiteLevel * 2.5))) {
-//                        event.setAmount(12 + (smiteLevel * 4));
-//                    }
-//                } else if (damagedMob.getMobType() == MobType.ARTHROPOD) {
-//                    if (initialDamage == ((12 + 6 + (arthropodLevel * 2.5)) * 1.5f)) {
-//                        event.setAmount((12 + 6 + (arthropodLevel * 4)) * 1.5f);
-//                    } else if (initialDamage == ((12 + 3 + (arthropodLevel * 2.5)) * 1.5f)) {
-//                        event.setAmount((12 + 3 + (arthropodLevel * 4)) * 1.5f);
-//                    } else if (initialDamage == ((12 + (arthropodLevel * 2.5)) * 1.5f)) {
-//                        event.setAmount((12 + (arthropodLevel * 4)) * 1.5f);
-//                    } else if (initialDamage == (12 + 6 + (arthropodLevel * 2.5))) {
-//                        event.setAmount(12 + 6 + (arthropodLevel * 4));
-//                    } else if (initialDamage == (12 + 3 + (arthropodLevel * 2.5))) {
-//                        event.setAmount(12 + 3 + (arthropodLevel * 4));
-//                    } else if (initialDamage == (12 + (arthropodLevel * 2.5))) {
-//                        event.setAmount(12 + (arthropodLevel * 4));
-//                    }
-//                } else {
-//                    if (initialDamage == ((12 + 6 + (sharpnessLevel * 0.5 + 0.5)) * 1.5f)) {
-//                        event.setAmount((12 + 6 + (sharpnessLevel * 2)) * 1.5f);
-//                    } else if (initialDamage == ((12 + 3 + (sharpnessLevel * 0.5 + 0.5)) * 1.5f)) {
-//                        event.setAmount((12 + 3 + (sharpnessLevel * 2)) * 1.5f);
-//                    } else if (initialDamage == ((12 + (sharpnessLevel * 0.5 + 0.5)) * 1.5f)) {
-//                        event.setAmount((12 + (sharpnessLevel * 2)) * 1.5f);
-//                    } else if (initialDamage == (12 + 6 + (sharpnessLevel * 0.5 + 0.5))) {
-//                        event.setAmount(12 + 6 + (sharpnessLevel * 2));
-//                    } else if (initialDamage == (12 + 3 + (sharpnessLevel * 0.5 + 0.5))) {
-//                        event.setAmount(12 + 3 + (sharpnessLevel * 2));
-//                    } else if (initialDamage == (12 + (sharpnessLevel * 0.5 + 0.5))) {
-//                        event.setAmount(12 + (sharpnessLevel * 2));
-//                    }
-//                }
-//            }
-//        }
-//    }
-
     @SubscribeEvent
-    public static void changeTooltipComponents(ItemTooltipEvent event) {
+    public static void endGameEnhancedChangeTooltipComponents(ItemTooltipEvent event) {
         final List<Component> tooltipElements = event.getToolTip();
         if (event.getItemStack().is(ModItems.SCULK_BLADE.get()) || event.getItemStack().is(ModItems.NETHER_BLADE.get())
                 || event.getItemStack().is(ModItems.END_BLADE.get()) || event.getItemStack().is(ModItems.TIDE_BREAKER.get())
@@ -210,15 +155,13 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void changeTooltipSize(RenderTooltipEvent.GatherComponents event) {
+    public static void endGameEnhancedChangeTooltipSize(RenderTooltipEvent.GatherComponents event) {
         event.setMaxWidth(200);
     }
 
     @SubscribeEvent
-    public static void setPlayerBlockFacing(PlayerInteractEvent.LeftClickBlock event) {
+    public static void endGameEnhancedSetPlayerBlockFacing(PlayerInteractEvent.LeftClickBlock event) {
         //changes the player stored value for which face of the block they're facing
-        BlockPos blockPos = event.getPos();
-        BlockState blockState = event.getLevel().getBlockState(blockPos);
         Player player = event.getEntity();
         Direction blockDirection = event.getFace();
         String facing = blockDirection.getName();
@@ -235,7 +178,7 @@ public class ModEvents {
         });
     }
     @SubscribeEvent
-    public static void threeByThreeBreaking(BlockEvent.BreakEvent event) {
+    public static void endGameEnhancedThreeByThreeBreaking(BlockEvent.BreakEvent event) {
         //determines if/how inevitable tools should act, based on the destruction setting
         BlockPos blockPos = event.getPos();
         BlockState blockState = event.getLevel().getBlockState(blockPos);
@@ -471,13 +414,23 @@ public class ModEvents {
                 }
             }
         });
+
+        if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.SCULK_BLADE.get()) {
+            if (blockState.getBlock() == Blocks.SCULK_SENSOR || blockState.getBlock() == Blocks.SCULK_SHRIEKER) {
+                BlockEntity blockentity = blockState.hasBlockEntity() ? level.getBlockEntity(blockPos) : null;
+                ItemStack useHoe = new ItemStack(ModItems.SCYTHE_OF_VITUR.get());
+                event.setCanceled(true);
+                Block.dropResources(blockState, level, blockPos, blockentity, null, useHoe);
+                level.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 1);
+            }
+        }
     }
 
 
 
 
     @SubscribeEvent
-    public static void cropFixes(BlockEvent.CropGrowEvent.Post event) {
+    public static void endGameEnhancedCropFixes(BlockEvent.CropGrowEvent.Post event) {
         Level level = (Level) event.getLevel();
         BlockState newBlockState = event.getState();
         BlockPos blockPos = event.getPos();
@@ -524,36 +477,5 @@ public class ModEvents {
             }
         }
     }
-
-
-//    @SubscribeEvent
-//    public static void threeByThreeTill(BlockEvent.BlockToolModificationEvent event) {
-//        //attempt to make scythe till 3x3
-//        BlockPos blockPos = event.getPos();
-//        BlockState blockState = event.getLevel().getBlockState(blockPos);
-//        Block block = blockState.getBlock();
-//        Level level = (Level) event.getLevel();
-//        Player player = event.getPlayer();
-//        int blockPosX = blockPos.getX();
-//        int blockPosY = blockPos.getY();
-//        int blockPosZ = blockPos.getZ();
-//        player.getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).ifPresent(toolChange -> {
-//            int currentToolChange = toolChange.getToolChange();
-//            int[] newblockX = {-1, 0, 1, 1, 1, 0, -1, -1, 0};
-//            int[] newblockZ = {1, 1, 1, 0, -1, -1, -1, 0, 0};
-//            BlockPos blockToTill0 = new BlockPos(newblockX[0] + blockPosX, blockPosY, newblockZ[0] + blockPosZ);
-//            BlockPos blockToTill1 = new BlockPos(newblockX[1] + blockPosX, blockPosY, newblockZ[1] + blockPosZ);
-//            BlockPos blockToTill2 = new BlockPos(newblockX[2] + blockPosX, blockPosY, newblockZ[2] + blockPosZ);
-//            BlockPos blockToTill3 = new BlockPos(newblockX[3] + blockPosX, blockPosY, newblockZ[3] + blockPosZ);
-//            BlockPos blockToTill4 = new BlockPos(newblockX[4] + blockPosX, blockPosY, newblockZ[4] + blockPosZ);
-//            BlockPos blockToTill5 = new BlockPos(newblockX[5] + blockPosX, blockPosY, newblockZ[5] + blockPosZ);
-//            BlockPos blockToTill6 = new BlockPos(newblockX[6] + blockPosX, blockPosY, newblockZ[6] + blockPosZ);
-//            BlockPos blockToTill7 = new BlockPos(newblockX[7] + blockPosX, blockPosY, newblockZ[7] + blockPosZ);
-//            if (currentToolChange == 1) {
-//                if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.SCYTHE_OF_VITUR.get()) {
-//                }
-//            }
-//        });
-//    }
 }
 

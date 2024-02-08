@@ -57,6 +57,33 @@ public class CustomArmorItem extends ArmorItem implements Equipable {
                 player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 220, 0, false, false, true));
                 player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 220, 0, false, false, true));
             }
+            if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.NETHER_BLADE.get() && player.level().dimension().toString().contains("the_nether")) {
+                if (player.isOnFire()) {
+                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20, 1, false, true, true));
+                    if (!player.hasEffect(MobEffects.REGENERATION)) {
+                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 300, 1, false, true, true));
+                    }
+                    if (player.getRemainingFireTicks() == 20) {
+                        player.setSecondsOnFire(10);
+                    }
+                }
+            }
+            if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.END_BLADE.get() && player.level().dimension().toString().contains("the_end")) {
+                if (player.hasEffect(MobEffects.WITHER)) {
+                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20, 2, false, true, true));
+                    if (player.getEffect(MobEffects.WITHER).getDuration() == 1) {
+                        player.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0, false, true, true));
+                    }
+                    if (!player.hasEffect(MobEffects.REGENERATION)) {
+                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 300, 0, false, true, true));
+                    }
+                }
+            }
+            if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.SCULK_BLADE.get() && player.level().getBiome(player.getOnPos()).toString().contains("deep_dark")) {
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20, 1, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20, 0, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.JUMP, 20, 1, false, true, true));
+            }
         }
 
     }
