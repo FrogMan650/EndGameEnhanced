@@ -156,6 +156,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.BIOLUMINESCENT_TORCHFLOWER.get())
                 .unlockedBy(getHasName(ModItems.BIOLUMINESCENT_TORCHFLOWER.get()), has(ModItems.BIOLUMINESCENT_TORCHFLOWER.get()))
                 .save(pWriter, new ResourceLocation(EndGameEnhanced.MOD_ID, "torchflower_seeds_from_bio_torchflower"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Blocks.REINFORCED_DEEPSLATE, 10)
+                .requires(ModItems.SCULK_CRYSTAL.get())
+                .unlockedBy(getHasName(ModItems.SCULK_CRYSTAL.get()), has(ModItems.SCULK_CRYSTAL.get()))
+                .save(pWriter, new ResourceLocation(EndGameEnhanced.MOD_ID, "reinforced_deepslate_from_sculk_crystal"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.DRAGON_BREATH, 25)
+                .requires(ModItems.ENDER_DRAGON_SCALE.get())
+                .unlockedBy(getHasName(ModItems.ENDER_DRAGON_SCALE.get()), has(ModItems.ENDER_DRAGON_SCALE.get()))
+                .save(pWriter, new ResourceLocation(EndGameEnhanced.MOD_ID, "dragons_breath_from_ender_dragon_scale"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.WITHER_ROSE, 25)
+                .requires(ModItems.SMOULDERING_STONE.get())
+                .unlockedBy(getHasName(ModItems.SMOULDERING_STONE.get()), has(ModItems.SMOULDERING_STONE.get()))
+                .save(pWriter, new ResourceLocation(EndGameEnhanced.MOD_ID, "wither_rose_from_smouldering_stone"));
 
         //gems and gem blocks
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.OPAL.get(), 9)
@@ -413,10 +425,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.RUBY_HOE.get()), has(ModItems.RUBY.get()))
                 .save(pWriter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ONYX_UPGRADE_SMITHING_TEMPLATE.get(), 2)
-                .pattern("EPE")
-                .pattern("DSD")
+                .pattern("DPD")
+                .pattern("DED")
                 .pattern("DDD")
-                .define('S', Blocks.NETHER_BRICKS)
                 .define('E', Items.NETHERITE_INGOT)
                 .define('P', ModItems.ONYX_UPGRADE_SMITHING_TEMPLATE.get())
                 .define('D', Items.DIAMOND)

@@ -104,84 +104,11 @@
                   "condition": "minecraft:survives_explosion"
                 },
                 {
-                  "chance": 0.2,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "endgameenhanced:sapphire"
-            }
-          ]
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:air"
-            },
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:survives_explosion"
-                },
-                {
-                  "chance": 0.067,
-                  "condition": "minecraft:random_chance"
-                }
-              ],
-              "name": "minecraft:emerald"
-            }
-          ]
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:air"
+              "name": "minecraft:diamond"
             },
             {
               "type": "minecraft:item",
@@ -195,36 +122,6 @@
                 }
               ],
               "name": "endgameenhanced:ruby"
-            }
-          ]
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:air"
             },
             {
               "type": "minecraft:item",
@@ -233,11 +130,24 @@
                   "condition": "minecraft:survives_explosion"
                 },
                 {
-                  "chance": 0.004,
+                  "chance": 0.067,
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "minecraft:diamond"
+              "name": "minecraft:emerald"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:survives_explosion"
+                },
+                {
+                  "chance": 0.2,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "endgameenhanced:sapphire"
             }
           ]
         }

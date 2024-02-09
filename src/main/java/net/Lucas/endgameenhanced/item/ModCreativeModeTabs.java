@@ -12,16 +12,14 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModCreativeModeTabs {
-    //creating the custom tab
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, EndGameEnhanced.MOD_ID);
-
-    //setting the icon and name of the tab and adding the items to the tab
 
     public static final RegistryObject<CreativeModeTab> GEM_TAB = CREATIVE_MODE_TABS.register("gem_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ONYX.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.gem_tab"))
                     .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(ModBlocks.GEM_ORE.get());
                         pOutput.accept(ModItems.OPAL.get());
                         pOutput.accept(ModBlocks.OPAL_BLOCK.get());
                         pOutput.accept(ModItems.OPAL_SWORD.get());
@@ -90,8 +88,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(Items.NETHERITE_CHESTPLATE);
                         pOutput.accept(Items.NETHERITE_LEGGINGS);
                         pOutput.accept(Items.NETHERITE_BOOTS);
-                    })
-                    .build());
+                    }).build());
     public static final RegistryObject<CreativeModeTab> UNIQUE_MOB_DROP_TAB = CREATIVE_MODE_TABS.register("unique_mob_drop_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SMOULDERING_STONE.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.unique_mob_drop_tab"))
@@ -100,7 +97,6 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.ENDER_DRAGON_SCALE.get());
                         pOutput.accept(ModItems.SCULK_CRYSTAL.get());
                         pOutput.accept(ModItems.CHARGED_BLAZE_ROD.get());
-                        pOutput.accept(ModItems.HUGE_NETHER_WART.get());
                         pOutput.accept(ModItems.WITHER_SKELETON_BONE.get());
                         pOutput.accept(ModItems.SPIDER_FANG.get());
                         pOutput.accept(ModItems.CREEPER_FUSE.get());
@@ -129,20 +125,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.BROKEN_AXE.get());
                         pOutput.accept(ModItems.SENSOR_TENDRIL.get());
                         pOutput.accept(ModItems.SHRIEKER_NOISE_BOX.get());
-                        pOutput.accept(ModItems.PLENTIFUL_WHEAT.get());
-                        pOutput.accept(ModItems.ODD_SHAPED_BEETROOT.get());
-                        pOutput.accept(ModItems.SMALL_CARROT.get());
-                        pOutput.accept(ModItems.ODD_SHAPED_POTATO.get());
-                        pOutput.accept(ModBlocks.WHITE_PUMPKIN.get());
-                        pOutput.accept(ModBlocks.GOLDEN_MELON.get());
-                        pOutput.accept(ModItems.HUGE_PITCHER_PLANT.get());
-                        pOutput.accept(ModItems.CACTUS_SPINE.get());
-                        pOutput.accept(ModItems.BIOLUMINESCENT_TORCHFLOWER.get());
-                        pOutput.accept(ModItems.THICK_SUGAR_CANE.get());
-                        pOutput.accept(ModItems.EXPERIENCE_BOTTLE_NETHER_WART.get());
-                        pOutput.accept(ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT.get());
-                    })
-                    .build());
+                    }).build());
     public static final RegistryObject<CreativeModeTab> TEMPLATE_TAB = CREATIVE_MODE_TABS.register("template_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.template_tab"))
@@ -160,12 +143,13 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.LEVIATHANS_AXE_UPGRADE_SMITHING_TEMPLATE.get());
                         pOutput.accept(ModItems.SCYTHE_OF_VITUR_UPGRADE_SMITHING_TEMPLATE.get());
                         pOutput.accept(ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get());
-                    })
-                    .build());
+                    }).build());
     public static final RegistryObject<CreativeModeTab> ESSENCE_TAB = CREATIVE_MODE_TABS.register("essence_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.BASIC_ESSENCE.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.essence_tab"))
                     .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(ModItems.EXPERIENCE_BOTTLE_NETHER_WART.get());
+                        pOutput.accept(ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT.get());
                         pOutput.accept(ModItems.BASIC_ESSENCE.get());
                         pOutput.accept(ModItems.SPIDER_ESSENCE.get());
                         pOutput.accept(ModItems.DRENCHED_ESSENCE.get());
@@ -219,8 +203,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.PURE_RESOLUTE_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_RESILIENT_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_RESISTANT_ESSENCE.get());
-                    })
-                    .build());
+                    }).build());
     public static final RegistryObject<CreativeModeTab> INEVITABLE_TAB = CREATIVE_MODE_TABS.register("inevitable_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.NETHER_BLADE.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.inevitable_tab"))
@@ -239,8 +222,23 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.INEVITABLE_CHESTPLATE.get());
                         pOutput.accept(ModItems.INEVITABLE_LEGGINGS.get());
                         pOutput.accept(ModItems.INEVITABLE_BOOTS.get());
-                    })
-                    .build());
+                    }).build());
+    public static final RegistryObject<CreativeModeTab> UNIQUE_CROPS = CREATIVE_MODE_TABS.register("unique_crops_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.PLENTIFUL_WHEAT.get()))
+                    .title(Component.translatable("endgameenhanced.creativetab.unique_crops_tab"))
+                    .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(ModItems.PLENTIFUL_WHEAT.get());
+                        pOutput.accept(ModItems.ODD_SHAPED_BEETROOT.get());
+                        pOutput.accept(ModItems.SMALL_CARROT.get());
+                        pOutput.accept(ModItems.ODD_SHAPED_POTATO.get());
+                        pOutput.accept(ModItems.HUGE_NETHER_WART.get());
+                        pOutput.accept(ModItems.HUGE_PITCHER_PLANT.get());
+                        pOutput.accept(ModItems.BIOLUMINESCENT_TORCHFLOWER.get());
+                        pOutput.accept(ModBlocks.WHITE_PUMPKIN.get());
+                        pOutput.accept(ModBlocks.GOLDEN_MELON.get());
+                        pOutput.accept(ModItems.THICK_SUGAR_CANE.get());
+                        pOutput.accept(ModItems.CACTUS_SPINE.get());
+                    }).build());
 
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);

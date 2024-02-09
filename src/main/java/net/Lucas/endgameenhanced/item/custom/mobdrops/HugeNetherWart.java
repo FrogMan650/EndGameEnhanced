@@ -29,7 +29,7 @@ public class HugeNetherWart extends Item {
 
 
         pTooltipComponents.add(huge_nether_wart_lore);
-        pTooltipComponents.add(huge_nether_wart_two);
+//        pTooltipComponents.add(huge_nether_wart_two);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

@@ -29,7 +29,7 @@ public class SculkCrystal extends Item {
 
 
         pTooltipComponents.add(sculk_crystal_lore);
-        pTooltipComponents.add(sculk_crystal_lore_two);
+//        pTooltipComponents.add(sculk_crystal_lore_two);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

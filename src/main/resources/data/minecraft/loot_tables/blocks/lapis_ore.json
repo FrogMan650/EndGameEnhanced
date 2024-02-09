@@ -86,84 +86,11 @@
                   "condition": "minecraft:survives_explosion"
                 },
                 {
-                  "chance": 0.25,
+                  "chance": 0.01,
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "endgameenhanced:opal"
-            }
-          ]
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:air"
-            },
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:survives_explosion"
-                },
-                {
-                  "chance": 0.1,
-                  "condition": "minecraft:random_chance"
-                }
-              ],
-              "name": "endgameenhanced:jade"
-            }
-          ]
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:air"
+              "name": "minecraft:emerald"
             },
             {
               "type": "minecraft:item",
@@ -177,36 +104,6 @@
                 }
               ],
               "name": "endgameenhanced:sapphire"
-            }
-          ]
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:air"
             },
             {
               "type": "minecraft:item",
@@ -215,11 +112,24 @@
                   "condition": "minecraft:survives_explosion"
                 },
                 {
-                  "chance": 0.01,
+                  "chance": 0.1,
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "minecraft:emerald"
+              "name": "endgameenhanced:jade"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:survives_explosion"
+                },
+                {
+                  "chance": 0.25,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "endgameenhanced:opal"
             }
           ]
         }

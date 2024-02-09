@@ -411,13 +411,16 @@
   "block.endgameenhanced.onyx_block": "Block of Onyx",
   "block.endgameenhanced.golden_melon": "§eGolden Melon",
   "block.endgameenhanced.white_pumpkin": "§eWhite Pumpkin",
+  "block.endgameenhanced.gem_ore": "Gem Ore",
 
 
-  "endgameenhanced.creativetab.gem_tab": "Gems and gem items",
-  "endgameenhanced.creativetab.template_tab": "Templates",
-  "endgameenhanced.creativetab.essence_tab": "Essences",
-  "endgameenhanced.creativetab.inevitable_tab": "Inevitable items",
-  "endgameenhanced.creativetab.unique_mob_drop_tab": "Unique mob drops",
+  "endgameenhanced.creativetab.gem_tab": "EGE: Gems and gem items",
+  "endgameenhanced.creativetab.template_tab": "EGE: Templates",
+  "endgameenhanced.creativetab.essence_tab": "EGE: Essence",
+  "endgameenhanced.creativetab.inevitable_tab": "EGE: Inevitable items",
+  "endgameenhanced.creativetab.unique_mob_drop_tab": "EGE: Unique mob drops",
+  "endgameenhanced.creativetab.unique_crops_tab": "EGE: Unique crops",
+  "endgameenhanced.creativetab.ege_misc_tab": "EGE: Misc",
 
   "endgameenhanced.translated.destruction.1.x.1": "Destruction mode: OFF",
   "endgameenhanced.translated.destruction.3.x.3": "Destruction mode: ON",

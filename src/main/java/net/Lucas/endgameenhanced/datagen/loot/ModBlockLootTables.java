@@ -30,6 +30,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.ONYX_BLOCK.get());
         this.dropSelf(ModBlocks.WHITE_PUMPKIN.get());
         this.dropSelf(ModBlocks.GOLDEN_MELON.get());
+        this.dropSelf(ModBlocks.GEM_ORE.get());
 
     }
 

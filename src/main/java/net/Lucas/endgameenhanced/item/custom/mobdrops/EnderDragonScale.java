@@ -31,7 +31,7 @@ public class EnderDragonScale extends Item {
 
 
         pTooltipComponents.add(ender_dragon_scale_lore);
-        pTooltipComponents.add(ender_dragon_scale_lore_two);
+//        pTooltipComponents.add(ender_dragon_scale_lore_two);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

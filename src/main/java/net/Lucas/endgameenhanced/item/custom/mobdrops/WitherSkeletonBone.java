@@ -30,7 +30,7 @@ public class WitherSkeletonBone extends Item {
 
 
         pTooltipComponents.add(wither_skeleton_bone_lore);
-        pTooltipComponents.add(wither_skeleton_bone_two);
+//        pTooltipComponents.add(wither_skeleton_bone_two);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

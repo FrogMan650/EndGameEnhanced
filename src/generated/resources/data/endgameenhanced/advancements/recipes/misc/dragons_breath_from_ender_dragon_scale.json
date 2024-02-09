@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ender_dragon_scale": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endgameenhanced:ender_dragon_scale"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:dragons_breath_from_ender_dragon_scale"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ender_dragon_scale",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "endgameenhanced:dragons_breath_from_ender_dragon_scale"
+    ]
+  },
+  "sends_telemetry_event": false
+}

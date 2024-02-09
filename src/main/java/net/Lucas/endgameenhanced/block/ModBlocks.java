@@ -33,6 +33,10 @@ public class ModBlocks {
             () -> new PumpkinBlock(BlockBehaviour.Properties.copy(Blocks.PUMPKIN)));
     public static final RegistryObject<Block> GOLDEN_MELON = registerBlock("golden_melon",
             () -> new MelonBlock(BlockBehaviour.Properties.copy(Blocks.MELON)));
+    public static final RegistryObject<Block> GEM_ORE = registerBlock("gem_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_EMERALD_ORE)
+                    .strength(4, 3).requiresCorrectToolForDrops(), UniformInt.of(2, 5)));
+
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

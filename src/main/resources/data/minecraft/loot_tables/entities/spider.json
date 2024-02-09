@@ -71,95 +71,96 @@
           "condition": "minecraft:killed_by_player"
         },
         {
-          "chance": 0.05,
+          "chance": 0.0033,
           "condition": "minecraft:random_chance_with_looting",
-          "looting_multiplier": 0.01
+          "looting_multiplier": 0.0011
         }
       ],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "endgameenhanced:sapphire"
+          "name": "endgameenhanced:spider_fang"
         }
       ],
       "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        },
-        {
-          "chance": 0.01,
-          "condition": "minecraft:random_chance_with_looting",
-          "looting_multiplier": 0.01
-        }
-      ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "minecraft:emerald"
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        },
-        {
-          "chance": 0.004,
-          "condition": "minecraft:random_chance_with_looting",
-          "looting_multiplier": 0.01
-        }
-      ],
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "endgameenhanced:ruby"
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        },
-        {
-          "chance": 0.001,
-          "condition": "minecraft:random_chance_with_looting",
-          "looting_multiplier": 0.01
-        }
-      ],
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:diamond"
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        },
-        {
-          "chance": 0.0004,
-          "condition": "minecraft:random_chance_with_looting",
-          "looting_multiplier": 0.01
-        }
-      ],
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "endgameenhanced:onyx"
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:killed_by_player"
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance_with_looting",
+                  "looting_multiplier": 0.00067
+                }
+              ],
+              "name": "endgameenhanced:onyx"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:killed_by_player"
+                },
+                {
+                  "chance": 0.00286,
+                  "condition": "minecraft:random_chance_with_looting",
+                  "looting_multiplier": 0.00070
+                }
+              ],
+              "name": "minecraft:diamond"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:killed_by_player"
+                },
+                {
+                  "chance": 0.005,
+                  "condition": "minecraft:random_chance_with_looting",
+                  "looting_multiplier": 0.00165
+                }
+              ],
+              "name": "endgameenhanced:ruby"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:killed_by_player"
+                },
+                {
+                  "chance": 0.01,
+                  "condition": "minecraft:random_chance_with_looting",
+                  "looting_multiplier": 0.0033
+                }
+              ],
+              "name": "minecraft:emerald"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:killed_by_player"
+                },
+                {
+                  "chance": 0.02,
+                  "condition": "minecraft:random_chance_with_looting",
+                  "looting_multiplier": 0.0067
+                }
+              ],
+              "name": "endgameenhanced:sapphire"
+            }
+          ]
         }
       ],
       "rolls": 1.0

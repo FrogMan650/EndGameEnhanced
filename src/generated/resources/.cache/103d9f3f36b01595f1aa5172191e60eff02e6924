@@ -1,0 +1,4 @@
+// 1.20.1	2024-02-08T18:55:18.1602814	Registries
+0effd98f238a4afe01626a058a74e904d2b9ec02 data/endgameenhanced/forge/biome_modifier/add_gem_ore.json
+0e1c75d5fbb62827d7b93f84f6dee7f98d35d9df data/endgameenhanced/worldgen/configured_feature/gem_ore.json
+0fa4ffaac558e5b0baa53034261a42f7ac071e6b data/endgameenhanced/worldgen/placed_feature/gem_ore_placed.json

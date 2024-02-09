@@ -20,6 +20,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.JADE_BLOCK);
         blockWithItem(ModBlocks.RUBY_BLOCK);
         blockWithItem(ModBlocks.ONYX_BLOCK);
+        blockWithItem(ModBlocks.GEM_ORE);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

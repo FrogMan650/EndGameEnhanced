@@ -10,14 +10,11 @@
     },
     "P": {
       "item": "endgameenhanced:onyx_upgrade_smithing_template"
-    },
-    "S": {
-      "item": "minecraft:nether_bricks"
     }
   },
   "pattern": [
-    "EPE",
-    "DSD",
+    "DPD",
+    "DED",
     "DDD"
   ],
   "result": {

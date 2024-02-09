@@ -77,41 +77,11 @@
                   "condition": "minecraft:survives_explosion"
                 },
                 {
-                  "chance": 0.2,
+                  "chance": 0.04,
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "endgameenhanced:sapphire"
-            }
-          ]
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:air"
+              "name": "endgameenhanced:ruby"
             },
             {
               "type": "minecraft:item",
@@ -125,36 +95,6 @@
                 }
               ],
               "name": "minecraft:emerald"
-            }
-          ]
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "name": "minecraft:air"
             },
             {
               "type": "minecraft:item",
@@ -163,11 +103,11 @@
                   "condition": "minecraft:survives_explosion"
                 },
                 {
-                  "chance": 0.04,
+                  "chance": 0.2,
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "endgameenhanced:ruby"
+              "name": "endgameenhanced:sapphire"
             }
           ]
         }

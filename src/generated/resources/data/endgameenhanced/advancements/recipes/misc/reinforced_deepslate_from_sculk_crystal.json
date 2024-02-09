@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sculk_crystal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endgameenhanced:sculk_crystal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:reinforced_deepslate_from_sculk_crystal"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_sculk_crystal",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "endgameenhanced:reinforced_deepslate_from_sculk_crystal"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -29,7 +29,7 @@ public class ChargedBlazeRod extends Item {
 
 
         pTooltipComponents.add(charged_blaze_rod_lore);
-        pTooltipComponents.add(charged_blaze_rod_two);
+//        pTooltipComponents.add(charged_blaze_rod_two);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

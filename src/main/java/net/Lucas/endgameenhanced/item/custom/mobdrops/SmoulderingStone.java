@@ -30,7 +30,7 @@ public class SmoulderingStone extends Item {
 
 
         pTooltipComponents.add(smouldering_stone_lore);
-        pTooltipComponents.add(smouldering_stone_lore_two);
+//        pTooltipComponents.add(smouldering_stone_lore_two);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }
