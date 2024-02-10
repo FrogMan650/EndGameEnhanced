@@ -6,6 +6,9 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorMaterial;
@@ -19,6 +22,18 @@ import java.util.List;
 public class ObsidianChestplate extends CustomArmorItem {
     public ObsidianChestplate(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
         super(pMaterial, pType, pProperties);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+        if (pEntity instanceof Player player) {
+            if (player.getItemBySlot(EquipmentSlot.CHEST).getItem() == ModItems.INEVITABLE_CHESTPLATE.get()) {
+                player.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, 220, 0, false, false, true));
+                if (isDamaged(player.getItemBySlot(EquipmentSlot.CHEST))) {
+                    setDamage(player.getItemBySlot(EquipmentSlot.CHEST), 0);
+                }
+            }
+        }
     }
 
     @Override

@@ -21,6 +21,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -97,6 +99,12 @@ public class ModEvents {
                         event.setAmount(12);
                     }
                 }
+            }
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.NETHER_BLADE.get())) {
+                damagedMob.setSecondsOnFire(15);
+            }
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.END_BLADE.get())) {
+                damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 1, false, true, true));
             }
         }
     }

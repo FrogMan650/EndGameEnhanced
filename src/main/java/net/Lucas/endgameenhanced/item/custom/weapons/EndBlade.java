@@ -1,10 +1,16 @@
 package net.Lucas.endgameenhanced.item.custom.weapons;
 
+import net.Lucas.endgameenhanced.item.ModItems;
 import net.Lucas.endgameenhanced.item.custom.CustomSwordItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -18,6 +24,23 @@ public class EndBlade extends CustomSwordItem implements Vanishable{
 
     public EndBlade(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+        if (pEntity instanceof Player player) {
+            if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.END_BLADE.get() && player.level().dimension().toString().contains("the_end")) {
+                if (player.hasEffect(MobEffects.WITHER)) {
+                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20, 2, false, true, true));
+                    if (player.getEffect(MobEffects.WITHER).getDuration() == 1) {
+                        player.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0, false, true, true));
+                    }
+                    if (!player.hasEffect(MobEffects.REGENERATION)) {
+                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 300, 0, false, true, true));
+                    }
+                }
+            }
+        }
     }
 
     @Override

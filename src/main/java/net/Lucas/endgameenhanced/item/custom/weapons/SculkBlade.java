@@ -1,11 +1,17 @@
 package net.Lucas.endgameenhanced.item.custom.weapons;
 
+import net.Lucas.endgameenhanced.item.ModItems;
 import net.Lucas.endgameenhanced.item.custom.CustomSwordItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -20,6 +26,20 @@ public class SculkBlade extends CustomSwordItem implements Vanishable {
 
     public SculkBlade(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+        if (pEntity instanceof Player player) {
+            if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.SCULK_BLADE.get() && player.level().getBiome(player.getOnPos()).toString().contains("deep_dark")) {
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20, 1, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20, 0, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.JUMP, 20, 1, false, true, true));
+            }
+            if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.SCULK_BLADE.get()) {
+                player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 20, 0, false, true, true));
+            }
+        }
     }
 
     @Override
