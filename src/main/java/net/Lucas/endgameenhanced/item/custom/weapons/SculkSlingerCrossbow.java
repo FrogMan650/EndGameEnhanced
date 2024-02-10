@@ -399,6 +399,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
+        final ChatFormatting AQUA_TEXT = ChatFormatting.DARK_AQUA;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         Component sculkslinger_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:sculkslinger_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
@@ -415,6 +416,8 @@ public class SculkSlingerCrossbow extends CrossbowItem {
                 ("endgameenhanced:sculkslinger_lore.green_text_arrow_three"))).withStyle(GREEN_TEXT);
         Component sculkslinger_stats_arrow_four = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:sculkslinger_lore.green_text_arrow_four"))).withStyle(GREEN_TEXT);
+        Component sculkslinger_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("endgameenhanced:sculkslinger_lore.green_text_arrow_five"))).withStyle(AQUA_TEXT);
         pTooltipComponents.add(sculkslinger_lore);
         pTooltipComponents.add(sculkslinger_lore_two);
         pTooltipComponents.add(sculkslinger_stats_header_arrow);
@@ -422,6 +425,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         pTooltipComponents.add(sculkslinger_stats_arrow_two);
         pTooltipComponents.add(sculkslinger_stats_arrow_three);
         pTooltipComponents.add(sculkslinger_stats_arrow_four);
+        pTooltipComponents.add(sculkslinger_stats_arrow_five);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 

@@ -159,6 +159,7 @@ public class TideBreakerTrident extends TridentItem {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
+        final ChatFormatting BLUE_TEXT = ChatFormatting.BLUE;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         int tridentPower = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.IMPALING, pStack);
         double tridentThrownDamage = (tridentPower*2.5) + 25;
@@ -187,6 +188,8 @@ public class TideBreakerTrident extends TridentItem {
                 ("endgameenhanced:tide_breaker_lore.green_text_arrow_six"))).withStyle(GREEN_TEXT);
         Component tide_breaker_stats_arrow_seven = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:tide_breaker_lore.green_text_arrow_seven"))).withStyle(GREEN_TEXT);
+        Component tide_breaker_stats_arrow_eight = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("endgameenhanced:tide_breaker_lore.green_text_arrow_eight"))).withStyle(BLUE_TEXT);
 
 
         pTooltipComponents.add(tide_breaker_lore);
@@ -200,6 +203,7 @@ public class TideBreakerTrident extends TridentItem {
         pTooltipComponents.add(tide_breaker_stats_arrow_five);
         pTooltipComponents.add(tide_breaker_stats_arrow_six);
         pTooltipComponents.add(tide_breaker_stats_arrow_seven);
+        pTooltipComponents.add(tide_breaker_stats_arrow_eight);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

@@ -127,6 +127,7 @@ public class WebweaverBow extends BowItem {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
+        final ChatFormatting WHITE_TEXT = ChatFormatting.DARK_GRAY;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         int bowPower = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.POWER_ARROWS, pStack);
         int bowDamage = (bowPower*2) + 25;
@@ -150,6 +151,8 @@ public class WebweaverBow extends BowItem {
                 ("endgameenhanced:webweaver_lore.green_text_arrow_four"))).withStyle(GREEN_TEXT);
         Component webweaver_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:webweaver_lore.green_text_arrow_five"))).withStyle(GREEN_TEXT);
+        Component webweaver_stats_arrow_six = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("endgameenhanced:webweaver_lore.green_text_arrow_six"))).withStyle(WHITE_TEXT);
 
         pTooltipComponents.add(webweaver_lore);
         pTooltipComponents.add(webweaver_lore_two);
@@ -159,6 +162,7 @@ public class WebweaverBow extends BowItem {
         pTooltipComponents.add(webweaver_stats_arrow_three);
         pTooltipComponents.add(webweaver_stats_arrow_four);
         pTooltipComponents.add(webweaver_stats_arrow_five);
+        pTooltipComponents.add(webweaver_stats_arrow_six);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

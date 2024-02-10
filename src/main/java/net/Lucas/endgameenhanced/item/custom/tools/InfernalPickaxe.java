@@ -46,6 +46,7 @@ public class InfernalPickaxe extends PickaxeItem {
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
+        final ChatFormatting REDD_TEXT = ChatFormatting.RED;
         Component infernal_pickaxe_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:infernal_pickaxe_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         Component infernal_pickaxe_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
@@ -58,6 +59,8 @@ public class InfernalPickaxe extends PickaxeItem {
                 ("endgameenhanced:infernal_pickaxe_lore.green_text_arrow_eight"))).withStyle(GREEN_TEXT);
         Component infernal_pickaxe_stats_arrow_nine = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:infernal_pickaxe_lore.green_text_arrow_nine"))).withStyle(GREEN_TEXT);
+        Component infernal_pickaxe_stats_arrow_ten = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("endgameenhanced:infernal_pickaxe_lore.green_text_arrow_ten"))).withStyle(REDD_TEXT);
 
         pTooltipComponents.add(infernal_pickaxe_lore);
         pTooltipComponents.add(infernal_pickaxe_lore_two);
@@ -65,6 +68,7 @@ public class InfernalPickaxe extends PickaxeItem {
         pTooltipComponents.add(infernal_pickaxe_stats_arrow_seven);
         pTooltipComponents.add(infernal_pickaxe_stats_arrow_eight);
         pTooltipComponents.add(infernal_pickaxe_stats_arrow_nine);
+        pTooltipComponents.add(infernal_pickaxe_stats_arrow_ten);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

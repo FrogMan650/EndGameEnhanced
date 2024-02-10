@@ -236,6 +236,8 @@ public class ScytheOfVitur extends HoeItem {
                 ("endgameenhanced:scythe_lore.green_text_arrow_eight"))).withStyle(GREEN_TEXT);
         Component scythe_stats_arrow_nine = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:scythe_lore.green_text_arrow_nine"))).withStyle(GREEN_TEXT);
+        Component scythe_stats_arrow_ten = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("endgameenhanced:scythe_lore.green_text_arrow_ten"))).withStyle(RED_TEXT);
 
         pTooltipComponents.add(scythe_lore);
         pTooltipComponents.add(scythe_lore_two);
@@ -243,6 +245,7 @@ public class ScytheOfVitur extends HoeItem {
         pTooltipComponents.add(scythe_stats_arrow_seven);
         pTooltipComponents.add(scythe_stats_arrow_eight);
         pTooltipComponents.add(scythe_stats_arrow_nine);
+        pTooltipComponents.add(scythe_stats_arrow_ten);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

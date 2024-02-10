@@ -48,6 +48,7 @@ public class NetherBlade extends CustomSwordItem implements Vanishable {
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
+        final ChatFormatting REDD_TEXT = ChatFormatting.RED;
         int sharpnessLevel = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.SHARPNESS, pStack);
         int smiteLevel = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.SMITE, pStack);
         int arthropodLevel = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.BANE_OF_ARTHROPODS, pStack);
@@ -83,12 +84,15 @@ public class NetherBlade extends CustomSwordItem implements Vanishable {
                 ("endgameenhanced:sword_lore.green_text_arrow_seven"))).withStyle(GREEN_TEXT);
         Component sword_stats_arrow_eight = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:sword_lore.green_text_arrow_eight"))).withStyle(GREEN_TEXT);
+        Component sword_stats_arrow_nine = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("endgameenhanced:nether_blade_lore.green_text_arrow_nine"))).withStyle(REDD_TEXT);
         pTooltipComponents.add(netherblade_lore);
         pTooltipComponents.add(netherblade_lore_two);
         pTooltipComponents.add(sword_stats_header_arrow);
         pTooltipComponents.add(sword_stats_arrow_five);
         pTooltipComponents.add(sword_stats_arrow_seven);
         pTooltipComponents.add(sword_stats_arrow_eight);
+        pTooltipComponents.add(sword_stats_arrow_nine);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 

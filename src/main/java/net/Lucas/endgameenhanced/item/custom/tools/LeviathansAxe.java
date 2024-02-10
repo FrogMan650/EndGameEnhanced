@@ -228,6 +228,7 @@ public class LeviathansAxe extends AxeItem {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
+        final ChatFormatting AQUA_TEXT = ChatFormatting.AQUA;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         int sharpnessLevel = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.SHARPNESS, pStack);
         int smiteLevel = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.SMITE, pStack);
@@ -281,6 +282,8 @@ public class LeviathansAxe extends AxeItem {
                 ("endgameenhanced:leviathans_axe_lore.green_text_arrow_six"))).withStyle(GREEN_TEXT);
         Component leviathans_axe_stats_arrow_seven = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:leviathans_axe_lore.green_text_arrow_seven"))).withStyle(GREEN_TEXT);
+        Component leviathans_axe_stats_arrow_eight = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("endgameenhanced:leviathans_axe_lore.green_text_arrow_eight"))).withStyle(AQUA_TEXT);
 
 
         pTooltipComponents.add(leviathans_axe_lore);
@@ -291,6 +294,7 @@ public class LeviathansAxe extends AxeItem {
         pTooltipComponents.add(leviathans_axe_stats_arrow_five);
         pTooltipComponents.add(leviathans_axe_stats_arrow_six);
         pTooltipComponents.add(leviathans_axe_stats_arrow_seven);
+        pTooltipComponents.add(leviathans_axe_stats_arrow_eight);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

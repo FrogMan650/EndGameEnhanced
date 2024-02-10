@@ -223,12 +223,15 @@
 
   "item.endgameenhanced.end_blade_lore.red_text": "Legend has it that this sword fell into an End portal but was never found on the other side. Whatever happened to it, changed it dramatically.",
   "item.endgameenhanced.end_blade_lore.red_text_two": " ",
+  "item.endgameenhanced.end_blade_lore.green_text_arrow_nine": "Despair's End",
 
   "item.endgameenhanced.nether_blade_lore.red_text": "It's said that this sword was originally used to cut the fabric of space and time to open the very first portal to the Nether.",
   "item.endgameenhanced.nether_blade_lore.red_text_two": " ",
+  "item.endgameenhanced.nether_blade_lore.green_text_arrow_nine": "Nether's Flame",
 
   "item.endgameenhanced.sculk_blade_lore.red_text": "The last known remnant of an ancient civilization wiped out by the Sculk. The Sculk may soon reclaim the sword as well.",
   "item.endgameenhanced.sculk_blade_lore.red_text_two": " ",
+  "item.endgameenhanced.sculk_sword_lore.green_text_arrow_nine": "Creeping Corruption",
 
   "item.endgameenhanced.scythe_lore.red_text": "Originating from another world, this vampiric weapon is able to use blood to enhance it's users abilities.",
   "item.endgameenhanced.scythe_lore.red_text_two": " ",
@@ -236,6 +239,7 @@
   "item.endgameenhanced.scythe_lore.green_text_arrow_seven": " 12 Damage",
   "item.endgameenhanced.scythe_lore.green_text_arrow_eight": " 1 Attack Speed",
   "item.endgameenhanced.scythe_lore.green_text_arrow_nine": " ",
+  "item.endgameenhanced.scythe_lore.green_text_arrow_ten": "Clean Sweep",
 
   "item.endgameenhanced.unkempt_harold_lore.red_text": "Did I dig six blocks, or only five? Three? Seven. Whatever.",
   "item.endgameenhanced.unkempt_harold_lore.red_text_two": " ",
@@ -243,6 +247,7 @@
   "item.endgameenhanced.unkempt_harold_lore.green_text_arrow_seven": " 7.5 Damage",
   "item.endgameenhanced.unkempt_harold_lore.green_text_arrow_eight": " 1 Attack Speed",
   "item.endgameenhanced.unkempt_harold_lore.green_text_arrow_nine": " ",
+  "item.endgameenhanced.unkempt_harold_lore.green_text_arrow_ten": "Demolition Expert",
 
   "item.endgameenhanced.infernal_pickaxe_lore.red_text": "A very powerful, fiery pickaxe.",
   "item.endgameenhanced.infernal_pickaxe_lore.red_text_two": " ",
@@ -250,6 +255,7 @@
   "item.endgameenhanced.infernal_pickaxe_lore.green_text_arrow_seven": " 7 Damage",
   "item.endgameenhanced.infernal_pickaxe_lore.green_text_arrow_eight": " 1.2 Attack Speed",
   "item.endgameenhanced.infernal_pickaxe_lore.green_text_arrow_nine": " ",
+  "item.endgameenhanced.infernal_pickaxe_lore.green_text_arrow_ten": "Superheated",
 
   "item.endgameenhanced.webweaver_lore.red_text": "A bow made from the legendary spider Venenatis. Somehow transported to this world from another.",
   "item.endgameenhanced.webweaver_lore.red_text_two": " ",
@@ -264,6 +270,7 @@
   "item.endgameenhanced.webweaver_lore.green_text_arrow_three": " 50% Increased Accuracy",
   "item.endgameenhanced.webweaver_lore.green_text_arrow_four": " Increased Arrow Velocity",
   "item.endgameenhanced.webweaver_lore.green_text_arrow_five": " ",
+  "item.endgameenhanced.webweaver_lore.green_text_arrow_six": "Web Shot",
 
   "item.endgameenhanced.sculkslinger_lore.red_text": "Long lost to this world it's said to have been crafted from a Warden by an ancient civilization.",
   "item.endgameenhanced.sculkslinger_lore.red_text_two": " ",
@@ -272,6 +279,7 @@
   "item.endgameenhanced.sculkslinger_lore.green_text_arrow_two": " 25% Chance to Save Ammo",
   "item.endgameenhanced.sculkslinger_lore.green_text_arrow_three": " Increased Charge Speed",
   "item.endgameenhanced.sculkslinger_lore.green_text_arrow_four": " ",
+  "item.endgameenhanced.sculkslinger_lore.green_text_arrow_five": "Corruption Reduction",
 
   "item.endgameenhanced.tide_breaker_lore.red_text": "Along with the Flying Dutchman, this Trident was gifted to Davey Jones by Calypso, to aid in his duties. Once he betrayed her, the Trident was no longer loyal to him.",
   "item.endgameenhanced.tide_breaker_lore.red_text_two": " ",
@@ -294,6 +302,7 @@
   "item.endgameenhanced.tide_breaker_lore.green_text_arrow.melee.28.5": " 10 (22.5) Damage",
   "item.endgameenhanced.tide_breaker_lore.green_text_arrow_six": " 1.6 Attack Speed",
   "item.endgameenhanced.tide_breaker_lore.green_text_arrow_seven": " ",
+  "item.endgameenhanced.tide_breaker_lore.green_text_arrow_eight": "Wave Rider",
 
   "item.endgameenhanced.leviathans_axe_lore.red_text": "Not much is known about this axe but it's said to have been made by two legendary Dwarven blacksmiths from another realm. Whomever it was made for must be extremely powerful.",
   "item.endgameenhanced.leviathans_axe_lore.red_text_two": " ",
@@ -326,6 +335,7 @@
   "item.endgameenhanced.leviathans_axe_lore.green_text_arrow.melee.14.0": " 10 (22.5) Damage",
   "item.endgameenhanced.leviathans_axe_lore.green_text_arrow_six": " 1 Attack Speed",
   "item.endgameenhanced.leviathans_axe_lore.green_text_arrow_seven": " ",
+  "item.endgameenhanced.leviathans_axe_lore.green_text_arrow_eight": "Leviathan's Fury",
 
   "item.endgameenhanced.obsidian_helmet_lore.red_text": "Somehow you can see better with the Faceguard than without.",
   "item.endgameenhanced.obsidian_helmet_lore.red_text_two": " ",

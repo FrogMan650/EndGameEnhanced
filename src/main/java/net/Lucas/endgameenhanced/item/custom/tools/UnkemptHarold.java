@@ -94,6 +94,7 @@ public class UnkemptHarold extends ShovelItem {
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
+        final ChatFormatting YELLOW_TEXT = ChatFormatting.YELLOW;
         Component unkempt_harold_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:unkempt_harold_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         Component unkempt_harold_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
@@ -106,6 +107,8 @@ public class UnkemptHarold extends ShovelItem {
                 ("endgameenhanced:unkempt_harold_lore.green_text_arrow_eight"))).withStyle(GREEN_TEXT);
         Component unkempt_harold_stats_arrow_nine = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
                 ("endgameenhanced:unkempt_harold_lore.green_text_arrow_nine"))).withStyle(GREEN_TEXT);
+        Component unkempt_harold_stats_arrow_ten = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+                ("endgameenhanced:unkempt_harold_lore.green_text_arrow_ten"))).withStyle(YELLOW_TEXT);
 
         pTooltipComponents.add(unkempt_harold_lore);
         pTooltipComponents.add(unkempt_harold_lore_two);
@@ -113,6 +116,7 @@ public class UnkemptHarold extends ShovelItem {
         pTooltipComponents.add(unkempt_harold_stats_arrow_seven);
         pTooltipComponents.add(unkempt_harold_stats_arrow_eight);
         pTooltipComponents.add(unkempt_harold_stats_arrow_nine);
+        pTooltipComponents.add(unkempt_harold_stats_arrow_ten);
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

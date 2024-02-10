@@ -95,7 +95,7 @@ public class ObsidianBoots extends CustomArmorItem {
         pTooltipComponents.add(obsidian_boots_stats_arrow_eight);
         pTooltipComponents.add(obsidian_boots_stats_arrow_nine);
         pTooltipComponents.add(obsidian_boots_stats_arrow_ten);
-        pTooltipComponents.add(obsidian_boots_stats_arrow_eleven);
+//        pTooltipComponents.add(obsidian_boots_stats_arrow_eleven);
         pTooltipComponents.add(obsidian_boots_stats_arrow_fifteen);
         pTooltipComponents.add(obsidian_boots_stats_header_arrow_two);
         pTooltipComponents.add(obsidian_boots_stats_arrow_twelve);

@@ -106,6 +106,14 @@ public class ModEvents {
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.END_BLADE.get())) {
                 damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 1, false, true, true));
             }
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.WEBWEAVER_BOW.get())) {
+                damagedMob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 300, 3, false, true, true));
+                damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 0, false, true, true));
+            }
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.SCULK_SLINGER.get())) {
+                damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 0, false, true, true));
+                damagedMob.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 300, 0, false, true, true));
+            }
         }
     }
 
