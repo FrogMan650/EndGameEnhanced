@@ -103,7 +103,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.SOAKED_FLESH.get());
                         pOutput.accept(ModItems.FLESH_JERKY.get());
                         pOutput.accept(ModItems.MAGMA_BUTTER.get());
-                        pOutput.accept(ModItems.RIP_BONE.get());
+                        pOutput.accept(ModItems.RIB_BONE.get());
                         pOutput.accept(ModItems.SLIME_GLOB.get());
                         pOutput.accept(ModItems.FROZEN_BONE.get());
                         pOutput.accept(ModItems.NOT_SO_ROTTEN_FLESH.get());

@@ -50,7 +50,7 @@ public class ModItems {
     public static final RegistryObject<Item> SOAKED_FLESH = ITEMS.register("soaked_flesh", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> FLESH_JERKY = ITEMS.register("flesh_jerky", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> MAGMA_BUTTER = ITEMS.register("magma_butter", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> RIP_BONE = ITEMS.register("rib_bone", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RIB_BONE = ITEMS.register("rib_bone", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SLIME_GLOB = ITEMS.register("slime_glob", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> FROZEN_BONE = ITEMS.register("frozen_bone", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> NOT_SO_ROTTEN_FLESH = ITEMS.register("not_so_rotten_flesh", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));

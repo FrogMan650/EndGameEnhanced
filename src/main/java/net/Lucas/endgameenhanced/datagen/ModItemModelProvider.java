@@ -55,7 +55,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SOAKED_FLESH);
         simpleItem(ModItems.FLESH_JERKY);
         simpleItem(ModItems.MAGMA_BUTTER);
-        simpleItem(ModItems.RIP_BONE);
+        simpleItem(ModItems.RIB_BONE);
         simpleItem(ModItems.SLIME_GLOB);
         simpleItem(ModItems.FROZEN_BONE);
         simpleItem(ModItems.NOT_SO_ROTTEN_FLESH);

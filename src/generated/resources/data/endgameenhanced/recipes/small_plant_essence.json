@@ -9,7 +9,7 @@
       "item": "endgameenhanced:plentiful_wheat"
     },
     "C": {
-      "item": "minecraft:torchflower"
+      "item": "endgameenhanced:bioluminescent_torchflower"
     },
     "D": {
       "item": "endgameenhanced:odd_shaped_potato"
@@ -24,7 +24,7 @@
   "pattern": [
     "BCD",
     " A ",
-    "E F"
+    "ECF"
   ],
   "result": {
     "item": "endgameenhanced:small_plant_essence"
