@@ -20,22 +20,22 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, EndGameEnhanced.MOD_ID);
 
     public static final RegistryObject<Block> SAPPHIRE_BLOCK = registerBlock("sapphire_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.EMERALD_BLOCK)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> OPAL_BLOCK = registerBlock("opal_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.EMERALD_BLOCK)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> JADE_BLOCK = registerBlock("jade_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.EMERALD_BLOCK)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> RUBY_BLOCK = registerBlock("ruby_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.EMERALD_BLOCK)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> ONYX_BLOCK = registerBlock("onyx_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.EMERALD_BLOCK)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> WHITE_PUMPKIN = registerBlock("white_pumpkin",
-            () -> new PumpkinBlock(BlockBehaviour.Properties.copy(Blocks.PUMPKIN)));
+            () -> new PumpkinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN)));
     public static final RegistryObject<Block> GOLDEN_MELON = registerBlock("golden_melon",
-            () -> new MelonBlock(BlockBehaviour.Properties.copy(Blocks.MELON)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MELON)));
     public static final RegistryObject<Block> GEM_ORE = registerBlock("gem_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_EMERALD_ORE)
-                    .strength(4, 3).requiresCorrectToolForDrops(), UniformInt.of(2, 5)));
+            () -> new DropExperienceBlock(UniformInt.of(2, 5), BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_EMERALD_ORE)
+                    .strength(4, 3).requiresCorrectToolForDrops()));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
