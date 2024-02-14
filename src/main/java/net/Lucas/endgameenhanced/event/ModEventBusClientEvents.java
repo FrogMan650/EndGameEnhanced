@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.resources.PlayerSkin;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
@@ -25,18 +26,19 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ObsidianElytraModel.WINGS_LAYER_LOCATION, ObsidianElytraModel::createLayer);
     }
 
-    @SubscribeEvent
+    @SubscribeEvent @SuppressWarnings({"unchecked"})
     public static void addPlayerLayers(EntityRenderersEvent.AddLayers event) {
-        for (String skin : event.getSkins()) {
-            LivingEntityRenderer renderer = event.getSkin(skin);
+        for (PlayerSkin.Model skin : event.getSkins()) {
+
+            LivingEntityRenderer renderer = event.getPlayerSkin(skin);
 
             if (renderer != null) {
                 renderer.addLayer(new ObsidianElytraLayer<>(renderer, event.getEntityModels()));
             }
         }
-        LivingEntityRenderer renderer = event.getRenderer(EntityType.ARMOR_STAND);
+        EntityRenderer renderer = event.getEntityRenderer(EntityType.ARMOR_STAND);
         if (renderer != null) {
-            renderer.addLayer(new ObsidianElytraLayer<>(renderer, event.getEntityModels()));
+            ((LivingEntityRenderer)renderer).addLayer(new ObsidianElytraLayer<>(((LivingEntityRenderer)renderer), event.getEntityModels()));
         }
     }
 
