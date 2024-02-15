@@ -209,7 +209,7 @@ public class LeviathansAxeEntity extends AbstractArrow {
     }
 
     protected float getWaterInertia() {
-        return 0.99F;
+        return 0.5F;
     }
 
     public boolean shouldRender(double pX, double pY, double pZ) {
