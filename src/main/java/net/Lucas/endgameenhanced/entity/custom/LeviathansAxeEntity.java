@@ -11,6 +11,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -145,9 +146,10 @@ public class LeviathansAxeEntity extends AbstractArrow {
 
         this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
         float f1 = 1.0F;
-        if (this.level() instanceof ServerLevel && this.level().isThundering() && this.isChanneling()) {
+        if (this.level() instanceof ServerLevel) {
+            float randomFloat = RandomSource.create().nextFloat();
             BlockPos blockpos = entity.blockPosition();
-            if (this.level().canSeeSky(blockpos)) {
+            if (this.level().canSeeSky(blockpos) && randomFloat <= 0.05) {
                 LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
                 if (lightningbolt != null) {
                     lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
