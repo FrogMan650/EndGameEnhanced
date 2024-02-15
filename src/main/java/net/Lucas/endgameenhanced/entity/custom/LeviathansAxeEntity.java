@@ -11,6 +11,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.EntityTypeTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -18,7 +20,9 @@ import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
@@ -29,18 +33,17 @@ import javax.annotation.Nullable;
 public class LeviathansAxeEntity extends AbstractArrow {
     private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(LeviathansAxeEntity.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(LeviathansAxeEntity.class, EntityDataSerializers.BOOLEAN);
-    private ItemStack tridentItem = new ItemStack(ModItems.LEVIATHANS_AXE.get());
+    private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(ModItems.LEVIATHANS_AXE.get());
     private boolean dealtDamage;
     public int clientSideReturnTridentTickCount;
 
-    public LeviathansAxeEntity(EntityType<? extends LeviathansAxeEntity> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
+    public LeviathansAxeEntity(EntityType<? extends LeviathansAxeEntity> p_37561_, Level p_37562_) {
+        super(p_37561_, p_37562_, DEFAULT_ARROW_STACK);
     }
 
     public LeviathansAxeEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntities.LEVIATHANS_AXE.get(), pShooter, pLevel);
-        this.tridentItem = pStack.copy();
-        this.entityData.set(ID_LOYALTY, (byte)5);
+        super(ModEntities.LEVIATHANS_AXE.get(), pShooter, pLevel, pStack);
+        this.entityData.set(ID_LOYALTY, (byte)(5));
         this.entityData.set(ID_FOIL, pStack.hasFoil());
     }
 
@@ -62,7 +65,7 @@ public class LeviathansAxeEntity extends AbstractArrow {
         int i = this.entityData.get(ID_LOYALTY);
         if (i > 0 && (this.dealtDamage || this.isNoPhysics()) && entity != null) {
             if (!this.isAcceptibleReturnOwner()) {
-                if (!this.level().isClientSide && this.pickup == Pickup.ALLOWED) {
+                if (!this.level().isClientSide && this.pickup == AbstractArrow.Pickup.ALLOWED) {
                     this.spawnAtLocation(this.getPickupItem(), 0.1F);
                 }
 
@@ -97,10 +100,6 @@ public class LeviathansAxeEntity extends AbstractArrow {
         }
     }
 
-    protected ItemStack getPickupItem() {
-        return this.tridentItem.copy();
-    }
-
     public boolean isFoil() {
         return this.entityData.get(ID_FOIL);
     }
@@ -120,7 +119,7 @@ public class LeviathansAxeEntity extends AbstractArrow {
         Entity entity = pResult.getEntity();
         float f = 18.0F;
         if (entity instanceof LivingEntity livingentity) {
-                f += EnchantmentHelper.getDamageBonus(this.tridentItem, livingentity.getMobType());
+            f += EnchantmentHelper.getDamageBonus(this.getPickupItemStackOrigin(), livingentity.getMobType());
         }
 
         Entity entity1 = this.getOwner();
@@ -141,13 +140,17 @@ public class LeviathansAxeEntity extends AbstractArrow {
 
                 this.doPostHurtEffects(livingentity1);
             }
+        } else if (entity.getType().is(EntityTypeTags.DEFLECTS_TRIDENTS)) {
+            this.deflect();
+            return;
         }
 
         this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
         float f1 = 1.0F;
-        if (this.level() instanceof ServerLevel && this.level().isThundering() && this.isChanneling()) {
+        if (this.level() instanceof ServerLevel) {
+            float randomFloat = RandomSource.create().nextFloat();
             BlockPos blockpos = entity.blockPosition();
-            if (this.level().canSeeSky(blockpos)) {
+            if (this.level().canSeeSky(blockpos) && randomFloat <= 0.05) {
                 LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
                 if (lightningbolt != null) {
                     lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
@@ -160,10 +163,6 @@ public class LeviathansAxeEntity extends AbstractArrow {
         }
 
         this.playSound(soundevent, f1, 1.0F);
-    }
-
-    public boolean isChanneling() {
-        return EnchantmentHelper.hasChanneling(this.tridentItem);
     }
 
     protected boolean tryPickup(Player pPlayer) {
@@ -192,23 +191,18 @@ public class LeviathansAxeEntity extends AbstractArrow {
      */
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
-        if (pCompound.contains("Trident", 10)) {
-            this.tridentItem = ItemStack.of(pCompound.getCompound("Trident"));
-        }
-
         this.dealtDamage = pCompound.getBoolean("DealtDamage");
-        this.entityData.set(ID_LOYALTY, (byte)EnchantmentHelper.getLoyalty(this.tridentItem));
+        this.entityData.set(ID_LOYALTY, (byte)EnchantmentHelper.getLoyalty(this.getPickupItemStackOrigin()));
     }
 
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
-        pCompound.put("Trident", this.tridentItem.save(new CompoundTag()));
         pCompound.putBoolean("DealtDamage", this.dealtDamage);
     }
 
     public void tickDespawn() {
         int i = this.entityData.get(ID_LOYALTY);
-        if (this.pickup != Pickup.ALLOWED || i <= 0) {
+        if (this.pickup != AbstractArrow.Pickup.ALLOWED || i <= 0) {
             super.tickDespawn();
         }
 
@@ -221,5 +215,4 @@ public class LeviathansAxeEntity extends AbstractArrow {
     public boolean shouldRender(double pX, double pY, double pZ) {
         return true;
     }
-
 }
