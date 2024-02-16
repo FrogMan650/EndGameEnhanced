@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_onyx_upgrade_smithing_template",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_onyx_upgrade_smithing_template"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:onyx_upgrade_smithing_template"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

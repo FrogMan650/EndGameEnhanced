@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_ritual_book",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_ritual_book"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:book_from_ritual_book"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

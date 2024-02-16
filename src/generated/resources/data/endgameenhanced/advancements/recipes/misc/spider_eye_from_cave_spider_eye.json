@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_cave_spider_eye",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cave_spider_eye"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:spider_eye_from_cave_spider_eye"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

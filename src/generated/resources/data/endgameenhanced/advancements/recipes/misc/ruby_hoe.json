@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_ruby_hoe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_ruby_hoe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:ruby_hoe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

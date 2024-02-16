@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_bioluminescent_torchflower",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_bioluminescent_torchflower"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:torchflower_seeds_from_bio_torchflower"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

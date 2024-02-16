@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_onyx_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_onyx_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:onyx"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

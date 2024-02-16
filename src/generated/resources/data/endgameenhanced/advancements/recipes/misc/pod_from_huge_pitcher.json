@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_huge_pitcher_plant",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_huge_pitcher_plant"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:pod_from_huge_pitcher"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

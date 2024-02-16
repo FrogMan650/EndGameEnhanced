@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_opal_axe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_opal_axe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:opal_axe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

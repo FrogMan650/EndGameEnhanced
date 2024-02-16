@@ -3,6 +3,7 @@ package net.Lucas.endgameenhanced.entity;
 import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.Lucas.endgameenhanced.entity.custom.LeviathansAxeEntity;
 import net.Lucas.endgameenhanced.entity.custom.TideBreakerEntity;
+import net.Lucas.endgameenhanced.entity.projectile.SapphireArrowEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,6 +23,11 @@ public class ModEntities {
             ENTITY_TYPES.register("leviathans_axe", () -> EntityType.Builder.<LeviathansAxeEntity>of(LeviathansAxeEntity::new,
                     MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4)
                     .updateInterval(20).build("leviathans_axe"));
+
+    public static final RegistryObject<EntityType<SapphireArrowEntity>> SAPPHIRE_ARROW =
+            ENTITY_TYPES.register("sapphire_arrow", () -> EntityType.Builder.<SapphireArrowEntity>of(SapphireArrowEntity::new,
+                            MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4)
+                    .updateInterval(20).build("sapphire_arrow"));
 
 
 

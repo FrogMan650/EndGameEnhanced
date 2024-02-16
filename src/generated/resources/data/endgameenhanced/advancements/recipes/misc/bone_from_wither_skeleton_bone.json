@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_wither_skeleton_bone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_wither_skeleton_bone"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:bone_from_wither_skeleton_bone"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

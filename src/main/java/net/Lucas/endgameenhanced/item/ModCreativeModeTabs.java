@@ -222,6 +222,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.INEVITABLE_CHESTPLATE.get());
                         pOutput.accept(ModItems.INEVITABLE_LEGGINGS.get());
                         pOutput.accept(ModItems.INEVITABLE_BOOTS.get());
+                        pOutput.accept(ModItems.SAPPHIRE_ARROW.get());
                     }).build());
     public static final RegistryObject<CreativeModeTab> UNIQUE_CROPS = CREATIVE_MODE_TABS.register("unique_crops_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.PLENTIFUL_WHEAT.get()))

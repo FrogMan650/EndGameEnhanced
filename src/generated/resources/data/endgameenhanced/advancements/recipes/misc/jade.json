@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_jade_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_jade_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:jade"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
