@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "endgameenhanced:ruby_sword"
-  }
+  },
+  "show_notification": true
 }

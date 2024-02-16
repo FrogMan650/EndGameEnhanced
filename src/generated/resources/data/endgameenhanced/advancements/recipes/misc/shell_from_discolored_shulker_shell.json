@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_discolored_shulker_shell"
+      "has_discolored_shulker_shell",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:shell_from_discolored_shulker_shell"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

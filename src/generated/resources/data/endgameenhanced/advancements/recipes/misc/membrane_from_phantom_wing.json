@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_phantom_wing"
+      "has_phantom_wing",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:membrane_from_phantom_wing"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

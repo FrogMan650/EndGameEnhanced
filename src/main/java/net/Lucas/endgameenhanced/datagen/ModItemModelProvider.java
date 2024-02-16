@@ -44,7 +44,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.JADE);
         simpleItem(ModItems.RUBY);
         simpleItem(ModItems.ONYX);
-        simpleItem(ModItems.SAPPHIRE_ARROW);
         simpleItem(ModItems.SMOULDERING_STONE);
         simpleItem(ModItems.ENDER_DRAGON_SCALE);
         simpleItem(ModItems.SCULK_CRYSTAL);

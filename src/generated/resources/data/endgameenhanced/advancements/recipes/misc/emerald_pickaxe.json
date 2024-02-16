@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_emerald_pickaxe"
+      "has_emerald_pickaxe",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:emerald_pickaxe"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

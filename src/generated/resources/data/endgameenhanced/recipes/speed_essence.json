@@ -9,10 +9,16 @@
       "item": "minecraft:elytra"
     },
     "C": {
-      "item": "minecraft:potion"
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "count": 1,
+      "nbt": "{Potion:\"minecraft:fire_resistance\"}"
     },
     "D": {
-      "item": "minecraft:potion"
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "count": 1,
+      "nbt": "{Potion:\"minecraft:swiftness\"}"
     }
   },
   "pattern": [
@@ -22,5 +28,6 @@
   ],
   "result": {
     "item": "endgameenhanced:speed_essence"
-  }
+  },
+  "show_notification": true
 }
