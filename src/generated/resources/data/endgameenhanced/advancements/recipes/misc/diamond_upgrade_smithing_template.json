@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_diamond_upgrade_smithing_template",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_diamond_upgrade_smithing_template"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:diamond_upgrade_smithing_template"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

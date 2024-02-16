@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_sapphire_shovel",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sapphire_shovel"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:sapphire_shovel"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

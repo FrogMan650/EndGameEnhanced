@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_creeper_fuse",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_creeper_fuse"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:tnt_from_creeper_fuse"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

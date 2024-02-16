@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_piglins_gold_coin",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_piglins_gold_coin"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:gold_from_gold_coin"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

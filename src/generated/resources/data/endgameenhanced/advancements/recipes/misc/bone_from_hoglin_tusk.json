@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_hoglin_tusk",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_hoglin_tusk"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:bone_from_hoglin_tusk"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

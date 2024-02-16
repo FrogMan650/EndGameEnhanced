@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_emerald_axe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_emerald_axe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:emerald_axe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

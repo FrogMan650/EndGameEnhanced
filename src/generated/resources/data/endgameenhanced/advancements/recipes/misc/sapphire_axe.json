@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_sapphire_axe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sapphire_axe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:sapphire_axe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

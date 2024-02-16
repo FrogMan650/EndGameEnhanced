@@ -5,6 +5,7 @@ import net.Lucas.endgameenhanced.Networking.ModMessages;
 import net.Lucas.endgameenhanced.block.ModBlocks;
 import net.Lucas.endgameenhanced.entity.ModEntities;
 import net.Lucas.endgameenhanced.entity.client.LeviathansAxeRenderer;
+import net.Lucas.endgameenhanced.entity.client.SapphireArrowRenderer;
 import net.Lucas.endgameenhanced.entity.client.TideBreakerRenderer;
 import net.Lucas.endgameenhanced.item.ModCreativeModeTabs;
 import net.Lucas.endgameenhanced.item.ModItems;
@@ -84,6 +85,7 @@ public class EndGameEnhanced {
             ModItemProperties.addCustomItemProperties();
             EntityRenderers.register(ModEntities.TIDE_BREAKER.get(), TideBreakerRenderer::new);
             EntityRenderers.register(ModEntities.LEVIATHANS_AXE.get(), LeviathansAxeRenderer::new);
+            EntityRenderers.register(ModEntities.SAPPHIRE_ARROW.get(), SapphireArrowRenderer::new);
         }
     }
 }

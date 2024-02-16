@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_magma_butter",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_magma_butter"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:magma_cream_from_magma_butter"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

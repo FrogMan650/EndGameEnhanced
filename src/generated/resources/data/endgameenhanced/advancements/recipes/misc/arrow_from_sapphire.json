@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_arrow",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_arrow"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:arrow_from_sapphire"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
