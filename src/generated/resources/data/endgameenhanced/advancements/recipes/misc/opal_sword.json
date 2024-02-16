@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_opal_sword"
+      "has_opal_sword",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:opal_sword"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

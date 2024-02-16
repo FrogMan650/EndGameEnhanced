@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_huge_nether_wart"
+      "has_huge_nether_wart",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:wart_from_huge_wart"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

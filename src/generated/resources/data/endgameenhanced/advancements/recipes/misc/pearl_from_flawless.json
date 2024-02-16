@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_flawless_ender_pearl"
+      "has_flawless_ender_pearl",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:pearl_from_flawless"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

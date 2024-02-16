@@ -1,7 +1,5 @@
 package net.Lucas.endgameenhanced.item.custom.weapons;
 
-import net.Lucas.endgameenhanced.item.ModItems;
-import net.Lucas.endgameenhanced.item.custom.arrows.SapphireArrow;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;

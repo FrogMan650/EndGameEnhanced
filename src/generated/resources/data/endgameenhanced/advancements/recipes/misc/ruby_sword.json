@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_ruby_sword"
+      "has_ruby_sword",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:ruby_sword"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

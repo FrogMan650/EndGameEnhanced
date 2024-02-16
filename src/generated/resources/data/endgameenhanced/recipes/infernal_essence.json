@@ -22,5 +22,6 @@
   ],
   "result": {
     "item": "endgameenhanced:infernal_essence"
-  }
+  },
+  "show_notification": true
 }

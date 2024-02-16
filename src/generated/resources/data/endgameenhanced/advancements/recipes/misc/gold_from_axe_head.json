@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_axe_hilt"
+      "has_axe_hilt",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:gold_from_axe_head"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }
