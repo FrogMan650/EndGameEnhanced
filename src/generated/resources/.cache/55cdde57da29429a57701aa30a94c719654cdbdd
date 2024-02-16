@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-04T18:46:13.1632772	Item Models: endgameenhanced
+// 1.20.4	2024-02-15T21:56:54.4205708	Item Models: endgameenhanced
 823cbfc5ec6aa14c04aec3e549705833f6ac3a72 assets/endgameenhanced/models/item/ancient_essence.json
 ef7e78b46541d78bf05c9a0963de41694180f2ca assets/endgameenhanced/models/item/axe_hilt.json
 f6f34dad317a7eba98ee27b1b735abfb7c0340d4 assets/endgameenhanced/models/item/basic_essence.json
@@ -193,6 +193,7 @@ a4cd47afa36c2b65af5d9a13444c52cb889a16ae assets/endgameenhanced/models/item/rib_
 7a0f38e1889520b4356e7ed604c94be448699a51 assets/endgameenhanced/models/item/ruby_sword.json
 c6448919fcc7e9e62c3001cec5497a323fd3a797 assets/endgameenhanced/models/item/sanguine_essence.json
 2999c10786137dab5a1517f2e480c26d2163f6d4 assets/endgameenhanced/models/item/sapphire.json
+27f34246f2cca98c96023f590917b486c60d2ac5 assets/endgameenhanced/models/item/sapphire_arrow.json
 8e0463063cdb95622d17bfab8be048ebca9de6e1 assets/endgameenhanced/models/item/sapphire_axe.json
 f49126e1bba2bd74a0ec8a734141b1b8aa3d665b assets/endgameenhanced/models/item/sapphire_hoe.json
 0f9d96e2e314669bca0163ac1e9180faf006f006 assets/endgameenhanced/models/item/sapphire_pickaxe.json

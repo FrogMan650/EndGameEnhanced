@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_odd_shaped_potato",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_odd_shaped_potato"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:potato_from_odd_potato"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

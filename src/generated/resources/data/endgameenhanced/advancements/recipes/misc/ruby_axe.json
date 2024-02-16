@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_ruby_axe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_ruby_axe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:ruby_axe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

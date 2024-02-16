@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_pure_sculk_essence",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_pure_sculk_essence"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:pure_sculk_essence"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

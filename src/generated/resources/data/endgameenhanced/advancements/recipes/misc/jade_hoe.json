@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_jade_hoe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_jade_hoe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:jade_hoe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

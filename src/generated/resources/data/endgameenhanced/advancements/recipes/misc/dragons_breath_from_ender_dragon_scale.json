@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_ender_dragon_scale",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_ender_dragon_scale"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:dragons_breath_from_ender_dragon_scale"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

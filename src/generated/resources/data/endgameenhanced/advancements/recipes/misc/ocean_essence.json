@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_basic_essence",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_basic_essence"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:ocean_essence"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

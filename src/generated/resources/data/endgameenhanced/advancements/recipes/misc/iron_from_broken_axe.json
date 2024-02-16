@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_broken_axe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_broken_axe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:iron_from_broken_axe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

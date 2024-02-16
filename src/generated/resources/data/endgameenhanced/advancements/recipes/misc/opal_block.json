@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_opal",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_opal"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:opal_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
