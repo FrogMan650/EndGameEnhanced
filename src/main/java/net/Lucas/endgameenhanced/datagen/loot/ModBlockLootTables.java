@@ -1,7 +1,6 @@
 package net.Lucas.endgameenhanced.datagen.loot;
 
 import net.Lucas.endgameenhanced.block.ModBlocks;
-import net.Lucas.endgameenhanced.item.ModItems;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -13,7 +12,6 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
-
 import java.util.Set;
 
 public class ModBlockLootTables extends BlockLootSubProvider {

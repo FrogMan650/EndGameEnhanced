@@ -2,7 +2,7 @@ package net.Lucas.endgameenhanced.datagen;
 
 import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.GlobalLootModifierProvider;
+import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 
 public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     public ModGlobalLootModifiersProvider(PackOutput output) {

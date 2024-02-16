@@ -7,15 +7,15 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, EndGameEnhanced.MOD_ID);
 
-    public static final RegistryObject<CreativeModeTab> GEM_TAB = CREATIVE_MODE_TABS.register("gem_tab",
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> GEM_TAB = CREATIVE_MODE_TABS.register("gem_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ONYX.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.gem_tab"))
                     .displayItems((pParameters, pOutput) -> {
@@ -89,7 +89,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(Items.NETHERITE_LEGGINGS);
                         pOutput.accept(Items.NETHERITE_BOOTS);
                     }).build());
-    public static final RegistryObject<CreativeModeTab> UNIQUE_MOB_DROP_TAB = CREATIVE_MODE_TABS.register("unique_mob_drop_tab",
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> UNIQUE_MOB_DROP_TAB = CREATIVE_MODE_TABS.register("unique_mob_drop_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SMOULDERING_STONE.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.unique_mob_drop_tab"))
                     .displayItems((pParameters, pOutput) -> {
@@ -126,7 +126,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.SENSOR_TENDRIL.get());
                         pOutput.accept(ModItems.SHRIEKER_NOISE_BOX.get());
                     }).build());
-    public static final RegistryObject<CreativeModeTab> TEMPLATE_TAB = CREATIVE_MODE_TABS.register("template_tab",
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TEMPLATE_TAB = CREATIVE_MODE_TABS.register("template_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.template_tab"))
                     .displayItems((pParameters, pOutput) -> {
@@ -144,7 +144,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.SCYTHE_OF_VITUR_UPGRADE_SMITHING_TEMPLATE.get());
                         pOutput.accept(ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get());
                     }).build());
-    public static final RegistryObject<CreativeModeTab> ESSENCE_TAB = CREATIVE_MODE_TABS.register("essence_tab",
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ESSENCE_TAB = CREATIVE_MODE_TABS.register("essence_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.BASIC_ESSENCE.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.essence_tab"))
                     .displayItems((pParameters, pOutput) -> {
@@ -204,7 +204,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.PURE_RESILIENT_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_RESISTANT_ESSENCE.get());
                     }).build());
-    public static final RegistryObject<CreativeModeTab> INEVITABLE_TAB = CREATIVE_MODE_TABS.register("inevitable_tab",
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> INEVITABLE_TAB = CREATIVE_MODE_TABS.register("inevitable_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.NETHER_BLADE.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.inevitable_tab"))
                     .displayItems((pParameters, pOutput) -> {
@@ -223,7 +223,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.INEVITABLE_LEGGINGS.get());
                         pOutput.accept(ModItems.INEVITABLE_BOOTS.get());
                     }).build());
-    public static final RegistryObject<CreativeModeTab> UNIQUE_CROPS = CREATIVE_MODE_TABS.register("unique_crops_tab",
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> UNIQUE_CROPS = CREATIVE_MODE_TABS.register("unique_crops_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.PLENTIFUL_WHEAT.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.unique_crops_tab"))
                     .displayItems((pParameters, pOutput) -> {

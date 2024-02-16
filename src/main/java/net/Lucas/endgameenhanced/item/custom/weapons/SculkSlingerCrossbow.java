@@ -272,7 +272,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     }
 
     public static void performShooting(Level pLevel, LivingEntity pShooter, InteractionHand pUsedHand, ItemStack pCrossbowStack, float pVelocity, float pInaccuracy) {
-        if (pShooter instanceof Player player && net.minecraftforge.event.ForgeEventFactory.onArrowLoose(pCrossbowStack, pShooter.level(), player, 1, true) < 0) return;
+        if (pShooter instanceof Player player && net.neoforged.neoforge.event.EventHooks.onArrowLoose(pCrossbowStack, pShooter.level(), player, 1, true) < 0) return;
         List<ItemStack> list = getChargedProjectiles(pCrossbowStack);
         float[] afloat = getShotPitches(pShooter.getRandom());
 

@@ -26,8 +26,8 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraftforge.common.ToolAction;
-import net.minecraftforge.common.ToolActions;
+import net.neoforged.neoforge.common.ToolAction;
+import net.neoforged.neoforge.common.ToolActions;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -44,7 +44,7 @@ public class ScytheOfVitur extends HoeItem {
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
+    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
         final Set<ToolAction> SCYTHE_ACTIONS = of(ToolActions.SHEARS_DIG, ToolActions.SHEARS_HARVEST,
                 ToolActions.SHEARS_CARVE, ToolActions.SHEARS_DISARM, ToolActions.HOE_TILL, ToolActions.HOE_TILL,
                 ToolActions.SWORD_SWEEP);
@@ -86,7 +86,7 @@ public class ScytheOfVitur extends HoeItem {
 
     @Override
     public net.minecraft.world.InteractionResult interactLivingEntity(ItemStack stack, net.minecraft.world.entity.player.Player playerIn, LivingEntity entity, net.minecraft.world.InteractionHand hand) {
-        if (entity instanceof net.minecraftforge.common.IForgeShearable target) {//shears
+        if (entity instanceof net.neoforged.neoforge.common.IShearable target) {//shears
             if (entity.level().isClientSide) return net.minecraft.world.InteractionResult.SUCCESS;
             BlockPos pos = BlockPos.containing(entity.position());
             if (target.isShearable(stack, entity.level(), pos)) {
@@ -115,7 +115,7 @@ public class ScytheOfVitur extends HoeItem {
         int fortuneLevel = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.BLOCK_FORTUNE, itemInHand);
         ItemStack fortuneHoe = new ItemStack(ModItems.SCYTHE_OF_VITUR.get());
         fortuneHoe.enchant(Enchantments.BLOCK_FORTUNE, fortuneLevel);
-        BlockState toolModifiedState = level.getBlockState(blockpos).getToolModifiedState(pContext, net.minecraftforge.common.ToolActions.HOE_TILL, false);
+        BlockState toolModifiedState = level.getBlockState(blockpos).getToolModifiedState(pContext, ToolActions.HOE_TILL, false);
         Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = toolModifiedState == null ? null : Pair.of(ctx -> true, changeIntoState(toolModifiedState));
         //breaks the crop and drops loot based on fortune level, then resets it to its default state
         if (block instanceof CropBlock) {

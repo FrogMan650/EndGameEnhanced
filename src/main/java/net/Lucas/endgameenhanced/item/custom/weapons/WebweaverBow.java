@@ -31,7 +31,7 @@ public class WebweaverBow extends BowItem {
             ItemStack ammoStack = player.getProjectile(bowStack);
 
             int timeDrawn = this.getUseDuration(bowStack) - pTimeLeft;
-            timeDrawn = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(bowStack, worldIn, player, timeDrawn, !ammoStack.isEmpty() || hasInfinity);
+            timeDrawn = net.neoforged.neoforge.event.EventHooks.onArrowLoose(bowStack, worldIn, player, timeDrawn, !ammoStack.isEmpty() || hasInfinity);
             if (timeDrawn < 0) return;
 
             if (!ammoStack.isEmpty() || hasInfinity) {
@@ -46,7 +46,7 @@ public class WebweaverBow extends BowItem {
                     if (!worldIn.isClientSide) {
                         ArrowItem arrowitem = (ArrowItem)(ammoStack.getItem() instanceof ArrowItem ? ammoStack.getItem() : Items.ARROW);
                         AbstractArrow arrowEntity = createArrow(worldIn, ammoStack, player, arrowitem);
-                        arrowEntity = customArrow(arrowEntity);
+                        arrowEntity = customArrow(arrowEntity, ammoStack);
                         arrowEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, velocity * 4.5F, 0.5F);
                         if (velocity >= 1.0F) {
                             arrowEntity.setCritArrow(true);

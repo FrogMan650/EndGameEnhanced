@@ -4,11 +4,11 @@ import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.Lucas.endgameenhanced.Networking.ModMessages;
 import net.Lucas.endgameenhanced.Networking.packet.ToolEffectChangeC2SPacket;
 import net.Lucas.endgameenhanced.util.KeyBinding;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.InputEvent;
-import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.neoforge.client.event.InputEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
 
 public class ClientEvents {
     @Mod.EventBusSubscriber(modid = EndGameEnhanced.MOD_ID, value = Dist.CLIENT)
