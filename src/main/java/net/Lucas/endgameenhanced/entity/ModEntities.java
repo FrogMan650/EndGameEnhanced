@@ -4,6 +4,7 @@ import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.Lucas.endgameenhanced.entity.custom.LeviathansAxeEntity;
 import net.Lucas.endgameenhanced.entity.custom.TideBreakerEntity;
 import net.Lucas.endgameenhanced.entity.projectile.SapphireArrowEntity;
+import net.Lucas.endgameenhanced.entity.projectile.UnkemptHaroldProjectileEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -28,6 +29,11 @@ public class ModEntities {
             ENTITY_TYPES.register("sapphire_arrow", () -> EntityType.Builder.<SapphireArrowEntity>of(SapphireArrowEntity::new,
                             MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4)
                     .updateInterval(20).build("sapphire_arrow"));
+
+    public static final RegistryObject<EntityType<UnkemptHaroldProjectileEntity>> UNKEMPT_HAROLD_PROJECTILE =
+            ENTITY_TYPES.register("unkempt_projectile", () -> EntityType.Builder.<UnkemptHaroldProjectileEntity>of(UnkemptHaroldProjectileEntity::new,
+                            MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4)
+                    .updateInterval(20).build("unkempt_projectile"));
 
 
 

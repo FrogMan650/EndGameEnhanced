@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 public class SapphireArrowEntity extends AbstractArrow {
@@ -57,15 +58,24 @@ public class SapphireArrowEntity extends AbstractArrow {
         }
     }
 
+//    protected void onHit(HitResult pResult) {
+//        super.onHit(pResult);
+//        if (!this.level().isClientSide) {
+//            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 5.0F, false, Level.ExplosionInteraction.MOB);
+//            this.discard();
+//        }
+//
+//    }
 
-    @Override
-    protected void onHitBlock(BlockHitResult pResult) {
-        super.onHitBlock(pResult);
-        Entity player = this.getOwner();
-        BlockPos blockHit = pResult.getBlockPos();
-        Level level = player.level();
-        if (level.getBlockState(blockHit.above(1)) == Blocks.AIR.defaultBlockState() && level.getBlockState(blockHit.above(2)) == Blocks.AIR.defaultBlockState()) {
-            player.setPosRaw(blockHit.above().getX()+0.5, blockHit.above().getY(), blockHit.above().getZ()+0.5);
-        }
-    }
+
+//    @Override
+//    protected void onHitBlock(BlockHitResult pResult) {
+//        super.onHitBlock(pResult);
+//        Entity player = this.getOwner();
+//        BlockPos blockHit = pResult.getBlockPos();
+//        Level level = player.level();
+//        if (level.getBlockState(blockHit.above(1)) == Blocks.AIR.defaultBlockState() && level.getBlockState(blockHit.above(2)) == Blocks.AIR.defaultBlockState()) {
+//            player.setPosRaw(blockHit.above().getX()+0.5, blockHit.above().getY(), blockHit.above().getZ()+0.5);
+//        }
+//    }
 }

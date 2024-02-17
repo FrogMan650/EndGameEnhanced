@@ -24,6 +24,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -91,6 +92,11 @@ public class ModEvents {
         LivingEntity damagedMob = event.getEntity();
         float initialDamage = event.getAmount();
         if (event.getSource().getEntity() instanceof Player player) {
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.UNKEMPT_HAROLD.get())) {
+                if (initialDamage >= 13.5) {
+                    event.setAmount(13.5F);
+                }
+            }
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.SCYTHE_OF_VITUR.get())) {
                 if (initialDamage == 1) {
                     if (damagedMob.isBaby()) {
@@ -113,6 +119,10 @@ public class ModEvents {
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.SCULK_SLINGER.get())) {
                 damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 0, false, true, true));
                 damagedMob.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 300, 0, false, true, true));
+            }
+
+            if (damagedMob instanceof Cow) {//for testing
+                player.sendSystemMessage(Component.literal("damage: "+initialDamage));
             }
         }
     }
