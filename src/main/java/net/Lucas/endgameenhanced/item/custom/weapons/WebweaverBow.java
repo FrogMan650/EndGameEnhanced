@@ -120,7 +120,7 @@ public class WebweaverBow extends BowItem {
     protected double getArrowDamage(ItemStack bowStack, AbstractArrow arrowEntity) {
         double baseDamage = 2.0D;
         int bowPower = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.POWER_ARROWS, bowStack);
-        if (bowPower > 0) return baseDamage + (double)bowPower * 0.15D + 0.2D;
+        if (bowPower > 0) return baseDamage + (double)bowPower * 0.1D + 0.2D;
         else return baseDamage;
     }
 

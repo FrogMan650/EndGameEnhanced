@@ -25,6 +25,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.Cow;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -92,6 +93,47 @@ public class ModEvents {
         LivingEntity damagedMob = event.getEntity();
         float initialDamage = event.getAmount();
         if (event.getSource().getEntity() instanceof Player player) {
+            //using the pythagorean theorem to find a line from the players stood on block to the mobs stood on block
+            double diffX = player.getX() - damagedMob.getX();
+            double diffY = player.getY() - damagedMob.getY();
+            double diffZ = player.getZ() - damagedMob.getZ();
+            double triangleOne = Math.sqrt((diffX*diffX)+(diffZ*diffZ));
+            double distanceToTarget =Math.sqrt((triangleOne*triangleOne)+(diffY*diffY));
+//            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.WEBWEAVER_BOW.get())) {
+//                if (distanceToTarget >= 15) {
+//                    double damageChange = (distanceToTarget-15)/5;
+//                    if (damageChange > 5) {
+//                        damageChange = 5;
+//                    }
+//                    event.setAmount((float) (initialDamage+damageChange));
+//                }
+//                if (distanceToTarget <= 10) {
+//                    double damageChange = (10-distanceToTarget)/2;
+//                    if (damageChange > 5) {
+//                        damageChange = 5;
+//                    }
+//                    event.setAmount((float) (initialDamage-damageChange));
+//                }
+//            }
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.SCULK_SLINGER.get())) {
+                player.sendSystemMessage(Component.literal("initial damage: "+initialDamage));
+                player.sendSystemMessage(Component.literal("distance: "+distanceToTarget));
+                if (distanceToTarget >= 15) {
+                    double damageChange = (distanceToTarget-15)/5;
+                    if (damageChange > 5) {
+                        damageChange = 5;
+                    }
+                    event.setAmount((float) (initialDamage-damageChange));
+                }
+                if (distanceToTarget <= 10) {
+                    double damageChange = 10-distanceToTarget/2;
+                    if (damageChange > 5) {
+                        damageChange = 5;
+                    }
+                    event.setAmount((float) (initialDamage+damageChange));
+                }
+                player.sendSystemMessage(Component.literal("new damage: "+event.getAmount()));
+            }
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.UNKEMPT_HAROLD.get())) {
                 if (initialDamage >= 13.5) {
                     event.setAmount(13.5F);
@@ -121,7 +163,7 @@ public class ModEvents {
                 damagedMob.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 300, 0, false, true, true));
             }
 
-            if (damagedMob instanceof Cow) {//for testing
+            if (damagedMob instanceof Warden) {//for testing
                 player.sendSystemMessage(Component.literal("damage: "+initialDamage));
             }
         }

@@ -4,15 +4,18 @@ import com.google.common.collect.Lists;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -26,6 +29,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
@@ -219,6 +223,8 @@ public class SculkSlingerCrossbow extends CrossbowItem {
 
     public static void shootProjectile(Level pLevel, LivingEntity pShooter, InteractionHand pHand, ItemStack pCrossbowStack, ItemStack pAmmoStack, float pSoundPitch, boolean pIsCreativeMode, float pVelocity, float pInaccuracy, float pProjectileAngle) {
         if (!pLevel.isClientSide) {
+            ServerLevel serverLevel = (ServerLevel) pLevel;
+            Player player = (Player) pShooter;
             boolean flag = pAmmoStack.is(Items.FIREWORK_ROCKET);
             Projectile projectile;
             if (flag) {
@@ -240,6 +246,15 @@ public class SculkSlingerCrossbow extends CrossbowItem {
                 Vec3 vec3 = pShooter.getViewVector(1.0F);
                 Vector3f vector3f = vec3.toVector3f().rotate(quaternionf);
                 projectile.shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), 3.0F, pInaccuracy);
+
+                //spawn warden ranged attack particles when you shoot
+                Vec3 playerEyes = player.getEyePosition();
+                for(int i = 1; i < 6; ++i) {
+                    double xxx = vec3.x()*(i+1);
+                    double yyy = vec3.y()*(i+1);
+                    double zzz = vec3.z()*(i+1);
+                    serverLevel.sendParticles(ParticleTypes.SONIC_BOOM, playerEyes.x+xxx, playerEyes.y+yyy, playerEyes.z+zzz, 1, 0.0D, 0.0D, 0.0D, 0.0D);
+                }
             }
             //durability
             pCrossbowStack.hurtAndBreak(0, pShooter, (p_40858_) -> {
