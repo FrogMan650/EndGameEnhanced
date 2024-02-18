@@ -54,7 +54,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     private static final float MID_SOUND_PERCENT = 0.5F;
     private static final float CROSSBOW_ARROW_POWER = 20F;
     private static final float FIREWORK_POWER = 1.6F;
-    private static final float ARROW_POWER = 5F;
+    private static final float ARROW_POWER = 3.75F;
 
 
 

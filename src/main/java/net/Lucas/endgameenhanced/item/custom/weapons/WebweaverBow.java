@@ -22,7 +22,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class WebweaverBow extends BowItem {
-    //https://www.youtube.com/watch?v=43H--qCpQYQ&ab_channel=OptimisticNanobot
     public WebweaverBow(Properties pProperties) {
         super(pProperties);
     }
@@ -118,9 +117,9 @@ public class WebweaverBow extends BowItem {
     }
 
     protected double getArrowDamage(ItemStack bowStack, AbstractArrow arrowEntity) {
-        double baseDamage = 2.0D;
+        double baseDamage = 2.2D;
         int bowPower = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.POWER_ARROWS, bowStack);
-        if (bowPower > 0) return baseDamage + (double)bowPower * 0.1D + 0.2D;
+        if (bowPower > 0) return baseDamage + (double)bowPower * 0.15D + 0.2D;
         else return baseDamage;
     }
 

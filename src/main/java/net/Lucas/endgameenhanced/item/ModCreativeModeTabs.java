@@ -41,6 +41,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.SAPPHIRE_SHOVEL.get());
                         pOutput.accept(ModItems.SAPPHIRE_AXE.get());
                         pOutput.accept(ModItems.SAPPHIRE_HOE.get());
+                        pOutput.accept(ModItems.SAPPHIRE_ARROW.get());
                         pOutput.accept(Items.EMERALD);
                         pOutput.accept(Items.EMERALD_BLOCK);
                         pOutput.accept(ModItems.EMERALD_SWORD.get());
@@ -222,7 +223,6 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.INEVITABLE_CHESTPLATE.get());
                         pOutput.accept(ModItems.INEVITABLE_LEGGINGS.get());
                         pOutput.accept(ModItems.INEVITABLE_BOOTS.get());
-                        pOutput.accept(ModItems.SAPPHIRE_ARROW.get());
                     }).build());
     public static final RegistryObject<CreativeModeTab> UNIQUE_CROPS = CREATIVE_MODE_TABS.register("unique_crops_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.PLENTIFUL_WHEAT.get()))
