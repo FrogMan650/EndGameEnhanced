@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_arrow": {
+    "has_ruby_arrow": {
       "conditions": {
         "items": [
           {
@@ -23,7 +23,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_arrow"
+      "has_ruby_arrow"
     ]
   ],
   "rewards": {

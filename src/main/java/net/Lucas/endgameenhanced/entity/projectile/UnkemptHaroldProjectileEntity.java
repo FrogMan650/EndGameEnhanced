@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
@@ -29,40 +30,6 @@ public class UnkemptHaroldProjectileEntity extends AbstractArrow {
         super(ModEntities.UNKEMPT_HAROLD_PROJECTILE.get(), pShooter, pLevel, pStack);
     }
 
-//    @Override
-//    public ItemStack getPickupItem() {
-//        return new ItemStack(ModItems.SAPPHIRE_ARROW.get());
-//    }
-
-//    @Override
-//    public void onHitEntity(EntityHitResult pResult) {
-//        super.onHitEntity(pResult);
-//        Entity entity = pResult.getEntity();
-//        Entity player = this.getOwner();
-//        if (this.level() instanceof ServerLevel) {
-//            float randomFloat = RandomSource.create().nextFloat();
-//            BlockPos blockpos = entity.blockPosition();
-//            if ((this.level().canSeeSky(blockpos) && randomFloat <= 0.5) || (this.level().canSeeSky(blockpos) && this.level().isThundering())) {
-//                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
-//                if (lightningbolt != null) {
-//                    lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
-//                    lightningbolt.setCause(player instanceof ServerPlayer ? (ServerPlayer) player : null);
-//                    this.level().addFreshEntity(lightningbolt);
-//                }
-//            }
-//        }
-//    }
-
-//    @Override
-//    protected void onHit(HitResult pResult) {
-//        super.onHit(pResult);
-//        if (!this.level().isClientSide) {
-//            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 5.0F, false, Level.ExplosionInteraction.MOB);
-//            this.discard();
-//        }
-//
-//    }
-
     @Override
     protected void onHit(HitResult pResult) {
         super.onHit(pResult);
@@ -70,17 +37,15 @@ public class UnkemptHaroldProjectileEntity extends AbstractArrow {
             this.level().explode(this, this.getX(), this.getY(), this.getZ(), 5.0F, false, Level.ExplosionInteraction.BLOCK);
             this.discard();
         }
+    }
 
+    @Override
+    protected float getWaterInertia() {
+        return 0.99F;
+    }
 
-//    @Override
-//    protected void onHitBlock(BlockHitResult pResult) {
-//        super.onHitBlock(pResult);
-//        Entity player = this.getOwner();
-//        BlockPos blockHit = pResult.getBlockPos();
-//        Level level = player.level();
-//        if (level.getBlockState(blockHit.above(1)) == Blocks.AIR.defaultBlockState() && level.getBlockState(blockHit.above(2)) == Blocks.AIR.defaultBlockState()) {
-//            player.setPosRaw(blockHit.above().getX()+0.5, blockHit.above().getY(), blockHit.above().getZ()+0.5);
-//        }
-//    }
+    @Override
+    public void setBaseDamage(double pBaseDamage) {
+        super.setBaseDamage(0);
     }
 }

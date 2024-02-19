@@ -1,0 +1,6 @@
+{
+  "parent": "endgameenhanced:item/unkempt_harold",
+  "textures": {
+    "layer0": "endgameenhanced:item/unkempt_harold_charging_0"
+  }
+}

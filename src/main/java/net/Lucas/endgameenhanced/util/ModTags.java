@@ -20,7 +20,6 @@ public class ModTags {
         public static final TagKey<Block> INFERNAL_PICKAXE_MINEABLES = tag("infernal_pickaxe_mineables");
         public static final TagKey<Block> SANGUINE_SCYTHE_HOEABLES = tag("sanguine_scythe_hoeables");
         public static final TagKey<Block> LEVIATHANS_AXE_AXEABLES = tag("leviathans_axe_axeables");
-
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(EndGameEnhanced.MOD_ID, name));
         }
@@ -28,6 +27,8 @@ public class ModTags {
     }
 
     public static class Items {
+        public static final TagKey<Item> NO_PICKUP_ARROWS = tag("no_pickup_arrows");
+
 
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(EndGameEnhanced.MOD_ID, name));

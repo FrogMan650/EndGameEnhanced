@@ -1,7 +1,5 @@
 {
   "item.endgameenhanced.sapphire": "Sapphire",
-  "item.endgameenhanced.raw_sapphire": "Raw Sapphire",
-  "item.endgameenhanced.metal_detector": "Metal Detector",
   "item.endgameenhanced.opal": "Opal",
   "item.endgameenhanced.jade": "Jade",
   "item.endgameenhanced.ruby": "Ruby",
@@ -49,6 +47,10 @@
   "item.endgameenhanced.thick_sugar_cane": "Thick Sugar Cane",
 
   "item.endgameenhanced.sapphire_arrow": "Sapphire Arrow",
+  "item.endgameenhanced.emerald_arrow": "Emerald Arrow",
+  "item.endgameenhanced.ruby_arrow": "Ruby Arrow",
+  "item.endgameenhanced.diamond_arrow": "Diamond Arrow",
+  "item.endgameenhanced.onyx_arrow": "Onyx Arrow",
 
   "item.endgameenhanced.diamond_upgrade_smithing_template": "Diamond Upgrade Smithing Template",
   "item.endgameenhanced.onyx_upgrade_smithing_template": "Onyx Upgrade Smithing Template",

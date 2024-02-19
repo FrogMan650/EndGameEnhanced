@@ -40,9 +40,7 @@ public class UnkemptHarold extends ShovelItem {
     }
 
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
-        System.out.println("inside releaseUsing");
         if (pEntityLiving instanceof Player player) {
-            System.out.println("yes im a player entity");
             ItemStack itemstack = new ItemStack(Items.TNT);
             if (player.getInventory().contains(Items.TNT.getDefaultInstance())) {
                 itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.TNT.getDefaultInstance()));
@@ -52,19 +50,16 @@ public class UnkemptHarold extends ShovelItem {
             if (i < 10) return;
 
             if (!itemstack.isEmpty() || player.getAbilities().instabuild) {
-                System.out.println("the stack is not empty, or im in creative mode");
 
-                float f = getPowerForTime(i);
-                if (!((double)f < 0.1D)) {
-                    System.out.println("inside fourth if");
+                float velocity = getPowerForTime(i);
+                if (!((double)velocity < 0.1D)) {
                     if (!pLevel.isClientSide) {
-                        System.out.println("inside fifth if");
                         UnkemptHaroldProjectileEntity proj = new UnkemptHaroldProjectileEntity(pLevel, player, Items.TNT.getDefaultInstance());
-                        proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 3.0F, 0.5F);
+                        proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, velocity * 3.0F, 0.5F);
                         pLevel.addFreshEntity(proj);
                     }
 
-                    pLevel.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.WITHER_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                    pLevel.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.WITHER_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.4F + 1.2F) + velocity * 0.5F);
                     if (!player.getAbilities().instabuild) {
                         itemstack.shrink(1);
                         if (itemstack.isEmpty()) {

@@ -22,5 +22,27 @@
       "translation": [3, 0.75, -1.5],
       "scale": [0.8, 0.8, 0.8]
     }
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "minecraft:pulling": 1
+      },
+      "model": "endgameenhanced:item/unkempt_harold_charging_0"
+    },
+    {
+      "predicate": {
+        "minecraft:pulling": 1,
+        "minecraft:pull": 0.5
+      },
+      "model": "endgameenhanced:item/unkempt_harold_charging_1"
+    },
+    {
+      "predicate": {
+        "minecraft:pulling": 1,
+        "minecraft:pull": 0.9
+      },
+      "model": "endgameenhanced:item/unkempt_harold_charging_2"
+    }
+  ]
 }

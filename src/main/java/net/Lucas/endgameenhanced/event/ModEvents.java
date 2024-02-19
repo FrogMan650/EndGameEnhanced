@@ -93,15 +93,10 @@ public class ModEvents {
         LivingEntity damagedMob = event.getEntity();
         float initialDamage = event.getAmount();
         if (event.getSource().getEntity() instanceof Player player) {
-            //using the pythagorean theorem to find a line from the player to the mob that was hit
-            //first finding the diagonal of a 2d square using the X and Z to find D
-            //then using that, finding the diagonal of a 3d cube with Y and D to find A
-            double diffX = player.getX() - damagedMob.getX();
-            double diffY = player.getY() - damagedMob.getY();
-            double diffZ = player.getZ() - damagedMob.getZ();
-            double triangleOne = Math.sqrt((diffX*diffX)+(diffZ*diffZ));
-            double distanceToTarget = Math.sqrt((triangleOne*triangleOne)+(diffY*diffY));
+            double distanceToTarget = getDistanceToTarget(player, damagedMob);
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.WEBWEAVER_BOW.get())) {
+                damagedMob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 300, 3, false, true, true));
+
                 if (distanceToTarget > 16 && distanceToTarget < 49) {
                     double damageChange = (distanceToTarget-16)/2;
                     if (damageChange > 5) {
@@ -122,6 +117,7 @@ public class ModEvents {
                 }
             }
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.SCULK_SLINGER.get())) {
+                damagedMob.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 300, 0, false, true, true));
                 if (distanceToTarget > 16) {
                     double damageChange = (distanceToTarget-16)/2;
                     if (damageChange > 5) {
@@ -138,8 +134,8 @@ public class ModEvents {
                 }
             }
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.UNKEMPT_HAROLD.get())) {
-                if (initialDamage > 13.5) {
-                    event.setAmount(13.5F);
+                if (distanceToTarget > 5 && initialDamage > 5) {
+                    event.setAmount(5);
                 }
             }
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.SCYTHE_OF_VITUR.get())) {
@@ -157,17 +153,22 @@ public class ModEvents {
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.END_BLADE.get())) {
                 damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 1, false, true, true));
             }
-            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.WEBWEAVER_BOW.get())) {
-                damagedMob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 300, 3, false, true, true));
-            }
-            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.SCULK_SLINGER.get())) {
-                damagedMob.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 300, 0, false, true, true));
-            }
 
 //            if (damagedMob instanceof Warden) {//for testing
 //                player.sendSystemMessage(Component.literal("damage: "+initialDamage));
 //            }
         }
+    }
+
+    private static double getDistanceToTarget(Player player, LivingEntity damagedMob) {
+        //using the pythagorean theorem to find a line from the player to the mob that was hit
+        //first finding the diagonal of a 2d square using the X and Z to find D
+        //then using that, finding the diagonal of a 3d cube with Y and D to find A
+        double diffX = player.getX() - damagedMob.getX();
+        double diffY = player.getY() - damagedMob.getY();
+        double diffZ = player.getZ() - damagedMob.getZ();
+        double triangleOne = Math.sqrt((diffX*diffX)+(diffZ*diffZ));
+        return Math.sqrt((triangleOne*triangleOne)+(diffY*diffY));
     }
 
     @SubscribeEvent

@@ -2,10 +2,12 @@ package net.Lucas.endgameenhanced.datagen;
 
 import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.Lucas.endgameenhanced.item.ModItems;
+import net.Lucas.endgameenhanced.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -29,5 +31,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 ModItems.INEVITABLE_LEGGINGS.get(),
                 ModItems.INEVITABLE_BOOTS.get());
 
+        this.tag(ModTags.Items.NO_PICKUP_ARROWS).add(Items.TIPPED_ARROW, Items.SPECTRAL_ARROW, ModItems.SAPPHIRE_ARROW.get(),
+                ModItems.EMERALD_ARROW.get(), ModItems.RUBY_ARROW.get(), ModItems.DIAMOND_ARROW.get(), ModItems.ONYX_ARROW.get());
     }
 }

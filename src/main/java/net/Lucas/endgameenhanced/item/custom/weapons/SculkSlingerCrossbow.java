@@ -1,6 +1,8 @@
 package net.Lucas.endgameenhanced.item.custom.weapons;
 
 import com.google.common.collect.Lists;
+import net.Lucas.endgameenhanced.item.ModItems;
+import net.Lucas.endgameenhanced.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -82,15 +84,16 @@ public class SculkSlingerCrossbow extends CrossbowItem {
                 this.midLoadSoundPlayed = false;
                 pPlayer.startUsingItem(pHand);
             }
-
+            pPlayer.startUsingItem(pHand);
             return InteractionResultHolder.consume(itemstack);
         } else {
-            return InteractionResultHolder.fail(itemstack);
+            pPlayer.startUsingItem(pHand);
+            return InteractionResultHolder.consume(itemstack);
         }
     }
 
-    private static float getShootingPower(ItemStack pCrossbowStack) {
-        return containsChargedProjectile(pCrossbowStack, Items.FIREWORK_ROCKET) ? FIREWORK_POWER : CROSSBOW_ARROW_POWER;
+    private static float getShootingPower(ItemStack pCrossbowStack) {//velocity of projectile
+        return containsChargedProjectile(pCrossbowStack, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
     }
 
     /**
@@ -110,7 +113,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     private static boolean tryLoadProjectiles(LivingEntity pShooter, ItemStack pCrossbowStack) {
         int i = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.MULTISHOT, pCrossbowStack);
         int j = i == 0 ? 1 : 3;
-        boolean flag = pShooter instanceof Player && ((Player)pShooter).getAbilities().instabuild;
+        boolean isCreative = pShooter instanceof Player && ((Player)pShooter).getAbilities().instabuild;
         ItemStack itemstack = pShooter.getProjectile(pCrossbowStack);
         ItemStack itemstack1 = itemstack.copy();
 
@@ -118,13 +121,16 @@ public class SculkSlingerCrossbow extends CrossbowItem {
             if (k > 0) {
                 itemstack = itemstack1.copy();
             }
-
-            if (itemstack.isEmpty() && flag) {
+            if (itemstack.isEmpty()) {
+                itemstack = new ItemStack(ModItems.SAPPHIRE_ARROW.get());//make this the default arrow
+                itemstack1 = itemstack.copy();
+            }
+            if (itemstack.isEmpty() && isCreative) {
                 itemstack = new ItemStack(Items.ARROW);
                 itemstack1 = itemstack.copy();
             }
 
-            if (!loadProjectile(pShooter, pCrossbowStack, itemstack, k > 0, flag)) {
+            if (!loadProjectile(pShooter, pCrossbowStack, itemstack, k > 0, isCreative)) {
                 return false;
             }
         }
@@ -133,11 +139,11 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     }
 
     private static boolean loadProjectile(LivingEntity pShooter, ItemStack pCrossbowStack, ItemStack pAmmoStack, boolean pHasAmmo, boolean pIsCreative) {
+        ItemStack itemstack;
         if (pAmmoStack.isEmpty()) {
-            return false;
+            itemstack = new ItemStack(ModItems.SAPPHIRE_ARROW.get());//default ammo
         } else {
             boolean flag = pIsCreative && pAmmoStack.getItem() instanceof ArrowItem;
-            ItemStack itemstack;
             if (!flag && !pIsCreative && !pHasAmmo) {
                 itemstack = pAmmoStack.split(1);
 
@@ -159,9 +165,9 @@ public class SculkSlingerCrossbow extends CrossbowItem {
                 itemstack = pAmmoStack.copy();
             }
 
-            addChargedProjectile(pCrossbowStack, itemstack);
-            return true;
         }
+        addChargedProjectile(pCrossbowStack, itemstack);
+        return true;
     }
 
     public static boolean isCharged(ItemStack pCrossbowStack) {
@@ -232,7 +238,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
 
             } else {
                 projectile = getArrow(pLevel, pShooter, pCrossbowStack, pAmmoStack);
-                if (pIsCreativeMode || pProjectileAngle != 0.0F) {
+                if (pIsCreativeMode || pProjectileAngle != 0.0F || pAmmoStack.is(ModTags.Items.NO_PICKUP_ARROWS)) {
                     ((AbstractArrow)projectile).pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                 }
             }

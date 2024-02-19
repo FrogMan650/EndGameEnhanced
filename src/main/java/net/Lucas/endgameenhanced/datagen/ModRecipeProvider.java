@@ -442,7 +442,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('D', Items.DIAMOND)
                 .unlockedBy(getHasName(ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get()), has(ModItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE.get()))
                 .save(pRecipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ARROW, 3)
+
+        //arrows
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ARROW, 2)
                 .pattern(" P ")
                 .pattern(" S ")
                 .pattern(" D ")
@@ -451,7 +453,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('D', Items.FEATHER)
                 .unlockedBy(getHasName(Items.ARROW), has(ModItems.OPAL.get()))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "arrow_from_opal"));
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ARROW, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ARROW, 3)
                 .pattern(" P ")
                 .pattern(" S ")
                 .pattern(" D ")
@@ -460,33 +462,51 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('D', Items.FEATHER)
                 .unlockedBy(getHasName(Items.ARROW), has(ModItems.JADE.get()))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "arrow_from_jade"));
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ARROW, 5)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SAPPHIRE_ARROW.get(), 5)
                 .pattern(" P ")
                 .pattern(" S ")
                 .pattern(" D ")
                 .define('P', ModItems.SAPPHIRE.get())
                 .define('S', Items.STICK)
                 .define('D', Items.FEATHER)
-                .unlockedBy(getHasName(Items.ARROW), has(ModItems.SAPPHIRE.get()))
+                .unlockedBy(getHasName(ModItems.SAPPHIRE_ARROW.get()), has(ModItems.SAPPHIRE.get()))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "arrow_from_sapphire"));
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ARROW, 6)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EMERALD_ARROW.get(), 5)
                 .pattern(" P ")
                 .pattern(" S ")
                 .pattern(" D ")
                 .define('P', Items.EMERALD)
                 .define('S', Items.STICK)
                 .define('D', Items.FEATHER)
-                .unlockedBy(getHasName(Items.ARROW), has(Items.EMERALD))
+                .unlockedBy(getHasName(ModItems.EMERALD_ARROW.get()), has(Items.EMERALD))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "arrow_from_emerald"));
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ARROW, 7)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.RUBY_ARROW.get(), 7)
                 .pattern(" P ")
                 .pattern(" S ")
                 .pattern(" D ")
                 .define('P', ModItems.RUBY.get())
                 .define('S', Items.STICK)
                 .define('D', Items.FEATHER)
-                .unlockedBy(getHasName(Items.ARROW), has(ModItems.RUBY.get()))
+                .unlockedBy(getHasName(ModItems.RUBY_ARROW.get()), has(ModItems.RUBY.get()))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "arrow_from_ruby"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_ARROW.get(), 8)
+                .pattern(" P ")
+                .pattern(" S ")
+                .pattern(" D ")
+                .define('P', Items.DIAMOND)
+                .define('S', Items.STICK)
+                .define('D', Items.FEATHER)
+                .unlockedBy(getHasName(ModItems.DIAMOND_ARROW.get()), has(Items.DIAMOND))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "arrow_from_diamond"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ONYX_ARROW.get(), 10)
+                .pattern(" P ")
+                .pattern(" S ")
+                .pattern(" D ")
+                .define('P', ModItems.ONYX.get())
+                .define('S', Items.STICK)
+                .define('D', Items.FEATHER)
+                .unlockedBy(getHasName(ModItems.ONYX_ARROW.get()), has(ModItems.ONYX.get()))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "arrow_from_onyx"));
 
 
         //pure essence
@@ -974,48 +994,48 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('D', Items.OBSIDIAN)
                 .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
                 .save(pRecipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SPEED_ESSENCE.get())
-                .pattern("CBC")
-                .pattern("DAD")
-                .pattern("DDD")
-                .define('A', ModItems.BASIC_ESSENCE.get())
-                .define('B', Items.ELYTRA)
-                .define('C', Items.POTION)//manually fixed in generated json
-                .define('D', Items.POTION)//manually fixed in generated json
-                .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
-                .save(pRecipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BOOST_ESSENCE.get())
-                .pattern("CBC")
-                .pattern("DAD")
-                .pattern("DDD")
-                .define('A', ModItems.BASIC_ESSENCE.get())
-                .define('B', Items.ELYTRA)
-                .define('C', Items.POTION)//manually fixed in generated json
-                .define('D', Items.POTION)//manually fixed in generated json
-                .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
-                .save(pRecipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VISION_ESSENCE.get())
-                .pattern("CBC")
-                .pattern("DAD")
-                .pattern("DDD")
-                .define('A', ModItems.BASIC_ESSENCE.get())
-                .define('B', Items.ELYTRA)
-                .define('C', Items.POTION)//manually fixed in generated json
-                .define('D', Items.POTION)//manually fixed in generated json
-                .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
-                .save(pRecipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CONDUIT_ESSENCE.get())
-                .pattern("CBC")
-                .pattern("DAD")
-                .pattern("EFE")
-                .define('A', ModItems.BASIC_ESSENCE.get())
-                .define('B', Items.ELYTRA)
-                .define('C', Items.POTION)//manually fixed in generated json
-                .define('D', Items.HEART_OF_THE_SEA)
-                .define('E', Items.NAUTILUS_SHELL)
-                .define('F', Items.CONDUIT)
-                .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
-                .save(pRecipeOutput);
+//        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SPEED_ESSENCE.get())
+//                .pattern("CBC")
+//                .pattern("DAD")
+//                .pattern("DDD")
+//                .define('A', ModItems.BASIC_ESSENCE.get())
+//                .define('B', Items.ELYTRA)
+//                .define('C', Items.POTION)//manually fixed in generated json
+//                .define('D', Items.POTION)//manually fixed in generated json
+//                .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
+//                .save(pRecipeOutput);
+//        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BOOST_ESSENCE.get())
+//                .pattern("CBC")
+//                .pattern("DAD")
+//                .pattern("DDD")
+//                .define('A', ModItems.BASIC_ESSENCE.get())
+//                .define('B', Items.ELYTRA)
+//                .define('C', Items.POTION)//manually fixed in generated json
+//                .define('D', Items.POTION)//manually fixed in generated json
+//                .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
+//                .save(pRecipeOutput);
+//        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VISION_ESSENCE.get())
+//                .pattern("CBC")
+//                .pattern("DAD")
+//                .pattern("DDD")
+//                .define('A', ModItems.BASIC_ESSENCE.get())
+//                .define('B', Items.ELYTRA)
+//                .define('C', Items.POTION)//manually fixed in generated json
+//                .define('D', Items.POTION)//manually fixed in generated json
+//                .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
+//                .save(pRecipeOutput);
+//        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CONDUIT_ESSENCE.get())
+//                .pattern("CBC")
+//                .pattern("DAD")
+//                .pattern("EFE")
+//                .define('A', ModItems.BASIC_ESSENCE.get())
+//                .define('B', Items.ELYTRA)
+//                .define('C', Items.POTION)//manually fixed in generated json
+//                .define('D', Items.HEART_OF_THE_SEA)
+//                .define('E', Items.NAUTILUS_SHELL)
+//                .define('F', Items.CONDUIT)
+//                .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
+//                .save(pRecipeOutput);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.INFERNAL_ESSENCE.get())
                 .pattern(" B ")
                 .pattern(" A ")
