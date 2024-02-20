@@ -49,6 +49,14 @@ public class ModEntities {
             ENTITY_TYPES.register("unkempt_projectile", () -> EntityType.Builder.<UnkemptHaroldProjectileEntity>of(UnkemptHaroldProjectileEntity::new,
                             MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4)
                     .updateInterval(20).build("unkempt_projectile"));
+    public static final RegistryObject<EntityType<DefaultWebweaverArrowEntity>> WEBWEAVER_DEFAULT_ARROW_ENTITY =
+            ENTITY_TYPES.register("webweaver_projectile", () -> EntityType.Builder.<DefaultWebweaverArrowEntity>of(DefaultWebweaverArrowEntity::new,
+                            MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4)
+                    .updateInterval(20).build("webweaver_projectile"));
+    public static final RegistryObject<EntityType<DefaultSculkSlingerArrowEntity>> SCULK_SLINGER_DEFAULT_ARROW_ENTITY =
+            ENTITY_TYPES.register("sculk_slinger_projectile", () -> EntityType.Builder.<DefaultSculkSlingerArrowEntity>of(DefaultSculkSlingerArrowEntity::new,
+                            MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4)
+                    .updateInterval(20).build("sculk_slinger_projectile"));
 
 
 

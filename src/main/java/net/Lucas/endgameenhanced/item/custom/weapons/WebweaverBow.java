@@ -31,39 +31,37 @@ public class WebweaverBow extends BowItem {
 
     public void releaseUsing(ItemStack bowStack, Level worldIn, LivingEntity entityLiving, int pTimeLeft) {
         if (entityLiving instanceof Player player) {
-            boolean hasInfinity = player.getAbilities().instabuild || EnchantmentHelper.getTagEnchantmentLevel(Enchantments.INFINITY_ARROWS, bowStack) > 0;
+            boolean hasCreative = player.getAbilities().instabuild;
+            boolean hasInfinity = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.INFINITY_ARROWS, bowStack) > 0;
+            boolean hasInfinityOrCreative = hasCreative || hasInfinity;
             ItemStack ammoStack = player.getProjectile(bowStack);
             int timeDrawn = this.getUseDuration(bowStack) - pTimeLeft;
-            timeDrawn = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(bowStack, worldIn, player, timeDrawn, !ammoStack.isEmpty() || hasInfinity);
+            timeDrawn = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(bowStack, worldIn, player, timeDrawn, !ammoStack.isEmpty() || hasInfinityOrCreative);
             if (timeDrawn < 0) return;
             boolean shouldRoll = true;
-            if (ammoStack.isEmpty() && hasInfinity) {
-                shouldRoll = false;
-                ammoStack = new ItemStack(Items.ARROW);
-            }
             if (ammoStack.isEmpty()) {
                 shouldRoll = false;
-                ammoStack = new ItemStack(ModItems.SAPPHIRE_ARROW.get());//default arrow
+                ammoStack = new ItemStack(ModItems.WEBWEAVER_ARROW.get());//default arrow
             }
             float velocity = getPowerForTime(timeDrawn);
             if (!((double)velocity < 0.1D)) {
-                boolean flag1 = player.getAbilities().instabuild || (ammoStack.getItem() instanceof ArrowItem && ((ArrowItem)ammoStack.getItem()).isInfinite(ammoStack, bowStack, player));
+                boolean flag1 = hasCreative || (ammoStack.getItem() instanceof ArrowItem && ((ArrowItem)ammoStack.getItem()).isInfinite(ammoStack, bowStack, player));
                 boolean isTippedArrow = ammoStack.is(ModTags.Items.NO_PICKUP_ARROWS);
                 if (!worldIn.isClientSide) {
                     ArrowItem arrowitem = (ArrowItem)(ammoStack.getItem() instanceof ArrowItem ? ammoStack.getItem() : Items.ARROW);
                     AbstractArrow arrowEntity = createArrow(worldIn, ammoStack, player, arrowitem);
                     arrowEntity = customArrow(arrowEntity);
                     arrowEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, velocity * 4.5F, 0.5F);
-
                     if (velocity >= 1.0F) {
                         arrowEntity.setCritArrow(true);
                     }
-                    double damage = getArrowDamage(bowStack, arrowEntity);
+                    //damage
+                    double damage = getArrowDamage(bowStack, ammoStack, hasInfinityOrCreative);
                     arrowEntity.setBaseDamage(damage);
-
+                    //knockback
                     int knockback = getArrowKnockback(bowStack, arrowEntity);
                     arrowEntity.setKnockback(knockback);
-
+                    //fire
                     if (EnchantmentHelper.getTagEnchantmentLevel(Enchantments.FLAMING_ARROWS, bowStack) > 0) {
                         arrowEntity.setSecondsOnFire(100);
                     }
@@ -71,7 +69,7 @@ public class WebweaverBow extends BowItem {
                     bowStack.hurtAndBreak(0, player, (p_289501_) -> {
                         p_289501_.broadcastBreakEvent(player.getUsedItemHand());
                     });
-                    if (hasInfinity || isTippedArrow) {
+                    if (hasInfinityOrCreative || isTippedArrow) {
                         arrowEntity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                     }
                     //spawn arrow entity
@@ -79,7 +77,7 @@ public class WebweaverBow extends BowItem {
                 }
 
                 worldIn.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (worldIn.getRandom().nextFloat() * 0.4F + 1.2F) + velocity * 0.5F);
-                boolean shouldConsumeArrow = !hasInfinity || isTippedArrow;
+                boolean shouldConsumeArrow = !hasInfinityOrCreative || isTippedArrow;
 
                 //25% chance to save ammo
                 float randomFloat = RandomSource.create().nextFloat();
@@ -88,7 +86,7 @@ public class WebweaverBow extends BowItem {
                     saveChance = 1;
                 }
 
-                if (shouldConsumeArrow && !player.getAbilities().instabuild) {
+                if (shouldConsumeArrow && !hasCreative) {
                     ammoStack.shrink(1);
                     ammoStack.grow(saveChance);
                     if (ammoStack.isEmpty()) {
@@ -126,9 +124,15 @@ public class WebweaverBow extends BowItem {
         return bowKnockback;
     }
 
-    protected double getArrowDamage(ItemStack bowStack, AbstractArrow arrowEntity) {
+    protected double getArrowDamage(ItemStack bowStack, ItemStack ammoStack, boolean hasInfinityOrCreative) {
         double baseDamage = 2.2D;
         int bowPower = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.POWER_ARROWS, bowStack);
+        if (ammoStack.is(ModItems.WEBWEAVER_ARROW.get()) && !hasInfinityOrCreative && bowPower > 0) {
+            return 1.5D + (double)bowPower * 0.15D + 0.2D;
+        }
+        if (ammoStack.is(ModItems.WEBWEAVER_ARROW.get()) && !hasInfinityOrCreative) {
+            return 1.5D;
+        }
         if (bowPower > 0) return baseDamage + (double)bowPower * 0.15D + 0.2D;
         else return baseDamage;
     }

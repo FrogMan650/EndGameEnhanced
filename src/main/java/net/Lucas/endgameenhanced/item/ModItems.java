@@ -45,6 +45,8 @@ public class ModItems {
     public static final RegistryObject<Item> RUBY_ARROW = ITEMS.register("ruby_arrow", () -> new RubyArrow(new Item.Properties(), 1.5F));
     public static final RegistryObject<Item> DIAMOND_ARROW = ITEMS.register("diamond_arrow", () -> new DiamondArrow(new Item.Properties(), 1.5F));
     public static final RegistryObject<Item> ONYX_ARROW = ITEMS.register("onyx_arrow", () -> new OnyxArrow(new Item.Properties(), 1.5F));
+    public static final RegistryObject<Item> WEBWEAVER_ARROW = ITEMS.register("webweaver_arrow", () -> new WebweaverArrow(new Item.Properties(), 1F));
+    public static final RegistryObject<Item> SCULK_SLINGER_ARROW = ITEMS.register("sculk_slinger_projectile", () -> new SculkSlingerArrow(new Item.Properties(), 1F));
 
 //mob drops
     public static final RegistryObject<Item> SMOULDERING_STONE = ITEMS.register("smouldering_stone", () -> new SmoulderingStone(new Item.Properties().fireResistant().rarity(Rarity.RARE)));

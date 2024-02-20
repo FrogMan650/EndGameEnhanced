@@ -38,7 +38,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-
+        simpleItem(ModItems.WEBWEAVER_ARROW);
+        simpleItem(ModItems.SCULK_SLINGER_ARROW);
         simpleItem(ModItems.SAPPHIRE);
         simpleItem(ModItems.OPAL);
         simpleItem(ModItems.JADE);

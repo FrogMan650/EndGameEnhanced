@@ -96,8 +96,7 @@ public class ModEvents {
             double distanceToTarget = getDistanceToTarget(player, damagedMob);
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.WEBWEAVER_BOW.get())) {
                 damagedMob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 300, 3, false, true, true));
-
-                if (distanceToTarget > 16 && distanceToTarget < 49) {
+                if (distanceToTarget > 16 && distanceToTarget < 50) {
                     double damageChange = (distanceToTarget-16)/2;
                     if (damageChange > 5) {
                         damageChange = 5;
@@ -153,10 +152,7 @@ public class ModEvents {
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.END_BLADE.get())) {
                 damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 1, false, true, true));
             }
-
-//            if (damagedMob instanceof Warden) {//for testing
-//                player.sendSystemMessage(Component.literal("damage: "+initialDamage));
-//            }
+            player.sendSystemMessage(Component.literal("damage: "+initialDamage));
         }
     }
 

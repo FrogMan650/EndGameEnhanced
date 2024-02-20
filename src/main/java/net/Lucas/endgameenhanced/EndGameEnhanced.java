@@ -89,6 +89,8 @@ public class EndGameEnhanced {
             EntityRenderers.register(ModEntities.DIAMOND_ARROW.get(), DiamondArrowRenderer::new);
             EntityRenderers.register(ModEntities.ONYX_ARROW.get(), OnyxArrowRenderer::new);
             EntityRenderers.register(ModEntities.UNKEMPT_HAROLD_PROJECTILE.get(), UnkemptHaroldProjectileRenderer::new);
+            EntityRenderers.register(ModEntities.WEBWEAVER_DEFAULT_ARROW_ENTITY.get(), DefaultWebweaverArrowRenderer::new);
+            EntityRenderers.register(ModEntities.SCULK_SLINGER_DEFAULT_ARROW_ENTITY.get(), DefaultSculkSlingerArrowRenderer::new);
         }
     }
 }

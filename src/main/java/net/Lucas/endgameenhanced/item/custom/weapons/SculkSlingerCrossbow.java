@@ -57,6 +57,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     private static final float CROSSBOW_ARROW_POWER = 20F;
     private static final float FIREWORK_POWER = 1.6F;
     private static final float ARROW_POWER = 3.75F;
+    private static final float DEFAULT_ARROW_POWER = 2.75F;
 
 
 
@@ -122,7 +123,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
                 itemstack = itemstack1.copy();
             }
             if (itemstack.isEmpty()) {
-                itemstack = new ItemStack(ModItems.SAPPHIRE_ARROW.get());//make this the default arrow
+                itemstack = new ItemStack(ModItems.SCULK_SLINGER_ARROW.get());//make this the default arrow
                 itemstack1 = itemstack.copy();
             }
             if (itemstack.isEmpty() && isCreative) {
@@ -141,7 +142,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     private static boolean loadProjectile(LivingEntity pShooter, ItemStack pCrossbowStack, ItemStack pAmmoStack, boolean pHasAmmo, boolean pIsCreative) {
         ItemStack itemstack;
         if (pAmmoStack.isEmpty()) {
-            itemstack = new ItemStack(ModItems.SAPPHIRE_ARROW.get());//default ammo
+            itemstack = new ItemStack(ModItems.SCULK_SLINGER_ARROW.get());//default ammo
         } else {
             boolean flag = pIsCreative && pAmmoStack.getItem() instanceof ArrowItem;
             if (!flag && !pIsCreative && !pHasAmmo) {
@@ -235,7 +236,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
             Projectile projectile;
             if (flag) {
                 projectile = new FireworkRocketEntity(pLevel, pAmmoStack, pShooter, pShooter.getX(), pShooter.getEyeY() - (double)0.15F, pShooter.getZ(), true);
-
+                //reworked firework goes here eventually
             } else {
                 projectile = getArrow(pLevel, pShooter, pCrossbowStack, pAmmoStack);
                 if (pIsCreativeMode || pProjectileAngle != 0.0F || pAmmoStack.is(ModTags.Items.NO_PICKUP_ARROWS)) {
@@ -279,8 +280,11 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         if (pLivingEntity instanceof Player) {
             abstractarrow.setCritArrow(true);
 
-            //set abstract arrow damage
-            abstractarrow.setBaseDamage(ARROW_POWER);
+            if (pAmmoStack.is(ModItems.SCULK_SLINGER_ARROW.get())) {
+                abstractarrow.setBaseDamage(DEFAULT_ARROW_POWER);
+            } else {
+                abstractarrow.setBaseDamage(ARROW_POWER);
+            }
         }
 
         abstractarrow.setSoundEvent(SoundEvents.CROSSBOW_HIT);

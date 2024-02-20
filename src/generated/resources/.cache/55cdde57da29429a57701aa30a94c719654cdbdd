@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-18T18:40:42.446078	Item Models: endgameenhanced
+// 1.20.4	2024-02-19T18:04:23.5584339	Item Models: endgameenhanced
 823cbfc5ec6aa14c04aec3e549705833f6ac3a72 assets/endgameenhanced/models/item/ancient_essence.json
 ef7e78b46541d78bf05c9a0963de41694180f2ca assets/endgameenhanced/models/item/axe_hilt.json
 f6f34dad317a7eba98ee27b1b735abfb7c0340d4 assets/endgameenhanced/models/item/basic_essence.json
@@ -207,6 +207,7 @@ df749bb4ae9d7dba53ab672075c23003671eecf0 assets/endgameenhanced/models/item/sapp
 49a78649da9e08d3806fabdd23d2c228bbe0e62f assets/endgameenhanced/models/item/sculk_bringer_upgrade_smithing_template.json
 5cb52067bcecbcb7b0faa0789cff3ae64a8b86fa assets/endgameenhanced/models/item/sculk_crystal.json
 d8d43562fb202136a43cf2e30446ca5f6c49cedb assets/endgameenhanced/models/item/sculk_essence.json
+bb603f91b3e7beb189b0c2cd208421f2f1eeecdb assets/endgameenhanced/models/item/sculk_slinger_projectile.json
 ba896bedff494ff553e6c8c7cc5ce12ed9ba72a5 assets/endgameenhanced/models/item/sculk_slinger_upgrade_smithing_template.json
 3ff3c21ddf1c534b83a574c58391a98da43453eb assets/endgameenhanced/models/item/scythe_of_vitur_upgrade_smithing_template.json
 6ff23b17730e7089991d05696daa19edcc3c2aed assets/endgameenhanced/models/item/secluded_essence.json
@@ -236,6 +237,7 @@ bc2c0edb906205ed2dbf4ffa233fac5f717e01e9 assets/endgameenhanced/models/item/unke
 f927ff3f3b8e728c1c488b84f772cbf698d38923 assets/endgameenhanced/models/item/volatile_essence.json
 bcb5938e03a5df75d80fa047569a2499453cb618 assets/endgameenhanced/models/item/warning_essence.json
 4ca89f6b36ad094540bd809b76081f9b4a27c8f4 assets/endgameenhanced/models/item/water_essence.json
+625f92ced25366a96c17c70cdce61e35179c97c9 assets/endgameenhanced/models/item/webweaver_arrow.json
 223412d39aff7b349ac18b2d9f3dc57cba47b9b9 assets/endgameenhanced/models/item/webweaver_upgrade_smithing_template.json
 c0d3ac274aac70dee0d871146154250d56be6e65 assets/endgameenhanced/models/item/witchs_brew.json
 6fcd128659882fa96cf2f879309a178ee2de63a9 assets/endgameenhanced/models/item/wither_skeleton_bone.json

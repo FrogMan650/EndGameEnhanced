@@ -32,6 +32,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 ModItems.INEVITABLE_BOOTS.get());
 
         this.tag(ModTags.Items.NO_PICKUP_ARROWS).add(Items.TIPPED_ARROW, Items.SPECTRAL_ARROW, ModItems.SAPPHIRE_ARROW.get(),
-                ModItems.EMERALD_ARROW.get(), ModItems.RUBY_ARROW.get(), ModItems.DIAMOND_ARROW.get(), ModItems.ONYX_ARROW.get());
+                ModItems.EMERALD_ARROW.get(), ModItems.RUBY_ARROW.get(), ModItems.DIAMOND_ARROW.get(),
+                ModItems.ONYX_ARROW.get(), ModItems.WEBWEAVER_ARROW.get(), ModItems.SCULK_SLINGER_ARROW.get());
     }
 }

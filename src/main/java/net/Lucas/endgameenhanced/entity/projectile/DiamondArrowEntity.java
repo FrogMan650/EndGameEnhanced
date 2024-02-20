@@ -1,20 +1,36 @@
 package net.Lucas.endgameenhanced.entity.projectile;
 
+import com.google.common.collect.Lists;
+import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.Lucas.endgameenhanced.entity.ModEntities;
 import net.Lucas.endgameenhanced.item.ModItems;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.tags.EntityTypeTags;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class DiamondArrowEntity extends AbstractArrow {
     private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(ModItems.DIAMOND_ARROW.get());
@@ -33,42 +49,31 @@ public class DiamondArrowEntity extends AbstractArrow {
     }
 
     @Override
-    public void onHitEntity(EntityHitResult pResult) {
-        super.onHitEntity(pResult);
-        Entity entity = pResult.getEntity();
+    protected void onHitBlock(BlockHitResult pResult) {
+        super.onHitBlock(pResult);
         Entity player = this.getOwner();
-        if (this.level() instanceof ServerLevel) {
-            float randomFloat = RandomSource.create().nextFloat();
-            BlockPos blockpos = entity.blockPosition();
-            if ((this.level().canSeeSky(blockpos) && randomFloat <= 0.5) || (this.level().canSeeSky(blockpos) && this.level().isThundering())) {
-                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
-                if (lightningbolt != null) {
-                    lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
-                    lightningbolt.setCause(player instanceof ServerPlayer ? (ServerPlayer) player : null);
-                    this.level().addFreshEntity(lightningbolt);
-                }
+        BlockPos blockHit = pResult.getBlockPos();
+        Level level = player.level();
+        if (level.getBlockState(blockHit.above()) == Blocks.AIR.defaultBlockState()) {
+            player.setPosRaw(blockHit.above().getX()+0.5, blockHit.above().getY(), blockHit.above().getZ()+0.5);
+            player.setPose(Pose.FALL_FLYING);
+        } else {
+            if (pResult.getDirection() == Direction.NORTH && level.getBlockState(blockHit.north()) == Blocks.AIR.defaultBlockState()) {
+                player.setPosRaw(blockHit.north().getX()+0.5, blockHit.north().getY(), blockHit.north().getZ()+0.5);
+                player.setPose(Pose.FALL_FLYING);
+            }
+            if (pResult.getDirection() == Direction.EAST && level.getBlockState(blockHit.east()) == Blocks.AIR.defaultBlockState()) {
+                player.setPosRaw(blockHit.east().getX()+0.5, blockHit.east().getY(), blockHit.east().getZ()+0.5);
+                player.setPose(Pose.FALL_FLYING);
+            }
+            if (pResult.getDirection() == Direction.SOUTH && level.getBlockState(blockHit.south()) == Blocks.AIR.defaultBlockState()) {
+                player.setPosRaw(blockHit.south().getX()+0.5, blockHit.south().getY(), blockHit.south().getZ()+0.5);
+                player.setPose(Pose.FALL_FLYING);
+            }
+            if (pResult.getDirection() == Direction.WEST && level.getBlockState(blockHit.west()) == Blocks.AIR.defaultBlockState()) {
+                player.setPosRaw(blockHit.west().getX()+0.5, blockHit.west().getY(), blockHit.west().getZ()+0.5);
+                player.setPose(Pose.FALL_FLYING);
             }
         }
     }
-
-//    protected void onHit(HitResult pResult) {
-//        super.onHit(pResult);
-//        if (!this.level().isClientSide) {
-//            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 5.0F, false, Level.ExplosionInteraction.MOB);
-//            this.discard();
-//        }
-//
-//    }
-
-
-//    @Override
-//    protected void onHitBlock(BlockHitResult pResult) {
-//        super.onHitBlock(pResult);
-//        Entity player = this.getOwner();
-//        BlockPos blockHit = pResult.getBlockPos();
-//        Level level = player.level();
-//        if (level.getBlockState(blockHit.above(1)) == Blocks.AIR.defaultBlockState() && level.getBlockState(blockHit.above(2)) == Blocks.AIR.defaultBlockState()) {
-//            player.setPosRaw(blockHit.above().getX()+0.5, blockHit.above().getY(), blockHit.above().getZ()+0.5);
-//        }
-//    }
 }
