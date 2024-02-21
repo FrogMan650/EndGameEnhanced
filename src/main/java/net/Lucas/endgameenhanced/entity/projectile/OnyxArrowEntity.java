@@ -5,15 +5,20 @@ import net.Lucas.endgameenhanced.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 public class OnyxArrowEntity extends AbstractArrow {
@@ -35,23 +40,26 @@ public class OnyxArrowEntity extends AbstractArrow {
     @Override
     public void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
-        Entity entity = pResult.getEntity();
-        Entity player = this.getOwner();
-        if (this.level() instanceof ServerLevel) {
-            float randomFloat = RandomSource.create().nextFloat();
-            BlockPos blockpos = entity.blockPosition();
-            if ((this.level().canSeeSky(blockpos) && randomFloat <= 0.5) || (this.level().canSeeSky(blockpos) && this.level().isThundering())) {
-                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
-                if (lightningbolt != null) {
-                    lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
-                    lightningbolt.setCause(player instanceof ServerPlayer ? (ServerPlayer) player : null);
-                    this.level().addFreshEntity(lightningbolt);
-                }
-            }
+        LivingEntity entity = (LivingEntity) pResult.getEntity();
+        Player player = (Player) this.getOwner();
+        if (entity.getType().is(EntityTypeTags.UNDEAD)) {
+            entity.addEffect(new MobEffectInstance(MobEffects.HEAL, 300, 0, false, true, true));
+        } else {
+            entity.addEffect(new MobEffectInstance(MobEffects.HARM, 300, 0, false, true, true));
+
         }
+        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 300, 1, false, true, true));
+        entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 0, false, true, true));
+
+
     }
 
-//    protected void onHit(HitResult pResult) {
+    @Override
+    protected void onHit(HitResult pResult) {
+        super.onHit(pResult);
+    }
+
+    //    protected void onHit(HitResult pResult) {
 //        super.onHit(pResult);
 //        if (!this.level().isClientSide) {
 //            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 5.0F, false, Level.ExplosionInteraction.MOB);

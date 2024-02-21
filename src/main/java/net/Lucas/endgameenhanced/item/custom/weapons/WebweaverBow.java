@@ -101,7 +101,6 @@ public class WebweaverBow extends BowItem {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         pPlayer.startUsingItem(pHand);
-        System.out.println("in use method about to return consume");
         return InteractionResultHolder.consume(itemstack);
     }
 
