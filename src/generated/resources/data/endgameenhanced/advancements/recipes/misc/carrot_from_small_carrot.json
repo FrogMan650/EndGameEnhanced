@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_small_carrot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_small_carrot"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:carrot_from_small_carrot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

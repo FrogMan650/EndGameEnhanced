@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_sapphire_hoe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sapphire_hoe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:sapphire_hoe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

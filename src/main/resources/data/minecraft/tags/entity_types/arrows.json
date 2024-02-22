@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "endgameenhanced:sapphire_arrow",
+    "endgameenhanced:emerald_arrow",
+    "endgameenhanced:ruby_arrow",
+    "endgameenhanced:diamond_arrow",
+    "endgameenhanced:webweaver_arrow",
+    "endgameenhanced:sculk_slinger_projectile",
+    "endgameenhanced:onyx_arrow"
+  ]
+}

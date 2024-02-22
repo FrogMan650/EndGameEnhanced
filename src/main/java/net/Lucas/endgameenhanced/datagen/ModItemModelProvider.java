@@ -38,12 +38,18 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-
+        simpleItem(ModItems.WEBWEAVER_ARROW);
+        simpleItem(ModItems.SCULK_SLINGER_ARROW);
         simpleItem(ModItems.SAPPHIRE);
         simpleItem(ModItems.OPAL);
         simpleItem(ModItems.JADE);
         simpleItem(ModItems.RUBY);
         simpleItem(ModItems.ONYX);
+        simpleItem(ModItems.SAPPHIRE_ARROW);
+        simpleItem(ModItems.EMERALD_ARROW);
+        simpleItem(ModItems.RUBY_ARROW);
+        simpleItem(ModItems.DIAMOND_ARROW);
+        simpleItem(ModItems.ONYX_ARROW);
         simpleItem(ModItems.SMOULDERING_STONE);
         simpleItem(ModItems.ENDER_DRAGON_SCALE);
         simpleItem(ModItems.SCULK_CRYSTAL);

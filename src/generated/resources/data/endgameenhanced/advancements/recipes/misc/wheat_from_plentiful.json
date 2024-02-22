@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_plentiful_wheat",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_plentiful_wheat"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:wheat_from_plentiful"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_opal_pickaxe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_opal_pickaxe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:opal_pickaxe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -1,7 +1,5 @@
 {
   "item.endgameenhanced.sapphire": "Sapphire",
-  "item.endgameenhanced.raw_sapphire": "Raw Sapphire",
-  "item.endgameenhanced.metal_detector": "Metal Detector",
   "item.endgameenhanced.opal": "Opal",
   "item.endgameenhanced.jade": "Jade",
   "item.endgameenhanced.ruby": "Ruby",
@@ -47,6 +45,14 @@
   "item.endgameenhanced.cactus_spine": "Cactus Spine",
   "item.endgameenhanced.bioluminescent_torchflower": "Bioluminescent Torchflower",
   "item.endgameenhanced.thick_sugar_cane": "Thick Sugar Cane",
+
+  "item.endgameenhanced.sapphire_arrow": "Sapphire Arrow",
+  "item.endgameenhanced.emerald_arrow": "Emerald Arrow",
+  "item.endgameenhanced.ruby_arrow": "Ruby Arrow",
+  "item.endgameenhanced.diamond_arrow": "Diamond Arrow",
+  "item.endgameenhanced.onyx_arrow": "Onyx Arrow",
+  "item.endgameenhanced.webweaver_arrow": "Webweaver Arrow",
+  "item.endgameenhanced.sculk_slinger_projectile": "Sculk Slinger Arrow",
 
   "item.endgameenhanced.diamond_upgrade_smithing_template": "Diamond Upgrade Smithing Template",
   "item.endgameenhanced.onyx_upgrade_smithing_template": "Onyx Upgrade Smithing Template",
@@ -197,6 +203,7 @@
   "item.endgameenhanced.pure_blood_essence": "Pure Blood Essence",
   "upgrade.endgameenhanced.inevitable_hoe_upgrade": "Sanguine Scythe Upgrade",
   "item.endgameenhanced.scythe_of_vitur_upgrade_smithing_template": "Sanguine Scythe Upgrade Smithing Template",
+  "item.endgameenhanced.pure_tough_essence_ingredient": "Pure Tough Essence\n Pure Resolute Essence\n Pure Resilient Essence\n Pure Resistant Essence",
   "item.endgameenhanced.pure_tough_essence": "Pure Tough Essence",
   "item.endgameenhanced.pure_resolute_essence": "Pure Resolute Essence",
   "item.endgameenhanced.pure_resilient_essence": "Pure Resilient Essence",
@@ -430,7 +437,6 @@
   "endgameenhanced.creativetab.inevitable_tab": "EGE: Inevitable items",
   "endgameenhanced.creativetab.unique_mob_drop_tab": "EGE: Unique mob drops",
   "endgameenhanced.creativetab.unique_crops_tab": "EGE: Unique crops",
-  "endgameenhanced.creativetab.ege_misc_tab": "EGE: Misc",
 
   "endgameenhanced.translated.destruction.1.x.1": "Destruction mode: OFF",
   "endgameenhanced.translated.destruction.3.x.3": "Destruction mode: ON",

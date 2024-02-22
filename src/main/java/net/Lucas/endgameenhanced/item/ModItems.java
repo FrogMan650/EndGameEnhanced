@@ -3,6 +3,7 @@ package net.Lucas.endgameenhanced.item;
 import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.Lucas.endgameenhanced.item.custom.*;
 import net.Lucas.endgameenhanced.item.custom.armor.*;
+import net.Lucas.endgameenhanced.item.custom.arrows.*;
 import net.Lucas.endgameenhanced.item.custom.mobdrops.*;
 import net.Lucas.endgameenhanced.item.custom.tools.InfernalPickaxe;
 import net.Lucas.endgameenhanced.item.custom.tools.LeviathansAxe;
@@ -37,6 +38,15 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ONYX = ITEMS.register("onyx",
             () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+
+    //arrows
+    public static final RegistryObject<Item> SAPPHIRE_ARROW = ITEMS.register("sapphire_arrow", () -> new SapphireArrow(new Item.Properties(), 1.5F));
+    public static final RegistryObject<Item> EMERALD_ARROW = ITEMS.register("emerald_arrow", () -> new EmeraldArrow(new Item.Properties(), 1.5F));
+    public static final RegistryObject<Item> RUBY_ARROW = ITEMS.register("ruby_arrow", () -> new RubyArrow(new Item.Properties(), 1.5F));
+    public static final RegistryObject<Item> DIAMOND_ARROW = ITEMS.register("diamond_arrow", () -> new DiamondArrow(new Item.Properties(), 1.5F));
+    public static final RegistryObject<Item> ONYX_ARROW = ITEMS.register("onyx_arrow", () -> new OnyxArrow(new Item.Properties(), 1.5F));
+    public static final RegistryObject<Item> WEBWEAVER_ARROW = ITEMS.register("webweaver_arrow", () -> new WebweaverArrow(new Item.Properties(), 1F));
+    public static final RegistryObject<Item> SCULK_SLINGER_ARROW = ITEMS.register("sculk_slinger_projectile", () -> new SculkSlingerArrow(new Item.Properties(), 1F));
 
 //mob drops
     public static final RegistryObject<Item> SMOULDERING_STONE = ITEMS.register("smouldering_stone", () -> new SmoulderingStone(new Item.Properties().fireResistant().rarity(Rarity.RARE)));

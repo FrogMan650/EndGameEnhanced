@@ -24,6 +24,8 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.animal.Cow;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -91,6 +93,50 @@ public class ModEvents {
         LivingEntity damagedMob = event.getEntity();
         float initialDamage = event.getAmount();
         if (event.getSource().getEntity() instanceof Player player) {
+            double distanceToTarget = getDistanceToTarget(player, damagedMob);
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.WEBWEAVER_BOW.get())) {
+                damagedMob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 300, 3, false, true, true));
+                if (distanceToTarget > 16 && distanceToTarget < 50) {
+                    double damageChange = (distanceToTarget-16)/2;
+                    if (damageChange > 5) {
+                        damageChange = 5;
+                    }
+                    event.setAmount((float) (initialDamage+damageChange));
+                }
+                if (distanceToTarget < 16) {
+                    double damageChange = (16-distanceToTarget)/1.5;
+                    if (damageChange > 5) {
+                        damageChange = 5;
+                    }
+                    event.setAmount((float) (initialDamage-damageChange));
+                }
+                if (distanceToTarget >= 50) {
+                    double damageChange = 10;
+                    event.setAmount((float) (initialDamage+damageChange));
+                }
+            }
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.SCULK_SLINGER.get())) {
+                damagedMob.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 300, 0, false, true, true));
+                if (distanceToTarget > 16) {
+                    double damageChange = (distanceToTarget-16)/2;
+                    if (damageChange > 5) {
+                        damageChange = 5;
+                    }
+                    event.setAmount((float) (initialDamage-damageChange));
+                }
+                if (distanceToTarget < 16) {
+                    double damageChange = (16-distanceToTarget)/1.5;
+                    if (damageChange > 5) {
+                        damageChange = 5;
+                    }
+                    event.setAmount((float) (initialDamage+damageChange));
+                }
+            }
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.UNKEMPT_HAROLD.get())) {
+                if (distanceToTarget > 5 && initialDamage > 5) {
+                    event.setAmount(5);
+                }
+            }
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.SCYTHE_OF_VITUR.get())) {
                 if (initialDamage == 1) {
                     if (damagedMob.isBaby()) {
@@ -106,15 +152,18 @@ public class ModEvents {
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.END_BLADE.get())) {
                 damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 1, false, true, true));
             }
-            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.WEBWEAVER_BOW.get())) {
-                damagedMob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 300, 3, false, true, true));
-                damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 0, false, true, true));
-            }
-            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.SCULK_SLINGER.get())) {
-                damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 0, false, true, true));
-                damagedMob.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 300, 0, false, true, true));
-            }
         }
+    }
+
+    private static double getDistanceToTarget(Player player, LivingEntity damagedMob) {
+        //using the pythagorean theorem to find a line from the player to the mob that was hit
+        //first finding the diagonal of a 2d square using the X and Z to find D
+        //then using that, finding the diagonal of a 3d cube with Y and D to find A
+        double diffX = player.getX() - damagedMob.getX();
+        double diffY = player.getY() - damagedMob.getY();
+        double diffZ = player.getZ() - damagedMob.getZ();
+        double triangleOne = Math.sqrt((diffX*diffX)+(diffZ*diffZ));
+        return Math.sqrt((triangleOne*triangleOne)+(diffY*diffY));
     }
 
     @SubscribeEvent

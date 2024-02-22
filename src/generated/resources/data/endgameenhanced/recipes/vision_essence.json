@@ -9,16 +9,10 @@
       "item": "minecraft:elytra"
     },
     "C": {
-      "type": "forge:nbt",
-      "item": "minecraft:potion",
-      "count": 1,
-      "nbt": "{Potion:\"minecraft:fire_resistance\"}"
+      "item": "minecraft:magma_cream"
     },
     "D": {
-      "type": "forge:nbt",
-      "item": "minecraft:potion",
-      "count": 1,
-      "nbt": "{Potion:\"minecraft:night_vision\"}"
+      "item": "minecraft:golden_carrot"
     }
   },
   "pattern": [
@@ -28,6 +22,5 @@
   ],
   "result": {
     "item": "endgameenhanced:vision_essence"
-  },
-  "show_notification": true
+  }
 }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_slime_glob",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_slime_glob"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:slime_ball_from_slime_glob"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

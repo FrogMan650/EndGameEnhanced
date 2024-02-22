@@ -1,5 +1,6 @@
 package net.Lucas.endgameenhanced.item.custom.tools;
 
+import net.Lucas.endgameenhanced.entity.projectile.UnkemptHaroldProjectileEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -8,15 +9,21 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ShovelItem;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.WitherSkull;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,10 +32,71 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 public class UnkemptHarold extends ShovelItem {
     public UnkemptHarold(Tier pTier, float pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+    }
+
+    public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
+        if (pEntityLiving instanceof Player player) {
+            ItemStack itemstack = new ItemStack(Items.TNT);
+            if (player.getInventory().contains(Items.TNT.getDefaultInstance())) {
+                itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.TNT.getDefaultInstance()));
+            }
+
+            int i = this.getUseDuration(pStack) - pTimeLeft;
+            if (i < 10) return;
+
+            if (!itemstack.isEmpty() || player.getAbilities().instabuild) {
+
+                float velocity = getPowerForTime(i);
+                if (!((double)velocity < 0.1D)) {
+                    if (!pLevel.isClientSide) {
+                        UnkemptHaroldProjectileEntity proj = new UnkemptHaroldProjectileEntity(pLevel, player, Items.TNT.getDefaultInstance());
+                        proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, velocity * 3.0F, 0.5F);
+                        pLevel.addFreshEntity(proj);
+                    }
+
+                    pLevel.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.WITHER_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.4F + 1.2F) + velocity * 0.5F);
+                    if (!player.getAbilities().instabuild) {
+                        itemstack.shrink(1);
+                        if (itemstack.isEmpty()) {
+                            player.getInventory().removeItem(itemstack);
+                        }
+                    }
+
+                    player.awardStat(Stats.ITEM_USED.get(this));
+                }
+            }
+        }
+    }
+    public static float getPowerForTime(int pCharge) {
+        float f = (float)pCharge / 20.0F;
+        f = (f * f + f * 2.0F) / 3.0F;
+        if (f > 1.0F) {
+            f = 1.0F;
+        }
+
+        return f;
+    }
+
+    public int getUseDuration(ItemStack pStack) {
+        return 72000;
+    }
+    public UseAnim getUseAnimation(ItemStack pStack) {
+        return UseAnim.BOW;
+    }
+
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
+        ItemStack itemstack = player.getItemInHand(pHand);
+
+        if (player.getInventory().contains(Items.TNT.getDefaultInstance()) || player.getAbilities().instabuild) {
+            player.startUsingItem(pHand);
+            return InteractionResultHolder.consume(itemstack);
+        }
+        return InteractionResultHolder.fail(itemstack);
     }
 
     public InteractionResult useOn(UseOnContext pContext) {

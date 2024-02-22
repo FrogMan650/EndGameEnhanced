@@ -4,8 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.Lucas.endgameenhanced.Networking.ModMessages;
 import net.Lucas.endgameenhanced.block.ModBlocks;
 import net.Lucas.endgameenhanced.entity.ModEntities;
-import net.Lucas.endgameenhanced.entity.client.LeviathansAxeRenderer;
-import net.Lucas.endgameenhanced.entity.client.TideBreakerRenderer;
+import net.Lucas.endgameenhanced.entity.client.*;
 import net.Lucas.endgameenhanced.item.ModCreativeModeTabs;
 import net.Lucas.endgameenhanced.item.ModItems;
 import net.Lucas.endgameenhanced.loot.ModLootModifier;
@@ -84,6 +83,14 @@ public class EndGameEnhanced {
             ModItemProperties.addCustomItemProperties();
             EntityRenderers.register(ModEntities.TIDE_BREAKER.get(), TideBreakerRenderer::new);
             EntityRenderers.register(ModEntities.LEVIATHANS_AXE.get(), LeviathansAxeRenderer::new);
+            EntityRenderers.register(ModEntities.SAPPHIRE_ARROW.get(), SapphireArrowRenderer::new);
+            EntityRenderers.register(ModEntities.EMERALD_ARROW.get(), EmeraldArrowRenderer::new);
+            EntityRenderers.register(ModEntities.RUBY_ARROW.get(), RubyArrowRenderer::new);
+            EntityRenderers.register(ModEntities.DIAMOND_ARROW.get(), DiamondArrowRenderer::new);
+            EntityRenderers.register(ModEntities.ONYX_ARROW.get(), OnyxArrowRenderer::new);
+            EntityRenderers.register(ModEntities.UNKEMPT_HAROLD_PROJECTILE.get(), UnkemptHaroldProjectileRenderer::new);
+            EntityRenderers.register(ModEntities.WEBWEAVER_DEFAULT_ARROW_ENTITY.get(), DefaultWebweaverArrowRenderer::new);
+            EntityRenderers.register(ModEntities.SCULK_SLINGER_DEFAULT_ARROW_ENTITY.get(), DefaultSculkSlingerArrowRenderer::new);
         }
     }
 }

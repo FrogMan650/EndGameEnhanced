@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_opal_shovel",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_opal_shovel"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:opal_shovel"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -41,6 +41,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.SAPPHIRE_SHOVEL.get());
                         pOutput.accept(ModItems.SAPPHIRE_AXE.get());
                         pOutput.accept(ModItems.SAPPHIRE_HOE.get());
+                        pOutput.accept(ModItems.SAPPHIRE_ARROW.get());
                         pOutput.accept(Items.EMERALD);
                         pOutput.accept(Items.EMERALD_BLOCK);
                         pOutput.accept(ModItems.EMERALD_SWORD.get());
@@ -48,6 +49,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.EMERALD_SHOVEL.get());
                         pOutput.accept(ModItems.EMERALD_AXE.get());
                         pOutput.accept(ModItems.EMERALD_HOE.get());
+                        pOutput.accept(ModItems.EMERALD_ARROW.get());
                         pOutput.accept(ModItems.RUBY.get());
                         pOutput.accept(ModBlocks.RUBY_BLOCK.get());
                         pOutput.accept(ModItems.RUBY_SWORD.get());
@@ -55,6 +57,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.RUBY_SHOVEL.get());
                         pOutput.accept(ModItems.RUBY_AXE.get());
                         pOutput.accept(ModItems.RUBY_HOE.get());
+                        pOutput.accept(ModItems.RUBY_ARROW.get());
                         pOutput.accept(Items.DIAMOND);
                         pOutput.accept(Items.DIAMOND_BLOCK);
                         pOutput.accept(Items.DIAMOND_SWORD);
@@ -62,6 +65,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(Items.DIAMOND_SHOVEL);
                         pOutput.accept(Items.DIAMOND_AXE);
                         pOutput.accept(Items.DIAMOND_HOE);
+                        pOutput.accept(ModItems.DIAMOND_ARROW.get());
                         pOutput.accept(Items.DIAMOND_HELMET);
                         pOutput.accept(Items.DIAMOND_CHESTPLATE);
                         pOutput.accept(Items.DIAMOND_LEGGINGS);
@@ -73,6 +77,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.ONYX_SHOVEL.get());
                         pOutput.accept(ModItems.ONYX_AXE.get());
                         pOutput.accept(ModItems.ONYX_HOE.get());
+                        pOutput.accept(ModItems.ONYX_ARROW.get());
                         pOutput.accept(ModItems.ONYX_HELMET.get());
                         pOutput.accept(ModItems.ONYX_CHESTPLATE.get());
                         pOutput.accept(ModItems.ONYX_LEGGINGS.get());

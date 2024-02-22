@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_sapphire_pickaxe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sapphire_pickaxe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:sapphire_pickaxe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
