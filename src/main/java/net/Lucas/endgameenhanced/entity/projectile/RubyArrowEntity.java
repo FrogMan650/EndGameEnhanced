@@ -34,6 +34,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,6 +43,7 @@ import java.util.List;
 public class RubyArrowEntity extends AbstractArrow {
     private BlockState lastState;
     private double baseDamage;
+    protected boolean wasTouchingWater;
     private final IntOpenHashSet ignoredEntities = new IntOpenHashSet();
     private int life;
     private int knockback;
@@ -59,7 +61,7 @@ public class RubyArrowEntity extends AbstractArrow {
     }
 
     @Override
-    public ItemStack getPickupItem() {
+    public @NotNull ItemStack getPickupItem() {
         return new ItemStack(ModItems.RUBY_ARROW.get());
     }
 
@@ -71,9 +73,9 @@ public class RubyArrowEntity extends AbstractArrow {
     protected void onHitEntity(EntityHitResult pResult) {
         Entity entity = pResult.getEntity();
         float f = (float)this.getDeltaMovement().length();
-        float randomint = RandomSource.create().nextIntBetweenInclusive(3, 4);
+        float randomInt = RandomSource.create().nextIntBetweenInclusive(3, 4);
         float randomFloat = RandomSource.create().nextFloat();
-        float randomCombined = randomint+randomFloat;
+        float randomCombined = randomInt+randomFloat;
         int i = Mth.ceil(Mth.clamp((double)randomCombined * this.baseDamage, 0.0D, (double)Integer.MAX_VALUE));
         if (this.getPierceLevel() > 0) {
             if (this.piercingIgnoreEntityIds == null) {
@@ -179,14 +181,6 @@ public class RubyArrowEntity extends AbstractArrow {
         }
 
     }
-
-    public void deflect() {
-        float f = this.random.nextFloat() * 360.0F;
-        this.setDeltaMovement(this.getDeltaMovement().yRot(f * ((float)Math.PI / 180F)).scale(0.5D));
-        this.setYRot(this.getYRot() + f);
-        this.yRotO += f;
-    }
-
     public void tick() {
         boolean flag = this.isNoPhysics();
         Vec3 vec3 = this.getDeltaMovement();
@@ -197,9 +191,11 @@ public class RubyArrowEntity extends AbstractArrow {
             this.yRotO = this.getYRot();
             this.xRotO = this.getXRot();
         }
-
         BlockPos blockpos = this.blockPosition();
         BlockState blockstate = this.level().getBlockState(blockpos);
+        if (blockstate.is(Blocks.WATER)) {
+            wasTouchingWater = true;
+        }
         if (!blockstate.isAir() && !flag) {
             VoxelShape voxelshape = blockstate.getCollisionShape(this.level(), blockpos);
             if (!voxelshape.isEmpty()) {
@@ -292,146 +288,105 @@ public class RubyArrowEntity extends AbstractArrow {
             Level level = this.level();
             List<Entity> entityList = level.getEntities(player, this.getBoundingBox().inflate(5, 5, 5));
             Entity entityToAttack = null;
-            if (!this.isInWater()) {
-                for (Entity entity : entityList) {
-                    if (entity instanceof Mob) {
-                        if (entityToAttack == null) {
+            for (Entity entity : entityList) {
+                if (entity instanceof Mob) {
+                    if (entityToAttack == null) {
+                        entityToAttack = entity;
+                    } else {
+                        double distance = getDistanceToTarget(this, entity);
+                        if (distance < getDistanceToTarget(this, entityToAttack)) {
                             entityToAttack = entity;
-                        } else {
-                            double distance = getDistanceToTarget(this, entity);
-                            if (distance < getDistanceToTarget(this, entityToAttack)) {
-                                entityToAttack = entity;
-                            }
                         }
                     }
                 }
-                if (entityToAttack != null) {
-                    double entityToAttackX = entityToAttack.getX();
-                    double entityToAttackY = entityToAttack.getY();
-                    double entityToAttackZ = entityToAttack.getZ();
-                    double arrowX = this.getX();
-                    double arrowY = this.getY();
-                    double arrowZ = this.getZ();
-                    double arrowEntityDiffX = entityToAttackX-arrowX;
-                    double arrowEntityDiffY = entityToAttackY-arrowY;
-                    double arrowEntityDiffZ = entityToAttackZ-arrowZ;
-                    double d5 = arrowEntityDiffX*0.4;
-                    double d6 = arrowEntityDiffY*0.4;
-                    double d1 = arrowEntityDiffZ*0.4;
-                    this.setDeltaMovement(d5, d6, d1);
-                    if (this.isCritArrow()) {
-                        for(int i = 0; i < 4; ++i) {
-                            this.level().addParticle(ParticleTypes.CRIT, this.getX() + d5 * (double)i / 4.0D, this.getY() + d6 * (double)i / 4.0D, this.getZ() + d1 * (double)i / 4.0D, -d5, -d6 + 0.2D, -d1);
-                        }
+            }
+            if (entityToAttack != null && !this.wasTouchingWater) {
+                double d5 = (entityToAttack.getX()-this.getX())*0.25;
+                double d6 = (entityToAttack.getY()-this.getY())*0.25;
+                double d1 = (entityToAttack.getZ()-this.getZ())*0.25;
+                this.setDeltaMovement(d5, d6, d1);
+                if (this.isCritArrow()) {
+                    for(int i = 0; i < 4; ++i) {
+                        this.level().addParticle(ParticleTypes.CRIT, this.getX() + d5 * (double)i / 4.0D, this.getY() + d6 * (double)i / 4.0D, this.getZ() + d1 * (double)i / 4.0D, -d5, -d6 + 0.2D, -d1);
                     }
-                    double d7 = this.getX() + d5;
-                    double d2 = this.getY() + d6;
-                    double d3 = this.getZ() + d1;
-                    vec3 = this.getDeltaMovement();
-                    double d4 = vec3.horizontalDistance();
-                    if (flag) {
-                        this.setYRot((float)(Mth.atan2(-d5, -d1) * (double)(180F / (float)Math.PI)));
-                    } else {
-                        this.setYRot((float)(Mth.atan2(d5, d1) * (double)(180F / (float)Math.PI)));
-                    }
-
-                    this.setXRot((float)(Mth.atan2(d6, d4) * (double)(180F / (float)Math.PI)));
-                    this.setXRot(lerpRotation(this.xRotO, this.getXRot()));
-                    this.setYRot(lerpRotation(this.yRotO, this.getYRot()));
-                    float f = 0.99F;
-                    float f1 = 0.05F;
-                    if (this.isInWater()) {
-                        for(int j = 0; j < 4; ++j) {
-                            float f2 = 0.25F;
-                            this.level().addParticle(ParticleTypes.BUBBLE, d7 - d5 * 0.25D, d2 - d6 * 0.25D, d3 - d1 * 0.25D, d5, d6, d1);
-                        }
-
-                        f = this.getWaterInertia();
-                    }
-
-                    this.setDeltaMovement(vec3.scale((double)f));
-                    if (!this.isNoGravity() && !flag) {
-                        Vec3 vec34 = this.getDeltaMovement();
-                        this.setDeltaMovement(vec34.x, vec34.y - (double)0.05F, vec34.z);
-                    }
-
-                    this.setPos(d7, d2, d3);
-                    this.checkInsideBlocks();
-                } else {//ege end
-                    vec3 = this.getDeltaMovement();
-                    double d5 = vec3.x;
-                    double d6 = vec3.y;
-                    double d1 = vec3.z;
-                    if (this.isCritArrow()) {
-                        for(int i = 0; i < 4; ++i) {
-                            this.level().addParticle(ParticleTypes.CRIT, this.getX() + d5 * (double)i / 4.0D, this.getY() + d6 * (double)i / 4.0D, this.getZ() + d1 * (double)i / 4.0D, -d5, -d6 + 0.2D, -d1);
-                        }
-                    }
-
-                    double d7 = this.getX() + d5;
-                    double d2 = this.getY() + d6;
-                    double d3 = this.getZ() + d1;
-                    double d4 = vec3.horizontalDistance();
-                    if (flag) {
-                        this.setYRot((float)(Mth.atan2(-d5, -d1) * (double)(180F / (float)Math.PI)));
-                    } else {
-                        this.setYRot((float)(Mth.atan2(d5, d1) * (double)(180F / (float)Math.PI)));
-                    }
-
-                    this.setXRot((float)(Mth.atan2(d6, d4) * (double)(180F / (float)Math.PI)));
-                    this.setXRot(lerpRotation(this.xRotO, this.getXRot()));
-                    this.setYRot(lerpRotation(this.yRotO, this.getYRot()));
-                    float f = 0.99F;
-                    float f1 = 0.05F;
-                    if (this.isInWater()) {
-                        for(int j = 0; j < 4; ++j) {
-                            float f2 = 0.25F;
-                            this.level().addParticle(ParticleTypes.BUBBLE, d7 - d5 * 0.25D, d2 - d6 * 0.25D, d3 - d1 * 0.25D, d5, d6, d1);
-                        }
-
-                        f = this.getWaterInertia();
-                    }
-
-                    this.setDeltaMovement(vec3.scale((double)f));
-                    if (!this.isNoGravity() && !flag) {
-                        Vec3 vec34 = this.getDeltaMovement();
-                        this.setDeltaMovement(vec34.x, vec34.y - (double)0.05F, vec34.z);
-                    }
-
-                    this.setPos(d7, d2, d3);
-                    this.checkInsideBlocks();
                 }
+                double d7 = this.getX() + d5;
+                double d2 = this.getY() + d6;
+                double d3 = this.getZ() + d1;
+                vec3 = this.getDeltaMovement();
+                double d4 = vec3.horizontalDistance();
+                if (flag) {
+                    this.setYRot((float)(Mth.atan2(-d5, -d1) * (double)(180F / (float)Math.PI)));
+                } else {
+                    this.setYRot((float)(Mth.atan2(d5, d1) * (double)(180F / (float)Math.PI)));
+                }
+
+                this.setXRot((float)(Mth.atan2(d6, d4) * (double)(180F / (float)Math.PI)));
+                this.setXRot(lerpRotation(this.xRotO, this.getXRot()));
+                this.setYRot(lerpRotation(this.yRotO, this.getYRot()));
+                float f = 0.99F;
+                float f1 = 0.05F;
+                if (this.wasTouchingWater) {
+                    for(int j = 0; j < 4; ++j) {
+                        float f2 = 0.25F;
+                        this.level().addParticle(ParticleTypes.BUBBLE, d7 - d5 * 0.25D, d2 - d6 * 0.25D, d3 - d1 * 0.25D, d5, d6, d1);
+                    }
+                    f = this.getWaterInertia();
+                }
+
+                this.setDeltaMovement(vec3.scale((double)f));
+                if (!this.isNoGravity() && !flag) {
+                    Vec3 vec34 = this.getDeltaMovement();
+                    this.setDeltaMovement(vec34.x, vec34.y - (double)0.05F, vec34.z);
+                }
+
+                this.setPos(d7, d2, d3);
+                this.checkInsideBlocks();
+            } else {//ege end
+                vec3 = this.getDeltaMovement();
+                double d5 = vec3.x;
+                double d6 = vec3.y;
+                double d1 = vec3.z;
+                if (this.isCritArrow()) {
+                    for(int i = 0; i < 4; ++i) {
+                        this.level().addParticle(ParticleTypes.CRIT, this.getX() + d5 * (double)i / 4.0D, this.getY() + d6 * (double)i / 4.0D, this.getZ() + d1 * (double)i / 4.0D, -d5, -d6 + 0.2D, -d1);
+                    }
+                }
+
+                double d7 = this.getX() + d5;
+                double d2 = this.getY() + d6;
+                double d3 = this.getZ() + d1;
+                double d4 = vec3.horizontalDistance();
+                if (flag) {
+                    this.setYRot((float)(Mth.atan2(-d5, -d1) * (double)(180F / (float)Math.PI)));
+                } else {
+                    this.setYRot((float)(Mth.atan2(d5, d1) * (double)(180F / (float)Math.PI)));
+                }
+
+                this.setXRot((float)(Mth.atan2(d6, d4) * (double)(180F / (float)Math.PI)));
+                this.setXRot(lerpRotation(this.xRotO, this.getXRot()));
+                this.setYRot(lerpRotation(this.yRotO, this.getYRot()));
+                float f = 0.99F;
+                float f1 = 0.05F;
+                if (this.wasTouchingWater) {
+                    for(int j = 0; j < 4; ++j) {
+                        float f2 = 0.25F;
+                        this.level().addParticle(ParticleTypes.BUBBLE, d7 - d5 * 0.25D, d2 - d6 * 0.25D, d3 - d1 * 0.25D, d5, d6, d1);
+                    }
+                    f = this.getWaterInertia();
+                }
+
+                this.setDeltaMovement(vec3.scale((double)f));
+                if (!this.isNoGravity() && !flag) {
+                    Vec3 vec34 = this.getDeltaMovement();
+                    this.setDeltaMovement(vec34.x, vec34.y - (double)0.05F, vec34.z);
+                }
+
+                this.setPos(d7, d2, d3);
+                this.checkInsideBlocks();
             }
         }
     }
-
-//    @Override
-//    public void tick() {
-//        super.tick();
-//        Player player = (Player) this.getOwner();
-//        Level level = this.level();
-//        List<Entity> entityList = level.getEntities(player, this.getBoundingBox().inflate(10, 10, 10));
-//        Entity entityToAttack = null;
-//        if (!this.inGround) {
-//            player.sendSystemMessage(Component.literal(""+this.getDeltaMovement()));
-//            player.sendSystemMessage(Component.literal("X: "+this.getX()+" Y: "+this.getY()+" Z: "+this.getZ()));
-//            for (Entity entity : entityList) {
-//                if (entity instanceof Mob) {
-//                    if (entityToAttack == null) {
-//                        entityToAttack = entity;
-//                    } else {
-//                        double distance = getDistanceToTarget(this, entity);
-//                        if (distance < getDistanceToTarget(this, entityToAttack)) {
-//                            entityToAttack = entity;
-//                        }
-//                    }
-//                }
-//            }
-//            if (entityToAttack != null) {
-//                player.sendSystemMessage(Component.literal("" + entityToAttack.getType()));
-//            }
-//        }
-//    }
 
     private static double getDistanceToTarget(AbstractArrow abstractArrow, Entity entity) {
         //using the pythagorean theorem to find a line from the arrow to the mob from the list
@@ -444,6 +399,10 @@ public class RubyArrowEntity extends AbstractArrow {
         return Math.sqrt((triangleOne*triangleOne)+(diffY*diffY));
     }
 
+    protected float getWaterInertia() {
+        return 0.6F;
+    }
+
     private boolean shouldFall() {
         return this.inGround && this.level().noCollision((new AABB(this.position(), this.position())).inflate(0.06D));
     }
@@ -454,25 +413,4 @@ public class RubyArrowEntity extends AbstractArrow {
         this.setDeltaMovement(vec3.multiply((double)(this.random.nextFloat() * 0.2F), (double)(this.random.nextFloat() * 0.2F), (double)(this.random.nextFloat() * 0.2F)));
         this.life = 0;
     }
-
-    //    protected void onHit(HitResult pResult) {
-//        super.onHit(pResult);
-//        if (!this.level().isClientSide) {
-//            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 5.0F, false, Level.ExplosionInteraction.MOB);
-//            this.discard();
-//        }
-//
-//    }
-
-
-//    @Override
-//    protected void onHitBlock(BlockHitResult pResult) {
-//        super.onHitBlock(pResult);
-//        Entity player = this.getOwner();
-//        BlockPos blockHit = pResult.getBlockPos();
-//        Level level = player.level();
-//        if (level.getBlockState(blockHit.above(1)) == Blocks.AIR.defaultBlockState() && level.getBlockState(blockHit.above(2)) == Blocks.AIR.defaultBlockState()) {
-//            player.setPosRaw(blockHit.above().getX()+0.5, blockHit.above().getY(), blockHit.above().getZ()+0.5);
-//        }
-//    }
 }

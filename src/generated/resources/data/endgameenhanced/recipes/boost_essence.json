@@ -9,16 +9,10 @@
       "item": "minecraft:elytra"
     },
     "C": {
-      "type": "forge:nbt",
-      "item": "minecraft:potion",
-      "count": 1,
-      "nbt": "{Potion:\"minecraft:fire_resistance\"}"
+      "item": "minecraft:magma_cream"
     },
     "D": {
-      "type": "forge:nbt",
-      "item": "minecraft:potion",
-      "count": 1,
-      "nbt": "{Potion:\"minecraft:leaping\"}"
+      "item": "minecraft:rabbit_foot"
     }
   },
   "pattern": [
@@ -28,6 +22,5 @@
   ],
   "result": {
     "item": "endgameenhanced:boost_essence"
-  },
-  "show_notification": true
+  }
 }

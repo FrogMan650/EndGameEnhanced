@@ -6,6 +6,7 @@ import net.Lucas.endgameenhanced.entity.ModEntities;
 import net.Lucas.endgameenhanced.item.ModItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;

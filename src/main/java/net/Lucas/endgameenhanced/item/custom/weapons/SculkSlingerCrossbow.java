@@ -256,11 +256,13 @@ public class SculkSlingerCrossbow extends CrossbowItem {
 
                 //spawn warden ranged attack particles when you shoot
                 Vec3 playerEyes = player.getEyePosition();
-                for(int i = 1; i < 6; ++i) {
-                    double xxx = vec3.x()*(i+1);
-                    double yyy = vec3.y()*(i+1);
-                    double zzz = vec3.z()*(i+1);
-                    serverLevel.sendParticles(ParticleTypes.SONIC_BOOM, playerEyes.x+xxx, playerEyes.y+yyy, playerEyes.z+zzz, 1, 0.0D, 0.0D, 0.0D, 0.0D);
+                if (!pAmmoStack.is(ModItems.SCULK_SLINGER_ARROW.get())) {
+                    for(int i = 1; i < 6; ++i) {
+                        double xxx = vec3.x() * (i + 1);
+                        double yyy = vec3.y() * (i + 1);
+                        double zzz = vec3.z() * (i + 1);
+                        serverLevel.sendParticles(ParticleTypes.SONIC_BOOM, playerEyes.x + xxx, playerEyes.y + yyy, playerEyes.z + zzz, 1, 0.0D, 0.0D, 0.0D, 0.0D);
+                    }
                 }
             }
             //durability

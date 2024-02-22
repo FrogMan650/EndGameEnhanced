@@ -152,7 +152,6 @@ public class ModEvents {
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.END_BLADE.get())) {
                 damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 1, false, true, true));
             }
-            player.sendSystemMessage(Component.literal("damage: "+initialDamage));
         }
     }
 

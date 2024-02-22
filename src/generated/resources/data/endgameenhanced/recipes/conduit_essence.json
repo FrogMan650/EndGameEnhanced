@@ -9,10 +9,7 @@
       "item": "minecraft:elytra"
     },
     "C": {
-      "type": "forge:nbt",
-      "item": "minecraft:potion",
-      "count": 1,
-      "nbt": "{Potion:\"minecraft:fire_resistance\"}"
+      "item": "minecraft:magma_cream"
     },
     "D": {
       "item": "minecraft:heart_of_the_sea"
@@ -31,6 +28,5 @@
   ],
   "result": {
     "item": "endgameenhanced:conduit_essence"
-  },
-  "show_notification": true
+  }
 }
