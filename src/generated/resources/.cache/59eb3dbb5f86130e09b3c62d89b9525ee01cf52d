@@ -1,4 +1,7 @@
-// 1.20.4	2024-02-15T21:56:54.4240416	Loot Tables
+// 1.20.4	2024-02-22T22:46:00.5120369	Loot Tables
+fcd38947e5b337e62352883c83bbfdddafbd4b43 data/endgameenhanced/loot_tables/blocks/big_amethyst_block.json
+15c7c5846141fef5cea6190bebac40168c2d9df0 data/endgameenhanced/loot_tables/blocks/big_quartz_block.json
+63af49d62d68ef95a6a751155f9e498faabec8cc data/endgameenhanced/loot_tables/blocks/echo_block.json
 8eb926db562d1a62672c5c1822517e833f4bd962 data/endgameenhanced/loot_tables/blocks/gem_ore.json
 7253256e937896b29e675c487bf71b21a9068422 data/endgameenhanced/loot_tables/blocks/golden_melon.json
 a4bc53e024f700f5d971bcc50f8b4b4fe91d3980 data/endgameenhanced/loot_tables/blocks/jade_block.json

@@ -29,6 +29,12 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> ONYX_BLOCK = registerBlock("onyx_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
+    public static final RegistryObject<Block> BIG_QUARTZ_BLOCK = registerBlock("big_quartz_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
+    public static final RegistryObject<Block> BIG_AMETHYST_BLOCK = registerBlock("big_amethyst_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
+    public static final RegistryObject<Block> ECHO_BLOCK = registerBlock("echo_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> WHITE_PUMPKIN = registerBlock("white_pumpkin",
             () -> new PumpkinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN)));
     public static final RegistryObject<Block> GOLDEN_MELON = registerBlock("golden_melon",
@@ -36,6 +42,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> GEM_ORE = registerBlock("gem_ore",
             () -> new DropExperienceBlock(UniformInt.of(2, 5), BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_EMERALD_ORE)
                     .strength(4, 3).requiresCorrectToolForDrops()));
+
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

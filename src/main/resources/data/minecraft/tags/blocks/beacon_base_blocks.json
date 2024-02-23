@@ -6,6 +6,8 @@
     "minecraft:gold_block",
     "minecraft:iron_block",
     "endgameenhanced:ruby_block",
-    "endgameenhanced:onyx_block"
+    "endgameenhanced:onyx_block",
+    "endgameenhanced:echo_block",
+    "endgameenhanced:big_amethyst_block"
   ]
 }

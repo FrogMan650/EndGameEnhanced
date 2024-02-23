@@ -20,6 +20,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.JADE_BLOCK);
         blockWithItem(ModBlocks.RUBY_BLOCK);
         blockWithItem(ModBlocks.ONYX_BLOCK);
+        blockWithItem(ModBlocks.BIG_QUARTZ_BLOCK);
+        blockWithItem(ModBlocks.BIG_AMETHYST_BLOCK);
+        blockWithItem(ModBlocks.ECHO_BLOCK);
         blockWithItem(ModBlocks.GEM_ORE);
     }
 

@@ -93,6 +93,27 @@ public class ModCreativeModeTabs {
                         pOutput.accept(Items.NETHERITE_CHESTPLATE);
                         pOutput.accept(Items.NETHERITE_LEGGINGS);
                         pOutput.accept(Items.NETHERITE_BOOTS);
+                        pOutput.accept(Items.QUARTZ);
+                        pOutput.accept(ModBlocks.BIG_QUARTZ_BLOCK.get());
+                        pOutput.accept(ModItems.QUARTZ_SWORD.get());
+                        pOutput.accept(ModItems.QUARTZ_PICKAXE.get());
+                        pOutput.accept(ModItems.QUARTZ_SHOVEL.get());
+                        pOutput.accept(ModItems.QUARTZ_AXE.get());
+                        pOutput.accept(ModItems.QUARTZ_HOE.get());
+                        pOutput.accept(Items.AMETHYST_SHARD);
+                        pOutput.accept(ModBlocks.BIG_AMETHYST_BLOCK.get());
+                        pOutput.accept(ModItems.AMETHYST_SWORD.get());
+                        pOutput.accept(ModItems.AMETHYST_PICKAXE.get());
+                        pOutput.accept(ModItems.AMETHYST_SHOVEL.get());
+                        pOutput.accept(ModItems.AMETHYST_AXE.get());
+                        pOutput.accept(ModItems.AMETHYST_HOE.get());
+                        pOutput.accept(Items.ECHO_SHARD);
+                        pOutput.accept(ModBlocks.ECHO_BLOCK.get());
+                        pOutput.accept(ModItems.ECHO_SWORD.get());
+                        pOutput.accept(ModItems.ECHO_PICKAXE.get());
+                        pOutput.accept(ModItems.ECHO_SHOVEL.get());
+                        pOutput.accept(ModItems.ECHO_AXE.get());
+                        pOutput.accept(ModItems.ECHO_HOE.get());
                     }).build());
     public static final RegistryObject<CreativeModeTab> UNIQUE_MOB_DROP_TAB = CREATIVE_MODE_TABS.register("unique_mob_drop_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SMOULDERING_STONE.get()))

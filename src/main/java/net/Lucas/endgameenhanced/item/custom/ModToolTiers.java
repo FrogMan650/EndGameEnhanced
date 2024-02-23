@@ -42,6 +42,18 @@ public class ModToolTiers {
             new ForgeTier(5, 6969, 12F, 5F, 20,
                     ModTags.Blocks.NEEDS_INEVITABLE_TOOL, () -> Ingredient.of(Items.NETHERITE_INGOT)),
             new ResourceLocation(EndGameEnhanced.MOD_ID, "inevitable"), List.of(Tiers.NETHERITE), List.of());
+    public static final Tier QUARTZ = TierSortingRegistry.registerTier(
+            new ForgeTier(0, 35, 13F, 0F, 23,
+                    ModTags.Blocks.NEEDS_QUARTZ_TOOL, () -> Ingredient.of(Items.QUARTZ)),
+            new ResourceLocation(EndGameEnhanced.MOD_ID, "quartz"), List.of(Tiers.GOLD), List.of());
+    public static final Tier AMETHYST = TierSortingRegistry.registerTier(
+            new ForgeTier(0, 40, 15F, 1F, 24,
+                    ModTags.Blocks.NEEDS_AMETHYST_TOOL, () -> Ingredient.of(Items.AMETHYST_SHARD)),
+            new ResourceLocation(EndGameEnhanced.MOD_ID, "amethyst"), List.of(Tiers.GOLD), List.of());
+    public static final Tier ECHO = TierSortingRegistry.registerTier(
+            new ForgeTier(0, 50, 17F, 2F, 25,
+                    ModTags.Blocks.NEEDS_ECHO_TOOL, () -> Ingredient.of(Items.ECHO_SHARD)),
+            new ResourceLocation(EndGameEnhanced.MOD_ID, "echo"), List.of(Tiers.GOLD), List.of());
 
 
 

@@ -140,6 +140,42 @@ public class ModItems {
     public static final RegistryObject<Item> ONYX_HOE = ITEMS.register("onyx_hoe",
             () -> new HoeItem(ModToolTiers.ONYX, -3, 0, new Item.Properties()));
 
+    //quartz tools
+    public static final RegistryObject<Item> QUARTZ_SWORD = ITEMS.register("quartz_sword",
+            () -> new SwordItem(ModToolTiers.QUARTZ, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> QUARTZ_SHOVEL = ITEMS.register("quartz_shovel",
+            () -> new ShovelItem(ModToolTiers.QUARTZ, 1.5F, -3F, new Item.Properties()));
+    public static final RegistryObject<Item> QUARTZ_PICKAXE = ITEMS.register("quartz_pickaxe",
+            () -> new PickaxeItem(ModToolTiers.QUARTZ, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> QUARTZ_AXE = ITEMS.register("quartz_axe",
+            () -> new AxeItem(ModToolTiers.QUARTZ, 6, -3F, new Item.Properties()));
+    public static final RegistryObject<Item> QUARTZ_HOE = ITEMS.register("quartz_hoe",
+            () -> new HoeItem(ModToolTiers.QUARTZ, 0, -3F, new Item.Properties()));
+
+    //amethyst tools
+    public static final RegistryObject<Item> AMETHYST_SWORD = ITEMS.register("amethyst_sword",
+            () -> new SwordItem(ModToolTiers.AMETHYST, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> AMETHYST_SHOVEL = ITEMS.register("amethyst_shovel",
+            () -> new ShovelItem(ModToolTiers.AMETHYST, 1.5F, -3F, new Item.Properties()));
+    public static final RegistryObject<Item> AMETHYST_PICKAXE = ITEMS.register("amethyst_pickaxe",
+            () -> new PickaxeItem(ModToolTiers.AMETHYST, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> AMETHYST_AXE = ITEMS.register("amethyst_axe",
+            () -> new AxeItem(ModToolTiers.AMETHYST, 6, -3F, new Item.Properties()));
+    public static final RegistryObject<Item> AMETHYST_HOE = ITEMS.register("amethyst_hoe",
+            () -> new HoeItem(ModToolTiers.AMETHYST, 0, -3F, new Item.Properties()));
+
+    //echo tools
+    public static final RegistryObject<Item> ECHO_SWORD = ITEMS.register("echo_sword",
+            () -> new SwordItem(ModToolTiers.ECHO, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> ECHO_SHOVEL = ITEMS.register("echo_shovel",
+            () -> new ShovelItem(ModToolTiers.ECHO, 1.5F, -3F, new Item.Properties()));
+    public static final RegistryObject<Item> ECHO_PICKAXE = ITEMS.register("echo_pickaxe",
+            () -> new PickaxeItem(ModToolTiers.ECHO, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> ECHO_AXE = ITEMS.register("echo_axe",
+            () -> new AxeItem(ModToolTiers.ECHO, 6, -3F, new Item.Properties()));
+    public static final RegistryObject<Item> ECHO_HOE = ITEMS.register("echo_hoe",
+            () -> new HoeItem(ModToolTiers.ECHO, 0, -3F, new Item.Properties()));
+
     //jade tools
     public static final RegistryObject<Item> JADE_SWORD = ITEMS.register("jade_sword",
             () -> new SwordItem(ModToolTiers.JADE, 3, -2.4F, new Item.Properties()));

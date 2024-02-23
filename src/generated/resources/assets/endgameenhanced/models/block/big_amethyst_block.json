@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "endgameenhanced:block/big_amethyst_block"
+  }
+}

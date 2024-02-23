@@ -16,6 +16,9 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_ONYX_TOOL = tag("needs_onyx_tool");
         public static final TagKey<Block> NEEDS_JADE_TOOL = tag("needs_jade_tool");
         public static final TagKey<Block> NEEDS_OPAL_TOOL = tag("needs_opal_tool");
+        public static final TagKey<Block> NEEDS_AMETHYST_TOOL = tag("needs_amethyst_tool");
+        public static final TagKey<Block> NEEDS_QUARTZ_TOOL = tag("needs_quartz_tool");
+        public static final TagKey<Block> NEEDS_ECHO_TOOL = tag("needs_echo_tool");
         public static final TagKey<Block> NEEDS_INEVITABLE_TOOL = tag("needs_inevitable_tool");
         public static final TagKey<Block> INFERNAL_PICKAXE_MINEABLES = tag("infernal_pickaxe_mineables");
         public static final TagKey<Block> SANGUINE_SCYTHE_HOEABLES = tag("sanguine_scythe_hoeables");
