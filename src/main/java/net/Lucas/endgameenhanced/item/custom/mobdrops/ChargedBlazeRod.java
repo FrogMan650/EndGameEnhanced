@@ -21,15 +21,8 @@ public class ChargedBlazeRod extends Item {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
-        Component charged_blaze_rod_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:charged_blaze_rod_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component charged_blaze_rod_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:charged_blaze_rod_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-
-
-
+        Component charged_blaze_rod_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:charged_blaze_rod.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         pTooltipComponents.add(charged_blaze_rod_lore);
-//        pTooltipComponents.add(charged_blaze_rod_two);
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

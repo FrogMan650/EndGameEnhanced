@@ -33,6 +33,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
@@ -44,31 +45,19 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     public SculkSlingerCrossbow(Properties pProperties) {
         super(pProperties);
     }
-    private static final String TAG_CHARGED = "Charged";
-    private static final String TAG_CHARGED_PROJECTILES = "ChargedProjectiles";
-    private static final int MAX_CHARGE_DURATION = 25;
-    public static final int DEFAULT_RANGE = 8;
-    /** Set to {@code true} when the crossbow is 20% charged. */
     private boolean startSoundPlayed = false;
-    /** Set to {@code true} when the crossbow is 50% charged. */
     private boolean midLoadSoundPlayed = false;
-    private static final float START_SOUND_PERCENT = 0.2F;
-    private static final float MID_SOUND_PERCENT = 0.5F;
-    private static final float CROSSBOW_ARROW_POWER = 20F;
     private static final float FIREWORK_POWER = 1.6F;
     private static final float ARROW_POWER = 3.75F;
     private static final float DEFAULT_ARROW_POWER = 2.75F;
 
 
 
-    public Predicate<ItemStack> getSupportedHeldProjectiles() {
+    public @NotNull Predicate<ItemStack> getSupportedHeldProjectiles() {
         return ARROW_OR_FIREWORK;
     }
 
-    /**
-     * Get the predicate to match ammunition when searching the player's inventory, not their main/offhand
-     */
-    public Predicate<ItemStack> getAllSupportedProjectiles() {
+    public @NotNull Predicate<ItemStack> getAllSupportedProjectiles() {
         return ARROW_ONLY;
     }
 
@@ -97,9 +86,6 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         return containsChargedProjectile(pCrossbowStack, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
     }
 
-    /**
-     * Called when the player stops using an Item (stops holding the right mouse button).
-     */
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
         int i = this.getUseDuration(pStack) - pTimeLeft;
         float f = getPowerForTime(i, pStack);
@@ -342,9 +328,6 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         clearChargedProjectiles(pCrossbowStack);
     }
 
-    /**
-     * Called as the item is being used by an entity.
-     */
     public void onUseTick(Level pLevel, LivingEntity pLivingEntity, ItemStack pStack, int pCount) {
         if (!pLevel.isClientSide) {
             int i = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.QUICK_CHARGE, pStack);
@@ -368,27 +351,13 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         }
 
     }
-
-    /**
-     * How long it takes to use or consume an item
-     */
     public int getUseDuration(ItemStack pStack) {
         return getChargeDuration(pStack) + 3;
     }
 
-    /**
-     * The time the crossbow must be used to reload it
-     */
     public static int getChargeDuration(ItemStack pCrossbowStack) {
         int i = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.QUICK_CHARGE, pCrossbowStack);
         return i == 0 ? 25 : 25 - 5 * (i + 1);
-    }
-
-    /**
-     * Returns the action that specifies what animation to play when the item is being used.
-     */
-    public UseAnim getUseAnimation(ItemStack pStack) {
-        return UseAnim.CROSSBOW;
     }
 
     private SoundEvent getStartSound(int pEnchantmentLevel) {
@@ -413,14 +382,6 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         return f;
     }
 
-
-    /**
-     * If this stack's item is a crossbow
-     */
-    public boolean useOnRelease(ItemStack pStack) {
-        return pStack.is(this);
-    }
-
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
@@ -428,32 +389,35 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
         final ChatFormatting AQUA_TEXT = ChatFormatting.DARK_AQUA;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
-        Component sculkslinger_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:sculkslinger_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component sculkslinger_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:sculkslinger_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        Component sculk_slinger_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:sculk_slinger.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        pTooltipComponents.add(sculk_slinger_lore);
 
-        Component sculkslinger_stats_header_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:sculkslinger_lore.grey_text_arrow"))).withStyle(GREY_TEXT);
-        Component sculkslinger_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:sculkslinger_lore.green_text_arrow"))).withStyle(GREEN_TEXT);
-        Component sculkslinger_stats_arrow_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:sculkslinger_lore.green_text_arrow_two"))).withStyle(GREEN_TEXT);
-        Component sculkslinger_stats_arrow_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:sculkslinger_lore.green_text_arrow_three"))).withStyle(GREEN_TEXT);
-        Component sculkslinger_stats_arrow_four = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:sculkslinger_lore.green_text_arrow_four"))).withStyle(GREEN_TEXT);
-        Component sculkslinger_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:sculkslinger_lore.green_text_arrow_five"))).withStyle(AQUA_TEXT);
-        pTooltipComponents.add(sculkslinger_lore);
-        pTooltipComponents.add(sculkslinger_lore_two);
-        pTooltipComponents.add(sculkslinger_stats_header_arrow);
-        pTooltipComponents.add(sculkslinger_stats_arrow);
-        pTooltipComponents.add(sculkslinger_stats_arrow_two);
-        pTooltipComponents.add(sculkslinger_stats_arrow_three);
-        pTooltipComponents.add(sculkslinger_stats_arrow_four);
-        pTooltipComponents.add(sculkslinger_stats_arrow_five);
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+        Component sculk_slinger_space = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.space"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        pTooltipComponents.add(sculk_slinger_space);
+
+        Component sculk_slinger_arrow = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:sculk_slinger.arrow"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(sculk_slinger_arrow);
+
+        Component sculk_slinger_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:sculk_slinger.damage"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(sculk_slinger_damage);
+
+        Component sculk_slinger_ammo = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:sculk_slinger.ammo"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(sculk_slinger_ammo);
+
+        Component sculk_slinger_charge = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:sculk_slinger.charge"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(sculk_slinger_charge);
+
+        pTooltipComponents.add(sculk_slinger_space);
+
+        Component sculk_slinger_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:sculk_slinger.trait"))).withStyle(AQUA_TEXT);
+        pTooltipComponents.add(sculk_slinger_trait);
     }
 
 }

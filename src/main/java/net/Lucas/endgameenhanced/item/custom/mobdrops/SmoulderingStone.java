@@ -21,16 +21,8 @@ public class SmoulderingStone extends Item {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
-        Component smouldering_stone_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:smouldering_stone_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component smouldering_stone_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:smouldering_stone_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-
-
-
-
+        Component smouldering_stone_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:smouldering_stone.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         pTooltipComponents.add(smouldering_stone_lore);
-//        pTooltipComponents.add(smouldering_stone_lore_two);
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

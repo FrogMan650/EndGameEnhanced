@@ -20,6 +20,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -98,7 +99,7 @@ public class WebweaverBow extends BowItem {
         }
     }
 
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         pPlayer.startUsingItem(pHand);
         return InteractionResultHolder.consume(itemstack);
@@ -144,39 +145,40 @@ public class WebweaverBow extends BowItem {
         final ChatFormatting WHITE_TEXT = ChatFormatting.DARK_GRAY;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         int bowPower = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.POWER_ARROWS, pStack);
-        int bowDamage = (bowPower*2) + 25;
-        String damageTranslation = "endgameenhanced:webweaver_lore.green_text_arrow."+ bowDamage;
-        Component webweaver_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:webweaver_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component webweaver_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:webweaver_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        String damageTranslation = "endgameenhanced:webweaver.damage."+ bowPower;
 
-        Component webweaver_stats_header_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:webweaver_lore.grey_text_arrow"))).withStyle(GREY_TEXT);
-
-        Component webweaver_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                (damageTranslation))).withStyle(GREEN_TEXT);
-
-        Component webweaver_stats_arrow_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:webweaver_lore.green_text_arrow_two"))).withStyle(GREEN_TEXT);
-        Component webweaver_stats_arrow_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:webweaver_lore.green_text_arrow_three"))).withStyle(GREEN_TEXT);
-        Component webweaver_stats_arrow_four = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:webweaver_lore.green_text_arrow_four"))).withStyle(GREEN_TEXT);
-        Component webweaver_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:webweaver_lore.green_text_arrow_five"))).withStyle(GREEN_TEXT);
-        Component webweaver_stats_arrow_six = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:webweaver_lore.green_text_arrow_six"))).withStyle(WHITE_TEXT);
-
+        Component webweaver_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:webweaver.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         pTooltipComponents.add(webweaver_lore);
-        pTooltipComponents.add(webweaver_lore_two);
-        pTooltipComponents.add(webweaver_stats_header_arrow);
-        pTooltipComponents.add(webweaver_stats_arrow);
-        pTooltipComponents.add(webweaver_stats_arrow_two);
-        pTooltipComponents.add(webweaver_stats_arrow_three);
-        pTooltipComponents.add(webweaver_stats_arrow_four);
-        pTooltipComponents.add(webweaver_stats_arrow_five);
-        pTooltipComponents.add(webweaver_stats_arrow_six);
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+
+        Component webweaver_space = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.space"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        pTooltipComponents.add(webweaver_space);
+
+        Component webweaver_drawn = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:webweaver.drawn"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(webweaver_drawn);
+
+        Component webweaver_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                (damageTranslation))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(webweaver_damage);
+
+        Component webweaver_ammo_save = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:webweaver.ammo_save"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(webweaver_ammo_save);
+
+        Component webweaver_accuracy = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.weapon.accuracy"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(webweaver_accuracy);
+
+        Component webweaver_velocity = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:webweaver.velocity"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(webweaver_velocity);
+
+        pTooltipComponents.add(webweaver_space);
+
+        Component webweaver_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:webweaver.trait"))).withStyle(WHITE_TEXT);
+        pTooltipComponents.add(webweaver_trait);
     }
 }

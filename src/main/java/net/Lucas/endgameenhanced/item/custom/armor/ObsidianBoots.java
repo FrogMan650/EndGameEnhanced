@@ -1,7 +1,6 @@
 package net.Lucas.endgameenhanced.item.custom.armor;
 
 import net.Lucas.endgameenhanced.item.ModItems;
-import net.Lucas.endgameenhanced.item.custom.CustomArmorItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
@@ -11,6 +10,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -19,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ObsidianBoots extends CustomArmorItem {
+public class ObsidianBoots extends ArmorItem {
     public ObsidianBoots(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
         super(pMaterial, pType, pProperties);
     }
@@ -50,57 +50,52 @@ public class ObsidianBoots extends CustomArmorItem {
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting BLUE_TEXT = ChatFormatting.BLUE;
-        Component obsidian_boots_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component obsidian_boots_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-
-        Component obsidian_boots_stats_header_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.grey_text_arrow"))).withStyle(GREY_TEXT);
-
-        Component obsidian_boots_stats_arrow_seven = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.green_text_arrow_seven"))).withStyle(BLUE_TEXT);
-        Component obsidian_boots_stats_arrow_eight = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.green_text_arrow_eight"))).withStyle(BLUE_TEXT);
-        Component obsidian_boots_stats_arrow_nine = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.green_text_arrow_nine"))).withStyle(BLUE_TEXT);
-        Component obsidian_boots_stats_arrow_ten = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.green_text_arrow_ten"))).withStyle(BLUE_TEXT);
-        Component obsidian_boots_stats_arrow_eleven = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.green_text_arrow_eleven"))).withStyle(BLUE_TEXT);
-        Component obsidian_boots_stats_arrow_fifteen = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.green_text_arrow_fifteen"))).withStyle(BLUE_TEXT);
-
-
-        Component obsidian_boots_stats_header_arrow_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.grey_text_arrow_two"))).withStyle(GREY_TEXT);
-
-        Component obsidian_boots_stats_arrow_twelve = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.green_text_arrow_twelve"))).withStyle(BLUE_TEXT);
-        Component obsidian_boots_stats_arrow_thirteen = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.green_text_arrow_thirteen"))).withStyle(BLUE_TEXT);
-        Component obsidian_boots_stats_arrow_fourteen = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.green_text_arrow_fourteen"))).withStyle(BLUE_TEXT);
-        Component obsidian_boots_stats_arrow_sixteen = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:obsidian_boots_lore.green_text_arrow_sixteen"))).withStyle(BLUE_TEXT);
-
-
-
-
-
+        Component obsidian_boots_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:obsidian_boots.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         pTooltipComponents.add(obsidian_boots_lore);
-        pTooltipComponents.add(obsidian_boots_lore_two);
-        pTooltipComponents.add(obsidian_boots_stats_header_arrow);
-        pTooltipComponents.add(obsidian_boots_stats_arrow_seven);
-        pTooltipComponents.add(obsidian_boots_stats_arrow_eight);
-        pTooltipComponents.add(obsidian_boots_stats_arrow_nine);
-        pTooltipComponents.add(obsidian_boots_stats_arrow_ten);
-//        pTooltipComponents.add(obsidian_boots_stats_arrow_eleven);
-        pTooltipComponents.add(obsidian_boots_stats_arrow_fifteen);
-        pTooltipComponents.add(obsidian_boots_stats_header_arrow_two);
-        pTooltipComponents.add(obsidian_boots_stats_arrow_twelve);
-        pTooltipComponents.add(obsidian_boots_stats_arrow_thirteen);
-        pTooltipComponents.add(obsidian_boots_stats_arrow_fourteen);
-        pTooltipComponents.add(obsidian_boots_stats_arrow_sixteen);
+
+        Component obsidian_boots_space = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.space"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        pTooltipComponents.add(obsidian_boots_space);
+
+        Component obsidian_boots_equipped = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.armor.equipped"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(obsidian_boots_equipped);
+
+        Component obsidian_boots_armor_value = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:obsidian_boots.armor_value"))).withStyle(BLUE_TEXT);
+        pTooltipComponents.add(obsidian_boots_armor_value);
+
+        Component obsidian_boots_armor_toughness = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.armor.armor_toughness"))).withStyle(BLUE_TEXT);
+        pTooltipComponents.add(obsidian_boots_armor_toughness);
+
+        Component obsidian_boots_knockback_res = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.armor.knockback_res"))).withStyle(BLUE_TEXT);
+        pTooltipComponents.add(obsidian_boots_knockback_res);
+
+        Component obsidian_boots_speed = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:obsidian_boots.speed"))).withStyle(BLUE_TEXT);
+        pTooltipComponents.add(obsidian_boots_speed);
+
+        pTooltipComponents.add(obsidian_boots_space);
+
+        Component obsidian_boots_set_bonus = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.armor.set_bonus"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(obsidian_boots_set_bonus);
+
+        Component obsidian_boots_fire_res = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.armor.fire_res"))).withStyle(BLUE_TEXT);
+        pTooltipComponents.add(obsidian_boots_fire_res);
+
+        Component obsidian_boots_res = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.armor.res"))).withStyle(BLUE_TEXT);
+        pTooltipComponents.add(obsidian_boots_res);
+
+        Component obsidian_boots_elytra_flight = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.armor.elytra_flight"))).withStyle(BLUE_TEXT);
+        pTooltipComponents.add(obsidian_boots_elytra_flight);
+
+        pTooltipComponents.add(obsidian_boots_space);
     }
 }

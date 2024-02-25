@@ -34,14 +34,13 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class TideBreakerTrident extends TridentItem {
-    public static final int THROW_THRESHOLD_TIME = 10;
     public static final float BASE_DAMAGE = 9.0F;
-    public static final float SHOOT_POWER = 2.5F;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
     public TideBreakerTrident(Properties pProperties) {
         super(pProperties);
@@ -121,15 +120,7 @@ public class TideBreakerTrident extends TridentItem {
         }
     }
 
-    public int getUseDuration(ItemStack pStack) {
-        return 72000;
-    }
-
-    public UseAnim getUseAnimation(ItemStack pStack) {
-        return UseAnim.SPEAR;
-    }
-
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
+    public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
         return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
     }
 
@@ -140,10 +131,6 @@ public class TideBreakerTrident extends TridentItem {
         return true;
     }
 
-    /**
-     * Called when a {@link net.minecraft.world.level.block.Block} is destroyed using this Item. Return {@code true} to
-     * trigger the "Use Item" statistic.
-     */
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
         if ((double)pState.getDestroySpeed(pLevel, pPos) != 0.0D) {
             pStack.hurtAndBreak(0, pEntityLiving, (p_43385_) -> {
@@ -164,46 +151,52 @@ public class TideBreakerTrident extends TridentItem {
         int tridentPower = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.IMPALING, pStack);
         double tridentThrownDamage = (tridentPower*2.5) + 25;
         double tridentMeleeDamage = (tridentPower*2.5) + 16;
-        String thrownDamageTranslation = "endgameenhanced:tide_breaker_lore.green_text_arrow.thrown."+ tridentThrownDamage;
-        String meleeDamageTranslation = "endgameenhanced:tide_breaker_lore.green_text_arrow.melee."+ tridentMeleeDamage;
-        Component tide_breaker_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:tide_breaker_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component tide_breaker_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:tide_breaker_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component tide_breaker_stats_header_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:tide_breaker_lore.grey_text_arrow"))).withStyle(GREY_TEXT);
-        Component tide_breaker_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                (thrownDamageTranslation))).withStyle(GREEN_TEXT);
-        Component tide_breaker_stats_arrow_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:tide_breaker_lore.green_text_arrow_two"))).withStyle(GREEN_TEXT);
-        Component tide_breaker_stats_arrow_three = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:tide_breaker_lore.green_text_arrow_three"))).withStyle(GREEN_TEXT);
-        Component tide_breaker_stats_arrow_four = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:tide_breaker_lore.green_text_arrow_four"))).withStyle(GREEN_TEXT);
-        Component tide_breaker_stats_header_arrow_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:tide_breaker_lore.grey_text_arrow_two"))).withStyle(GREY_TEXT);
-        Component tide_breaker_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                (meleeDamageTranslation))).withStyle(GREEN_TEXT);
-        Component tide_breaker_stats_arrow_six = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:tide_breaker_lore.green_text_arrow_six"))).withStyle(GREEN_TEXT);
-        Component tide_breaker_stats_arrow_seven = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:tide_breaker_lore.green_text_arrow_seven"))).withStyle(GREEN_TEXT);
-        Component tide_breaker_stats_arrow_eight = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:tide_breaker_lore.green_text_arrow_eight"))).withStyle(BLUE_TEXT);
-
-
+        String thrownDamageTranslation = "endgameenhanced:tide_breaker.thrown_damage."+ tridentThrownDamage;
+        String meleeDamageTranslation = "endgameenhanced:tide_breaker.melee_damage."+ tridentMeleeDamage;
+        Component tide_breaker_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:tide_breaker.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         pTooltipComponents.add(tide_breaker_lore);
-        pTooltipComponents.add(tide_breaker_lore_two);
-        pTooltipComponents.add(tide_breaker_stats_header_arrow);
-        pTooltipComponents.add(tide_breaker_stats_arrow);
-        pTooltipComponents.add(tide_breaker_stats_arrow_two);
-        pTooltipComponents.add(tide_breaker_stats_arrow_three);
-        pTooltipComponents.add(tide_breaker_stats_arrow_four);
-        pTooltipComponents.add(tide_breaker_stats_header_arrow_two);
-        pTooltipComponents.add(tide_breaker_stats_arrow_five);
-        pTooltipComponents.add(tide_breaker_stats_arrow_six);
-        pTooltipComponents.add(tide_breaker_stats_arrow_seven);
-        pTooltipComponents.add(tide_breaker_stats_arrow_eight);
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+
+        Component tide_breaker_space = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.space"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        pTooltipComponents.add(tide_breaker_space);
+
+        Component tide_breaker_thrown = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.weapon.thrown"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(tide_breaker_thrown);
+
+        Component tide_breaker_thrown_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                (thrownDamageTranslation))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(tide_breaker_thrown_damage);
+
+        Component tide_breaker_accuracy = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.weapon.accuracy"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(tide_breaker_accuracy);
+
+        Component tide_breaker_velocity = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:tide_breaker.velocity"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(tide_breaker_velocity);
+
+        Component tide_breaker_charge = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:tide_breaker.charge"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(tide_breaker_charge);
+
+        Component tide_breaker_melee = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.weapon.melee"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(tide_breaker_melee);
+
+        Component tide_breaker_melee_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                (meleeDamageTranslation))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(tide_breaker_melee_damage);
+
+        Component tide_breaker_attack_speed = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.weapon.attack_speed_1.6"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(tide_breaker_attack_speed);
+
+        pTooltipComponents.add(tide_breaker_space);
+
+        Component tide_breaker_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:tide_breaker.trait"))).withStyle(BLUE_TEXT);
+        pTooltipComponents.add(tide_breaker_trait);
     }
 }

@@ -2,18 +2,12 @@ package net.Lucas.endgameenhanced.event;
 
 import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.Lucas.endgameenhanced.block.ModBlocks;
-import net.Lucas.endgameenhanced.entity.client.ObsidianElytraLayer;
-import net.Lucas.endgameenhanced.entity.client.ObsidianElytraModel;
 import net.Lucas.endgameenhanced.item.ModItems;
 import net.Lucas.endgameenhanced.blockFacing.PlayerBlockFacing;
 import net.Lucas.endgameenhanced.blockFacing.PlayerBlockFacingProvider;
 import net.Lucas.endgameenhanced.toolChange.PlayerToolChange;
 import net.Lucas.endgameenhanced.toolChange.PlayerToolChangeProvider;
 import net.Lucas.endgameenhanced.util.ModTags;
-import net.minecraft.client.model.PlayerModel;
-import net.minecraft.client.model.geom.EntityModelSet;
-import net.minecraft.client.renderer.entity.LivingEntityRenderer;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -24,20 +18,14 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.animal.Cow;
-import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -146,10 +134,10 @@ public class ModEvents {
                     }
                 }
             }
-            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.NETHER_BLADE.get())) {
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.NETHERRATH.get())) {
                 damagedMob.setSecondsOnFire(15);
             }
-            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.END_BLADE.get())) {
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.VOIDWAKER.get())) {
                 damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 1, false, true, true));
             }
         }
@@ -169,8 +157,8 @@ public class ModEvents {
     @SubscribeEvent
     public static void endGameEnhancedChangeTooltipComponents(ItemTooltipEvent event) {
         final List<Component> tooltipElements = event.getToolTip();
-        if (event.getItemStack().is(ModItems.SCULK_BLADE.get()) || event.getItemStack().is(ModItems.NETHER_BLADE.get())
-                || event.getItemStack().is(ModItems.END_BLADE.get()) || event.getItemStack().is(ModItems.TIDE_BREAKER.get())
+        if (event.getItemStack().is(ModItems.SCULK_BRINGER.get()) || event.getItemStack().is(ModItems.NETHERRATH.get())
+                || event.getItemStack().is(ModItems.VOIDWAKER.get()) || event.getItemStack().is(ModItems.TIDE_BREAKER.get())
                 || event.getItemStack().is(ModItems.LEVIATHANS_AXE.get()) || event.getItemStack().is(ModItems.SCYTHE_OF_VITUR.get())
                 || event.getItemStack().is(ModItems.UNKEMPT_HAROLD.get()) || event.getItemStack().is(ModItems.INFERNAL_PICKAXE.get())) {
             if (!event.getFlags().isAdvanced()) {
@@ -480,7 +468,7 @@ public class ModEvents {
             }
         });
 
-        if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.SCULK_BLADE.get()) {
+        if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.SCULK_BRINGER.get()) {
             if (blockState.getBlock() == Blocks.SCULK_SENSOR || blockState.getBlock() == Blocks.SCULK_SHRIEKER) {
                 BlockEntity blockentity = blockState.hasBlockEntity() ? level.getBlockEntity(blockPos) : null;
                 ItemStack useHoe = new ItemStack(ModItems.SCYTHE_OF_VITUR.get());

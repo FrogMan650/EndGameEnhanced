@@ -85,7 +85,7 @@ public class ScytheOfVitur extends HoeItem {
     }
 
     @Override
-    public net.minecraft.world.InteractionResult interactLivingEntity(ItemStack stack, net.minecraft.world.entity.player.Player playerIn, LivingEntity entity, net.minecraft.world.InteractionHand hand) {
+    public @NotNull InteractionResult interactLivingEntity(ItemStack stack, net.minecraft.world.entity.player.Player playerIn, LivingEntity entity, net.minecraft.world.InteractionHand hand) {
         if (entity instanceof net.minecraftforge.common.IForgeShearable target) {//shears
             if (entity.level().isClientSide) return net.minecraft.world.InteractionResult.SUCCESS;
             BlockPos pos = BlockPos.containing(entity.position());
@@ -104,7 +104,7 @@ public class ScytheOfVitur extends HoeItem {
         return net.minecraft.world.InteractionResult.PASS;
     }
 
-    public InteractionResult useOn(UseOnContext pContext) {
+    public @NotNull InteractionResult useOn(UseOnContext pContext) {
         ItemStack itemInHand = pContext.getItemInHand();
         Player player = pContext.getPlayer();
         Level level = pContext.getLevel();
@@ -224,28 +224,30 @@ public class ScytheOfVitur extends HoeItem {
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
-        Component scythe_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:scythe_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component scythe_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:scythe_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component scythe_stats_header_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:scythe_lore.grey_text_arrow"))).withStyle(GREY_TEXT);
-        Component scythe_stats_arrow_seven = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:scythe_lore.green_text_arrow_seven"))).withStyle(GREEN_TEXT);
-        Component scythe_stats_arrow_eight = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:scythe_lore.green_text_arrow_eight"))).withStyle(GREEN_TEXT);
-        Component scythe_stats_arrow_nine = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:scythe_lore.green_text_arrow_nine"))).withStyle(GREEN_TEXT);
-        Component scythe_stats_arrow_ten = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:scythe_lore.green_text_arrow_ten"))).withStyle(RED_TEXT);
-
+        Component scythe_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:scythe.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         pTooltipComponents.add(scythe_lore);
-        pTooltipComponents.add(scythe_lore_two);
-        pTooltipComponents.add(scythe_stats_header_arrow);
-        pTooltipComponents.add(scythe_stats_arrow_seven);
-        pTooltipComponents.add(scythe_stats_arrow_eight);
-        pTooltipComponents.add(scythe_stats_arrow_nine);
-        pTooltipComponents.add(scythe_stats_arrow_ten);
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+
+        Component scythe_space = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.space"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        pTooltipComponents.add(scythe_space);
+
+        Component scythe_main_hand = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.weapon.main_hand"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(scythe_main_hand);
+
+        Component scythe_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:scythe.damage"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(scythe_damage);
+
+        Component scythe_attack_speed = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.weapon.attack_speed_1"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(scythe_attack_speed);
+
+        pTooltipComponents.add(scythe_space);
+
+        Component scythe_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:scythe.trait"))).withStyle(RED_TEXT);
+        pTooltipComponents.add(scythe_trait);
     }
 }

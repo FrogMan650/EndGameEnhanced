@@ -54,9 +54,4 @@ public class ModToolTiers {
             new ForgeTier(0, 50, 17F, 2F, 25,
                     ModTags.Blocks.NEEDS_ECHO_TOOL, () -> Ingredient.of(Items.ECHO_SHARD)),
             new ResourceLocation(EndGameEnhanced.MOD_ID, "echo"), List.of(Tiers.GOLD), List.of());
-
-
-
-
-
 }

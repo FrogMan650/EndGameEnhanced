@@ -1,11 +1,11 @@
-package net.Lucas.endgameenhanced.item.custom;
+package net.Lucas.endgameenhanced.item.custom.smithing_templates;
 
-import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.SmithingTemplateItem;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -84,13 +84,6 @@ public class CustomSmithingTemplateItem extends SmithingTemplateItem {
     private static final ResourceLocation EMPTY_SLOT_SWORD = new ResourceLocation("item/empty_slot_sword");
     private static final ResourceLocation EMPTY_SLOT_SHOVEL = new ResourceLocation("item/empty_slot_shovel");
     private static final ResourceLocation EMPTY_SLOT_PICKAXE = new ResourceLocation("item/empty_slot_pickaxe");
-    private static final ResourceLocation EMPTY_SLOT_INGOT = new ResourceLocation("item/empty_slot_ingot");
-    private static final ResourceLocation EMPTY_SLOT_REDSTONE_DUST = new ResourceLocation("item/empty_slot_redstone_dust");
-    private static final ResourceLocation EMPTY_SLOT_QUARTZ = new ResourceLocation("item/empty_slot_quartz");
-    private static final ResourceLocation EMPTY_SLOT_EMERALD = new ResourceLocation("item/empty_slot_emerald");
-    private static final ResourceLocation EMPTY_SLOT_DIAMOND = new ResourceLocation("item/empty_slot_diamond");
-    private static final ResourceLocation EMPTY_SLOT_LAPIS_LAZULI = new ResourceLocation("item/empty_slot_lapis_lazuli");
-    private static final ResourceLocation EMPTY_SLOT_AMETHYST_SHARD = new ResourceLocation("item/empty_slot_amethyst_shard");
     private static final ResourceLocation EMPTY_SLOT_ESSENCE = new ResourceLocation("endgameenhanced:item/empty_essence");
     private static final ResourceLocation EMPTY_SLOT_CROSSBOW = new ResourceLocation("endgameenhanced:item/empty_crossbow");
     private static final ResourceLocation EMPTY_SLOT_BOW = new ResourceLocation("endgameenhanced:item/empty_bow");
@@ -219,7 +212,7 @@ public class CustomSmithingTemplateItem extends SmithingTemplateItem {
     }
 
     @Override
-    public String getDescriptionId() {
+    public @NotNull String getDescriptionId() {
         return DESCRIPTION_ID;
     }
 }

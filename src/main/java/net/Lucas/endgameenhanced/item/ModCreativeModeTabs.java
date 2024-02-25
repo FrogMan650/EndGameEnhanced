@@ -146,7 +146,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.FLAWLESS_ENDER_PEARL.get());
                         pOutput.accept(ModItems.ELDER_GUARDIAN_SPIKE.get());
                         pOutput.accept(ModItems.RITUAL_BOOK.get());
-                        pOutput.accept(ModItems.AXE_HILT.get());
+                        pOutput.accept(ModItems.AXE_HEAD.get());
                         pOutput.accept(ModItems.RAVAGER_HORN.get());
                         pOutput.accept(ModItems.BROKEN_AXE.get());
                         pOutput.accept(ModItems.SENSOR_TENDRIL.get());
@@ -231,12 +231,12 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.PURE_RESISTANT_ESSENCE.get());
                     }).build());
     public static final RegistryObject<CreativeModeTab> INEVITABLE_TAB = CREATIVE_MODE_TABS.register("inevitable_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.NETHER_BLADE.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.NETHERRATH.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.inevitable_tab"))
                     .displayItems((pParameters, pOutput) -> {
-                        pOutput.accept(ModItems.NETHER_BLADE.get());
-                        pOutput.accept(ModItems.END_BLADE.get());
-                        pOutput.accept(ModItems.SCULK_BLADE.get());
+                        pOutput.accept(ModItems.NETHERRATH.get());
+                        pOutput.accept(ModItems.VOIDWAKER.get());
+                        pOutput.accept(ModItems.SCULK_BRINGER.get());
                         pOutput.accept(ModItems.WEBWEAVER_BOW.get());
                         pOutput.accept(ModItems.SCULK_SLINGER.get());
                         pOutput.accept(ModItems.TIDE_BREAKER.get());

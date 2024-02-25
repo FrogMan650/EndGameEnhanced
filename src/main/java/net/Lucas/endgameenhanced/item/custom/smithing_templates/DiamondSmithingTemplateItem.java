@@ -1,10 +1,11 @@
-package net.Lucas.endgameenhanced.item.custom;
+package net.Lucas.endgameenhanced.item.custom.smithing_templates;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.SmithingTemplateItem;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class DiamondSmithingTemplateItem extends SmithingTemplateItem {
     }
 
     @Override
-    public String getDescriptionId() {
+    public @NotNull String getDescriptionId() {
         return DESCRIPTION_ID;
     }
 }

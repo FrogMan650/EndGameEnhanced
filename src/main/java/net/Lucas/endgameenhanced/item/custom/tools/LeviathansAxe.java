@@ -34,16 +34,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
 
 public class LeviathansAxe extends AxeItem {
-    //trident
-    public static final int THROW_THRESHOLD_TIME = 10;
-    public static final float BASE_DAMAGE = 8.0F;
-    public static final float SHOOT_POWER = 2.5F;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public LeviathansAxe(Tier pTier, float pAttackDamageModifier, float pAttackSpeedModifier, Item.Properties pProperties) {
@@ -53,11 +50,10 @@ public class LeviathansAxe extends AxeItem {
         builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -3.0F, AttributeModifier.Operation.ADDITION));
         this.defaultModifiers = builder.build();
     }
-    //TridentItem Start
     public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
         return !pPlayer.isCreative();
     }
-    public UseAnim getUseAnimation(ItemStack pStack) {
+    public @NotNull UseAnim getUseAnimation(ItemStack pStack) {
         return UseAnim.SPEAR;
     }
 
@@ -65,9 +61,6 @@ public class LeviathansAxe extends AxeItem {
         return 72000;
     }
 
-    /**
-     * Called when the player stops using an Item (stops holding the right mouse button).
-     */
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
         if (pEntityLiving instanceof Player player) {
             int i = this.getUseDuration(pStack) - pTimeLeft;
@@ -129,7 +122,7 @@ public class LeviathansAxe extends AxeItem {
         }
     }
 
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         if (itemstack.getDamageValue() >= itemstack.getMaxDamage() - 1) {
             return InteractionResultHolder.fail(itemstack);
@@ -141,10 +134,6 @@ public class LeviathansAxe extends AxeItem {
         }
     }
 
-    /**
-     * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise
-     * the damage on the stack.
-     */
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
         pStack.hurtAndBreak(0, pAttacker, (p_43414_) -> {
             p_43414_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
@@ -152,10 +141,6 @@ public class LeviathansAxe extends AxeItem {
         return true;
     }
 
-    /**
-     * Called when a {@link net.minecraft.world.level.block.Block} is destroyed using this Item. Return {@code true} to
-     * trigger the "Use Item" statistic.
-     */
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
         if ((double)pState.getDestroySpeed(pLevel, pPos) != 0.0D) {
             pStack.hurtAndBreak(0, pEntityLiving, (p_43385_) -> {
@@ -166,21 +151,14 @@ public class LeviathansAxe extends AxeItem {
         return true;
     }
 
-    /**
-     * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
-     */
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
+    public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
         return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
     }
 
-    /**
-     * Return the enchantability factor of the item, most of the time is based on material.
-     */
     public int getEnchantmentValue() {
         return 1;
     }
 
-    //axe start
     public InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
@@ -239,62 +217,65 @@ public class LeviathansAxe extends AxeItem {
         double axeSmiteMeleeDamage = smiteLevel+9;
         double axeArthropodThrownDamage = arthropodLevel+9;
         double axeArthropodMeleeDamage = arthropodLevel+9;
-        String thrownDamageTranslation = "endgameenhanced:leviathans_axe_lore.green_text_arrow.thrown.0";
-        String meleeDamageTranslation = "endgameenhanced:leviathans_axe_lore.green_text_arrow.melee.0";
-        Component leviathans_axe_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+        String thrownDamageTranslation = "endgameenhanced:leviathans_axe.thrown_damage.0";
+        String meleeDamageTranslation = "endgameenhanced:leviathans_axe.melee_damage.0";
+        Component leviathans_axe_thrown_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 (thrownDamageTranslation))).withStyle(GREEN_TEXT);
-        Component leviathans_axe_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+        Component leviathans_axe_melee_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 (meleeDamageTranslation))).withStyle(GREEN_TEXT);
 
         if (sharpnessLevel > 0) {
-            thrownDamageTranslation = "endgameenhanced:leviathans_axe_lore.green_text_arrow.thrown."+ axeSharpnessThrownDamage;
-            meleeDamageTranslation = "endgameenhanced:leviathans_axe_lore.green_text_arrow.melee."+ axeSharpnessMeleeDamage;
-            leviathans_axe_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+            thrownDamageTranslation = "endgameenhanced:leviathans_axe.thrown_damage."+ axeSharpnessThrownDamage;
+            meleeDamageTranslation = "endgameenhanced:leviathans_axe.melee_damage."+ axeSharpnessMeleeDamage;
+            leviathans_axe_thrown_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                     (thrownDamageTranslation))).withStyle(GREEN_TEXT);
-            leviathans_axe_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+            leviathans_axe_melee_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                     (meleeDamageTranslation))).withStyle(GREEN_TEXT);
         }
         if (smiteLevel > 0) {
-            thrownDamageTranslation = "endgameenhanced:leviathans_axe_lore.green_text_arrow.thrown."+ axeSmiteThrownDamage;
-            meleeDamageTranslation = "endgameenhanced:leviathans_axe_lore.green_text_arrow.melee."+ axeSmiteMeleeDamage;
-            leviathans_axe_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+            thrownDamageTranslation = "endgameenhanced:leviathans_axe.thrown_damage."+ axeSmiteThrownDamage;
+            meleeDamageTranslation = "endgameenhanced:leviathans_axe.melee_damage."+ axeSmiteMeleeDamage;
+            leviathans_axe_thrown_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                     (thrownDamageTranslation))).withStyle(GREEN_TEXT);
-            leviathans_axe_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+            leviathans_axe_melee_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                     (meleeDamageTranslation))).withStyle(GREEN_TEXT);
         }
         if (arthropodLevel > 0) {
-            thrownDamageTranslation = "endgameenhanced:leviathans_axe_lore.green_text_arrow.thrown."+ axeArthropodThrownDamage;
-            meleeDamageTranslation = "endgameenhanced:leviathans_axe_lore.green_text_arrow.melee."+ axeArthropodMeleeDamage;
-            leviathans_axe_stats_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+            thrownDamageTranslation = "endgameenhanced:leviathans_axe.thrown_damage."+ axeArthropodThrownDamage;
+            meleeDamageTranslation = "endgameenhanced:leviathans_axe.melee_damage."+ axeArthropodMeleeDamage;
+            leviathans_axe_thrown_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                     (thrownDamageTranslation))).withStyle(GREEN_TEXT);
-            leviathans_axe_stats_arrow_five = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
+            leviathans_axe_melee_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                     (meleeDamageTranslation))).withStyle(GREEN_TEXT);
         }
-        Component leviathans_axe_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:leviathans_axe_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component leviathans_axe_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:leviathans_axe_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component leviathans_axe_stats_header_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:leviathans_axe_lore.grey_text_arrow"))).withStyle(GREY_TEXT);
-        Component leviathans_axe_stats_header_arrow_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:leviathans_axe_lore.grey_text_arrow_two"))).withStyle(GREY_TEXT);
-        Component leviathans_axe_stats_arrow_six = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:leviathans_axe_lore.green_text_arrow_six"))).withStyle(GREEN_TEXT);
-        Component leviathans_axe_stats_arrow_seven = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:leviathans_axe_lore.green_text_arrow_seven"))).withStyle(GREEN_TEXT);
-        Component leviathans_axe_stats_arrow_eight = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:leviathans_axe_lore.green_text_arrow_eight"))).withStyle(AQUA_TEXT);
-
-
+        Component leviathans_axe_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:leviathans_axe.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         pTooltipComponents.add(leviathans_axe_lore);
-        pTooltipComponents.add(leviathans_axe_lore_two);
-        pTooltipComponents.add(leviathans_axe_stats_header_arrow);
-        pTooltipComponents.add(leviathans_axe_stats_arrow);
-        pTooltipComponents.add(leviathans_axe_stats_header_arrow_two);
-        pTooltipComponents.add(leviathans_axe_stats_arrow_five);
-        pTooltipComponents.add(leviathans_axe_stats_arrow_six);
-        pTooltipComponents.add(leviathans_axe_stats_arrow_seven);
-        pTooltipComponents.add(leviathans_axe_stats_arrow_eight);
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+
+        Component leviathans_axe_space = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.space"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        pTooltipComponents.add(leviathans_axe_space);
+
+        Component leviathans_axe_thrown = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.weapon.thrown"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(leviathans_axe_thrown);
+
+        pTooltipComponents.add(leviathans_axe_thrown_damage);
+
+        Component leviathans_axe_melee = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.weapon.melee"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(leviathans_axe_melee);
+
+        pTooltipComponents.add(leviathans_axe_melee_damage);
+
+        Component leviathans_axe_attack_speed = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.weapon.attack_speed_1"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(leviathans_axe_attack_speed);
+
+        pTooltipComponents.add(leviathans_axe_space);
+
+        Component leviathans_axe_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:leviathans_axe.trait"))).withStyle(AQUA_TEXT);
+        pTooltipComponents.add(leviathans_axe_trait);
     }
 }

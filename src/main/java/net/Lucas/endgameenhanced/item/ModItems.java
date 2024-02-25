@@ -5,6 +5,9 @@ import net.Lucas.endgameenhanced.item.custom.*;
 import net.Lucas.endgameenhanced.item.custom.armor.*;
 import net.Lucas.endgameenhanced.item.custom.arrows.*;
 import net.Lucas.endgameenhanced.item.custom.mobdrops.*;
+import net.Lucas.endgameenhanced.item.custom.smithing_templates.CustomSmithingTemplateItem;
+import net.Lucas.endgameenhanced.item.custom.smithing_templates.DiamondSmithingTemplateItem;
+import net.Lucas.endgameenhanced.item.custom.smithing_templates.OnyxSmithingTemplateItem;
 import net.Lucas.endgameenhanced.item.custom.tools.InfernalPickaxe;
 import net.Lucas.endgameenhanced.item.custom.tools.LeviathansAxe;
 import net.Lucas.endgameenhanced.item.custom.tools.ScytheOfVitur;
@@ -77,7 +80,7 @@ public class ModItems {
     public static final RegistryObject<Item> FLAWLESS_ENDER_PEARL = ITEMS.register("flawless_ender_pearl", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ELDER_GUARDIAN_SPIKE = ITEMS.register("elder_guardian_spike", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> RITUAL_BOOK = ITEMS.register("ritual_book", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> AXE_HILT = ITEMS.register("axe_hilt", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> AXE_HEAD = ITEMS.register("axe_hilt", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> RAVAGER_HORN = ITEMS.register("ravager_horn", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> BROKEN_AXE = ITEMS.register("broken_axe", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SENSOR_TENDRIL = ITEMS.register("sensor_tendril", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
@@ -92,14 +95,14 @@ public class ModItems {
     public static final RegistryObject<Item> THICK_SUGAR_CANE = ITEMS.register("thick_sugar_cane", () -> new Item(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
 
     //inevitable weapons/tools
-    public static final RegistryObject<Item> NETHER_BLADE = ITEMS.register("nether_blade",
-            () -> new NetherBlade(ModToolTiers.INEVITABLE, 6, -2.4F,
+    public static final RegistryObject<Item> NETHERRATH = ITEMS.register("nether_blade",
+            () -> new NetherrathSword(ModToolTiers.INEVITABLE, 6, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
-    public static final RegistryObject<Item> END_BLADE = ITEMS.register("end_blade",
-            () -> new EndBlade(ModToolTiers.INEVITABLE, 6, -2.4F,
+    public static final RegistryObject<Item> VOIDWAKER = ITEMS.register("end_blade",
+            () -> new VoidwakerSword(ModToolTiers.INEVITABLE, 6, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
-    public static final RegistryObject<Item> SCULK_BLADE = ITEMS.register("sculk_blade",
-            () -> new SculkBlade(ModToolTiers.INEVITABLE, 6, -2.4F,
+    public static final RegistryObject<Item> SCULK_BRINGER = ITEMS.register("sculk_blade",
+            () -> new SculkBringerSword(ModToolTiers.INEVITABLE, 6, -2.4F,
                     new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> WEBWEAVER_BOW = ITEMS.register("webweaver_bow",
             () -> new WebweaverBow(new Item.Properties().fireResistant().rarity(Rarity.EPIC).durability(6969)));

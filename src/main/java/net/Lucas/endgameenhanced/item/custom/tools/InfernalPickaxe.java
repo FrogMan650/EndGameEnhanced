@@ -47,28 +47,30 @@ public class InfernalPickaxe extends PickaxeItem {
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
         final ChatFormatting REDD_TEXT = ChatFormatting.RED;
-        Component infernal_pickaxe_lore = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:infernal_pickaxe_lore.red_text"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component infernal_pickaxe_lore_two = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:infernal_pickaxe_lore.red_text_two"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
-        Component infernal_pickaxe_stats_header_arrow = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:infernal_pickaxe_lore.grey_text_arrow"))).withStyle(GREY_TEXT);
-        Component infernal_pickaxe_stats_arrow_seven = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:infernal_pickaxe_lore.green_text_arrow_seven"))).withStyle(GREEN_TEXT);
-        Component infernal_pickaxe_stats_arrow_eight = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:infernal_pickaxe_lore.green_text_arrow_eight"))).withStyle(GREEN_TEXT);
-        Component infernal_pickaxe_stats_arrow_nine = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:infernal_pickaxe_lore.green_text_arrow_nine"))).withStyle(GREEN_TEXT);
-        Component infernal_pickaxe_stats_arrow_ten = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation
-                ("endgameenhanced:infernal_pickaxe_lore.green_text_arrow_ten"))).withStyle(REDD_TEXT);
-
+        Component infernal_pickaxe_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:infernal_pickaxe.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         pTooltipComponents.add(infernal_pickaxe_lore);
-        pTooltipComponents.add(infernal_pickaxe_lore_two);
-        pTooltipComponents.add(infernal_pickaxe_stats_header_arrow);
-        pTooltipComponents.add(infernal_pickaxe_stats_arrow_seven);
-        pTooltipComponents.add(infernal_pickaxe_stats_arrow_eight);
-        pTooltipComponents.add(infernal_pickaxe_stats_arrow_nine);
-        pTooltipComponents.add(infernal_pickaxe_stats_arrow_ten);
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+
+        Component infernal_pickaxe_space = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.space"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+        pTooltipComponents.add(infernal_pickaxe_space);
+
+        Component infernal_pickaxe_main_hand = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.weapon.main_hand"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(infernal_pickaxe_main_hand);
+
+        Component infernal_pickaxe_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:infernal_pickaxe.damage"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(infernal_pickaxe_damage);
+
+        Component infernal_pickaxe_attack_speed = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.weapon.attack_speed_1.2"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(infernal_pickaxe_attack_speed);
+
+        pTooltipComponents.add(infernal_pickaxe_space);
+
+        Component infernal_pickaxe_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:infernal_pickaxe.trait"))).withStyle(REDD_TEXT);
+        pTooltipComponents.add(infernal_pickaxe_trait);
     }
 }

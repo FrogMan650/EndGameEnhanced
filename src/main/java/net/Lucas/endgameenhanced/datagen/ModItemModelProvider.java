@@ -78,7 +78,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.FLAWLESS_ENDER_PEARL);
         simpleItem(ModItems.ELDER_GUARDIAN_SPIKE);
         simpleItem(ModItems.RITUAL_BOOK);
-        simpleItem(ModItems.AXE_HILT);
+        simpleItem(ModItems.AXE_HEAD);
         simpleItem(ModItems.RAVAGER_HORN);
         simpleItem(ModItems.BROKEN_AXE);
         simpleItem(ModItems.SENSOR_TENDRIL);
@@ -210,9 +210,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.OPAL_PICKAXE);
         handheldItem(ModItems.OPAL_AXE);
         handheldItem(ModItems.OPAL_HOE);
-        handheldItem(ModItems.NETHER_BLADE);
-        handheldItem(ModItems.END_BLADE);
-        handheldItem(ModItems.SCULK_BLADE);
+        handheldItem(ModItems.NETHERRATH);
+        handheldItem(ModItems.VOIDWAKER);
+        handheldItem(ModItems.SCULK_BRINGER);
 
         trimmedArmorItem(ModItems.ONYX_HELMET);
         trimmedArmorItem(ModItems.ONYX_CHESTPLATE);

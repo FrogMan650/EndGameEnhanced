@@ -8,15 +8,9 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
-
-import java.util.List;
-import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     public ModRecipeProvider(PackOutput pOutput) {
@@ -121,8 +115,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.RITUAL_BOOK.get()), has(ModItems.RITUAL_BOOK.get()))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "book_from_ritual_book"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.GOLD_INGOT, 10)
-                .requires(ModItems.AXE_HILT.get())
-                .unlockedBy(getHasName(ModItems.AXE_HILT.get()), has(ModItems.AXE_HILT.get()))
+                .requires(ModItems.AXE_HEAD.get())
+                .unlockedBy(getHasName(ModItems.AXE_HEAD.get()), has(ModItems.AXE_HEAD.get()))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "gold_from_axe_head"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.IRON_INGOT, 20)
                 .requires(ModItems.BROKEN_AXE.get())
@@ -878,7 +872,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('A', ModItems.NOT_SO_ROTTEN_FLESH.get())
                 .define('B', ModItems.SCULK_CRYSTAL.get())
                 .define('C', ModItems.BASIC_ESSENCE.get())
-                .define('D', ModItems.AXE_HILT.get())
+                .define('D', ModItems.AXE_HEAD.get())
                 .define('E', ModItems.HOGLIN_TUSK.get())
                 .define('F', ModItems.FLESH_JERKY.get())
                 .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
@@ -1258,9 +1252,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pRecipeOutput);
         
 
-        netheriteSmithing(pRecipeOutput, ModItems.VOIDWAKER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_END_ESSENCE.get(), RecipeCategory.MISC, ModItems.END_BLADE.get());
-        netheriteSmithing(pRecipeOutput, ModItems.NETHERRATH_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_NETHER_ESSENCE.get(), RecipeCategory.MISC, ModItems.NETHER_BLADE.get());
-        netheriteSmithing(pRecipeOutput, ModItems.SCULK_BRINGER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_SCULK_ESSENCE.get(), RecipeCategory.MISC, ModItems.SCULK_BLADE.get());
+        netheriteSmithing(pRecipeOutput, ModItems.VOIDWAKER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_END_ESSENCE.get(), RecipeCategory.MISC, ModItems.VOIDWAKER.get());
+        netheriteSmithing(pRecipeOutput, ModItems.NETHERRATH_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_NETHER_ESSENCE.get(), RecipeCategory.MISC, ModItems.NETHERRATH.get());
+        netheriteSmithing(pRecipeOutput, ModItems.SCULK_BRINGER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_SCULK_ESSENCE.get(), RecipeCategory.MISC, ModItems.SCULK_BRINGER.get());
         netheriteSmithing(pRecipeOutput, ModItems.SCULK_SLINGER_UPGRADE_SMITHING_TEMPLATE.get(), Items.CROSSBOW, ModItems.PURE_EVIL_ESSENCE.get(), RecipeCategory.MISC, ModItems.SCULK_SLINGER.get());
         netheriteSmithing(pRecipeOutput, ModItems.WEBWEAVER_UPGRADE_SMITHING_TEMPLATE.get(), Items.BOW, ModItems.PURE_SPIDER_ESSENCE.get(), RecipeCategory.MISC, ModItems.WEBWEAVER_BOW.get());
         netheriteSmithing(pRecipeOutput, ModItems.TIDE_BREAKER_UPGRADE_SMITHING_TEMPLATE.get(), Items.TRIDENT, ModItems.PURE_OCEAN_ESSENCE.get(), RecipeCategory.MISC, ModItems.TIDE_BREAKER.get());

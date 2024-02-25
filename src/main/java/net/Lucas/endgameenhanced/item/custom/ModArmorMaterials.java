@@ -8,6 +8,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -16,7 +17,6 @@ public enum ModArmorMaterials implements ArmorMaterial {
             2.5F, 0F, () -> Ingredient.of(ModItems.ONYX.get())),
     INEVITABLE("inevitable", 40, new int[]{4, 9, 7, 4}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE,
             4F, 0.2F, () -> Ingredient.of(Items.NETHERITE_INGOT));
-
 
     private final String name;
     private final int durabilityMultiplier;
@@ -55,17 +55,17 @@ public enum ModArmorMaterials implements ArmorMaterial {
     }
 
     @Override
-    public SoundEvent getEquipSound() {
+    public @NotNull SoundEvent getEquipSound() {
         return this.equipSound;
     }
 
     @Override
-    public Ingredient getRepairIngredient() {
+    public @NotNull Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return EndGameEnhanced.MOD_ID + ":" + this.name;
     }
 
