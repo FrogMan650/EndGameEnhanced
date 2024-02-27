@@ -3,6 +3,7 @@ package net.Lucas.endgameenhanced.item.custom.armor;
 import net.Lucas.endgameenhanced.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -67,6 +68,8 @@ public class ObsidianChestplate extends ArmorItem {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
+        final ChatFormatting GOLD_TEXT = ChatFormatting.GOLD;
+        final ChatFormatting PURPLE_TEXT = ChatFormatting.DARK_PURPLE;
         final ChatFormatting BLUE_TEXT = ChatFormatting.BLUE;
         Component obsidian_chestplate_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 ("endgameenhanced:obsidian_chestplate.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
@@ -92,28 +95,22 @@ public class ObsidianChestplate extends ArmorItem {
                 ("endgameenhanced:generic.armor.knockback_res"))).withStyle(BLUE_TEXT);
         pTooltipComponents.add(obsidian_chestplate_knockback_res);
 
-        Component obsidian_chestplate_conduit_power = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:obsidian_chestplate.conduit_power"))).withStyle(BLUE_TEXT);
-        pTooltipComponents.add(obsidian_chestplate_conduit_power);
-
         pTooltipComponents.add(obsidian_chestplate_space);
 
-        Component obsidian_chestplate_set_bonus = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:generic.armor.set_bonus"))).withStyle(GREY_TEXT);
-        pTooltipComponents.add(obsidian_chestplate_set_bonus);
+        Component obsidian_chestplate_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:obsidian_chestplate.trait"))).withStyle(PURPLE_TEXT);
+        pTooltipComponents.add(obsidian_chestplate_trait);
 
-        Component obsidian_chestplate_fire_res = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:generic.armor.fire_res"))).withStyle(BLUE_TEXT);
-        pTooltipComponents.add(obsidian_chestplate_fire_res);
+        Component trait_full_description = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:obsidian_chestplate.trait.description"))).withStyle(GOLD_TEXT);
 
-        Component obsidian_chestplate_res = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:generic.armor.res"))).withStyle(BLUE_TEXT);
-        pTooltipComponents.add(obsidian_chestplate_res);
+        Component hold_shift = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.hold_shift"))).withStyle(GOLD_TEXT);
 
-        Component obsidian_chestplate_elytra_flight = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:generic.armor.elytra_flight"))).withStyle(BLUE_TEXT);
-        pTooltipComponents.add(obsidian_chestplate_elytra_flight);
-
-        pTooltipComponents.add(obsidian_chestplate_space);
+        if (Screen.hasShiftDown()) {
+            pTooltipComponents.add(trait_full_description);
+        } else {
+            pTooltipComponents.add(hold_shift);
+        }
     }
 }

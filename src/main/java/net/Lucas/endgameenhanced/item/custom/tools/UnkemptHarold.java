@@ -3,6 +3,7 @@ package net.Lucas.endgameenhanced.item.custom.tools;
 import net.Lucas.endgameenhanced.entity.projectile.UnkemptHaroldProjectileEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -161,6 +162,7 @@ public class UnkemptHarold extends ShovelItem {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
+        final ChatFormatting GOLD_TEXT = ChatFormatting.GOLD;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
         final ChatFormatting YELLOW_TEXT = ChatFormatting.YELLOW;
         Component unkempt_harold_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
@@ -188,5 +190,17 @@ public class UnkemptHarold extends ShovelItem {
         Component unkempt_harold_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 ("endgameenhanced:unkempt_harold.trait"))).withStyle(YELLOW_TEXT);
         pTooltipComponents.add(unkempt_harold_trait);
+
+        Component trait_full_description = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:unkempt_harold.trait.description"))).withStyle(GOLD_TEXT);
+
+        Component hold_shift = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.hold_shift"))).withStyle(GOLD_TEXT);
+
+        if (Screen.hasShiftDown()) {
+            pTooltipComponents.add(trait_full_description);
+        } else {
+            pTooltipComponents.add(hold_shift);
+        }
     }
 }

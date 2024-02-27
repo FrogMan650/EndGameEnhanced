@@ -3,6 +3,7 @@ package net.Lucas.endgameenhanced.item.custom.armor;
 import net.Lucas.endgameenhanced.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -41,6 +42,8 @@ public class ObsidianLeggings extends ArmorItem {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
+        final ChatFormatting GOLD_TEXT = ChatFormatting.GOLD;
+        final ChatFormatting PURPLE_TEXT = ChatFormatting.DARK_PURPLE;
         final ChatFormatting BLUE_TEXT = ChatFormatting.BLUE;
         Component obsidian_leggings_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 ("endgameenhanced:obsidian_leggings.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
@@ -66,28 +69,22 @@ public class ObsidianLeggings extends ArmorItem {
                 ("endgameenhanced:generic.armor.knockback_res"))).withStyle(BLUE_TEXT);
         pTooltipComponents.add(obsidian_leggings_knockback_res);
 
-        Component obsidian_leggings_jump_boost = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:obsidian_leggings.jump_boost"))).withStyle(BLUE_TEXT);
-        pTooltipComponents.add(obsidian_leggings_jump_boost);
-
         pTooltipComponents.add(obsidian_leggings_space);
 
-        Component obsidian_leggings_set_bonus = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:generic.armor.set_bonus"))).withStyle(GREY_TEXT);
-        pTooltipComponents.add(obsidian_leggings_set_bonus);
+        Component obsidian_leggings_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:obsidian_leggings.trait"))).withStyle(PURPLE_TEXT);
+        pTooltipComponents.add(obsidian_leggings_trait);
 
-        Component obsidian_leggings_fire_res = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:generic.armor.fire_res"))).withStyle(BLUE_TEXT);
-        pTooltipComponents.add(obsidian_leggings_fire_res);
+        Component trait_full_description = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:obsidian_leggings.trait.description"))).withStyle(GOLD_TEXT);
 
-        Component obsidian_leggings_res = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:generic.armor.res"))).withStyle(BLUE_TEXT);
-        pTooltipComponents.add(obsidian_leggings_res);
+        Component hold_shift = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.hold_shift"))).withStyle(GOLD_TEXT);
 
-        Component obsidian_leggings_elytra_flight = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:generic.armor.elytra_flight"))).withStyle(BLUE_TEXT);
-        pTooltipComponents.add(obsidian_leggings_elytra_flight);
-
-        pTooltipComponents.add(obsidian_leggings_space);
+        if (Screen.hasShiftDown()) {
+            pTooltipComponents.add(trait_full_description);
+        } else {
+            pTooltipComponents.add(hold_shift);
+        }
     }
 }

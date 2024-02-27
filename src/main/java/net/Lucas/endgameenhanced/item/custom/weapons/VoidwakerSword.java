@@ -4,6 +4,7 @@ import net.Lucas.endgameenhanced.item.ModItems;
 import net.Lucas.endgameenhanced.item.custom.CustomSwordItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -48,6 +49,7 @@ public class VoidwakerSword extends CustomSwordItem implements Vanishable{
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
+        final ChatFormatting GOLD_TEXT = ChatFormatting.GOLD;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
         final ChatFormatting PURPLE_TEXT = ChatFormatting.DARK_PURPLE;
         int sharpnessLevel = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.SHARPNESS, pStack);
@@ -98,5 +100,17 @@ public class VoidwakerSword extends CustomSwordItem implements Vanishable{
         Component voidwaker_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 ("endgameenhanced:voidwaker.trait"))).withStyle(PURPLE_TEXT);
         pTooltipComponents.add(voidwaker_trait);
+
+        Component trait_full_description = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:voidwaker.trait.description"))).withStyle(GOLD_TEXT);
+
+        Component hold_shift = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.hold_shift"))).withStyle(GOLD_TEXT);
+
+        if (Screen.hasShiftDown()) {
+            pTooltipComponents.add(trait_full_description);
+        } else {
+            pTooltipComponents.add(hold_shift);
+        }
     }
 }

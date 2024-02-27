@@ -6,6 +6,7 @@ import net.Lucas.endgameenhanced.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -387,6 +388,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
+        final ChatFormatting GOLD_TEXT = ChatFormatting.GOLD;
         final ChatFormatting AQUA_TEXT = ChatFormatting.DARK_AQUA;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         Component sculk_slinger_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
@@ -397,6 +399,14 @@ public class SculkSlingerCrossbow extends CrossbowItem {
                 ("endgameenhanced:generic.tooltip.space"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         pTooltipComponents.add(sculk_slinger_space);
 
+        Component sculk_slinger_no_arrow = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:sculk_slinger.no_arrow"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(sculk_slinger_no_arrow);
+
+        Component sculk_slinger_damage_no_ammo = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:sculk_slinger.damage.no_ammo"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(sculk_slinger_damage_no_ammo);
+
         Component sculk_slinger_arrow = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 ("endgameenhanced:sculk_slinger.arrow"))).withStyle(GREY_TEXT);
         pTooltipComponents.add(sculk_slinger_arrow);
@@ -405,19 +415,31 @@ public class SculkSlingerCrossbow extends CrossbowItem {
                 ("endgameenhanced:sculk_slinger.damage"))).withStyle(GREEN_TEXT);
         pTooltipComponents.add(sculk_slinger_damage);
 
-        Component sculk_slinger_ammo = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:sculk_slinger.ammo"))).withStyle(GREEN_TEXT);
-        pTooltipComponents.add(sculk_slinger_ammo);
+        Component sculk_slinger_rocket = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:sculk_slinger.rocket"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(sculk_slinger_rocket);
 
-        Component sculk_slinger_charge = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:sculk_slinger.charge"))).withStyle(GREEN_TEXT);
-        pTooltipComponents.add(sculk_slinger_charge);
+        Component sculk_slinger_damage_rocket = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:sculk_slinger.damage.rocket"))).withStyle(GREEN_TEXT);
+        pTooltipComponents.add(sculk_slinger_damage_rocket);
 
         pTooltipComponents.add(sculk_slinger_space);
 
         Component sculk_slinger_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 ("endgameenhanced:sculk_slinger.trait"))).withStyle(AQUA_TEXT);
         pTooltipComponents.add(sculk_slinger_trait);
+
+        Component hold_shift = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.hold_shift"))).withStyle(GOLD_TEXT);
+
+        Component arrow_full_description = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:sculk_slinger.trait.description"))).withStyle(GOLD_TEXT);
+
+        if (Screen.hasShiftDown()) {
+            pTooltipComponents.add(arrow_full_description);
+        } else {
+            pTooltipComponents.add(hold_shift);
+        }
     }
 
 }

@@ -4,6 +4,7 @@ import net.Lucas.endgameenhanced.item.ModItems;
 import net.Lucas.endgameenhanced.item.custom.CustomSwordItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -44,6 +45,7 @@ public class NetherrathSword extends CustomSwordItem implements Vanishable {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
+        final ChatFormatting GOLD_TEXT = ChatFormatting.GOLD;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
@@ -96,5 +98,17 @@ public class NetherrathSword extends CustomSwordItem implements Vanishable {
         Component netherrath_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 ("endgameenhanced:netherrath.trait"))).withStyle(REDD_TEXT);
         pTooltipComponents.add(netherrath_trait);
+
+        Component trait_full_description = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:netherrath.trait.description"))).withStyle(GOLD_TEXT);
+
+        Component hold_shift = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.hold_shift"))).withStyle(GOLD_TEXT);
+
+        if (Screen.hasShiftDown()) {
+            pTooltipComponents.add(trait_full_description);
+        } else {
+            pTooltipComponents.add(hold_shift);
+        }
     }
 }

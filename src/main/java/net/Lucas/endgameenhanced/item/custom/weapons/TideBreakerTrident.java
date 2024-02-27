@@ -6,6 +6,7 @@ import net.Lucas.endgameenhanced.entity.custom.TideBreakerEntity;
 import net.Lucas.endgameenhanced.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -145,6 +146,7 @@ public class TideBreakerTrident extends TridentItem {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
+        final ChatFormatting GOLD_TEXT = ChatFormatting.GOLD;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
         final ChatFormatting BLUE_TEXT = ChatFormatting.BLUE;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
@@ -169,18 +171,6 @@ public class TideBreakerTrident extends TridentItem {
                 (thrownDamageTranslation))).withStyle(GREEN_TEXT);
         pTooltipComponents.add(tide_breaker_thrown_damage);
 
-        Component tide_breaker_accuracy = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:generic.weapon.accuracy"))).withStyle(GREEN_TEXT);
-        pTooltipComponents.add(tide_breaker_accuracy);
-
-        Component tide_breaker_velocity = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:tide_breaker.velocity"))).withStyle(GREEN_TEXT);
-        pTooltipComponents.add(tide_breaker_velocity);
-
-        Component tide_breaker_charge = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:tide_breaker.charge"))).withStyle(GREEN_TEXT);
-        pTooltipComponents.add(tide_breaker_charge);
-
         Component tide_breaker_melee = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 ("endgameenhanced:generic.weapon.melee"))).withStyle(GREY_TEXT);
         pTooltipComponents.add(tide_breaker_melee);
@@ -198,5 +188,17 @@ public class TideBreakerTrident extends TridentItem {
         Component tide_breaker_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 ("endgameenhanced:tide_breaker.trait"))).withStyle(BLUE_TEXT);
         pTooltipComponents.add(tide_breaker_trait);
+
+        Component trait_full_description = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:tide_breaker.trait.description"))).withStyle(GOLD_TEXT);
+
+        Component hold_shift = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.hold_shift"))).withStyle(GOLD_TEXT);
+
+        if (Screen.hasShiftDown()) {
+            pTooltipComponents.add(trait_full_description);
+        } else {
+            pTooltipComponents.add(hold_shift);
+        }
     }
 }

@@ -5,6 +5,7 @@ import net.Lucas.endgameenhanced.item.custom.arrows.SapphireArrow;
 import net.Lucas.endgameenhanced.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -141,11 +142,14 @@ public class WebweaverBow extends BowItem {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
+        final ChatFormatting GOLD_TEXT = ChatFormatting.GOLD;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
         final ChatFormatting WHITE_TEXT = ChatFormatting.DARK_GRAY;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         int bowPower = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.POWER_ARROWS, pStack);
+        boolean bowInfinity = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.INFINITY_ARROWS, pStack) > 0;
         String damageTranslation = "endgameenhanced:webweaver.damage."+ bowPower;
+        String noAmmoDamageTranslation = "endgameenhanced:webweaver.damage.without_ammo."+ (bowPower+10);
 
         Component webweaver_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 ("endgameenhanced:webweaver.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
@@ -155,30 +159,43 @@ public class WebweaverBow extends BowItem {
                 ("endgameenhanced:generic.tooltip.space"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         pTooltipComponents.add(webweaver_space);
 
+        Component webweaver_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                (damageTranslation))).withStyle(GREEN_TEXT);
+
+        Component webweaver_drawn_no_ammo = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:webweaver.drawn.no_ammo"))).withStyle(GREY_TEXT);
+        pTooltipComponents.add(webweaver_drawn_no_ammo);
+
+        Component webweaver_damage_no_ammo = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                (noAmmoDamageTranslation))).withStyle(GREEN_TEXT);
+        if (bowInfinity) {
+            pTooltipComponents.add(webweaver_damage);
+        } else {
+            pTooltipComponents.add(webweaver_damage_no_ammo);
+        }
+
         Component webweaver_drawn = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 ("endgameenhanced:webweaver.drawn"))).withStyle(GREY_TEXT);
         pTooltipComponents.add(webweaver_drawn);
 
-        Component webweaver_damage = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                (damageTranslation))).withStyle(GREEN_TEXT);
         pTooltipComponents.add(webweaver_damage);
-
-        Component webweaver_ammo_save = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:webweaver.ammo_save"))).withStyle(GREEN_TEXT);
-        pTooltipComponents.add(webweaver_ammo_save);
-
-        Component webweaver_accuracy = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:generic.weapon.accuracy"))).withStyle(GREEN_TEXT);
-        pTooltipComponents.add(webweaver_accuracy);
-
-        Component webweaver_velocity = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:webweaver.velocity"))).withStyle(GREEN_TEXT);
-        pTooltipComponents.add(webweaver_velocity);
 
         pTooltipComponents.add(webweaver_space);
 
         Component webweaver_trait = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
                 ("endgameenhanced:webweaver.trait"))).withStyle(WHITE_TEXT);
         pTooltipComponents.add(webweaver_trait);
+
+        Component trait_full_description = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:webweaver.trait.description"))).withStyle(GOLD_TEXT);
+
+        Component hold_shift = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
+                ("endgameenhanced:generic.tooltip.hold_shift"))).withStyle(GOLD_TEXT);
+
+        if (Screen.hasShiftDown()) {
+            pTooltipComponents.add(trait_full_description);
+        } else {
+            pTooltipComponents.add(hold_shift);
+        }
     }
 }
