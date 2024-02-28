@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:witchs_brew"
+    }
+  ],
+  "result": {
+    "count": 10,
+    "item": "minecraft:experience_bottle"
+  }
+}

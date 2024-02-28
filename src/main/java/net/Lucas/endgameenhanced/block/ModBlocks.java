@@ -2,10 +2,11 @@ package net.Lucas.endgameenhanced.block;
 
 import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.Lucas.endgameenhanced.item.ModItems;
+import net.Lucas.endgameenhanced.block.custom.GoldenMelon;
+import net.Lucas.endgameenhanced.block.custom.WhitePumpkin;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -36,9 +37,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> ECHO_BLOCK = registerBlock("echo_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> WHITE_PUMPKIN = registerBlock("white_pumpkin",
-            () -> new PumpkinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN)));
+            () -> new WhitePumpkin(BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN)));
     public static final RegistryObject<Block> GOLDEN_MELON = registerBlock("golden_melon",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MELON)));
+            () -> new GoldenMelon(BlockBehaviour.Properties.ofFullCopy(Blocks.MELON)));
     public static final RegistryObject<Block> GEM_ORE = registerBlock("gem_ore",
             () -> new DropExperienceBlock(UniformInt.of(2, 5), BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_EMERALD_ORE)
                     .strength(4, 3).requiresCorrectToolForDrops()));

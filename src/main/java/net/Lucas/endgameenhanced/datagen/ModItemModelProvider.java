@@ -87,7 +87,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ODD_SHAPED_BEETROOT);
         simpleItem(ModItems.SMALL_CARROT);
         simpleItem(ModItems.ODD_SHAPED_POTATO);
-        simpleItem(ModItems.HUGE_PITCHER_PLANT);
+        simpleItem(ModItems.DISCOLORED_PITCHER_PLANT);
         simpleItem(ModItems.CACTUS_SPINE);
         simpleItem(ModItems.BIOLUMINESCENT_TORCHFLOWER);
         simpleItem(ModItems.THICK_SUGAR_CANE);

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_axe_hilt": {
+    "has_axe_head": {
       "conditions": {
         "items": [
           {
             "items": [
-              "endgameenhanced:axe_hilt"
+              "endgameenhanced:axe_head"
             ]
           }
         ]
@@ -23,7 +23,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_axe_hilt"
+      "has_axe_head"
     ]
   ],
   "rewards": {

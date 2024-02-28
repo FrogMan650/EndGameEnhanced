@@ -110,7 +110,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.WITHER_SKELETON_BONE.get())
                 .unlockedBy(getHasName(ModItems.WITHER_SKELETON_BONE.get()), has(ModItems.WITHER_SKELETON_BONE.get()))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "bone_from_wither_skeleton_bone"));
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BOOK, 20)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BOOK, 25)
                 .requires(ModItems.RITUAL_BOOK.get())
                 .unlockedBy(getHasName(ModItems.RITUAL_BOOK.get()), has(ModItems.RITUAL_BOOK.get()))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "book_from_ritual_book"));
@@ -143,8 +143,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.HUGE_NETHER_WART.get()), has(ModItems.HUGE_NETHER_WART.get()))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "wart_from_huge_wart"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PITCHER_POD, 10)
-                .requires(ModItems.HUGE_PITCHER_PLANT.get())
-                .unlockedBy(getHasName(ModItems.HUGE_PITCHER_PLANT.get()), has(ModItems.HUGE_PITCHER_PLANT.get()))
+                .requires(ModItems.DISCOLORED_PITCHER_PLANT.get())
+                .unlockedBy(getHasName(ModItems.DISCOLORED_PITCHER_PLANT.get()), has(ModItems.DISCOLORED_PITCHER_PLANT.get()))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "pod_from_huge_pitcher"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.TORCHFLOWER_SEEDS, 10)
                 .requires(ModItems.BIOLUMINESCENT_TORCHFLOWER.get())
@@ -162,6 +162,46 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.SMOULDERING_STONE.get())
                 .unlockedBy(getHasName(ModItems.SMOULDERING_STONE.get()), has(ModItems.SMOULDERING_STONE.get()))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "wither_rose_from_smouldering_stone"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Blocks.COBWEB, 20)
+                .requires(ModItems.SPIDER_FANG.get())
+                .unlockedBy(getHasName(ModItems.SPIDER_FANG.get()), has(ModItems.SPIDER_FANG.get()))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "cobweb_from_spider_fang"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.ZOMBIE_VILLAGER_SPAWN_EGG, 5)
+                .requires(ModItems.SOAKED_FLESH.get())
+                .unlockedBy(getHasName(ModItems.SOAKED_FLESH.get()), has(ModItems.SOAKED_FLESH.get()))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "zombie_villager_spawn_egg_from_soaked_flesh"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.ZOMBIE_VILLAGER_SPAWN_EGG, 5)
+                .requires(ModItems.FLESH_JERKY.get())
+                .unlockedBy(getHasName(ModItems.FLESH_JERKY.get()), has(ModItems.FLESH_JERKY.get()))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "zombie_villager_spawn_egg_from_flesh_jerky"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.ZOMBIE_VILLAGER_SPAWN_EGG, 5)
+                .requires(ModItems.NOT_SO_ROTTEN_FLESH.get())
+                .unlockedBy(getHasName(ModItems.NOT_SO_ROTTEN_FLESH.get()), has(ModItems.NOT_SO_ROTTEN_FLESH.get()))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "zombie_villager_spawn_egg_from_not_so_rotten_flesh"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.SHULKER_SPAWN_EGG, 2)
+                .requires(ModItems.ENDERMITE_EGG.get())
+                .unlockedBy(getHasName(ModItems.ENDERMITE_EGG.get()), has(ModItems.ENDERMITE_EGG.get()))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "shulker_spawn_egg_from_endermite_egg"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PILLAGER_SPAWN_EGG, 5)
+                .requires(ModItems.DAMAGED_CROSSBOW.get())
+                .unlockedBy(getHasName(ModItems.DAMAGED_CROSSBOW.get()), has(ModItems.DAMAGED_CROSSBOW.get()))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "pillager_spawn_egg_from_damaged_crossbow"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.EXPERIENCE_BOTTLE, 10)
+                .requires(ModItems.WITCHS_BREW.get())
+                .unlockedBy(getHasName(ModItems.WITCHS_BREW.get()), has(ModItems.WITCHS_BREW.get()))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "xp_bottle_from_witchs_brew"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.ALLAY_SPAWN_EGG, 1)
+                .requires(ModItems.RAVAGER_HORN.get())
+                .unlockedBy(getHasName(ModItems.RAVAGER_HORN.get()), has(ModItems.RAVAGER_HORN.get()))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "allay_spawn_egg_from_ravager_horn"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.WANDERING_TRADER_SPAWN_EGG, 2)
+                .requires(ModItems.SHRIEKER_NOISE_BOX.get())
+                .unlockedBy(getHasName(ModItems.SHRIEKER_NOISE_BOX.get()), has(ModItems.SHRIEKER_NOISE_BOX.get()))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "wandering_trader_spawn_egg_from_noise_box"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.WANDERING_TRADER_SPAWN_EGG, 2)
+                .requires(ModItems.SENSOR_TENDRIL.get())
+                .unlockedBy(getHasName(ModItems.SENSOR_TENDRIL.get()), has(ModItems.SENSOR_TENDRIL.get()))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "wandering_trader_spawn_egg_from_tendril"));
 
         //gems and gem blocks
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.OPAL.get(), 9)
@@ -1101,7 +1141,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B', Items.SUGAR_CANE)
                 .define('C', Items.CACTUS)
                 .define('D', Items.BAMBOO)
-                .define('E', ModItems.HUGE_PITCHER_PLANT.get())
+                .define('E', ModItems.DISCOLORED_PITCHER_PLANT.get())
                 .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
                 .save(pRecipeOutput);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EARTHLY_ESSENCE.get())

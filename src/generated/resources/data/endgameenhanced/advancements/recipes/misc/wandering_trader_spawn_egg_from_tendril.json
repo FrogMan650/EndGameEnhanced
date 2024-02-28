@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sensor_tendril": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endgameenhanced:sensor_tendril"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:wandering_trader_spawn_egg_from_tendril"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sensor_tendril"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "endgameenhanced:wandering_trader_spawn_egg_from_tendril"
+    ]
+  }
+}

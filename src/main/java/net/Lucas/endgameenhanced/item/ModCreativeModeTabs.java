@@ -258,7 +258,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.SMALL_CARROT.get());
                         pOutput.accept(ModItems.ODD_SHAPED_POTATO.get());
                         pOutput.accept(ModItems.HUGE_NETHER_WART.get());
-                        pOutput.accept(ModItems.HUGE_PITCHER_PLANT.get());
+                        pOutput.accept(ModItems.DISCOLORED_PITCHER_PLANT.get());
                         pOutput.accept(ModItems.BIOLUMINESCENT_TORCHFLOWER.get());
                         pOutput.accept(ModBlocks.WHITE_PUMPKIN.get());
                         pOutput.accept(ModBlocks.GOLDEN_MELON.get());

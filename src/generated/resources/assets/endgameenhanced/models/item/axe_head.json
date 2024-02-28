@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "endgameenhanced:item/huge_pitcher_plant"
+    "layer0": "endgameenhanced:item/axe_head"
   }
 }

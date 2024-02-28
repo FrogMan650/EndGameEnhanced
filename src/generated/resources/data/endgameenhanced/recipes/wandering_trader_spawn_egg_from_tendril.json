@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:sensor_tendril"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:wandering_trader_spawn_egg"
+  }
+}

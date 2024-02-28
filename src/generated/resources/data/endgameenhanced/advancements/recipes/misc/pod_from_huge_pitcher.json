@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_huge_pitcher_plant": {
+    "has_discolored_pitcher_plant": {
       "conditions": {
         "items": [
           {
             "items": [
-              "endgameenhanced:huge_pitcher_plant"
+              "endgameenhanced:discolored_pitcher_plant"
             ]
           }
         ]
@@ -23,7 +23,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_huge_pitcher_plant"
+      "has_discolored_pitcher_plant"
     ]
   ],
   "rewards": {

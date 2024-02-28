@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:damaged_crossbow"
+    }
+  ],
+  "result": {
+    "count": 5,
+    "item": "minecraft:pillager_spawn_egg"
+  }
+}
