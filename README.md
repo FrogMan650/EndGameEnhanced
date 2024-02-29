@@ -7,25 +7,7 @@ End Game Enhanced is a mod that aims to, well, enhance the end game by adding ne
 
 **Inevitable items**
 
-Inevitable items are a new tier above Netherite. They aren't meant to be overpowered, but provide some powerful effects and have unique properties. There are 14 Inevitable items in total and to collect them all you'll need to go just about everywhere, kill just about everything, and do just about everything the vanilla game has to offer. Here's a look at a weapon, a tool, and a piece of armor:
-
-<h3><img align="left" src="https://imgur.com/0r7emKu.gif" height="80" width="80"></h3> 
-
-      **Netherrath**
-
-      This sword's special trait is: **Nether's Flame**. When in your main hand your enemies are lit on fire for 15 seconds. But if you happen to find yourself in the Nether AND you yourself are on fire, the sword will keep you on fire and provide you with Strength II and Regeneration II. How you come to be on fire in the first place is up to you.
-
-<h3><img align="left" src="https://imgur.com/L4nqwPF.gif" height="80" width="80"></h3>
-
-**Infernal Pickaxe**
-
-This pickaxe's special trait is: **Superheated**. It's able to smelt the Gold and Iron Ore that you mine straight into ingots. Silk Touch is prioritized and Fortune is still taken into account for the number of ingots you get. It's also the only tool able to mine Reinforced Deepslate.
-
-<h3><img align="left" src="https://imgur.com/1V3smcc.png" height="80" width="80"></h3>
-
-**Obsidian Chestplate**
-
-This Chestplate is part of the Inevitable Obsidian armor set which provides some powerful effects, and even more if wearing the full set. Alone this chestplate provides the Conduit power effect and if wearing the full set it gains a pair of Obsidian wings, among other effects.
+Inevitable items are a new tier above Netherite. They aren't meant to be overpowered, but provide some powerful effects and have unique properties. There are 14 Inevitable items in total and to collect them all you'll need to go just about everywhere, kill just about everything, and do just about everything the vanilla game has to offer.
 
 **How to obtain them**
 
