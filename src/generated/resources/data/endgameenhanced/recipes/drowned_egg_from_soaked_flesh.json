@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:soaked_flesh"
+    }
+  ],
+  "result": {
+    "item": "minecraft:drowned_spawn_egg"
+  }
+}

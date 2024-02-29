@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:broken_axe"
+    }
+  ],
+  "result": {
+    "item": "minecraft:vindicator_spawn_egg"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:axe_head"
+    }
+  ],
+  "result": {
+    "item": "minecraft:piglin_brute_spawn_egg"
+  }
+}

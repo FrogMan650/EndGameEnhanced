@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:rib_bone"
+    }
+  ],
+  "result": {
+    "item": "minecraft:skeleton_spawn_egg"
+  }
+}

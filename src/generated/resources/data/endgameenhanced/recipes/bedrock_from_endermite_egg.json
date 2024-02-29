@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:endermite_egg"
+    }
+  ],
+  "result": {
+    "count": 10,
+    "item": "minecraft:bedrock"
+  }
+}

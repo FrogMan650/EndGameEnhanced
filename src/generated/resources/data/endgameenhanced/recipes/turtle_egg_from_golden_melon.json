@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:golden_melon"
+    },
+    {
+      "item": "minecraft:turtle_egg"
+    }
+  ],
+  "result": {
+    "item": "minecraft:turtle_spawn_egg"
+  }
+}

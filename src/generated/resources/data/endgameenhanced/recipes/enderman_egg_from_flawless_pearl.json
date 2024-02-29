@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:flawless_ender_pearl"
+    }
+  ],
+  "result": {
+    "item": "minecraft:enderman_spawn_egg"
+  }
+}

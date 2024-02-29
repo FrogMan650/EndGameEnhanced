@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:not_so_rotten_flesh"
+    }
+  ],
+  "result": {
+    "item": "minecraft:zombie_spawn_egg"
+  }
+}

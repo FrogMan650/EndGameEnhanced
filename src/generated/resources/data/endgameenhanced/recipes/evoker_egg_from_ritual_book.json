@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:ritual_book"
+    }
+  ],
+  "result": {
+    "item": "minecraft:evoker_spawn_egg"
+  }
+}

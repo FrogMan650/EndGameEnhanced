@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:phantom_wing"
+    }
+  ],
+  "result": {
+    "item": "minecraft:phantom_spawn_egg"
+  }
+}

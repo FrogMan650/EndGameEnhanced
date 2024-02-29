@@ -1,6 +1,7 @@
 package net.Lucas.endgameenhanced.item.custom.weapons;
 
 import com.google.common.collect.Lists;
+import net.Lucas.endgameenhanced.entity.custom.CustomFireworkRocketEntity;
 import net.Lucas.endgameenhanced.item.ModItems;
 import net.Lucas.endgameenhanced.util.ModTags;
 import net.minecraft.ChatFormatting;
@@ -63,7 +64,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     }
 
 
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, Player pPlayer, @NotNull InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         if (isCharged(itemstack)) {
             performShooting(pLevel, pPlayer, pHand, itemstack, getShootingPower(itemstack), 1.0F);
@@ -84,7 +85,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     }
 
     private static float getShootingPower(ItemStack pCrossbowStack) {//velocity of projectile
-        return containsChargedProjectile(pCrossbowStack, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
+        return containsChargedProjectile(pCrossbowStack, Items.FIREWORK_ROCKET) ? 1.6F : 3.0F;
     }
 
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
@@ -222,8 +223,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
             boolean flag = pAmmoStack.is(Items.FIREWORK_ROCKET);
             Projectile projectile;
             if (flag) {
-                projectile = new FireworkRocketEntity(pLevel, pAmmoStack, pShooter, pShooter.getX(), pShooter.getEyeY() - (double)0.15F, pShooter.getZ(), true);
-                //reworked firework goes here eventually
+                projectile = new CustomFireworkRocketEntity(pLevel, pAmmoStack, pShooter, pShooter.getX(), pShooter.getEyeY() - (double)0.15F, pShooter.getZ(), true);
             } else {
                 projectile = getArrow(pLevel, pShooter, pCrossbowStack, pAmmoStack);
                 if (pIsCreativeMode || pProjectileAngle != 0.0F || pAmmoStack.is(ModTags.Items.NO_PICKUP_ARROWS)) {
@@ -239,7 +239,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
                 Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double)(pProjectileAngle * ((float)Math.PI / 180F)), vec31.x, vec31.y, vec31.z);
                 Vec3 vec3 = pShooter.getViewVector(1.0F);
                 Vector3f vector3f = vec3.toVector3f().rotate(quaternionf);
-                projectile.shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), 3.0F, pInaccuracy);
+                projectile.shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), pVelocity, pInaccuracy);
 
                 //spawn warden ranged attack particles when you shoot
                 Vec3 playerEyes = player.getEyePosition();
@@ -295,11 +295,11 @@ public class SculkSlingerCrossbow extends CrossbowItem {
             boolean flag = pShooter instanceof Player && ((Player)pShooter).getAbilities().instabuild;
             if (!itemstack.isEmpty()) {
                 if (i == 0) {
-                    shootProjectile(pLevel, pShooter, pUsedHand, pCrossbowStack, itemstack, afloat[i], flag, 3.0F, pInaccuracy, 0.0F);
+                    shootProjectile(pLevel, pShooter, pUsedHand, pCrossbowStack, itemstack, afloat[i], flag, pVelocity, pInaccuracy, 0.0F);
                 } else if (i == 1) {
-                    shootProjectile(pLevel, pShooter, pUsedHand, pCrossbowStack, itemstack, afloat[i], flag, 3.0F, pInaccuracy, -5.0F);
+                    shootProjectile(pLevel, pShooter, pUsedHand, pCrossbowStack, itemstack, afloat[i], flag, pVelocity, pInaccuracy, -5.0F);
                 } else if (i == 2) {
-                    shootProjectile(pLevel, pShooter, pUsedHand, pCrossbowStack, itemstack, afloat[i], flag, 3.0F, pInaccuracy, 5.0F);
+                    shootProjectile(pLevel, pShooter, pUsedHand, pCrossbowStack, itemstack, afloat[i], flag, pVelocity, pInaccuracy, 5.0F);
                 }
             }
         }
@@ -331,7 +331,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
 
     public void onUseTick(Level pLevel, LivingEntity pLivingEntity, ItemStack pStack, int pCount) {
         if (!pLevel.isClientSide) {
-            int i = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.QUICK_CHARGE, pStack);
+            int i = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.QUICK_CHARGE, pStack)+1;
             SoundEvent soundevent = this.getStartSound(i);
             SoundEvent soundevent1 = i == 0 ? SoundEvents.CROSSBOW_LOADING_MIDDLE : null;
             float f = (float)(pStack.getUseDuration() - pCount) / (float)getChargeDuration(pStack);
@@ -440,6 +440,6 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         } else {
             pTooltipComponents.add(hold_shift);
         }
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
-
 }

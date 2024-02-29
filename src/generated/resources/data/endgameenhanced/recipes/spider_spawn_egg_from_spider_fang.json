@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:spider_fang"
+    }
+  ],
+  "result": {
+    "item": "minecraft:spider_spawn_egg"
+  }
+}

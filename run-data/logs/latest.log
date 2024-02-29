@@ -1,29 +1,29 @@
-[27Feb2024 21:08:41.129] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 12, --assetsDir, C:\Users\Lucas\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, endgameenhanced, --all, --output, C:\Users\Lucas\Desktop\EndGameEnhanced\src\generated\resources, --existing, C:\Users\Lucas\Desktop\EndGameEnhanced\src\main\resources]
-[27Feb2024 21:08:41.131] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 17.0.9+9
-[27Feb2024 21:08:41.133] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.1.2 starting: java version 17.0.9 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
-[27Feb2024 21:08:41.245] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
-[27Feb2024 21:08:41.368] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=jar:file:///C:/Users/Lucas/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar!/ Service=ModLauncher Env=UNKNOWN
-[27Feb2024 21:08:42.297] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[27Feb2024 21:08:43.505] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\Lucas\.gradle\caches\forge_gradle\assets, --assetIndex, 12, --mod, endgameenhanced, --all, --output, C:\Users\Lucas\Desktop\EndGameEnhanced\src\generated\resources, --existing, C:\Users\Lucas\Desktop\EndGameEnhanced\src\main\resources]
-[27Feb2024 21:08:49.486] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 49.0.28, for MC 1.20.4 with MCP 20231207.112700
-[27Feb2024 21:08:49.490] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v49.0.28 Initialized
-[27Feb2024 21:08:49.606] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
-[27Feb2024 21:08:50.445] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [endgameenhanced]
-[27Feb2024 21:08:50.587] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Lucas/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.4-49.0.28_mapped_parchment_1.20.3-2023.12.31-1.20.4/forge-1.20.4-49.0.28_mapped_parchment_1.20.3-2023.12.31-1.20.4-recomp.jar%2316!/assets/.mcassetsroot' uses unexpected schema
-[27Feb2024 21:08:50.587] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Lucas/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.4-49.0.28_mapped_parchment_1.20.3-2023.12.31-1.20.4/forge-1.20.4-49.0.28_mapped_parchment_1.20.3-2023.12.31-1.20.4-recomp.jar%2316!/data/.mcassetsroot' uses unexpected schema
-[27Feb2024 21:08:50.821] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[27Feb2024 21:08:51.057] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 235 ms
-[27Feb2024 21:08:51.058] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[27Feb2024 21:08:51.118] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 59 ms
-[27Feb2024 21:08:51.118] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: endgameenhanced
-[27Feb2024 21:08:51.265] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: endgameenhanced finished after 146 ms
-[27Feb2024 21:08:51.265] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: endgameenhanced
-[27Feb2024 21:08:51.514] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: endgameenhanced finished after 249 ms
-[27Feb2024 21:08:51.515] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id endgameenhanced
-[27Feb2024 21:08:51.528] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id endgameenhanced finished after 13 ms
-[27Feb2024 21:08:51.528] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id endgameenhanced
-[27Feb2024 21:08:51.530] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id endgameenhanced finished after 2 ms
-[27Feb2024 21:08:51.531] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : endgameenhanced
-[27Feb2024 21:08:51.535] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : endgameenhanced finished after 3 ms
-[27Feb2024 21:08:51.535] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 714 ms
-[27Feb2024 21:08:51.588] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 653, old count: 649, new count: 650, removed stale: 4, written: 4
+[28Feb2024 21:53:16.620] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 12, --assetsDir, C:\Users\Lucas\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, endgameenhanced, --all, --output, C:\Users\Lucas\Desktop\EndGameEnhanced\src\generated\resources, --existing, C:\Users\Lucas\Desktop\EndGameEnhanced\src\main\resources]
+[28Feb2024 21:53:16.622] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 17.0.9+9
+[28Feb2024 21:53:16.624] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.1.2 starting: java version 17.0.9 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
+[28Feb2024 21:53:16.731] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
+[28Feb2024 21:53:16.832] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=jar:file:///C:/Users/Lucas/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar!/ Service=ModLauncher Env=UNKNOWN
+[28Feb2024 21:53:17.704] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[28Feb2024 21:53:18.642] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\Lucas\.gradle\caches\forge_gradle\assets, --assetIndex, 12, --mod, endgameenhanced, --all, --output, C:\Users\Lucas\Desktop\EndGameEnhanced\src\generated\resources, --existing, C:\Users\Lucas\Desktop\EndGameEnhanced\src\main\resources]
+[28Feb2024 21:53:23.725] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 49.0.28, for MC 1.20.4 with MCP 20231207.112700
+[28Feb2024 21:53:23.727] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v49.0.28 Initialized
+[28Feb2024 21:53:23.789] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
+[28Feb2024 21:53:24.278] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [endgameenhanced]
+[28Feb2024 21:53:24.341] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Lucas/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.4-49.0.28_mapped_parchment_1.20.3-2023.12.31-1.20.4/forge-1.20.4-49.0.28_mapped_parchment_1.20.3-2023.12.31-1.20.4-recomp.jar%2316!/assets/.mcassetsroot' uses unexpected schema
+[28Feb2024 21:53:24.341] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Lucas/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.4-49.0.28_mapped_parchment_1.20.3-2023.12.31-1.20.4/forge-1.20.4-49.0.28_mapped_parchment_1.20.3-2023.12.31-1.20.4-recomp.jar%2316!/data/.mcassetsroot' uses unexpected schema
+[28Feb2024 21:53:24.505] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[28Feb2024 21:53:24.674] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 168 ms
+[28Feb2024 21:53:24.674] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[28Feb2024 21:53:24.704] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 29 ms
+[28Feb2024 21:53:24.704] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: endgameenhanced
+[28Feb2024 21:53:24.824] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: endgameenhanced finished after 119 ms
+[28Feb2024 21:53:24.824] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: endgameenhanced
+[28Feb2024 21:53:24.987] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: endgameenhanced finished after 163 ms
+[28Feb2024 21:53:24.987] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id endgameenhanced
+[28Feb2024 21:53:24.996] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id endgameenhanced finished after 9 ms
+[28Feb2024 21:53:24.997] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id endgameenhanced
+[28Feb2024 21:53:24.998] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id endgameenhanced finished after 1 ms
+[28Feb2024 21:53:24.998] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : endgameenhanced
+[28Feb2024 21:53:25.002] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : endgameenhanced finished after 2 ms
+[28Feb2024 21:53:25.002] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 497 ms
+[28Feb2024 21:53:25.043] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 675, old count: 675, new count: 676, removed stale: 0, written: 0

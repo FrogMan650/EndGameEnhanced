@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:wither_skeleton_bone"
+    }
+  ],
+  "result": {
+    "item": "minecraft:wither_skeleton_spawn_egg"
+  }
+}

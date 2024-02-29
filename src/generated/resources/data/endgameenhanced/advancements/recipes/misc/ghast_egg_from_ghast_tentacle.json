@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ghast_tentacle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endgameenhanced:ghast_tentacle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:ghast_egg_from_ghast_tentacle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ghast_tentacle"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "endgameenhanced:ghast_egg_from_ghast_tentacle"
+    ]
+  }
+}

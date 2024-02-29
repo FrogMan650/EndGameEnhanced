@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_piglins_gold_coin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endgameenhanced:piglins_gold_coin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:zombie_piglin_egg_from_gold_coin"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_piglins_gold_coin"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "endgameenhanced:zombie_piglin_egg_from_gold_coin"
+    ]
+  }
+}

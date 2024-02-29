@@ -140,6 +140,7 @@ public class ModEvents {
             if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.VOIDWAKER.get())) {
                 damagedMob.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 1, false, true, true));
             }
+//            player.sendSystemMessage(Component.literal("Damage: "+event.getAmount()));
         }
     }
 

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:piglins_gold_coin"
+    }
+  ],
+  "result": {
+    "item": "minecraft:piglin_spawn_egg"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_odd_shaped_potato": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endgameenhanced:odd_shaped_potato"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:sheep_egg_from_odd_potato"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_odd_shaped_potato"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "endgameenhanced:sheep_egg_from_odd_potato"
+    ]
+  }
+}
