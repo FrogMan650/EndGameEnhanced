@@ -11,9 +11,9 @@ Inevitable items are a new tier above Netherite. They aren't meant to be overpow
 
 <h3><img align="left" src="https://imgur.com/0r7emKu.gif" height="80" width="80"></h3> 
 
-**Netherrath**
+      **Netherrath**
 
-This sword's special trait is: **Nether's Flame**. When in your main hand your enemies are lit on fire for 15 seconds. But if you happen to find yourself in the Nether AND you yourself are on fire, the sword will keep you on fire and provide you with Strength II and Regeneration II. How you come to be on fire in the first place is up to you.
+      This sword's special trait is: **Nether's Flame**. When in your main hand your enemies are lit on fire for 15 seconds. But if you happen to find yourself in the Nether AND you yourself are on fire, the sword will keep you on fire and provide you with Strength II and Regeneration II. How you come to be on fire in the first place is up to you.
 
 <h3><img align="left" src="https://imgur.com/L4nqwPF.gif" height="80" width="80"></h3>
 
