@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "endgameenhanced:item/fastest_charging_totem"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "damaged": 1
+      },
+      "model": "endgameenhanced:item/fastest_charging_totem_damaged"
+    }
+  ]
+}

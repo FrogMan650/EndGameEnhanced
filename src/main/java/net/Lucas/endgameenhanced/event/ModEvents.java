@@ -8,11 +8,18 @@ import net.Lucas.endgameenhanced.blockFacing.PlayerBlockFacingProvider;
 import net.Lucas.endgameenhanced.toolChange.PlayerToolChange;
 import net.Lucas.endgameenhanced.toolChange.PlayerToolChangeProvider;
 import net.Lucas.endgameenhanced.util.ModTags;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientCommonPacketListenerImpl;
+import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -29,6 +36,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -74,6 +82,37 @@ public class ModEvents {
     public static void endGameEnhancedOnRegisterCapabilities(RegisterCapabilitiesEvent event) {
         event.register(PlayerToolChange.class);
         event.register(PlayerBlockFacing.class);
+    }
+
+    @SubscribeEvent
+    public static void endGameEnhancedTotemFixes(LivingDeathEvent event) {
+        if (event.getEntity() instanceof Player player) {
+            ItemStack offHandItem = player.getItemInHand(InteractionHand.OFF_HAND);
+            if (offHandItem.is(ModItems.CHARGING_TOTEM.get()) && offHandItem.getDamageValue() == 0) {
+                player.setHealth(0.01F);
+                offHandItem.setDamageValue(6000);
+                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900, 1, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 0, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1, false, true, true));
+                event.setCanceled(true);
+            }
+            if (offHandItem.is(ModItems.FAST_CHARGING_TOTEM.get()) && offHandItem.getDamageValue() == 0) {
+                player.setHealth(0.01F);
+                offHandItem.setDamageValue(3000);
+                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900, 1, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 0, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1, false, true, true));
+                event.setCanceled(true);
+            }
+            if (offHandItem.is(ModItems.FASTEST_CHARGING_TOTEM.get()) && offHandItem.getDamageValue() == 0) {
+                player.setHealth(0.01F);
+                offHandItem.setDamageValue(1200);
+                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900, 1, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 0, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1, false, true, true));
+                event.setCanceled(true);
+            }
+        }
     }
 
     @SubscribeEvent

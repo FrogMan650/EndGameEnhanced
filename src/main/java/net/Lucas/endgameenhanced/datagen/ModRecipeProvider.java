@@ -955,6 +955,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('E', ModItems.SPEED_ESSENCE.get())
                 .unlockedBy(getHasName(ModItems.PURE_RESISTANT_ESSENCE.get()), has(ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get()))
                 .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "pure_resistant_essence"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PURE_UNDYING_ESSENCE.get())
+                .pattern(" B ")
+                .pattern("ACA")
+                .pattern(" D ")
+                .define('A', ModItems.RITUAL_BOOK.get())
+                .define('B', ModItems.SMOULDERING_STONE.get())
+                .define('D', ModItems.SCULK_CRYSTAL.get())
+                .define('C', ModItems.BASIC_ESSENCE.get())
+                .unlockedBy(getHasName(ModItems.FAST_CHARGING_TOTEM.get()), has(ModItems.FAST_CHARGING_TOTEM.get()))
+                .save(pRecipeOutput, new ResourceLocation(EndGameEnhanced.MOD_ID, "pure_undying_essence"));
 
         //essence
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SPIDER_ESSENCE.get())
@@ -1387,6 +1397,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('D', ModItems.FLAWLESS_ENDER_PEARL.get())
                 .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
                 .save(pRecipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.UNDYING_ESSENCE.get())
+                .pattern(" B ")
+                .pattern("BAB")
+                .pattern(" B ")
+                .define('A', ModItems.BASIC_ESSENCE.get())
+                .define('B', Items.TOTEM_OF_UNDYING)
+                .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
+                .save(pRecipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.QUICK_CHARGE_ESSENCE.get())
+                .pattern(" E ")
+                .pattern("BCD")
+                .pattern(" F ")
+                .define('B', ModItems.PIGLINS_GOLD_COIN.get())
+                .define('C', ModItems.BASIC_ESSENCE.get())
+                .define('D', ModItems.HOGLIN_TUSK.get())
+                .define('E', ModItems.DAMAGED_CROSSBOW.get())
+                .define('F', ModItems.DISCOLORED_SHULKER_SHELL.get())
+                .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
+                .save(pRecipeOutput);
 
         //misc
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SPAWNER)
@@ -1396,6 +1425,31 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('A', Items.NETHER_STAR)
                 .define('B', Items.IRON_BARS)
                 .unlockedBy(getHasName(Items.NETHER_STAR), has(Items.NETHER_STAR))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CHARGING_TOTEM.get())
+                .pattern("ACA")
+                .pattern("BDB")
+                .pattern("BBB")
+                .define('A', ModItems.UNDYING_ESSENCE.get())
+                .define('B', Items.CLOCK)
+                .define('C', Items.NETHER_STAR)
+                .define('D', Items.TOTEM_OF_UNDYING)
+                .unlockedBy(getHasName(Items.NETHER_STAR), has(Items.NETHER_STAR))
+                .save(pRecipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FAST_CHARGING_TOTEM.get())
+                .pattern(" B ")
+                .pattern("ACA")
+                .pattern("   ")
+                .define('A', ModItems.UNDYING_ESSENCE.get())
+                .define('B', ModItems.QUICK_CHARGE_ESSENCE.get())
+                .define('C', ModItems.CHARGING_TOTEM.get())
+                .unlockedBy(getHasName(ModItems.CHARGING_TOTEM.get()), has(ModItems.CHARGING_TOTEM.get()))
+                .save(pRecipeOutput);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.FASTEST_CHARGING_TOTEM.get(), 1)
+                .requires(ModItems.FAST_CHARGING_TOTEM.get())
+                .requires(ModItems.PURE_UNDYING_ESSENCE.get())
+                .unlockedBy(getHasName(ModItems.FAST_CHARGING_TOTEM.get()), has(ModItems.FAST_CHARGING_TOTEM.get()))
                 .save(pRecipeOutput);
         
 

@@ -138,7 +138,6 @@
   "item.endgameenhanced.emerald_shovel": "Emerald Shovel",
   "item.endgameenhanced.emerald_pickaxe": "Emerald Pickaxe",
   "item.endgameenhanced.emerald_axe": "Emerald Axe",
-  "item.endgameenhanced.emerald_axe": "Emerald Axe",
   "item.endgameenhanced.emerald_hoe": "Emerald Hoe",
   "item.endgameenhanced.ruby_sword": "Ruby Sword",
   "item.endgameenhanced.ruby_shovel": "Ruby Shovel",
@@ -179,6 +178,10 @@
   "item.endgameenhanced.scythe_of_vitur": "Sanguine Scythe",
   "item.endgameenhanced.unkempt_harold": "Unkempt Harold",
   "item.endgameenhanced.infernal_pickaxe": "Infernal Pickaxe",
+
+  "item.endgameenhanced.charging_totem": "Charging Totem of Undying",
+  "item.endgameenhanced.fast_charging_totem": "Quick Charging Totem of Undying",
+  "item.endgameenhanced.fastest_charging_totem": "Turbo Charging Totem of Undying",
 
   "item.endgameenhanced.smithing_template.onyx_upgrade.base_slot_description": "Add Diamond Armor, Weapon, or Tool",
   "item.endgameenhanced.smithing_template.onyx_upgrade.additions_slot_description": "Add Onyx",
@@ -246,6 +249,8 @@
   "item.endgameenhanced.breach_essence": "Breach Essence",
   "item.endgameenhanced.stabilized_essence": "Stabilized Essence",
   "item.endgameenhanced.swift_essence": "Swift Essence",
+  "item.endgameenhanced.undying_essence": "Undying Essence",
+  "item.endgameenhanced.quick_charge_essence": "Quick Charge Essence",
 
   "item.endgameenhanced.pure_nether_essence": "Pure Nether Essence",
   "upgrade.endgameenhanced.inevitable_nether_upgrade": "Netherrath Upgrade",
@@ -284,6 +289,7 @@
   "item.endgameenhanced.pure_resistant_essence": "Pure Resistant Essence",
   "upgrade.endgameenhanced.inevitable_armor_upgrade": "Obsidian Armor Upgrade",
   "item.endgameenhanced.obsidian_armor_upgrade_smithing_template": "Obsidian Armor Upgrade Smithing Template",
+  "item.endgameenhanced.pure_undying_essence": "Pure Undying Essence",
 
 
   "tooltip.endgameenhanced.generic.sword.damage.0": " 12 Damage",
@@ -448,6 +454,7 @@
   "endgameenhanced.creativetab.inevitable_tab": "EGE: Inevitable items",
   "endgameenhanced.creativetab.unique_mob_drop_tab": "EGE: Unique mob drops",
   "endgameenhanced.creativetab.unique_crops_tab": "EGE: Unique crops",
+  "endgameenhanced.creativetab.misc_tab": "EGE: Misc. items",
 
   "endgameenhanced.translated.destruction.1.x.1": "Destruction mode: OFF",
   "endgameenhanced.translated.destruction.3.x.3": "Destruction mode: ON",

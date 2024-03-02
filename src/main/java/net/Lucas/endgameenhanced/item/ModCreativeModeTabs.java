@@ -215,6 +215,8 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.BREACH_ESSENCE.get());
                         pOutput.accept(ModItems.STABILIZED_ESSENCE.get());
                         pOutput.accept(ModItems.SWIFT_ESSENCE.get());
+                        pOutput.accept(ModItems.UNDYING_ESSENCE.get());
+                        pOutput.accept(ModItems.QUICK_CHARGE_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_NETHER_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_END_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_SCULK_ESSENCE.get());
@@ -229,6 +231,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.PURE_RESOLUTE_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_RESILIENT_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_RESISTANT_ESSENCE.get());
+                        pOutput.accept(ModItems.PURE_UNDYING_ESSENCE.get());
                     }).build());
     public static final RegistryObject<CreativeModeTab> INEVITABLE_TAB = CREATIVE_MODE_TABS.register("inevitable_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.NETHERRATH.get()))
@@ -264,6 +267,15 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.GOLDEN_MELON.get());
                         pOutput.accept(ModItems.THICK_SUGAR_CANE.get());
                         pOutput.accept(ModItems.CACTUS_SPINE.get());
+                    }).build());
+
+    public static final RegistryObject<CreativeModeTab> MISC_TAB = CREATIVE_MODE_TABS.register("misc_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CHARGING_TOTEM.get()))
+                    .title(Component.translatable("endgameenhanced.creativetab.misc_tab"))
+                    .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(ModItems.CHARGING_TOTEM.get());
+                        pOutput.accept(ModItems.FAST_CHARGING_TOTEM.get());
+                        pOutput.accept(ModItems.FASTEST_CHARGING_TOTEM.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {

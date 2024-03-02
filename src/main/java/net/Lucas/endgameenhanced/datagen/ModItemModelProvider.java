@@ -134,6 +134,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.BREACH_ESSENCE);
         simpleItem(ModItems.STABILIZED_ESSENCE);
         simpleItem(ModItems.SWIFT_ESSENCE);
+        simpleItem(ModItems.UNDYING_ESSENCE);
+        simpleItem(ModItems.QUICK_CHARGE_ESSENCE);
 
         simpleItem(ModItems.EXPERIENCE_BOTTLE_NETHER_WART);
         simpleItem(ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT);
@@ -163,6 +165,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.PURE_RESILIENT_ESSENCE);
         simpleItem(ModItems.PURE_RESISTANT_ESSENCE);
         simpleItem(ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE);
+        simpleItem(ModItems.PURE_UNDYING_ESSENCE);
 
 
         handheldItem(ModItems.ONYX_SWORD);
@@ -213,6 +216,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.NETHERRATH);
         handheldItem(ModItems.VOIDWAKER);
         handheldItem(ModItems.SCULK_BRINGER);
+
 
         trimmedArmorItem(ModItems.ONYX_HELMET);
         trimmedArmorItem(ModItems.ONYX_CHESTPLATE);

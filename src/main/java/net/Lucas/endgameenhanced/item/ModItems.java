@@ -4,6 +4,10 @@ import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.Lucas.endgameenhanced.item.custom.*;
 import net.Lucas.endgameenhanced.item.custom.armor.*;
 import net.Lucas.endgameenhanced.item.custom.arrows.*;
+import net.Lucas.endgameenhanced.item.custom.essence.*;
+import net.Lucas.endgameenhanced.item.custom.misc.ChargingTotem;
+import net.Lucas.endgameenhanced.item.custom.misc.FastChargingTotem;
+import net.Lucas.endgameenhanced.item.custom.misc.FastestChargingTotem;
 import net.Lucas.endgameenhanced.item.custom.mobdrops.*;
 import net.Lucas.endgameenhanced.item.custom.smithing_templates.CustomSmithingTemplateItem;
 import net.Lucas.endgameenhanced.item.custom.smithing_templates.DiamondSmithingTemplateItem;
@@ -51,7 +55,12 @@ public class ModItems {
     public static final RegistryObject<Item> WEBWEAVER_ARROW = ITEMS.register("webweaver_arrow", () -> new WebweaverArrow(new Item.Properties(), 1F));
     public static final RegistryObject<Item> SCULK_SLINGER_ARROW = ITEMS.register("sculk_slinger_projectile", () -> new SculkSlingerArrow(new Item.Properties(), 1F));
 
-//mob drops
+    //misc
+    public static final RegistryObject<Item> CHARGING_TOTEM = ITEMS.register("charging_totem", () -> new ChargingTotem(new Item.Properties().durability(6001).rarity(Rarity.UNCOMMON).fireResistant()));
+    public static final RegistryObject<Item> FAST_CHARGING_TOTEM = ITEMS.register("fast_charging_totem", () -> new FastChargingTotem(new Item.Properties().durability(3001).rarity(Rarity.RARE).fireResistant()));
+    public static final RegistryObject<Item> FASTEST_CHARGING_TOTEM = ITEMS.register("fastest_charging_totem", () -> new FastestChargingTotem(new Item.Properties().durability(1201).rarity(Rarity.EPIC).fireResistant()));
+
+    //mob drops
     public static final RegistryObject<Item> SMOULDERING_STONE = ITEMS.register("smouldering_stone", () -> new SmoulderingStone(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> ENDER_DRAGON_SCALE = ITEMS.register("ender_dragon_scale", () -> new EnderDragonScale(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> SCULK_CRYSTAL = ITEMS.register("sculk_crystal", () -> new SculkCrystal(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
@@ -306,49 +315,53 @@ public class ModItems {
     public static final RegistryObject<Item> BREACH_ESSENCE = ITEMS.register("breach_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> STABILIZED_ESSENCE = ITEMS.register("stabilized_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SWIFT_ESSENCE = ITEMS.register("swift_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> UNDYING_ESSENCE = ITEMS.register("undying_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> QUICK_CHARGE_ESSENCE = ITEMS.register("quick_charge_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
 
 
 //inevitable templates and pure essence
     public static final RegistryObject<Item> NETHERRATH_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("netherrath_upgrade_smithing_template", CustomSmithingTemplateItem::createNetherrathUpgradeTemplate);
     public static final RegistryObject<Item> PURE_NETHER_ESSENCE = ITEMS.register("pure_nether_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureNetherEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> VOIDWAKER_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("voidwaker_upgrade_smithing_template", CustomSmithingTemplateItem::createVoidwakerUpgradeTemplate);
     public static final RegistryObject<Item> PURE_END_ESSENCE = ITEMS.register("pure_end_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureEndEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> SCULK_BRINGER_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("sculk_bringer_upgrade_smithing_template", CustomSmithingTemplateItem::createSculkBringerUpgradeTemplate);
     public static final RegistryObject<Item> PURE_SCULK_ESSENCE = ITEMS.register("pure_sculk_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureSculkEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> SCULK_SLINGER_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("sculk_slinger_upgrade_smithing_template", CustomSmithingTemplateItem::createSculkSlingerUpgradeTemplate);
     public static final RegistryObject<Item> PURE_EVIL_ESSENCE = ITEMS.register("pure_evil_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureEvilEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> WEBWEAVER_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("webweaver_upgrade_smithing_template", CustomSmithingTemplateItem::createWebweaverUpgradeTemplate);
     public static final RegistryObject<Item> PURE_SPIDER_ESSENCE = ITEMS.register("pure_spider_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureSpiderEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> TIDE_BREAKER_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("tide_breaker_upgrade_smithing_template", CustomSmithingTemplateItem::createTideBreakerUpgradeTemplate);
     public static final RegistryObject<Item> PURE_OCEAN_ESSENCE = ITEMS.register("pure_ocean_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureOceanEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> INFERNAL_PICKAXE_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("infernal_pickaxe_upgrade_smithing_template", CustomSmithingTemplateItem::createInfernalPickaxeUpgradeTemplate);
     public static final RegistryObject<Item> PURE_FIRE_ESSENCE = ITEMS.register("pure_fire_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureFireEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> UNKEMPT_HAROLD_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("unkempt_harold_upgrade_smithing_template", CustomSmithingTemplateItem::createUnkemptHaroldUpgradeTemplate);
     public static final RegistryObject<Item> PURE_EXPLOSIVE_ESSENCE = ITEMS.register("pure_explosive_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureExplosiveEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> LEVIATHANS_AXE_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("leviathans_axe_upgrade_smithing_template", CustomSmithingTemplateItem::createLeviathansAxeUpgradeTemplate);
     public static final RegistryObject<Item> PURE_NATURE_ESSENCE = ITEMS.register("pure_nature_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureNatureEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> SCYTHE_OF_VITUR_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("scythe_of_vitur_upgrade_smithing_template", CustomSmithingTemplateItem::createScytheOfViturUpgradeTemplate);
     public static final RegistryObject<Item> PURE_BLOOD_ESSENCE = ITEMS.register("pure_blood_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureBloodEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("obsidian_armor_upgrade_smithing_template", CustomSmithingTemplateItem::createObsidianArmorUpgradeTemplate);
     public static final RegistryObject<Item> PURE_TOUGH_ESSENCE = ITEMS.register("pure_tough_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureToughEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> PURE_RESOLUTE_ESSENCE = ITEMS.register("pure_resolute_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureResoluteEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> PURE_RESILIENT_ESSENCE = ITEMS.register("pure_resilient_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureResilientEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> PURE_RESISTANT_ESSENCE = ITEMS.register("pure_resistant_essence",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            () -> new PureResistantEssence(new Item.Properties().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> PURE_UNDYING_ESSENCE = ITEMS.register("pure_undying_essence",
+            () -> new PureUndyingEssence(new Item.Properties().rarity(Rarity.EPIC)));
 
 
 

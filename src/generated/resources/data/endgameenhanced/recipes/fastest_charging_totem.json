@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:fast_charging_totem"
+    },
+    {
+      "item": "endgameenhanced:pure_undying_essence"
+    }
+  ],
+  "result": {
+    "item": "endgameenhanced:fastest_charging_totem"
+  }
+}

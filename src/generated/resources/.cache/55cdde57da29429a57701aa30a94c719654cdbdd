@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-27T19:23:24.2160964	Item Models: endgameenhanced
+// 1.20.4	2024-03-01T23:09:46.1821075	Item Models: endgameenhanced
 3eeedd58f7b6fd813fac08490de96646e44db16a assets/endgameenhanced/models/item/amethyst_axe.json
 159c5c3bb07b44723276583bf365ee8b629a77d8 assets/endgameenhanced/models/item/amethyst_hoe.json
 8791183e09f8bdbf369338efc9b8c53b6d4b450f assets/endgameenhanced/models/item/amethyst_pickaxe.json
@@ -195,11 +195,13 @@ a260012af66513d3aee0e470af3f7bcae2bfadfd assets/endgameenhanced/models/item/pure
 eb3e8009fe3a731f15f9329e4ac0bc79b213c952 assets/endgameenhanced/models/item/pure_sculk_essence.json
 87c8c5699793e5db308aaf3d5c9631623d7ea289 assets/endgameenhanced/models/item/pure_spider_essence.json
 e5b7cb2e2c8b90679ae750b1b3a4810e896cf85b assets/endgameenhanced/models/item/pure_tough_essence.json
+15fed245242454881f46e296a953528af6d1364f assets/endgameenhanced/models/item/pure_undying_essence.json
 f10cb5f51be07cd8ed609a681c0b5af1930d942d assets/endgameenhanced/models/item/quartz_axe.json
 721eebf582468aceedec2d9aaa9955b3c73ca9d3 assets/endgameenhanced/models/item/quartz_hoe.json
 5a88ae2cd45db201cd2af9be5c2872eaf2cc4c30 assets/endgameenhanced/models/item/quartz_pickaxe.json
 a13d1ca75e5fae6ad479150045cedb312c4375b7 assets/endgameenhanced/models/item/quartz_shovel.json
 71bb2b2262101acac7b49e09c8fbfbbbd078b736 assets/endgameenhanced/models/item/quartz_sword.json
+46d553c3a627f70aa6d81c171e29650950843375 assets/endgameenhanced/models/item/quick_charge_essence.json
 4edf0c57052207a2925a3deb2afdf2a47dbb6a11 assets/endgameenhanced/models/item/ravager_horn.json
 a4cd47afa36c2b65af5d9a13444c52cb889a16ae assets/endgameenhanced/models/item/rib_bone.json
 940878c523a47c998d1d5bc9ca5f6294c9dd89b4 assets/endgameenhanced/models/item/ritual_book.json
@@ -244,6 +246,7 @@ bd7557d04ab72ea07c08d7b7d8b34907ccc1be4b assets/endgameenhanced/models/item/thic
 5ed72c042b12f545dac5c348306d54481b73e1e7 assets/endgameenhanced/models/item/tide_breaker_upgrade_smithing_template.json
 0e06689eed5e292c524fd9ac3c1ac1e9b417f203 assets/endgameenhanced/models/item/toughness_essence.json
 6b6da671b92eb3ee3319a85cd201dd2d7c3c318b assets/endgameenhanced/models/item/tree_essence.json
+9fdb9695a02b2ac9b085974421be8d159d8cf996 assets/endgameenhanced/models/item/undying_essence.json
 c9398ed746d540aef2d374d21696ec908de7f2ad assets/endgameenhanced/models/item/unkempt_essence.json
 bc2c0edb906205ed2dbf4ffa233fac5f717e01e9 assets/endgameenhanced/models/item/unkempt_harold_upgrade_smithing_template.json
 318531441da4447c5851baf9db4f28657a9e3c3c assets/endgameenhanced/models/item/vision_essence.json
