@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:tier_three_hunger_totem"
+    },
+    {
+      "item": "endgameenhanced:providing_essence"
+    }
+  ],
+  "result": {
+    "item": "endgameenhanced:tier_two_hunger_totem"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:tier_four_hunger_totem"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tier_five_hunger_totem": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endgameenhanced:tier_five_hunger_totem"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tier_five_hunger_totem"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "endgameenhanced:tier_four_hunger_totem"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:cake"
+    },
+    "C": {
+      "item": "minecraft:cookie"
+    },
+    "D": {
+      "item": "minecraft:potato"
+    },
+    "E": {
+      "item": "minecraft:beetroot"
+    },
+    "F": {
+      "item": "minecraft:melon_slice"
+    }
+  },
+  "pattern": [
+    "DBD",
+    "CAC",
+    "ECF"
+  ],
+  "result": {
+    "item": "endgameenhanced:sustaining_essence"
+  }
+}

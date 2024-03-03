@@ -179,9 +179,16 @@
   "item.endgameenhanced.unkempt_harold": "Unkempt Harold",
   "item.endgameenhanced.infernal_pickaxe": "Infernal Pickaxe",
 
+  "item.endgameenhanced.unattuned_totem": "Unattuned Totem",
   "item.endgameenhanced.charging_totem": "Charging Totem of Undying",
-  "item.endgameenhanced.fast_charging_totem": "Quick Charging Totem of Undying",
-  "item.endgameenhanced.fastest_charging_totem": "Turbo Charging Totem of Undying",
+  "item.endgameenhanced.fast_charging_totem": "Rapid Totem of Undying",
+  "item.endgameenhanced.fastest_charging_totem": "Overclocked Totem of Undying",
+  "item.endgameenhanced.totem_of_nourishing": "Totem of Nourishing",
+  "item.endgameenhanced.tier_five_hunger_totem": "Ample Totem of Nourishing",
+  "item.endgameenhanced.tier_four_hunger_totem": "Generous Totem of Nourishing",
+  "item.endgameenhanced.tier_three_hunger_totem": "Abundant Totem of Nourishing",
+  "item.endgameenhanced.tier_two_hunger_totem": "Plentiful Totem of Nourishing",
+  "item.endgameenhanced.tier_one_hunger_totem": "Bountiful Totem of Nourishing",
 
   "item.endgameenhanced.smithing_template.onyx_upgrade.base_slot_description": "Add Diamond Armor, Weapon, or Tool",
   "item.endgameenhanced.smithing_template.onyx_upgrade.additions_slot_description": "Add Onyx",
@@ -250,7 +257,13 @@
   "item.endgameenhanced.stabilized_essence": "Stabilized Essence",
   "item.endgameenhanced.swift_essence": "Swift Essence",
   "item.endgameenhanced.undying_essence": "Undying Essence",
-  "item.endgameenhanced.quick_charge_essence": "Quick Charge Essence",
+  "item.endgameenhanced.rapid_essence": "Rapid Essence",
+  "item.endgameenhanced.charging_essence": "Charging Essence",
+  "item.endgameenhanced.sustaining_essence": "Sustaining Essence",
+  "item.endgameenhanced.maintaining_essence": "Maintaining Essence",
+  "item.endgameenhanced.nurturing_essence": "Nurturing Essence",
+  "item.endgameenhanced.providing_essence": "Providing Essence",
+  "item.endgameenhanced.nourishing_essence": "Nourishing Essence",
 
   "item.endgameenhanced.pure_nether_essence": "Pure Nether Essence",
   "upgrade.endgameenhanced.inevitable_nether_upgrade": "Netherrath Upgrade",
@@ -290,6 +303,7 @@
   "upgrade.endgameenhanced.inevitable_armor_upgrade": "Obsidian Armor Upgrade",
   "item.endgameenhanced.obsidian_armor_upgrade_smithing_template": "Obsidian Armor Upgrade Smithing Template",
   "item.endgameenhanced.pure_undying_essence": "Pure Undying Essence",
+  "item.endgameenhanced.pure_nourishing_essence": "Pure Nourishing Essence",
 
 
   "tooltip.endgameenhanced.generic.sword.damage.0": " 12 Damage",

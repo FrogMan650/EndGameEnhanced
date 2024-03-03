@@ -216,7 +216,14 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.STABILIZED_ESSENCE.get());
                         pOutput.accept(ModItems.SWIFT_ESSENCE.get());
                         pOutput.accept(ModItems.UNDYING_ESSENCE.get());
-                        pOutput.accept(ModItems.QUICK_CHARGE_ESSENCE.get());
+                        pOutput.accept(ModItems.RAPID_ESSENCE.get());
+                        pOutput.accept(ModItems.CHARGING_ESSENCE.get());
+                        pOutput.accept(ModItems.SUSTAINING_ESSENCE.get());
+                        pOutput.accept(ModItems.MAINTAINING_ESSENCE.get());
+                        pOutput.accept(ModItems.NURTURING_ESSENCE.get());
+                        pOutput.accept(ModItems.PROVIDING_ESSENCE.get());
+                        pOutput.accept(ModItems.NOURISHING_ESSENCE.get());
+
                         pOutput.accept(ModItems.PURE_NETHER_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_END_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_SCULK_ESSENCE.get());
@@ -232,6 +239,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.PURE_RESILIENT_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_RESISTANT_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_UNDYING_ESSENCE.get());
+                        pOutput.accept(ModItems.PURE_NOURISHING_ESSENCE.get());
                     }).build());
     public static final RegistryObject<CreativeModeTab> INEVITABLE_TAB = CREATIVE_MODE_TABS.register("inevitable_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.NETHERRATH.get()))
@@ -273,9 +281,17 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CHARGING_TOTEM.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.misc_tab"))
                     .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(ModItems.UNATTUNED_TOTEM.get());
+                        pOutput.accept(Items.TOTEM_OF_UNDYING);
                         pOutput.accept(ModItems.CHARGING_TOTEM.get());
                         pOutput.accept(ModItems.FAST_CHARGING_TOTEM.get());
                         pOutput.accept(ModItems.FASTEST_CHARGING_TOTEM.get());
+                        pOutput.accept(ModItems.TOTEM_OF_NOURISHING.get());
+                        pOutput.accept(ModItems.TIER_FIVE_HUNGER_TOTEM.get());
+                        pOutput.accept(ModItems.TIER_FOUR_HUNGER_TOTEM.get());
+                        pOutput.accept(ModItems.TIER_THREE_HUNGER_TOTEM.get());
+                        pOutput.accept(ModItems.TIER_TWO_HUNGER_TOTEM.get());
+                        pOutput.accept(ModItems.TIER_ONE_HUNGER_TOTEM.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:totem_of_nourishing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_unattuned_totem": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endgameenhanced:unattuned_totem"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_unattuned_totem"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "endgameenhanced:totem_of_nourishing"
+    ]
+  }
+}

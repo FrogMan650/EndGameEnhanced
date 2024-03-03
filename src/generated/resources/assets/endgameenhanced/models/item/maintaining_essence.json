@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "endgameenhanced:item/quick_charge_essence"
+    "layer0": "endgameenhanced:item/maintaining_essence"
   }
 }

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:odd_shaped_potato"
+    },
+    "C": {
+      "item": "minecraft:golden_apple"
+    },
+    "D": {
+      "item": "minecraft:carrot"
+    },
+    "E": {
+      "item": "minecraft:apple"
+    }
+  },
+  "pattern": [
+    "DBD",
+    "CAC",
+    "ECE"
+  ],
+  "result": {
+    "item": "endgameenhanced:maintaining_essence"
+  }
+}

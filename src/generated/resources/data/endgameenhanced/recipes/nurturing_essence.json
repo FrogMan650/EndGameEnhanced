@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "C": {
+      "item": "endgameenhanced:small_carrot"
+    },
+    "D": {
+      "item": "endgameenhanced:damaged_crossbow"
+    },
+    "E": {
+      "item": "endgameenhanced:soaked_flesh"
+    },
+    "F": {
+      "item": "minecraft:baked_potato"
+    },
+    "G": {
+      "item": "minecraft:bread"
+    },
+    "H": {
+      "item": "minecraft:cooked_cod"
+    },
+    "I": {
+      "item": "minecraft:cooked_rabbit"
+    }
+  },
+  "pattern": [
+    "FBG",
+    "EAD",
+    "HCI"
+  ],
+  "result": {
+    "item": "endgameenhanced:nurturing_essence"
+  }
+}

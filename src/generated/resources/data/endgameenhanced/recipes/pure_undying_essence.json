@@ -3,22 +3,28 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "endgameenhanced:ritual_book"
-    },
-    "B": {
-      "item": "endgameenhanced:smouldering_stone"
-    },
-    "C": {
       "item": "endgameenhanced:basic_essence"
     },
+    "B": {
+      "item": "endgameenhanced:ritual_book"
+    },
+    "C": {
+      "item": "endgameenhanced:smouldering_stone"
+    },
     "D": {
+      "item": "endgameenhanced:ender_dragon_scale"
+    },
+    "E": {
       "item": "endgameenhanced:sculk_crystal"
+    },
+    "F": {
+      "item": "minecraft:totem_of_undying"
     }
   },
   "pattern": [
-    " B ",
-    "ACA",
-    " D "
+    "FBF",
+    "DAE",
+    "FCF"
   ],
   "result": {
     "item": "endgameenhanced:pure_undying_essence"

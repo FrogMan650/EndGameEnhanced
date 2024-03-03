@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "endgameenhanced:item/tier_four_hunger_totem"
+  }
+}

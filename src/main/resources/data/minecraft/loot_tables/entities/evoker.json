@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:totem_of_undying"
+          "name": "endgameenhanced:unattuned_totem"
         }
       ],
       "rolls": 1.0

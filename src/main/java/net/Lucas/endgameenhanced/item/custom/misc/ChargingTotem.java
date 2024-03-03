@@ -3,6 +3,7 @@ package net.Lucas.endgameenhanced.item.custom.misc;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -16,7 +17,7 @@ public class ChargingTotem extends Item {
 
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        if (pEntity instanceof Player player && pStack.getDamageValue() > 0) {
+        if (pEntity instanceof Player player && pStack.getDamageValue() > 0 && player.getItemInHand(InteractionHand.OFF_HAND).is(this)) {
             Level level = player.level();
             pStack.setDamageValue(pStack.getDamageValue()-1);
             if (pStack.getDamageValue() > 5970) {

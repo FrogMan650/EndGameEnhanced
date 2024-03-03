@@ -135,7 +135,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.STABILIZED_ESSENCE);
         simpleItem(ModItems.SWIFT_ESSENCE);
         simpleItem(ModItems.UNDYING_ESSENCE);
-        simpleItem(ModItems.QUICK_CHARGE_ESSENCE);
+        simpleItem(ModItems.RAPID_ESSENCE);
+        simpleItem(ModItems.CHARGING_ESSENCE);
+        simpleItem(ModItems.SUSTAINING_ESSENCE);
+        simpleItem(ModItems.MAINTAINING_ESSENCE);
+        simpleItem(ModItems.NURTURING_ESSENCE);
+        simpleItem(ModItems.PROVIDING_ESSENCE);
+        simpleItem(ModItems.NOURISHING_ESSENCE);
 
         simpleItem(ModItems.EXPERIENCE_BOTTLE_NETHER_WART);
         simpleItem(ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT);
@@ -166,6 +172,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.PURE_RESISTANT_ESSENCE);
         simpleItem(ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE);
         simpleItem(ModItems.PURE_UNDYING_ESSENCE);
+        simpleItem(ModItems.PURE_NOURISHING_ESSENCE);
 
 
         handheldItem(ModItems.ONYX_SWORD);
@@ -217,6 +224,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.VOIDWAKER);
         handheldItem(ModItems.SCULK_BRINGER);
 
+        handheldItem(ModItems.TIER_ONE_HUNGER_TOTEM);
+        handheldItem(ModItems.TIER_TWO_HUNGER_TOTEM);
+        handheldItem(ModItems.TIER_THREE_HUNGER_TOTEM);
+        handheldItem(ModItems.TIER_FOUR_HUNGER_TOTEM);
+        handheldItem(ModItems.TIER_FIVE_HUNGER_TOTEM);
+        handheldItem(ModItems.UNATTUNED_TOTEM);
+        handheldItem(ModItems.TOTEM_OF_NOURISHING);
 
         trimmedArmorItem(ModItems.ONYX_HELMET);
         trimmedArmorItem(ModItems.ONYX_CHESTPLATE);

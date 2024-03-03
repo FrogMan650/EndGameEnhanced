@@ -5,9 +5,7 @@ import net.Lucas.endgameenhanced.item.custom.*;
 import net.Lucas.endgameenhanced.item.custom.armor.*;
 import net.Lucas.endgameenhanced.item.custom.arrows.*;
 import net.Lucas.endgameenhanced.item.custom.essence.*;
-import net.Lucas.endgameenhanced.item.custom.misc.ChargingTotem;
-import net.Lucas.endgameenhanced.item.custom.misc.FastChargingTotem;
-import net.Lucas.endgameenhanced.item.custom.misc.FastestChargingTotem;
+import net.Lucas.endgameenhanced.item.custom.misc.*;
 import net.Lucas.endgameenhanced.item.custom.mobdrops.*;
 import net.Lucas.endgameenhanced.item.custom.smithing_templates.CustomSmithingTemplateItem;
 import net.Lucas.endgameenhanced.item.custom.smithing_templates.DiamondSmithingTemplateItem;
@@ -56,10 +54,16 @@ public class ModItems {
     public static final RegistryObject<Item> SCULK_SLINGER_ARROW = ITEMS.register("sculk_slinger_projectile", () -> new SculkSlingerArrow(new Item.Properties(), 1F));
 
     //misc
-    public static final RegistryObject<Item> CHARGING_TOTEM = ITEMS.register("charging_totem", () -> new ChargingTotem(new Item.Properties().durability(6001).rarity(Rarity.UNCOMMON).fireResistant()));
-    public static final RegistryObject<Item> FAST_CHARGING_TOTEM = ITEMS.register("fast_charging_totem", () -> new FastChargingTotem(new Item.Properties().durability(3001).rarity(Rarity.RARE).fireResistant()));
+    public static final RegistryObject<Item> UNATTUNED_TOTEM = ITEMS.register("unattuned_totem", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CHARGING_TOTEM = ITEMS.register("charging_totem", () -> new ChargingTotem(new Item.Properties().durability(6001).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> FAST_CHARGING_TOTEM = ITEMS.register("fast_charging_totem", () -> new FastChargingTotem(new Item.Properties().durability(3001).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> FASTEST_CHARGING_TOTEM = ITEMS.register("fastest_charging_totem", () -> new FastestChargingTotem(new Item.Properties().durability(1201).rarity(Rarity.EPIC).fireResistant()));
-
+    public static final RegistryObject<Item> TOTEM_OF_NOURISHING = ITEMS.register("totem_of_nourishing", () -> new NourishingTotem(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> TIER_ONE_HUNGER_TOTEM = ITEMS.register("tier_one_hunger_totem", () -> new TierOneHungerTotem(new Item.Properties().durability(251).rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<Item> TIER_TWO_HUNGER_TOTEM = ITEMS.register("tier_two_hunger_totem", () -> new TierTwoHungerTotem(new Item.Properties().durability(151).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> TIER_THREE_HUNGER_TOTEM = ITEMS.register("tier_three_hunger_totem", () -> new TierThreeHungerTotem(new Item.Properties().durability(101).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> TIER_FOUR_HUNGER_TOTEM = ITEMS.register("tier_four_hunger_totem", () -> new TierFourHungerTotem(new Item.Properties().durability(51).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> TIER_FIVE_HUNGER_TOTEM = ITEMS.register("tier_five_hunger_totem", () -> new TierFiveHungerTotem(new Item.Properties().durability(26).rarity(Rarity.UNCOMMON)));
     //mob drops
     public static final RegistryObject<Item> SMOULDERING_STONE = ITEMS.register("smouldering_stone", () -> new SmoulderingStone(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> ENDER_DRAGON_SCALE = ITEMS.register("ender_dragon_scale", () -> new EnderDragonScale(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
@@ -316,7 +320,13 @@ public class ModItems {
     public static final RegistryObject<Item> STABILIZED_ESSENCE = ITEMS.register("stabilized_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SWIFT_ESSENCE = ITEMS.register("swift_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> UNDYING_ESSENCE = ITEMS.register("undying_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> QUICK_CHARGE_ESSENCE = ITEMS.register("quick_charge_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RAPID_ESSENCE = ITEMS.register("rapid_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CHARGING_ESSENCE = ITEMS.register("charging_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SUSTAINING_ESSENCE = ITEMS.register("sustaining_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MAINTAINING_ESSENCE = ITEMS.register("maintaining_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> NURTURING_ESSENCE = ITEMS.register("nurturing_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PROVIDING_ESSENCE = ITEMS.register("providing_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> NOURISHING_ESSENCE = ITEMS.register("nourishing_essence", () -> new Item(new Item.Properties()));
 
 
 
@@ -362,6 +372,8 @@ public class ModItems {
             () -> new PureResistantEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> PURE_UNDYING_ESSENCE = ITEMS.register("pure_undying_essence",
             () -> new PureUndyingEssence(new Item.Properties().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> PURE_NOURISHING_ESSENCE = ITEMS.register("pure_nourishing_essence",
+            () -> new PureNourishingEssence(new Item.Properties().rarity(Rarity.EPIC)));
 
 
 

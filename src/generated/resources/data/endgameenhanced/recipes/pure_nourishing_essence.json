@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:ritual_book"
+    },
+    "C": {
+      "item": "endgameenhanced:smouldering_stone"
+    },
+    "D": {
+      "item": "endgameenhanced:ender_dragon_scale"
+    },
+    "E": {
+      "item": "endgameenhanced:sculk_crystal"
+    },
+    "F": {
+      "item": "minecraft:golden_carrot"
+    },
+    "G": {
+      "item": "minecraft:cooked_beef"
+    },
+    "H": {
+      "item": "minecraft:cooked_porkchop"
+    }
+  },
+  "pattern": [
+    "FBF",
+    "DAE",
+    "GCH"
+  ],
+  "result": {
+    "item": "endgameenhanced:pure_nourishing_essence"
+  }
+}

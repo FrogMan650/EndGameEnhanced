@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:nether_star"
+    },
+    "C": {
+      "item": "minecraft:cooked_mutton"
+    },
+    "D": {
+      "item": "minecraft:cooked_salmon"
+    },
+    "E": {
+      "item": "minecraft:cooked_chicken"
+    },
+    "F": {
+      "item": "endgameenhanced:plentiful_wheat"
+    },
+    "G": {
+      "item": "endgameenhanced:discolored_shulker_shell"
+    },
+    "H": {
+      "item": "endgameenhanced:flawless_ender_pearl"
+    }
+  },
+  "pattern": [
+    "CBC",
+    "GAH",
+    "DFE"
+  ],
+  "result": {
+    "item": "endgameenhanced:providing_essence"
+  }
+}

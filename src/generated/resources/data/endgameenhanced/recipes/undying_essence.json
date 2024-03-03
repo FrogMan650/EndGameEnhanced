@@ -6,13 +6,19 @@
       "item": "endgameenhanced:basic_essence"
     },
     "B": {
-      "item": "minecraft:totem_of_undying"
+      "item": "minecraft:glowstone_dust"
+    },
+    "C": {
+      "item": "minecraft:redstone"
+    },
+    "D": {
+      "item": "minecraft:lapis_lazuli"
     }
   },
   "pattern": [
-    " B ",
-    "BAB",
-    " B "
+    "DBD",
+    "CAC",
+    "DBD"
   ],
   "result": {
     "item": "endgameenhanced:undying_essence"

@@ -1,24 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "A": {
-      "item": "endgameenhanced:undying_essence"
-    },
-    "B": {
-      "item": "minecraft:clock"
-    },
-    "C": {
-      "item": "minecraft:nether_star"
-    },
-    "D": {
+  "ingredients": [
+    {
       "item": "minecraft:totem_of_undying"
+    },
+    {
+      "item": "endgameenhanced:charging_essence"
     }
-  },
-  "pattern": [
-    "ACA",
-    "BDB",
-    "BBB"
   ],
   "result": {
     "item": "endgameenhanced:charging_totem"

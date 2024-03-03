@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "endgameenhanced:quick_charge_essence"
+        "recipe": "endgameenhanced:charging_essence"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "endgameenhanced:quick_charge_essence"
+      "endgameenhanced:charging_essence"
     ]
   }
 }

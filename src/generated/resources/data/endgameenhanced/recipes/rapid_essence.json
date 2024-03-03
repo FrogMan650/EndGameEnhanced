@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:nether_star"
+    },
+    "C": {
+      "item": "endgameenhanced:piglins_gold_coin"
+    },
+    "D": {
+      "item": "endgameenhanced:hoglin_tusk"
+    },
+    "E": {
+      "item": "endgameenhanced:ruby"
+    },
+    "F": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "FBF",
+    "CAD",
+    "EEE"
+  ],
+  "result": {
+    "item": "endgameenhanced:rapid_essence"
+  }
+}

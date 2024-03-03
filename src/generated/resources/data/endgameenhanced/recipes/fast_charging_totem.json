@@ -1,21 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "A": {
-      "item": "endgameenhanced:undying_essence"
-    },
-    "B": {
-      "item": "endgameenhanced:quick_charge_essence"
-    },
-    "C": {
+  "ingredients": [
+    {
       "item": "endgameenhanced:charging_totem"
+    },
+    {
+      "item": "endgameenhanced:rapid_essence"
     }
-  },
-  "pattern": [
-    " B ",
-    "ACA",
-    "   "
   ],
   "result": {
     "item": "endgameenhanced:fast_charging_totem"
