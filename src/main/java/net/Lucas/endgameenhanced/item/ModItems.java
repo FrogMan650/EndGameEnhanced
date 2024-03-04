@@ -5,7 +5,7 @@ import net.Lucas.endgameenhanced.item.custom.*;
 import net.Lucas.endgameenhanced.item.custom.armor.*;
 import net.Lucas.endgameenhanced.item.custom.arrows.*;
 import net.Lucas.endgameenhanced.item.custom.essence.*;
-import net.Lucas.endgameenhanced.item.custom.misc.*;
+import net.Lucas.endgameenhanced.item.custom.totems.*;
 import net.Lucas.endgameenhanced.item.custom.mobdrops.*;
 import net.Lucas.endgameenhanced.item.custom.smithing_templates.CustomSmithingTemplateItem;
 import net.Lucas.endgameenhanced.item.custom.smithing_templates.DiamondSmithingTemplateItem;
@@ -49,27 +49,27 @@ public class ModItems {
     public static final RegistryObject<Item> EMERALD_ARROW = ITEMS.register("emerald_arrow", () -> new EmeraldArrow(new Item.Properties(), 1.5F));
     public static final RegistryObject<Item> RUBY_ARROW = ITEMS.register("ruby_arrow", () -> new RubyArrow(new Item.Properties(), 1.5F));
     public static final RegistryObject<Item> DIAMOND_ARROW = ITEMS.register("diamond_arrow", () -> new DiamondArrow(new Item.Properties(), 1.5F));
-    public static final RegistryObject<Item> ONYX_ARROW = ITEMS.register("onyx_arrow", () -> new OnyxArrow(new Item.Properties(), 1.5F));
+    public static final RegistryObject<Item> ONYX_ARROW = ITEMS.register("onyx_arrow", () -> new OnyxArrow(new Item.Properties().fireResistant(), 1.5F));
     public static final RegistryObject<Item> WEBWEAVER_ARROW = ITEMS.register("webweaver_arrow", () -> new WebweaverArrow(new Item.Properties(), 1F));
     public static final RegistryObject<Item> SCULK_SLINGER_ARROW = ITEMS.register("sculk_slinger_projectile", () -> new SculkSlingerArrow(new Item.Properties(), 1F));
 
     //misc
-    public static final RegistryObject<Item> UNATTUNED_TOTEM = ITEMS.register("unattuned_totem", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHARGING_TOTEM = ITEMS.register("charging_totem", () -> new ChargingTotem(new Item.Properties().durability(6001).rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> FAST_CHARGING_TOTEM = ITEMS.register("fast_charging_totem", () -> new FastChargingTotem(new Item.Properties().durability(3001).rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> FASTEST_CHARGING_TOTEM = ITEMS.register("fastest_charging_totem", () -> new FastestChargingTotem(new Item.Properties().durability(1201).rarity(Rarity.EPIC).fireResistant()));
-    public static final RegistryObject<Item> TOTEM_OF_NOURISHING = ITEMS.register("totem_of_nourishing", () -> new NourishingTotem(new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> TIER_ONE_HUNGER_TOTEM = ITEMS.register("tier_one_hunger_totem", () -> new TierOneHungerTotem(new Item.Properties().durability(251).rarity(Rarity.EPIC).fireResistant()));
-    public static final RegistryObject<Item> TIER_TWO_HUNGER_TOTEM = ITEMS.register("tier_two_hunger_totem", () -> new TierTwoHungerTotem(new Item.Properties().durability(151).rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> TIER_THREE_HUNGER_TOTEM = ITEMS.register("tier_three_hunger_totem", () -> new TierThreeHungerTotem(new Item.Properties().durability(101).rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> TIER_FOUR_HUNGER_TOTEM = ITEMS.register("tier_four_hunger_totem", () -> new TierFourHungerTotem(new Item.Properties().durability(51).rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> TIER_FIVE_HUNGER_TOTEM = ITEMS.register("tier_five_hunger_totem", () -> new TierFiveHungerTotem(new Item.Properties().durability(26).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> UNATTUNED_TOTEM = ITEMS.register("unattuned_totem", () -> new Item(new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> CHARGING_TOTEM_OF_UNDYING = ITEMS.register("charging_totem_of_undying", () -> new ChargingTotemOfUndying(new Item.Properties().durability(6001).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RAPID_TOTEM_OF_UNDYING = ITEMS.register("rapid_totem_of_undying", () -> new RapidTotemOfUndying(new Item.Properties().durability(3001).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> OVERCLOCKED_TOTEM_OF_UNDYING = ITEMS.register("overclocked_totem_of_undying", () -> new OverclockedTotemOfUndying(new Item.Properties().durability(1201).rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<Item> TOTEM_OF_NOURISHING = ITEMS.register("totem_of_nourishing", () -> new NourishingTotem(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> BOUNTIFUL_TOTEM_OF_NOURISHING = ITEMS.register("bountiful_totem_of_nourishing", () -> new BountifulTotemOfNourishing(new Item.Properties().durability(101).rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<Item> PLENTIFUL_TOTEM_OF_NOURISHING = ITEMS.register("plentiful_totem_of_nourishing", () -> new PlentifulTotemOfNourishing(new Item.Properties().durability(81).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> ABUNDANT_TOTEM_OF_NOURISHING = ITEMS.register("abundant_totem_of_nourishing", () -> new AbundantTotemOfNourishing(new Item.Properties().durability(61).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> GENEROUS_TOTEM_OF_NOURISHING = ITEMS.register("generous_totem_of_nourishing", () -> new GenerousTotemOfNourishing(new Item.Properties().durability(41).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> AMPLE_TOTEM_OF_NOURISHING = ITEMS.register("ample_totem_of_nourishing", () -> new AmpleTotemOfNourishing(new Item.Properties().durability(21).rarity(Rarity.UNCOMMON)));
     //mob drops
     public static final RegistryObject<Item> SMOULDERING_STONE = ITEMS.register("smouldering_stone", () -> new SmoulderingStone(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> ENDER_DRAGON_SCALE = ITEMS.register("ender_dragon_scale", () -> new EnderDragonScale(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> SCULK_CRYSTAL = ITEMS.register("sculk_crystal", () -> new SculkCrystal(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> CHARGED_BLAZE_ROD = ITEMS.register("charged_blaze_rod", () -> new ChargedBlazeRod(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> HUGE_NETHER_WART = ITEMS.register("huge_nether_wart", () -> new HugeNetherWart(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> HUGE_NETHER_WART = ITEMS.register("huge_nether_wart", () -> new HugeNetherWart(new Item.Properties().rarity(Rarity.UNCOMMON).fireResistant()));
     public static final RegistryObject<Item> WITHER_SKELETON_BONE = ITEMS.register("wither_skeleton_bone", () -> new WitherSkeletonBone(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SPIDER_FANG = ITEMS.register("spider_fang", () -> new SpiderFang(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> CREEPER_FUSE = ITEMS.register("creeper_fuse", () -> new CreeperFuse(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
@@ -90,7 +90,7 @@ public class ModItems {
     public static final RegistryObject<Item> DAMAGED_CROSSBOW = ITEMS.register("damaged_crossbow", () -> new DamagedCrossbow(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> DISCOLORED_SHULKER_SHELL = ITEMS.register("discolored_shulker_shell", () -> new DiscoloredShulkerShell(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> WITCHS_BREW = ITEMS.register("witchs_brew", () -> new WitchsBrew(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> FLAWLESS_ENDER_PEARL = ITEMS.register("flawless_ender_pearl", () -> new FlawlessEnderPearl(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> FLAWLESS_ENDER_PEARL = ITEMS.register("flawless_ender_pearl", () -> new FlawlessEnderPearl(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON).stacksTo(16)));
     public static final RegistryObject<Item> ELDER_GUARDIAN_SPIKE = ITEMS.register("elder_guardian_spike", () -> new ElderGuardianSpike(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> RITUAL_BOOK = ITEMS.register("ritual_book", () -> new RitualBook(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> AXE_HEAD = ITEMS.register("axe_head", () -> new AxeHead(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
@@ -146,15 +146,15 @@ public class ModItems {
 
     //onyx tools
     public static final RegistryObject<Item> ONYX_SWORD = ITEMS.register("onyx_sword",
-            () -> new SwordItem(ModToolTiers.ONYX, 3, -2.4F, new Item.Properties()));
+            () -> new SwordItem(ModToolTiers.ONYX, 3, -2.4F, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> ONYX_SHOVEL = ITEMS.register("onyx_shovel",
-            () -> new ShovelItem(ModToolTiers.ONYX, 1.5F, -3F, new Item.Properties()));
+            () -> new ShovelItem(ModToolTiers.ONYX, 1.5F, -3F, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> ONYX_PICKAXE = ITEMS.register("onyx_pickaxe",
-            () -> new PickaxeItem(ModToolTiers.ONYX, 1, -2.8F, new Item.Properties()));
+            () -> new PickaxeItem(ModToolTiers.ONYX, 1, -2.8F, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> ONYX_AXE = ITEMS.register("onyx_axe",
-            () -> new AxeItem(ModToolTiers.ONYX, 5, -3F, new Item.Properties()));
+            () -> new AxeItem(ModToolTiers.ONYX, 5, -3F, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> ONYX_HOE = ITEMS.register("onyx_hoe",
-            () -> new HoeItem(ModToolTiers.ONYX, -3, 0, new Item.Properties()));
+            () -> new HoeItem(ModToolTiers.ONYX, -3, 0, new Item.Properties().fireResistant()));
 
     //quartz tools
     public static final RegistryObject<Item> QUARTZ_SWORD = ITEMS.register("quartz_sword",
@@ -254,13 +254,13 @@ public class ModItems {
 
 //onyx armor
     public static final RegistryObject<Item> ONYX_HELMET = ITEMS.register("onyx_helmet",
-            () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> ONYX_CHESTPLATE = ITEMS.register("onyx_chestplate",
-            () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> ONYX_LEGGINGS = ITEMS.register("onyx_leggings",
-            () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> ONYX_BOOTS = ITEMS.register("onyx_boots",
-            () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new ArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant()));
 
 //inevitable armor
     public static final RegistryObject<Item> INEVITABLE_HELMET = ITEMS.register("inevitable_helmet",
@@ -320,12 +320,12 @@ public class ModItems {
     public static final RegistryObject<Item> STABILIZED_ESSENCE = ITEMS.register("stabilized_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SWIFT_ESSENCE = ITEMS.register("swift_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> UNDYING_ESSENCE = ITEMS.register("undying_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> RAPID_ESSENCE = ITEMS.register("rapid_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> RAPID_ESSENCE = ITEMS.register("rapid_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> CHARGING_ESSENCE = ITEMS.register("charging_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> SUSTAINING_ESSENCE = ITEMS.register("sustaining_essence", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> MAINTAINING_ESSENCE = ITEMS.register("maintaining_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> NURTURING_ESSENCE = ITEMS.register("nurturing_essence", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PROVIDING_ESSENCE = ITEMS.register("providing_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> NURTURING_ESSENCE = ITEMS.register("nurturing_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> PROVIDING_ESSENCE = ITEMS.register("providing_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> NOURISHING_ESSENCE = ITEMS.register("nourishing_essence", () -> new Item(new Item.Properties()));
 
 

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "endgameenhanced:pure_undying_essence"
+        "recipe": "endgameenhanced:overclocked_totem_of_undying"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "endgameenhanced:pure_undying_essence"
+      "endgameenhanced:overclocked_totem_of_undying"
     ]
   }
 }

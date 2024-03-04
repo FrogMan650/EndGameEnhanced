@@ -1,29 +1,29 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "endgameenhanced:pure_nourishing_essence"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_tier_two_hunger_totem": {
+    "has_plentiful_totem_of_nourishing": {
       "conditions": {
         "items": [
           {
             "items": [
-              "endgameenhanced:tier_two_hunger_totem"
+              "endgameenhanced:plentiful_totem_of_nourishing"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "endgameenhanced:pure_nourishing_essence"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_tier_two_hunger_totem"
+      "has_plentiful_totem_of_nourishing"
     ]
   ],
   "rewards": {

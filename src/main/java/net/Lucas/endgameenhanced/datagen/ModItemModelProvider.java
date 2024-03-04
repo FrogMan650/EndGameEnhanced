@@ -224,11 +224,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.VOIDWAKER);
         handheldItem(ModItems.SCULK_BRINGER);
 
-        handheldItem(ModItems.TIER_ONE_HUNGER_TOTEM);
-        handheldItem(ModItems.TIER_TWO_HUNGER_TOTEM);
-        handheldItem(ModItems.TIER_THREE_HUNGER_TOTEM);
-        handheldItem(ModItems.TIER_FOUR_HUNGER_TOTEM);
-        handheldItem(ModItems.TIER_FIVE_HUNGER_TOTEM);
+        handheldItem(ModItems.BOUNTIFUL_TOTEM_OF_NOURISHING);
+        handheldItem(ModItems.PLENTIFUL_TOTEM_OF_NOURISHING);
+        handheldItem(ModItems.ABUNDANT_TOTEM_OF_NOURISHING);
+        handheldItem(ModItems.GENEROUS_TOTEM_OF_NOURISHING);
+        handheldItem(ModItems.AMPLE_TOTEM_OF_NOURISHING);
         handheldItem(ModItems.UNATTUNED_TOTEM);
         handheldItem(ModItems.TOTEM_OF_NOURISHING);
 

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:rapid_totem_of_undying"
+    },
+    {
+      "item": "endgameenhanced:pure_undying_essence"
+    }
+  ],
+  "result": {
+    "item": "endgameenhanced:overclocked_totem_of_undying"
+  }
+}

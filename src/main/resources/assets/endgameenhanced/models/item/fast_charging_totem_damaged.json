@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "endgameenhanced:item/fast_charging_totem_damaged"
-  }
-}

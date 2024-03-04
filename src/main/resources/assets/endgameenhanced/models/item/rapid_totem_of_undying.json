@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "endgameenhanced:item/rapid_totem_of_undying"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "damaged": 1
+      },
+      "model": "endgameenhanced:item/rapid_totem_of_undying_damaged"
+    }
+  ]
+}

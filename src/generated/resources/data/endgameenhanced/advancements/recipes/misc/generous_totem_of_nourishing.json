@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rapid_totem_of_undying": {
+    "has_ample_totem_of_nourishing": {
       "conditions": {
         "items": [
           {
             "items": [
-              "endgameenhanced:rapid_totem_of_undying"
+              "endgameenhanced:ample_totem_of_nourishing"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "endgameenhanced:pure_undying_essence"
+        "recipe": "endgameenhanced:generous_totem_of_nourishing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -23,12 +23,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_rapid_totem_of_undying"
+      "has_ample_totem_of_nourishing"
     ]
   ],
   "rewards": {
     "recipes": [
-      "endgameenhanced:pure_undying_essence"
+      "endgameenhanced:generous_totem_of_nourishing"
     ]
   }
 }

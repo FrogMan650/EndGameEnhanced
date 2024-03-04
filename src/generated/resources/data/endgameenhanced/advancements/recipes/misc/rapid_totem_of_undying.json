@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rapid_totem_of_undying": {
+    "has_charging_totem_of_undying": {
       "conditions": {
         "items": [
           {
             "items": [
-              "endgameenhanced:rapid_totem_of_undying"
+              "endgameenhanced:charging_totem_of_undying"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "endgameenhanced:pure_undying_essence"
+        "recipe": "endgameenhanced:rapid_totem_of_undying"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -23,12 +23,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_rapid_totem_of_undying"
+      "has_charging_totem_of_undying"
     ]
   ],
   "rewards": {
     "recipes": [
-      "endgameenhanced:pure_undying_essence"
+      "endgameenhanced:rapid_totem_of_undying"
     ]
   }
 }

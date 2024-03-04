@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:generous_totem_of_nourishing"
+    },
+    {
+      "item": "endgameenhanced:nurturing_essence"
+    }
+  ],
+  "result": {
+    "item": "endgameenhanced:abundant_totem_of_nourishing"
+  }
+}

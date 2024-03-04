@@ -8,18 +8,11 @@ import net.Lucas.endgameenhanced.blockFacing.PlayerBlockFacingProvider;
 import net.Lucas.endgameenhanced.toolChange.PlayerToolChange;
 import net.Lucas.endgameenhanced.toolChange.PlayerToolChangeProvider;
 import net.Lucas.endgameenhanced.util.ModTags;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientCommonPacketListenerImpl;
-import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -88,27 +81,27 @@ public class ModEvents {
     public static void endGameEnhancedTotemFixes(LivingDeathEvent event) {
         if (event.getEntity() instanceof Player player) {
             ItemStack offHandItem = player.getItemInHand(InteractionHand.OFF_HAND);
-            if (offHandItem.is(ModItems.CHARGING_TOTEM.get()) && offHandItem.getDamageValue() == 0) {
+            if (offHandItem.is(ModItems.CHARGING_TOTEM_OF_UNDYING.get()) && offHandItem.getDamageValue() == 0) {
                 player.setHealth(0.01F);
                 offHandItem.setDamageValue(6000);
-                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900, 1, false, true, true));
-                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 0, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 600, 1, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 600, 0, false, true, true));
                 player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1, false, true, true));
                 event.setCanceled(true);
             }
-            if (offHandItem.is(ModItems.FAST_CHARGING_TOTEM.get()) && offHandItem.getDamageValue() == 0) {
+            if (offHandItem.is(ModItems.RAPID_TOTEM_OF_UNDYING.get()) && offHandItem.getDamageValue() == 0) {
                 player.setHealth(0.01F);
                 offHandItem.setDamageValue(3000);
-                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900, 1, false, true, true));
-                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 0, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 600, 1, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 600, 0, false, true, true));
                 player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1, false, true, true));
                 event.setCanceled(true);
             }
-            if (offHandItem.is(ModItems.FASTEST_CHARGING_TOTEM.get()) && offHandItem.getDamageValue() == 0) {
+            if (offHandItem.is(ModItems.OVERCLOCKED_TOTEM_OF_UNDYING.get()) && offHandItem.getDamageValue() == 0) {
                 player.setHealth(0.01F);
                 offHandItem.setDamageValue(1200);
-                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900, 1, false, true, true));
-                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 0, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 600, 1, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 600, 0, false, true, true));
                 player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1, false, true, true));
                 event.setCanceled(true);
             }
@@ -254,7 +247,7 @@ public class ModEvents {
 
     @SubscribeEvent
     public static void endGameEnhancedSetPlayerBlockFacing(PlayerInteractEvent.LeftClickBlock event) {
-        //changes the player stored value for which face of the block they're facing
+        //changes the player stored value for which face of the block they were last hitting
         Player player = event.getEntity();
         Direction blockDirection = event.getFace();
         String facing = blockDirection.getName();

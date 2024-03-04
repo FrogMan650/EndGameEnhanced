@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "endgameenhanced:item/plentiful_totem_of_nourishing"
+  }
+}

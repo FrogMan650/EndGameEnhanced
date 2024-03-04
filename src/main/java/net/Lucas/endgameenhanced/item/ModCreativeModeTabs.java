@@ -278,20 +278,20 @@ public class ModCreativeModeTabs {
                     }).build());
 
     public static final RegistryObject<CreativeModeTab> MISC_TAB = CREATIVE_MODE_TABS.register("misc_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CHARGING_TOTEM.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CHARGING_TOTEM_OF_UNDYING.get()))
                     .title(Component.translatable("endgameenhanced.creativetab.misc_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(ModItems.UNATTUNED_TOTEM.get());
                         pOutput.accept(Items.TOTEM_OF_UNDYING);
-                        pOutput.accept(ModItems.CHARGING_TOTEM.get());
-                        pOutput.accept(ModItems.FAST_CHARGING_TOTEM.get());
-                        pOutput.accept(ModItems.FASTEST_CHARGING_TOTEM.get());
+                        pOutput.accept(ModItems.CHARGING_TOTEM_OF_UNDYING.get());
+                        pOutput.accept(ModItems.RAPID_TOTEM_OF_UNDYING.get());
+                        pOutput.accept(ModItems.OVERCLOCKED_TOTEM_OF_UNDYING.get());
                         pOutput.accept(ModItems.TOTEM_OF_NOURISHING.get());
-                        pOutput.accept(ModItems.TIER_FIVE_HUNGER_TOTEM.get());
-                        pOutput.accept(ModItems.TIER_FOUR_HUNGER_TOTEM.get());
-                        pOutput.accept(ModItems.TIER_THREE_HUNGER_TOTEM.get());
-                        pOutput.accept(ModItems.TIER_TWO_HUNGER_TOTEM.get());
-                        pOutput.accept(ModItems.TIER_ONE_HUNGER_TOTEM.get());
+                        pOutput.accept(ModItems.AMPLE_TOTEM_OF_NOURISHING.get());
+                        pOutput.accept(ModItems.GENEROUS_TOTEM_OF_NOURISHING.get());
+                        pOutput.accept(ModItems.ABUNDANT_TOTEM_OF_NOURISHING.get());
+                        pOutput.accept(ModItems.PLENTIFUL_TOTEM_OF_NOURISHING.get());
+                        pOutput.accept(ModItems.BOUNTIFUL_TOTEM_OF_NOURISHING.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {

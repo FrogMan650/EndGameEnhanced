@@ -215,4 +215,9 @@ public class CustomSmithingTemplateItem extends SmithingTemplateItem {
     public @NotNull String getDescriptionId() {
         return DESCRIPTION_ID;
     }
+
+    @Override
+    public boolean isFireResistant() {
+        return true;
+    }
 }
