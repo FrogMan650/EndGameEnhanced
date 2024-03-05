@@ -356,7 +356,7 @@
   "tooltip.endgameenhanced.infernal_pickaxe.lore": "A very powerful, fiery pickaxe.",
   "tooltip.endgameenhanced.infernal_pickaxe.damage": " 7 Damage",
   "tooltip.endgameenhanced.infernal_pickaxe.trait": "Superheated",
-  "tooltip.endgameenhanced.infernal_pickaxe.trait.description": "Smelts Raw Iron and Raw Gold when mined:\n Silk Touch is prioritized\n Fortune works with the Ingots\n\nAble to mine Reinforced Deepslate\n\nDestruction Mode:\n Press \"=\" by default to activate or deactivate\n Mines a 3x3x1 area based on the face of the block you've mined",
+  "tooltip.endgameenhanced.infernal_pickaxe.trait.description": "Smelts Raw Iron and Raw Gold when mined:\n Silk Touch is prioritized\n Fortune works with the Ingots\n\nWhen used on a block, searches a 3x3x25 area for ores based on the face of the block you clicked\n\nAble to mine Reinforced Deepslate\n\nDestruction Mode:\n Press \"=\" by default to activate or deactivate\n Mines a 3x3x1 area based on the face of the block you've mined",
 
   "tooltip.endgameenhanced.webweaver.lore": "A bow made from the legendary spider Venenatis. Somehow transported to this world from another.",
   "tooltip.endgameenhanced.webweaver.drawn": "When Fully Drawn with Ammo:",
@@ -496,5 +496,8 @@
   "item.endgameenhanced.smithing_template.inevitable_upgrade.armor": "Netherite Armor",
 
   "key.category.endgameenhanced.tutorial": "End Game Enhanced",
-  "key.endgameenhanced.change_tool_effect": "Change Destruction Mode"
+  "key.endgameenhanced.change_tool_effect": "Change Destruction Mode",
+
+  "chat.endgameenhanced.generic.found_ores": "Ores found:",
+  "chat.endgameenhanced.generic.found_nothing": "Nothing"
 }

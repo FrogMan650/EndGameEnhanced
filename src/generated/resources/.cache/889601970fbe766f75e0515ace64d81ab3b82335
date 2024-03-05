@@ -1,8 +1,8 @@
-// 1.20.4	2024-02-15T21:56:54.4185872	Tags for minecraft:block mod id endgameenhanced
+// 1.20.4	2024-03-04T23:31:51.0402267	Tags for minecraft:block mod id endgameenhanced
 6323f8e2d64a893e1c1afbf5ef0ec64e0e457721 data/endgameenhanced/tags/blocks/infernal_pickaxe_mineables.json
 579e2e86ade83303eff12d64ed7303dd62c834aa data/endgameenhanced/tags/blocks/leviathans_axe_axeables.json
-bfdfab925d3aae515709e426b963be6ae6fc0d4b data/endgameenhanced/tags/blocks/needs_inevitable_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/endgameenhanced/tags/blocks/needs_inevitable_tool.json
 5db25be8571dbf0c5b9f5222741a7eaa2866677c data/endgameenhanced/tags/blocks/sanguine_scythe_hoeables.json
 5e86e6300f6509038b1f5f6f4727a353dcff62e1 data/minecraft/tags/blocks/mineable/axe.json
-f687aab548129e230e575f706513fd29515c4f66 data/minecraft/tags/blocks/mineable/pickaxe.json
+547647fb2f06a1c027843073477a1beda4064e5c data/minecraft/tags/blocks/mineable/pickaxe.json
 5ce9cfb53cacfee94f0040afad76334e3f343f65 data/minecraft/tags/blocks/needs_iron_tool.json

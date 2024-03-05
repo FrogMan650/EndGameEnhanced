@@ -46,13 +46,13 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(Blocks.BOOKSHELF).addTag(BlockTags.PLANKS).add(Blocks.BAMBOO_BLOCK, Blocks.BAMBOO_MOSAIC).add(ModBlocks.GOLDEN_MELON.get())
                 .add(ModBlocks.WHITE_PUMPKIN.get());
 
-        this.tag(ModTags.Blocks.NEEDS_INEVITABLE_TOOL).add(Blocks.REINFORCED_DEEPSLATE);
+        this.tag(ModTags.Blocks.NEEDS_INEVITABLE_TOOL);
 
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.GEM_ORE.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.SAPPHIRE_BLOCK.get(),
                 ModBlocks.OPAL_BLOCK.get(), ModBlocks.JADE_BLOCK.get(), ModBlocks.RUBY_BLOCK.get(),
-                ModBlocks.ONYX_BLOCK.get(), Blocks.REINFORCED_DEEPSLATE, ModBlocks.GEM_ORE.get()
+                ModBlocks.ONYX_BLOCK.get(), ModBlocks.GEM_ORE.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(ModBlocks.WHITE_PUMPKIN.get(), ModBlocks.GOLDEN_MELON.get()
         );
