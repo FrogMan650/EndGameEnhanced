@@ -19,7 +19,7 @@ Inevitable Smithing Templates are obtained from different loot sources all over 
 
 **Essence**
 
-Essence is made by combining blocks, mob drops, and various other items. This Essence is then combined in specific ways to make Pure Essence, which are used as the upgrade ingredient in Inevitable Smithing. There are 53 Essence in total, including Pure Essence.
+Essence is made by combining blocks, mob drops, and various other items. This Essence is then combined in specific ways to make Pure Essence, which are used as the upgrade ingredient in Inevitable Smithing. There are 63 Essence in total, including Pure Essence.
 
 **Unique mob, crop, and block drops**
 
