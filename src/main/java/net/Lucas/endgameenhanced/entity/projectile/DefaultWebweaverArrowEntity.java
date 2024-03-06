@@ -16,11 +16,11 @@ public class DefaultWebweaverArrowEntity extends AbstractArrow {
     private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(ModItems.WEBWEAVER_ARROW.get());
 
     public DefaultWebweaverArrowEntity(EntityType<? extends DefaultWebweaverArrowEntity> p_37561_, Level p_37562_) {
-        super(p_37561_, p_37562_, DEFAULT_ARROW_STACK);
+        super(p_37561_, p_37562_);
     }
 
     public DefaultWebweaverArrowEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntities.WEBWEAVER_DEFAULT_ARROW_ENTITY.get(), pShooter, pLevel, pStack);
+        super(ModEntities.WEBWEAVER_DEFAULT_ARROW_ENTITY.get(), pShooter, pLevel);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class DefaultWebweaverArrowEntity extends AbstractArrow {
         super.tick();
         Vec3 vec34 = this.getDeltaMovement();
         if (!super.inGround && super.isCritArrow() && !this.isInWater()) {
-            this.level().addParticle(ParticleTypes.GUST, this.getX() + vec34.x / 4.0D, this.getY() + vec34.y / 4.0D, this.getZ() + vec34.z / 4.0D, -vec34.x, -vec34.y + 0.2D, -vec34.z);
+            this.level().addParticle(ParticleTypes.ASH, this.getX() + vec34.x / 4.0D, this.getY() + vec34.y / 4.0D, this.getZ() + vec34.z / 4.0D, -vec34.x, -vec34.y + 0.2D, -vec34.z);
         }
     }
 }

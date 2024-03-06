@@ -39,11 +39,11 @@ public class DiamondArrowEntity extends AbstractArrow {
     private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(ModItems.DIAMOND_ARROW.get());
 
     public DiamondArrowEntity(EntityType<? extends DiamondArrowEntity> p_37561_, Level p_37562_) {
-        super(p_37561_, p_37562_, DEFAULT_ARROW_STACK);
+        super(p_37561_, p_37562_);
     }
 
     public DiamondArrowEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntities.DIAMOND_ARROW.get(), pShooter, pLevel, pStack);
+        super(ModEntities.DIAMOND_ARROW.get(), pShooter, pLevel);
     }
 
     @Override
@@ -93,6 +93,6 @@ public class DiamondArrowEntity extends AbstractArrow {
                 player.setPose(Pose.FALL_FLYING);
             }
         }
-        this.level().playSound((Player)null, this.getX(), this.getY(), this.getZ(), SoundEvents.PLAYER_TELEPORT, SoundSource.PLAYERS);
+//        this.level().playSound((Player)null, this.getX(), this.getY(), this.getZ(), SoundEvents.PLAYER_TELEPORT, SoundSource.PLAYERS);
     }
 }

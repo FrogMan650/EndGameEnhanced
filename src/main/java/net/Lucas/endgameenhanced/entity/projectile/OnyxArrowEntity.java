@@ -27,11 +27,11 @@ public class OnyxArrowEntity extends AbstractArrow {
     private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(ModItems.ONYX_ARROW.get());
 
     public OnyxArrowEntity(EntityType<? extends OnyxArrowEntity> p_37561_, Level p_37562_) {
-        super(p_37561_, p_37562_, DEFAULT_ARROW_STACK);
+        super(p_37561_, p_37562_);
     }
 
     public OnyxArrowEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntities.ONYX_ARROW.get(), pShooter, pLevel, pStack);
+        super(ModEntities.ONYX_ARROW.get(), pShooter, pLevel);
     }
 
     @Override

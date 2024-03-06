@@ -41,11 +41,11 @@ public class EmeraldArrowEntity extends AbstractArrow {
     private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(ModItems.EMERALD_ARROW.get());
 
     public EmeraldArrowEntity(EntityType<? extends EmeraldArrowEntity> p_37561_, Level p_37562_) {
-        super(p_37561_, p_37562_, DEFAULT_ARROW_STACK);
+        super(p_37561_, p_37562_);
     }
 
     public EmeraldArrowEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntities.EMERALD_ARROW.get(), pShooter, pLevel, pStack);
+        super(ModEntities.EMERALD_ARROW.get(), pShooter, pLevel);
     }
 
     @Override
@@ -103,8 +103,7 @@ public class EmeraldArrowEntity extends AbstractArrow {
 
         boolean flag = entity.getType() == EntityType.ENDERMAN;
         int k = entity.getRemainingFireTicks();
-        boolean flag1 = entity.getType().is(EntityTypeTags.DEFLECTS_ARROWS);
-        if (this.isOnFire() && !flag && !flag1) {
+        if (this.isOnFire() && !flag) {
             entity.setSecondsOnFire(5);
         }
 
@@ -155,8 +154,6 @@ public class EmeraldArrowEntity extends AbstractArrow {
             if (this.getPierceLevel() <= 0) {
                 this.discard();
             }
-        } else if (flag1) {
-            this.deflect();
         } else {
             entity.setRemainingFireTicks(k);
             this.setDeltaMovement(this.getDeltaMovement().scale(-0.1D));

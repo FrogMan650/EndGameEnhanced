@@ -11,7 +11,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -20,9 +19,7 @@ import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
@@ -33,16 +30,17 @@ import javax.annotation.Nullable;
 public class TideBreakerEntity extends AbstractArrow {
     private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(TideBreakerEntity.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(TideBreakerEntity.class, EntityDataSerializers.BOOLEAN);
-    private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(ModItems.TIDE_BREAKER.get());
+    private ItemStack tridentItem = new ItemStack(ModItems.TIDE_BREAKER.get());
     private boolean dealtDamage;
     public int clientSideReturnTridentTickCount;
 
-    public TideBreakerEntity(EntityType<? extends TideBreakerEntity> p_37561_, Level p_37562_) {
-        super(p_37561_, p_37562_, DEFAULT_ARROW_STACK);
+    public TideBreakerEntity(EntityType<? extends TideBreakerEntity> pEntityType, Level pLevel) {
+        super(pEntityType, pLevel);
     }
 
     public TideBreakerEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntities.TIDE_BREAKER.get(), pShooter, pLevel, pStack);
+        super(ModEntities.TIDE_BREAKER.get(), pShooter, pLevel);
+        this.tridentItem = pStack.copy();
         this.entityData.set(ID_LOYALTY, (byte)(EnchantmentHelper.getLoyalty(pStack)+2));
         this.entityData.set(ID_FOIL, pStack.hasFoil());
     }
@@ -100,6 +98,10 @@ public class TideBreakerEntity extends AbstractArrow {
         }
     }
 
+    protected ItemStack getPickupItem() {
+        return this.tridentItem.copy();
+    }
+
     public boolean isFoil() {
         return this.entityData.get(ID_FOIL);
     }
@@ -119,7 +121,7 @@ public class TideBreakerEntity extends AbstractArrow {
         Entity entity = pResult.getEntity();
         float f = 15.0F;
         if (entity instanceof LivingEntity livingentity) {
-            f += EnchantmentHelper.getDamageBonus(this.getPickupItemStackOrigin(), livingentity.getMobType());
+            f += EnchantmentHelper.getDamageBonus(this.tridentItem, livingentity.getMobType());
         }
 
         Entity entity1 = this.getOwner();
@@ -140,9 +142,6 @@ public class TideBreakerEntity extends AbstractArrow {
 
                 this.doPostHurtEffects(livingentity1);
             }
-        } else if (entity.getType().is(EntityTypeTags.DEFLECTS_TRIDENTS)) {
-            this.deflect();
-            return;
         }
 
         this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
@@ -166,7 +165,7 @@ public class TideBreakerEntity extends AbstractArrow {
     }
 
     public boolean isChanneling() {
-        return EnchantmentHelper.hasChanneling(this.getPickupItemStackOrigin());
+        return EnchantmentHelper.hasChanneling(this.tridentItem);
     }
 
     protected boolean tryPickup(Player pPlayer) {
@@ -195,12 +194,17 @@ public class TideBreakerEntity extends AbstractArrow {
      */
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
+        if (pCompound.contains("Trident", 10)) {
+            this.tridentItem = ItemStack.of(pCompound.getCompound("Trident"));
+        }
+
         this.dealtDamage = pCompound.getBoolean("DealtDamage");
-        this.entityData.set(ID_LOYALTY, (byte)EnchantmentHelper.getLoyalty(this.getPickupItemStackOrigin()));
+        this.entityData.set(ID_LOYALTY, (byte)EnchantmentHelper.getLoyalty(this.tridentItem));
     }
 
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
+        pCompound.put("Trident", this.tridentItem.save(new CompoundTag()));
         pCompound.putBoolean("DealtDamage", this.dealtDamage);
     }
 

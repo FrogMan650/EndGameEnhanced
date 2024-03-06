@@ -16,11 +16,11 @@ public class DefaultSculkSlingerArrowEntity extends AbstractArrow {
     private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(ModItems.SCULK_SLINGER_ARROW.get());
 
     public DefaultSculkSlingerArrowEntity(EntityType<? extends DefaultSculkSlingerArrowEntity> p_37561_, Level p_37562_) {
-        super(p_37561_, p_37562_, DEFAULT_ARROW_STACK);
+        super(p_37561_, p_37562_);
     }
 
     public DefaultSculkSlingerArrowEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntities.SCULK_SLINGER_DEFAULT_ARROW_ENTITY.get(), pShooter, pLevel, pStack);
+        super(ModEntities.SCULK_SLINGER_DEFAULT_ARROW_ENTITY.get(), pShooter, pLevel);
     }
 
     @Override

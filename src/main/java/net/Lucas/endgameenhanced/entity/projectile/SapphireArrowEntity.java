@@ -25,11 +25,11 @@ public class SapphireArrowEntity extends AbstractArrow {
     private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(ModItems.SAPPHIRE_ARROW.get());
 
     public SapphireArrowEntity(EntityType<? extends SapphireArrowEntity> p_37561_, Level p_37562_) {
-        super(p_37561_, p_37562_, DEFAULT_ARROW_STACK);
+        super(p_37561_, p_37562_);
     }
 
     public SapphireArrowEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntities.SAPPHIRE_ARROW.get(), pShooter, pLevel, pStack);
+        super(ModEntities.SAPPHIRE_ARROW.get(), pShooter, pLevel);
     }
 
     @Override
