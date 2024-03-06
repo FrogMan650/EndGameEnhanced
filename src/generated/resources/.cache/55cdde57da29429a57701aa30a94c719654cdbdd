@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-03T23:37:58.9229361	Item Models: endgameenhanced
+// 1.20.4	2024-03-06T12:20:35.0084898	Item Models: endgameenhanced
 67f103a0be7ea2fcfd78ecd232645a4ccffbd91a assets/endgameenhanced/models/item/abundant_totem_of_nourishing.json
 3eeedd58f7b6fd813fac08490de96646e44db16a assets/endgameenhanced/models/item/amethyst_axe.json
 159c5c3bb07b44723276583bf365ee8b629a77d8 assets/endgameenhanced/models/item/amethyst_hoe.json
@@ -110,10 +110,12 @@ d954a8f6d3b1c09393a285084c7617128008dba3 assets/endgameenhanced/models/item/jade
 12a85cada6de86f8569d6cb5ea6487e82b91ed3e assets/endgameenhanced/models/item/jade_pickaxe.json
 a2db3d5be9bc94fc50ffab2c02360933d87a1f7a assets/endgameenhanced/models/item/jade_shovel.json
 83c4ac6e3025e79112e9d4db1cde15a23b1cc5fa assets/endgameenhanced/models/item/jade_sword.json
+c6ad3a3c0f69865929fef3cada16b67eef417e09 assets/endgameenhanced/models/item/large_flask.json
 d8e0a44d7d946a0b5769342c6515d03efb2d29ea assets/endgameenhanced/models/item/lava_essence.json
 96492d78889ed1dc586bac098e84aa2e8f4c70ed assets/endgameenhanced/models/item/leviathans_axe_upgrade_smithing_template.json
 5a59fd213df414730c9f5470458c58c0ba43836b assets/endgameenhanced/models/item/magma_butter.json
 3224c73fdf681b8a314e1b17e542ea71773260fc assets/endgameenhanced/models/item/maintaining_essence.json
+6979a4d4331ea798d59d12620c28ba2d744d7378 assets/endgameenhanced/models/item/medium_flask.json
 55e9fb5c47b92af1a8cbc419acbd42b7594dfe6f assets/endgameenhanced/models/item/mineshaft_essence.json
 baa723333f312819277fc5c3e93e4c5c2a8ba68e assets/endgameenhanced/models/item/netherrath_upgrade_smithing_template.json
 9d6c16c36a568dd3217d3f7e908a5344219b2989 assets/endgameenhanced/models/item/nether_blade.json
@@ -243,6 +245,7 @@ ba896bedff494ff553e6c8c7cc5ce12ed9ba72a5 assets/endgameenhanced/models/item/scul
 4f43e8de6c94832168861d614a6dcec1fa361a1a assets/endgameenhanced/models/item/shrieker_noise_box.json
 37a1a4d7458a16c01e0f669e6fa04889b29c6e0c assets/endgameenhanced/models/item/slime_glob.json
 be8efc57af0fdb304d25aa0970c0859fec229694 assets/endgameenhanced/models/item/small_carrot.json
+47c4bc02eb763ca2906652773da67aa084f51374 assets/endgameenhanced/models/item/small_flask.json
 2f144e5846e92803021af31f27c32727d1e398df assets/endgameenhanced/models/item/small_plant_essence.json
 978ea48de7cf12bee358dc40b69c65a7139b8c30 assets/endgameenhanced/models/item/smouldering_essence.json
 271ad2464a15c78d56c7f3f7deb3908151c3917a assets/endgameenhanced/models/item/smouldering_stone.json

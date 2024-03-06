@@ -232,6 +232,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.UNATTUNED_TOTEM);
         handheldItem(ModItems.TOTEM_OF_NOURISHING);
 
+        handheldItem(ModItems.SMALL_FLASK);
+        handheldItem(ModItems.MEDIUM_FLASK);
+        handheldItem(ModItems.LARGE_FLASK);
+
         trimmedArmorItem(ModItems.ONYX_HELMET);
         trimmedArmorItem(ModItems.ONYX_CHESTPLATE);
         trimmedArmorItem(ModItems.ONYX_LEGGINGS);
