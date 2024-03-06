@@ -108,8 +108,11 @@ public class InfernalPickaxe extends PickaxeItem {
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
+    //encapsulatingFullBlocks taken from 1.20.4 Minecraft source code
     public static AABB encapsulatingFullBlocks(BlockPos pStartPos, BlockPos pEndPos) {
-        return new AABB((double)Math.min(pStartPos.getX(), pEndPos.getX()), (double)Math.min(pStartPos.getY(), pEndPos.getY()), (double)Math.min(pStartPos.getZ(), pEndPos.getZ()), (double)(Math.max(pStartPos.getX(), pEndPos.getX()) + 1), (double)(Math.max(pStartPos.getY(), pEndPos.getY()) + 1), (double)(Math.max(pStartPos.getZ(), pEndPos.getZ()) + 1));
+        return new AABB((double)Math.min(pStartPos.getX(), pEndPos.getX()), (double)Math.min(pStartPos.getY(), pEndPos.getY()),
+                (double)Math.min(pStartPos.getZ(), pEndPos.getZ()), (double)(Math.max(pStartPos.getX(), pEndPos.getX()) + 1),
+                (double)(Math.max(pStartPos.getY(), pEndPos.getY()) + 1), (double)(Math.max(pStartPos.getZ(), pEndPos.getZ()) + 1));
     }
 
     public void containsAnyOres(AABB pBb, Level level, Player player) {
