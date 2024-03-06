@@ -10,7 +10,6 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
-import net.minecraft.client.resources.PlayerSkin;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.WitherSkull;
@@ -31,17 +30,16 @@ public class ModEventBusClientEvents {
 
     @SubscribeEvent @SuppressWarnings({"unchecked"})
     public static void addPlayerLayers(EntityRenderersEvent.AddLayers event) {
-        for (PlayerSkin.Model skin : event.getSkins()) {
-
-            LivingEntityRenderer renderer = event.getPlayerSkin(skin);
+        for (String skin : event.getSkins()) {
+            LivingEntityRenderer renderer = event.getSkin(skin);
 
             if (renderer != null) {
                 renderer.addLayer(new ObsidianElytraLayer<>(renderer, event.getEntityModels()));
             }
         }
-        EntityRenderer renderer = event.getEntityRenderer(EntityType.ARMOR_STAND);
+        LivingEntityRenderer renderer = event.getRenderer(EntityType.ARMOR_STAND);
         if (renderer != null) {
-            ((LivingEntityRenderer)renderer).addLayer(new ObsidianElytraLayer<>(((LivingEntityRenderer)renderer), event.getEntityModels()));
+            renderer.addLayer(new ObsidianElytraLayer<>(renderer, event.getEntityModels()));
         }
     }
 

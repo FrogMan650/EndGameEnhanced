@@ -71,41 +71,45 @@ public class InfernalPickaxe extends PickaxeItem {
         if (blockFace == Direction.NORTH && level.isClientSide) {
             BlockPos bottomCorner = new BlockPos(blockpos.getX()+1, blockpos.getY()-1, blockpos.getZ());
             BlockPos topCorner = new BlockPos(blockpos.getX()-1, blockpos.getY()+1, blockpos.getZ()+25);
-            AABB areaToCheck = AABB.encapsulatingFullBlocks(bottomCorner, topCorner);
+            AABB areaToCheck = encapsulatingFullBlocks(bottomCorner, topCorner);
             containsAnyOres(areaToCheck, level, player);
         }
         if (blockFace == Direction.EAST && level.isClientSide) {
             BlockPos bottomCorner = new BlockPos(blockpos.getX(), blockpos.getY()-1, blockpos.getZ()+1);
             BlockPos topCorner = new BlockPos(blockpos.getX()-25, blockpos.getY()+1, blockpos.getZ()-1);
-            AABB areaToCheck = AABB.encapsulatingFullBlocks(bottomCorner, topCorner);
+            AABB areaToCheck = encapsulatingFullBlocks(bottomCorner, topCorner);
             containsAnyOres(areaToCheck, level, player);
         }
         if (blockFace == Direction.SOUTH && level.isClientSide) {
             BlockPos bottomCorner = new BlockPos(blockpos.getX()-1, blockpos.getY()-1, blockpos.getZ());
             BlockPos topCorner = new BlockPos(blockpos.getX()+1, blockpos.getY()+1, blockpos.getZ()-25);
-            AABB areaToCheck = AABB.encapsulatingFullBlocks(bottomCorner, topCorner);
+            AABB areaToCheck = encapsulatingFullBlocks(bottomCorner, topCorner);
             containsAnyOres(areaToCheck, level, player);
         }
         if (blockFace == Direction.WEST && level.isClientSide) {
             BlockPos bottomCorner = new BlockPos(blockpos.getX(), blockpos.getY()-1, blockpos.getZ()-1);
             BlockPos topCorner = new BlockPos(blockpos.getX()+25, blockpos.getY()+1, blockpos.getZ()+1);
-            AABB areaToCheck = AABB.encapsulatingFullBlocks(bottomCorner, topCorner);
+            AABB areaToCheck = encapsulatingFullBlocks(bottomCorner, topCorner);
             containsAnyOres(areaToCheck, level, player);
         }
         if (blockFace == Direction.UP && level.isClientSide) {
             BlockPos bottomCorner = new BlockPos(blockpos.getX()+1, blockpos.getY(), blockpos.getZ()+1);
             BlockPos topCorner = new BlockPos(blockpos.getX()-1, blockpos.getY()-25, blockpos.getZ()-1);
-            AABB areaToCheck = AABB.encapsulatingFullBlocks(bottomCorner, topCorner);
+            AABB areaToCheck = encapsulatingFullBlocks(bottomCorner, topCorner);
             containsAnyOres(areaToCheck, level, player);
         }
         if (blockFace == Direction.DOWN && level.isClientSide) {
             BlockPos bottomCorner = new BlockPos(blockpos.getX()-1, blockpos.getY(), blockpos.getZ()-1);
             BlockPos topCorner = new BlockPos(blockpos.getX()+1, blockpos.getY()+25, blockpos.getZ()+1);
-            AABB areaToCheck = AABB.encapsulatingFullBlocks(bottomCorner, topCorner);
+            AABB areaToCheck = encapsulatingFullBlocks(bottomCorner, topCorner);
             containsAnyOres(areaToCheck, level, player);
         }
 
         return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    public static AABB encapsulatingFullBlocks(BlockPos pStartPos, BlockPos pEndPos) {
+        return new AABB((double)Math.min(pStartPos.getX(), pEndPos.getX()), (double)Math.min(pStartPos.getY(), pEndPos.getY()), (double)Math.min(pStartPos.getZ(), pEndPos.getZ()), (double)(Math.max(pStartPos.getX(), pEndPos.getX()) + 1), (double)(Math.max(pStartPos.getY(), pEndPos.getY()) + 1), (double)(Math.max(pStartPos.getZ(), pEndPos.getZ()) + 1));
     }
 
     public void containsAnyOres(AABB pBb, Level level, Player player) {

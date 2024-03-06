@@ -8,7 +8,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraftforge.event.network.CustomPayloadEvent;
+import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
@@ -28,7 +28,8 @@ public class ToolEffectChangeC2SPacket {
 
     }
 
-    public boolean handle(CustomPayloadEvent.Context context) {
+    public boolean handle(Supplier<NetworkEvent.Context> supplier) {
+        NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
             //ANYTHING IN HERE IS DONE ONLY ON SERVER
             ServerPlayer player = context.getSender();
