@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "endgameenhanced:emerald_hoe"
-  }
+  },
+  "show_notification": true
 }

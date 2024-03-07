@@ -25,5 +25,6 @@
   ],
   "result": {
     "item": "endgameenhanced:harvest_essence"
-  }
+  },
+  "show_notification": true
 }

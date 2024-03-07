@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_emerald_sword"
+      "has_emerald_sword",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:emerald_sword"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

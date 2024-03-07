@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_bioluminescent_torchflower"
+      "has_bioluminescent_torchflower",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:bee_egg_from_bio_torchflower"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_rapid_totem_of_undying"
+      "has_rapid_totem_of_undying",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:overclocked_totem_of_undying"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

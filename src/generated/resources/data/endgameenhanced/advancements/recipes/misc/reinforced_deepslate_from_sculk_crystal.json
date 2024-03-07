@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_sculk_crystal"
+      "has_sculk_crystal",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:reinforced_deepslate_from_sculk_crystal"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_ghast_tentacle"
+      "has_ghast_tentacle",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:ghast_egg_from_ghast_tentacle"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

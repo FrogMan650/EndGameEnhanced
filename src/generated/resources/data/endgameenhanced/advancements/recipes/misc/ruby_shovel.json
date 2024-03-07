@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_ruby_shovel"
+      "has_ruby_shovel",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:ruby_shovel"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

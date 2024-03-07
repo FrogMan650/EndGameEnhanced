@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_witchs_brew"
+      "has_witchs_brew",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:witch_egg_from_witchs_brew"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

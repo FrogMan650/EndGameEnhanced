@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_wither_skeleton_bone"
+      "has_wither_skeleton_bone",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:wither_skeleton_egg_from_wither_skeleton_bone"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

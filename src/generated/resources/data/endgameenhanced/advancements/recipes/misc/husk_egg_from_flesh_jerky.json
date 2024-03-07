@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_flesh_jerky"
+      "has_flesh_jerky",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:husk_egg_from_flesh_jerky"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

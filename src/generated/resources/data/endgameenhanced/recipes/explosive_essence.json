@@ -19,5 +19,6 @@
   ],
   "result": {
     "item": "endgameenhanced:explosive_essence"
-  }
+  },
+  "show_notification": true
 }

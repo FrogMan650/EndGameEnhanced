@@ -37,5 +37,6 @@
   ],
   "result": {
     "item": "endgameenhanced:earthly_essence"
-  }
+  },
+  "show_notification": true
 }

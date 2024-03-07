@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_damaged_crossbow"
+      "has_damaged_crossbow",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:pillager_spawn_egg_from_damaged_crossbow"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "endgameenhanced:echo_hoe"
-  }
+  },
+  "show_notification": true
 }

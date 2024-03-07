@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_plentiful_wheat"
+      "has_plentiful_wheat",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:cow_egg_from_plentiful"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

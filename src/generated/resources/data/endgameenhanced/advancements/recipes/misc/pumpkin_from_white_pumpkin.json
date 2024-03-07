@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_white_pumpkin"
+      "has_white_pumpkin",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:pumpkin_from_white_pumpkin"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

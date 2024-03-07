@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "endgameenhanced:quartz_pickaxe"
-  }
+  },
+  "show_notification": true
 }

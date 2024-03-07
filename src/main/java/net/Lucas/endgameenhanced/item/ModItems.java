@@ -5,6 +5,7 @@ import net.Lucas.endgameenhanced.item.custom.*;
 import net.Lucas.endgameenhanced.item.custom.armor.*;
 import net.Lucas.endgameenhanced.item.custom.arrows.*;
 import net.Lucas.endgameenhanced.item.custom.essence.*;
+import net.Lucas.endgameenhanced.item.custom.flask.*;
 import net.Lucas.endgameenhanced.item.custom.totems.*;
 import net.Lucas.endgameenhanced.item.custom.mobdrops.*;
 import net.Lucas.endgameenhanced.item.custom.smithing_templates.CustomSmithingTemplateItem;
@@ -53,7 +54,7 @@ public class ModItems {
     public static final RegistryObject<Item> WEBWEAVER_ARROW = ITEMS.register("webweaver_arrow", () -> new WebweaverArrow(new Item.Properties(), 1F));
     public static final RegistryObject<Item> SCULK_SLINGER_ARROW = ITEMS.register("sculk_slinger_projectile", () -> new SculkSlingerArrow(new Item.Properties(), 1F));
 
-    //misc
+    //totems
     public static final RegistryObject<Item> UNATTUNED_TOTEM = ITEMS.register("unattuned_totem", () -> new Item(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> CHARGING_TOTEM_OF_UNDYING = ITEMS.register("charging_totem_of_undying", () -> new ChargingTotemOfUndying(new Item.Properties().durability(6001).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> RAPID_TOTEM_OF_UNDYING = ITEMS.register("rapid_totem_of_undying", () -> new RapidTotemOfUndying(new Item.Properties().durability(3001).rarity(Rarity.RARE)));
@@ -64,6 +65,15 @@ public class ModItems {
     public static final RegistryObject<Item> ABUNDANT_TOTEM_OF_NOURISHING = ITEMS.register("abundant_totem_of_nourishing", () -> new AbundantTotemOfNourishing(new Item.Properties().durability(61).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> GENEROUS_TOTEM_OF_NOURISHING = ITEMS.register("generous_totem_of_nourishing", () -> new GenerousTotemOfNourishing(new Item.Properties().durability(41).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> AMPLE_TOTEM_OF_NOURISHING = ITEMS.register("ample_totem_of_nourishing", () -> new AmpleTotemOfNourishing(new Item.Properties().durability(21).rarity(Rarity.UNCOMMON)));
+
+    //flasks
+    public static final RegistryObject<Item> SMALL_FLASK = ITEMS.register("small_flask", () -> new SmallFlaskItem(new Item.Properties().rarity(Rarity.COMMON).stacksTo(1)));
+    public static final RegistryObject<Item> SMALL_FLASK_POTION = ITEMS.register("small_flask_potion", () -> new SmallFlaskPotionItem(new Item.Properties().durability(2).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> MEDIUM_FLASK = ITEMS.register("medium_flask", () -> new MediumFlaskItem(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> MEDIUM_FLASK_POTION = ITEMS.register("medium_flask_potion", () -> new MediumFlaskPotionItem(new Item.Properties().durability(5).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> LARGE_FLASK = ITEMS.register("large_flask", () -> new LargeFlaskItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1)));
+    public static final RegistryObject<Item> LARGE_FLASK_POTION = ITEMS.register("large_flask_potion", () -> new LargeFlaskPotionItem(new Item.Properties().durability(10).rarity(Rarity.EPIC)));
+
     //mob drops
     public static final RegistryObject<Item> SMOULDERING_STONE = ITEMS.register("smouldering_stone", () -> new SmoulderingStone(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> ENDER_DRAGON_SCALE = ITEMS.register("ender_dragon_scale", () -> new EnderDragonScale(new Item.Properties().fireResistant().rarity(Rarity.RARE)));

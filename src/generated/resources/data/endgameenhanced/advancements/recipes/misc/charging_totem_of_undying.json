@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_totem_of_undying"
+      "has_totem_of_undying",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:charging_totem_of_undying"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

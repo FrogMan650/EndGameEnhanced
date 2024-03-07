@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_endermite_egg"
+      "has_endermite_egg",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:bedrock_from_endermite_egg"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

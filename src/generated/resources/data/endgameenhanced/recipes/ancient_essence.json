@@ -34,5 +34,6 @@
   ],
   "result": {
     "item": "endgameenhanced:ancient_essence"
-  }
+  },
+  "show_notification": true
 }

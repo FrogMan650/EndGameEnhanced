@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_big_amethyst_block"
+      "has_big_amethyst_block",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:amethyst_shard"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

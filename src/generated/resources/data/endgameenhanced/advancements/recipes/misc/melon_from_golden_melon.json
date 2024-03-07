@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_golden_melon"
+      "has_golden_melon",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:melon_from_golden_melon"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

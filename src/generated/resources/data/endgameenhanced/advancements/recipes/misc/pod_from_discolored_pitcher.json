@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_discolored_pitcher_plant"
+      "has_discolored_pitcher_plant",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:pod_from_discolored_pitcher"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

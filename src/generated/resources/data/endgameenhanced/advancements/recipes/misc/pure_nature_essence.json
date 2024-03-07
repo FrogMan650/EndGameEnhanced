@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_pure_nature_essence"
+      "has_pure_nature_essence",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:pure_nature_essence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

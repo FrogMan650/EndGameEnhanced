@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_plentiful_totem_of_nourishing"
+      "has_plentiful_totem_of_nourishing",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:pure_nourishing_essence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_rib_bone"
+      "has_rib_bone",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:skeleton_egg_from_rib_bone"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

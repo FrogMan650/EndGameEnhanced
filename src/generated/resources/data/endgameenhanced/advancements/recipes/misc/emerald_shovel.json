@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_emerald_shovel"
+      "has_emerald_shovel",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:emerald_shovel"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }
