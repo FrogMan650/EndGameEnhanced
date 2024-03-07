@@ -67,11 +67,11 @@ public class ModItems {
     public static final RegistryObject<Item> AMPLE_TOTEM_OF_NOURISHING = ITEMS.register("ample_totem_of_nourishing", () -> new AmpleTotemOfNourishing(new Item.Properties().durability(21).rarity(Rarity.UNCOMMON)));
 
     //flasks
-    public static final RegistryObject<Item> SMALL_FLASK = ITEMS.register("small_flask", () -> new SmallFlaskItem(new Item.Properties().rarity(Rarity.COMMON)));
+    public static final RegistryObject<Item> SMALL_FLASK = ITEMS.register("small_flask", () -> new SmallFlaskItem(new Item.Properties().rarity(Rarity.COMMON).stacksTo(1)));
     public static final RegistryObject<Item> SMALL_FLASK_POTION = ITEMS.register("small_flask_potion", () -> new SmallFlaskPotionItem(new Item.Properties().durability(2).rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> MEDIUM_FLASK = ITEMS.register("medium_flask", () -> new MediumFlaskItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> MEDIUM_FLASK = ITEMS.register("medium_flask", () -> new MediumFlaskItem(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final RegistryObject<Item> MEDIUM_FLASK_POTION = ITEMS.register("medium_flask_potion", () -> new MediumFlaskPotionItem(new Item.Properties().durability(5).rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> LARGE_FLASK = ITEMS.register("large_flask", () -> new LargeFlaskItem(new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> LARGE_FLASK = ITEMS.register("large_flask", () -> new LargeFlaskItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1)));
     public static final RegistryObject<Item> LARGE_FLASK_POTION = ITEMS.register("large_flask_potion", () -> new LargeFlaskPotionItem(new Item.Properties().durability(10).rarity(Rarity.EPIC)));
 
     //mob drops

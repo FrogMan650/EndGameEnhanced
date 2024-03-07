@@ -293,8 +293,11 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.PLENTIFUL_TOTEM_OF_NOURISHING.get());
                         pOutput.accept(ModItems.BOUNTIFUL_TOTEM_OF_NOURISHING.get());
                         pOutput.accept(ModItems.SMALL_FLASK.get());
+                        pOutput.accept(ModItems.SMALL_FLASK_POTION.get());
                         pOutput.accept(ModItems.MEDIUM_FLASK.get());
+                        pOutput.accept(ModItems.MEDIUM_FLASK_POTION.get());
                         pOutput.accept(ModItems.LARGE_FLASK.get());
+                        pOutput.accept(ModItems.LARGE_FLASK_POTION.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {
