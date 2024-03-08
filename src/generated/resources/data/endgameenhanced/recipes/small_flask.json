@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:glass_bottle"
+    },
+    "B": {
+      "item": "minecraft:leather"
+    },
+    "C": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "C C",
+    "BAB",
+    " B "
+  ],
+  "result": {
+    "item": "endgameenhanced:small_flask"
+  },
+  "show_notification": true
+}

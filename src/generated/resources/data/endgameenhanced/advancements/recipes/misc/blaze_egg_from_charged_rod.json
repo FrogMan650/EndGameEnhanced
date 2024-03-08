@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_charged_blaze_rod"
+      "has_charged_blaze_rod",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:blaze_egg_from_charged_rod"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

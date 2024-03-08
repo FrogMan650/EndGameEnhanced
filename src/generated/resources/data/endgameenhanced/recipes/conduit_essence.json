@@ -28,5 +28,6 @@
   ],
   "result": {
     "item": "endgameenhanced:conduit_essence"
-  }
+  },
+  "show_notification": true
 }

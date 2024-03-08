@@ -79,7 +79,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ELDER_GUARDIAN_SPIKE);
         simpleItem(ModItems.RITUAL_BOOK);
         simpleItem(ModItems.AXE_HEAD);
-        simpleItem(ModItems.RAVAGER_HORN);
+        simpleItem(ModItems.RAVAGER_LEATHER);
         simpleItem(ModItems.BROKEN_AXE);
         simpleItem(ModItems.SENSOR_TENDRIL);
         simpleItem(ModItems.SHRIEKER_NOISE_BOX);
@@ -142,6 +142,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.NURTURING_ESSENCE);
         simpleItem(ModItems.PROVIDING_ESSENCE);
         simpleItem(ModItems.NOURISHING_ESSENCE);
+        simpleItem(ModItems.BOTTOMLESS_ESSENCE);
 
         simpleItem(ModItems.EXPERIENCE_BOTTLE_NETHER_WART);
         simpleItem(ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT);
@@ -173,7 +174,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE);
         simpleItem(ModItems.PURE_UNDYING_ESSENCE);
         simpleItem(ModItems.PURE_NOURISHING_ESSENCE);
-
+        simpleItem(ModItems.PURE_BOTTOMLESS_ESSENCE);
 
         handheldItem(ModItems.ONYX_SWORD);
         handheldItem(ModItems.ONYX_SHOVEL);
@@ -231,6 +232,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.AMPLE_TOTEM_OF_NOURISHING);
         handheldItem(ModItems.UNATTUNED_TOTEM);
         handheldItem(ModItems.TOTEM_OF_NOURISHING);
+
+        handheldItem(ModItems.SMALL_FLASK);
+        handheldItem(ModItems.SMALL_FLASK_POTION);
+        handheldItem(ModItems.MEDIUM_FLASK);
+        handheldItem(ModItems.MEDIUM_FLASK_POTION);
+        handheldItem(ModItems.LARGE_FLASK);
+        handheldItem(ModItems.LARGE_FLASK_POTION);
+
 
         trimmedArmorItem(ModItems.ONYX_HELMET);
         trimmedArmorItem(ModItems.ONYX_CHESTPLATE);

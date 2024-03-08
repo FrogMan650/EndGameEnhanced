@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_nether_star"
+      "has_nether_star",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:spawner"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

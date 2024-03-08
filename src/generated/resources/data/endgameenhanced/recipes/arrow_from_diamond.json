@@ -20,5 +20,6 @@
   "result": {
     "count": 8,
     "item": "endgameenhanced:diamond_arrow"
-  }
+  },
+  "show_notification": true
 }

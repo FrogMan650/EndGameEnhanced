@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_magma_butter"
+      "has_magma_butter",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:magma_cube_egg_from_magma_butter"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

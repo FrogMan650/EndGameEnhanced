@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_spider_fang"
+      "has_spider_fang",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:spider_spawn_egg_from_spider_fang"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_spider_essence"
+      "has_spider_essence",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:spider_essence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

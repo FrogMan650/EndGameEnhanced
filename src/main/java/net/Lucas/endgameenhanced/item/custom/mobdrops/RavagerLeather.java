@@ -12,8 +12,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class RavagerHorn extends Item {
-    public RavagerHorn(Properties pProperties) {
+public class RavagerLeather extends Item {
+    public RavagerLeather(Properties pProperties) {
         super(pProperties);
     }
 
@@ -22,7 +22,7 @@ public class RavagerHorn extends Item {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         Component mob_drop_lore = Component.translatable(Util.makeDescriptionId("tooltip", new ResourceLocation
-                ("endgameenhanced:ravager_horn.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
+                ("endgameenhanced:ravager_leather.lore"))).withStyle(RED_TEXT).withStyle(ITALIC_TEXT);
         pTooltipComponents.add(mob_drop_lore);
     }
 }

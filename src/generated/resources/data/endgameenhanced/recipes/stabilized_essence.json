@@ -22,5 +22,6 @@
   ],
   "result": {
     "item": "endgameenhanced:stabilized_essence"
-  }
+  },
+  "show_notification": true
 }

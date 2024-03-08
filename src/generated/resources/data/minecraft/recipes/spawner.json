@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "minecraft:spawner"
-  }
+  },
+  "show_notification": true
 }

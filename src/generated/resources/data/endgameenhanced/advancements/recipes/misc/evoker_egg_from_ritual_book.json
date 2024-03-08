@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_ritual_book"
+      "has_ritual_book",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:evoker_egg_from_ritual_book"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

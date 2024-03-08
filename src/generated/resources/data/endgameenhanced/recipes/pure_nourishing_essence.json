@@ -34,5 +34,6 @@
   ],
   "result": {
     "item": "endgameenhanced:pure_nourishing_essence"
-  }
+  },
+  "show_notification": true
 }

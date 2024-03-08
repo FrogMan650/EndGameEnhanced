@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_not_so_rotten_flesh"
+      "has_not_so_rotten_flesh",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:zombie_villager_egg_from_not_so_rotten_flesh"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

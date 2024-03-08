@@ -37,5 +37,6 @@
   ],
   "result": {
     "item": "endgameenhanced:nurturing_essence"
-  }
+  },
+  "show_notification": true
 }

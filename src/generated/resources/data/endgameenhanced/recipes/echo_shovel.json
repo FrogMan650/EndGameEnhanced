@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "endgameenhanced:echo_shovel"
-  }
+  },
+  "show_notification": true
 }

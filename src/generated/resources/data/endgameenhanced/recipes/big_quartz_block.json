@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "endgameenhanced:big_quartz_block"
-  }
+  },
+  "show_notification": true
 }

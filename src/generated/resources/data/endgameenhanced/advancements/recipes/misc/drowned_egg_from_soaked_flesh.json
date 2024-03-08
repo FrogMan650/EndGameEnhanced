@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_soaked_flesh"
+      "has_soaked_flesh",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:drowned_egg_from_soaked_flesh"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

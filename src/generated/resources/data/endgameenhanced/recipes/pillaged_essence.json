@@ -6,7 +6,7 @@
       "item": "endgameenhanced:damaged_crossbow"
     },
     "B": {
-      "item": "endgameenhanced:ravager_horn"
+      "item": "endgameenhanced:ravager_leather"
     },
     "C": {
       "item": "endgameenhanced:basic_essence"
@@ -19,5 +19,6 @@
   ],
   "result": {
     "item": "endgameenhanced:pillaged_essence"
-  }
+  },
+  "show_notification": true
 }

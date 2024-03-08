@@ -28,5 +28,6 @@
   ],
   "result": {
     "item": "endgameenhanced:corrupting_essence"
-  }
+  },
+  "show_notification": true
 }

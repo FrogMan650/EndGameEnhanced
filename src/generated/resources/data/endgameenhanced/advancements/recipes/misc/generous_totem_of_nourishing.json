@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_ample_totem_of_nourishing"
+      "has_ample_totem_of_nourishing",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:generous_totem_of_nourishing"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

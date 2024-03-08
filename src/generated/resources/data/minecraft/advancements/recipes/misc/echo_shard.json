@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_echo_block"
+      "has_echo_block",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:echo_shard"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

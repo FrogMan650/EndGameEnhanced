@@ -25,5 +25,6 @@
   ],
   "result": {
     "item": "endgameenhanced:pure_end_essence"
-  }
+  },
+  "show_notification": true
 }

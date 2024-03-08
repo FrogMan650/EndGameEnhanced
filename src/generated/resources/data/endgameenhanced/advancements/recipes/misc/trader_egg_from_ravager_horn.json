@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ravager_horn": {
+    "has_ravager_leather": {
       "conditions": {
         "items": [
           {
             "items": [
-              "endgameenhanced:ravager_horn"
+              "endgameenhanced:ravager_leather"
             ]
           }
         ]
@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_ravager_horn"
+      "has_ravager_leather",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:trader_egg_from_ravager_horn"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

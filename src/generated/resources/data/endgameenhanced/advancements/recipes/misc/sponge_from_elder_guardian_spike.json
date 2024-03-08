@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_elder_guardian_spike"
+      "has_elder_guardian_spike",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:sponge_from_elder_guardian_spike"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

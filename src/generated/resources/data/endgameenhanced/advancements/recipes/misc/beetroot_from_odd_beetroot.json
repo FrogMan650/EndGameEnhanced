@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_odd_shaped_beetroot"
+      "has_odd_shaped_beetroot",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:beetroot_from_odd_beetroot"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

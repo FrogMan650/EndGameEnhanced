@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_frozen_bone"
+      "has_frozen_bone",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:stray_egg_from_frozen_bone"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

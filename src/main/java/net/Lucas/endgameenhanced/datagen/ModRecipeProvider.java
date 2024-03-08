@@ -288,8 +288,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter, new ResourceLocation(EndGameEnhanced.MOD_ID, "witch_egg_from_witchs_brew"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.WANDERING_TRADER_SPAWN_EGG, 1)
-                .requires(ModItems.RAVAGER_HORN.get())
-                .unlockedBy(getHasName(ModItems.RAVAGER_HORN.get()), has(ModItems.RAVAGER_HORN.get()))
+                .requires(ModItems.RAVAGER_LEATHER.get())
+                .unlockedBy(getHasName(ModItems.RAVAGER_LEATHER.get()), has(ModItems.RAVAGER_LEATHER.get()))
                 .save(pWriter, new ResourceLocation(EndGameEnhanced.MOD_ID, "trader_egg_from_ravager_horn"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.WANDERING_TRADER_SPAWN_EGG, 1)
@@ -983,6 +983,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('H', Items.COOKED_PORKCHOP)
                 .unlockedBy(getHasName(ModItems.PLENTIFUL_TOTEM_OF_NOURISHING.get()), has(ModItems.PLENTIFUL_TOTEM_OF_NOURISHING.get()))
                 .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PURE_BOTTOMLESS_ESSENCE.get())
+                .pattern(" B ")
+                .pattern("CAE")
+                .pattern(" D ")
+                .define('A', ModItems.BASIC_ESSENCE.get())
+                .define('B', ModItems.WITCHS_BREW.get())
+                .define('C', ModItems.ELDER_GUARDIAN_SPIKE.get())
+                .define('D', ModItems.SCULK_CRYSTAL.get())
+                .define('E', ModItems.RAVAGER_LEATHER.get())
+                .unlockedBy(getHasName(ModItems.MEDIUM_FLASK.get()), has(ModItems.MEDIUM_FLASK.get()))
+                .save(pWriter);
 
         //essence
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SPIDER_ESSENCE.get())
@@ -1103,7 +1114,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" A ")
                 .pattern(" C ")
                 .pattern(" B ")
-                .define('B', ModItems.RAVAGER_HORN.get())
+                .define('B', ModItems.RAVAGER_LEATHER.get())
                 .define('A', ModItems.DAMAGED_CROSSBOW.get())
                 .define('C', ModItems.BASIC_ESSENCE.get())
                 .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
@@ -1508,9 +1519,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('F', Items.DIAMOND)
                 .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
                 .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BOTTOMLESS_ESSENCE.get())
+                .pattern(" B ")
+                .pattern("CAD")
+                .pattern(" E ")
+                .define('A', ModItems.BASIC_ESSENCE.get())
+                .define('B', Items.NETHER_STAR)
+                .define('C', ModItems.GUARDIAN_SPIKE.get())
+                .define('D', ModItems.SOAKED_FLESH.get())
+                .define('E', Items.HEART_OF_THE_SEA)
+                .unlockedBy(getHasName(ModItems.BASIC_ESSENCE.get()), has(ModItems.BASIC_ESSENCE.get()))
+                .save(pWriter);
 
 
-        //misc
+        //miscellaneous
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SPAWNER)
                 .pattern("BBB")
                 .pattern("BAB")
@@ -1518,6 +1540,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('A', Items.NETHER_STAR)
                 .define('B', Items.IRON_BARS)
                 .unlockedBy(getHasName(Items.NETHER_STAR), has(Items.NETHER_STAR))
+                .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SMALL_FLASK.get())
+                .pattern("C C")
+                .pattern("BAB")
+                .pattern(" B ")
+                .define('A', Items.GLASS_BOTTLE)
+                .define('B', Items.LEATHER)
+                .define('C', Items.STRING)
+                .unlockedBy(getHasName(Items.GLASS_BOTTLE), has(Items.GLASS_BOTTLE))
+                .save(pWriter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.MEDIUM_FLASK.get(), 1)
+                .requires(ModItems.SMALL_FLASK.get())
+                .requires(ModItems.BOTTOMLESS_ESSENCE.get())
+                .unlockedBy(getHasName(ModItems.SMALL_FLASK.get()), has(ModItems.SMALL_FLASK.get()))
+                .save(pWriter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.LARGE_FLASK.get(), 1)
+                .requires(ModItems.MEDIUM_FLASK.get())
+                .requires(ModItems.PURE_BOTTOMLESS_ESSENCE.get())
+                .unlockedBy(getHasName(ModItems.MEDIUM_FLASK.get()), has(ModItems.MEDIUM_FLASK.get()))
                 .save(pWriter);
 
         //totems

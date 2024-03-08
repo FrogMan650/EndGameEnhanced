@@ -28,5 +28,6 @@
   ],
   "result": {
     "item": "endgameenhanced:small_plant_essence"
-  }
+  },
+  "show_notification": true
 }

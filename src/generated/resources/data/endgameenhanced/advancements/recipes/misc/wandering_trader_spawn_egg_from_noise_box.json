@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_shrieker_noise_box"
+      "has_shrieker_noise_box",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:wandering_trader_spawn_egg_from_noise_box"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

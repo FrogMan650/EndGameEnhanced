@@ -34,7 +34,7 @@ public class SculkBringerSword extends CustomSwordItem implements Vanishable {
         if (pEntity instanceof Player player) {
             if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.SCULK_BRINGER.get() && player.level().getBiome(player.getOnPos()).toString().contains("deep_dark")) {
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20, 1, false, true, true));
-                player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20, 0, false, true, true));
+                player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 220, 0, false, true, true));
                 player.addEffect(new MobEffectInstance(MobEffects.JUMP, 20, 1, false, true, true));
             }
             if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.SCULK_BRINGER.get()) {

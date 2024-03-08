@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "minecraft:nether_star"
+    },
+    "C": {
+      "item": "endgameenhanced:guardian_spike"
+    },
+    "D": {
+      "item": "endgameenhanced:soaked_flesh"
+    },
+    "E": {
+      "item": "minecraft:heart_of_the_sea"
+    }
+  },
+  "pattern": [
+    " B ",
+    "CAD",
+    " E "
+  ],
+  "result": {
+    "item": "endgameenhanced:bottomless_essence"
+  },
+  "show_notification": true
+}

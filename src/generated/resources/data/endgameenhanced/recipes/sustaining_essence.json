@@ -28,5 +28,6 @@
   ],
   "result": {
     "item": "endgameenhanced:sustaining_essence"
-  }
+  },
+  "show_notification": true
 }

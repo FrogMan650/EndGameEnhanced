@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "endgameenhanced:basic_essence"
+    },
+    "B": {
+      "item": "endgameenhanced:witchs_brew"
+    },
+    "C": {
+      "item": "endgameenhanced:elder_guardian_spike"
+    },
+    "D": {
+      "item": "endgameenhanced:sculk_crystal"
+    },
+    "E": {
+      "item": "endgameenhanced:ravager_leather"
+    }
+  },
+  "pattern": [
+    " B ",
+    "CAE",
+    " D "
+  ],
+  "result": {
+    "item": "endgameenhanced:pure_bottomless_essence"
+  },
+  "show_notification": true
+}

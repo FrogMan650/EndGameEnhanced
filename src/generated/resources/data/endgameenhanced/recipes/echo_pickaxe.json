@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "endgameenhanced:echo_pickaxe"
-  }
+  },
+  "show_notification": true
 }

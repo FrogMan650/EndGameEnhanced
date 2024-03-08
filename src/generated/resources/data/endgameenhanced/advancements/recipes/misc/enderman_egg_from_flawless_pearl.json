@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_flawless_ender_pearl"
+      "has_flawless_ender_pearl",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "endgameenhanced:enderman_egg_from_flawless_pearl"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

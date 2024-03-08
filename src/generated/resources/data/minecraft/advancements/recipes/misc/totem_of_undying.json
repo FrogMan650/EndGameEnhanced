@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_unattuned_totem"
+      "has_unattuned_totem",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:totem_of_undying"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

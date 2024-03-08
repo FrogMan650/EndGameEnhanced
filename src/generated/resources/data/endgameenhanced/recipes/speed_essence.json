@@ -22,5 +22,6 @@
   ],
   "result": {
     "item": "endgameenhanced:speed_essence"
-  }
+  },
+  "show_notification": true
 }
