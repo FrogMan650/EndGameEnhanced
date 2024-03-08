@@ -3,11 +3,11 @@
 
 **Introduction**
 
-End Game Enhanced is a mod that aims to, well, enhance the end game by adding new best in slot items for almost every slot, as well as new reasons to kill just about every aggressive Mob in the game, including the Warden. This will be a brief introduction but anything you want to know about this mod can be found in the Github wiki I've made, which is linked to this project. I currently only plan on updating the mod with the newest version of Minecraft and the wiki will reflect this. Let's get right into it by looking at some of the new best in slot items.
+End Game Enhanced is a mod that aims to, well, enhance the end game by adding new best in slot items for almost every slot, as well as new reasons to kill just about every aggressive Mob in the game, including the Warden. The mod adds over 200 new items to the game, ranging from new tools and weapons to new Totems and Potion Flasks as well as new uses for vanilla items like amethyst and echo shards. This will be a brief introduction but anything you want to know about this mod can be found in the Github wiki I've made, which is linked to this project. Let's get right into it by looking at some of the new best in slot items.
 
 **Inevitable items**
 
-Inevitable items are a new tier above Netherite. They aren't meant to be overpowered, but provide some powerful effects and have unique properties. There are 14 Inevitable items in total and to collect them all you'll need to go just about everywhere, kill just about everything, and do just about everything the vanilla game has to offer.
+Inevitable items are a new tier above Netherite. They aren't meant to be overpowered, but provide some powerful effects and have unique properties. There are 14 Inevitable items in total and to collect them all you'll need to go just about everywhere, kill just about everything, and do just about everything the vanilla game has to offer. Here's a look at a weapon, a tool, and a piece of armor:
 
 **How to obtain them**
 
@@ -19,7 +19,7 @@ Inevitable Smithing Templates are obtained from different loot sources all over 
 
 **Essence**
 
-Essence is made by combining blocks, mob drops, and various other items. This Essence is then combined in specific ways to make Pure Essence, which are used as the upgrade ingredient in Inevitable Smithing. There are 63 Essence in total, including Pure Essence.
+Essence is made by combining blocks, mob drops, and various other items. This Essence is then combined in specific ways to make Pure Essence, which are used as the upgrade ingredient in Inevitable Smithing. There are 65 Essence in total, including Pure Essence.
 
 **Unique mob, crop, and block drops**
 
