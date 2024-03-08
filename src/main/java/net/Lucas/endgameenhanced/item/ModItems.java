@@ -104,7 +104,7 @@ public class ModItems {
     public static final RegistryObject<Item> ELDER_GUARDIAN_SPIKE = ITEMS.register("elder_guardian_spike", () -> new ElderGuardianSpike(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> RITUAL_BOOK = ITEMS.register("ritual_book", () -> new RitualBook(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> AXE_HEAD = ITEMS.register("axe_head", () -> new AxeHead(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> RAVAGER_HORN = ITEMS.register("ravager_horn", () -> new RavagerHorn(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RAVAGER_LEATHER = ITEMS.register("ravager_leather", () -> new RavagerLeather(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> BROKEN_AXE = ITEMS.register("broken_axe", () -> new BrokenAxe(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SENSOR_TENDRIL = ITEMS.register("sensor_tendril", () -> new SensorTendril(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SHRIEKER_NOISE_BOX = ITEMS.register("shrieker_noise_box", () -> new ShriekerNoiseBox(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
@@ -337,6 +337,7 @@ public class ModItems {
     public static final RegistryObject<Item> NURTURING_ESSENCE = ITEMS.register("nurturing_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> PROVIDING_ESSENCE = ITEMS.register("providing_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> NOURISHING_ESSENCE = ITEMS.register("nourishing_essence", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BOTTOMLESS_ESSENCE = ITEMS.register("bottomless_essence", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
 
 
@@ -384,6 +385,8 @@ public class ModItems {
             () -> new PureUndyingEssence(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> PURE_NOURISHING_ESSENCE = ITEMS.register("pure_nourishing_essence",
             () -> new PureNourishingEssence(new Item.Properties().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> PURE_BOTTOMLESS_ESSENCE = ITEMS.register("pure_bottomless_essence",
+            () -> new PureBottomlessEssence(new Item.Properties().rarity(Rarity.EPIC)));
 
 
 

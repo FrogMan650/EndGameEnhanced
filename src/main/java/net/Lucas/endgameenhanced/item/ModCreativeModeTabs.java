@@ -147,7 +147,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.ELDER_GUARDIAN_SPIKE.get());
                         pOutput.accept(ModItems.RITUAL_BOOK.get());
                         pOutput.accept(ModItems.AXE_HEAD.get());
-                        pOutput.accept(ModItems.RAVAGER_HORN.get());
+                        pOutput.accept(ModItems.RAVAGER_LEATHER.get());
                         pOutput.accept(ModItems.BROKEN_AXE.get());
                         pOutput.accept(ModItems.SENSOR_TENDRIL.get());
                         pOutput.accept(ModItems.SHRIEKER_NOISE_BOX.get());
@@ -223,6 +223,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.NURTURING_ESSENCE.get());
                         pOutput.accept(ModItems.PROVIDING_ESSENCE.get());
                         pOutput.accept(ModItems.NOURISHING_ESSENCE.get());
+                        pOutput.accept(ModItems.BOTTOMLESS_ESSENCE.get());
 
                         pOutput.accept(ModItems.PURE_NETHER_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_END_ESSENCE.get());
@@ -240,6 +241,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.PURE_RESISTANT_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_UNDYING_ESSENCE.get());
                         pOutput.accept(ModItems.PURE_NOURISHING_ESSENCE.get());
+                        pOutput.accept(ModItems.PURE_BOTTOMLESS_ESSENCE.get());
                     }).build());
     public static final RegistryObject<CreativeModeTab> INEVITABLE_TAB = CREATIVE_MODE_TABS.register("inevitable_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.NETHERRATH.get()))
