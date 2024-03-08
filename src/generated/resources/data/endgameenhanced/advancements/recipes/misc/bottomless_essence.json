@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ravager_leather": {
+    "has_basic_essence": {
       "conditions": {
         "items": [
           {
             "items": [
-              "endgameenhanced:ravager_leather"
+              "endgameenhanced:basic_essence"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "endgameenhanced:trader_egg_from_ravager_horn"
+        "recipe": "endgameenhanced:bottomless_essence"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_ravager_leather",
+      "has_basic_essence",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "endgameenhanced:trader_egg_from_ravager_horn"
+      "endgameenhanced:bottomless_essence"
     ]
   },
   "sends_telemetry_event": false

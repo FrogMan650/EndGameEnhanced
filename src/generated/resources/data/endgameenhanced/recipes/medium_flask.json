@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "endgameenhanced:small_flask"
+    },
+    {
+      "item": "endgameenhanced:bottomless_essence"
+    }
+  ],
+  "result": {
+    "item": "endgameenhanced:medium_flask"
+  }
+}

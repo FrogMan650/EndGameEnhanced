@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ravager_leather": {
+    "has_small_flask": {
       "conditions": {
         "items": [
           {
             "items": [
-              "endgameenhanced:ravager_leather"
+              "endgameenhanced:small_flask"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "endgameenhanced:trader_egg_from_ravager_horn"
+        "recipe": "endgameenhanced:medium_flask"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_ravager_leather",
+      "has_small_flask",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "endgameenhanced:trader_egg_from_ravager_horn"
+      "endgameenhanced:medium_flask"
     ]
   },
   "sends_telemetry_event": false

@@ -68,8 +68,8 @@
   "tooltip.endgameenhanced.ritual_book.lore": "I wonder if this is how they summon that stuff? I wish I could understand this book.",
   "item.endgameenhanced.axe_head": "Axe Head",
   "tooltip.endgameenhanced.axe_head.lore": "I guess they found out the hard way; Gold isn't very durable.",
-  "item.endgameenhanced.ravager_horn": "Ravager Horn",
-  "tooltip.endgameenhanced.ravager_horn.lore": "It's not very fun getting hit by one of these.",
+  "item.endgameenhanced.ravager_leather": "Ravager Leather",
+  "tooltip.endgameenhanced.ravager_leather.lore": "It's rough and oddly scaley, like some kind of weird bull alligator; a bulligator?",
   "item.endgameenhanced.broken_axe": "Broken Axe",
   "tooltip.endgameenhanced.broken_axe.lore": "I'm not sure how much damage it was expecting to do with this...",
   "item.endgameenhanced.sensor_tendril": "Sensor Tendril",
@@ -345,6 +345,7 @@
   "item.endgameenhanced.nurturing_essence": "Nurturing Essence",
   "item.endgameenhanced.providing_essence": "Providing Essence",
   "item.endgameenhanced.nourishing_essence": "Nourishing Essence",
+  "item.endgameenhanced.bottomless_essence": "Bottomless Essence",
 
   "item.endgameenhanced.pure_nether_essence": "Pure Nether Essence",
   "upgrade.endgameenhanced.inevitable_nether_upgrade": "Netherrath Upgrade",
@@ -385,6 +386,7 @@
   "item.endgameenhanced.obsidian_armor_upgrade_smithing_template": "Obsidian Armor Upgrade Smithing Template",
   "item.endgameenhanced.pure_undying_essence": "Pure Undying Essence",
   "item.endgameenhanced.pure_nourishing_essence": "Pure Nourishing Essence",
+  "item.endgameenhanced.pure_bottomless_essence": "Pure Bottomless Essence",
 
 
   "tooltip.endgameenhanced.generic.sword.damage.0": " 12 Damage",
