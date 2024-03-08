@@ -71,8 +71,8 @@ public class ModItems {
     public static final RegistryObject<Item> SMALL_FLASK_POTION = ITEMS.register("small_flask_potion", () -> new SmallFlaskPotionItem(new Item.Properties().durability(2).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> MEDIUM_FLASK = ITEMS.register("medium_flask", () -> new MediumFlaskItem(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final RegistryObject<Item> MEDIUM_FLASK_POTION = ITEMS.register("medium_flask_potion", () -> new MediumFlaskPotionItem(new Item.Properties().durability(5).rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> LARGE_FLASK = ITEMS.register("large_flask", () -> new LargeFlaskItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1)));
-    public static final RegistryObject<Item> LARGE_FLASK_POTION = ITEMS.register("large_flask_potion", () -> new LargeFlaskPotionItem(new Item.Properties().durability(10).rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> LARGE_FLASK = ITEMS.register("large_flask", () -> new LargeFlaskItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).fireResistant()));
+    public static final RegistryObject<Item> LARGE_FLASK_POTION = ITEMS.register("large_flask_potion", () -> new LargeFlaskPotionItem(new Item.Properties().durability(10).rarity(Rarity.EPIC).fireResistant()));
 
     //mob drops
     public static final RegistryObject<Item> SMOULDERING_STONE = ITEMS.register("smouldering_stone", () -> new SmoulderingStone(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
