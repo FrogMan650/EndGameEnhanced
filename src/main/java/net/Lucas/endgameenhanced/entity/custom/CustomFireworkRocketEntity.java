@@ -13,7 +13,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
@@ -26,6 +25,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.OptionalInt;
@@ -38,10 +38,6 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
    private int lifetime;
    @Nullable
    private LivingEntity attachedToEntity;
-
-   public CustomFireworkRocketEntity(EntityType<? extends CustomFireworkRocketEntity> pEntityType, Level pLevel) {
-      super(pEntityType, pLevel);
-   }
 
    public CustomFireworkRocketEntity(Level pLevel, double pX, double pY, double pZ, ItemStack pStack) {
       super(EntityType.FIREWORK_ROCKET, pLevel);
@@ -57,17 +53,6 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
       this.lifetime = 10 * i + this.random.nextInt(6) + this.random.nextInt(7);
    }
 
-   public CustomFireworkRocketEntity(Level pLevel, @Nullable Entity pShooter, double pX, double pY, double pZ, ItemStack pStack) {
-      this(pLevel, pX, pY, pZ, pStack);
-      this.setOwner(pShooter);
-   }
-
-   public CustomFireworkRocketEntity(Level pLevel, ItemStack pStack, LivingEntity pShooter) {
-      this(pLevel, pShooter, pShooter.getX(), pShooter.getY(), pShooter.getZ(), pStack);
-      this.entityData.set(DATA_ATTACHED_TO_TARGET, OptionalInt.of(pShooter.getId()));
-      this.attachedToEntity = pShooter;
-   }
-
    public CustomFireworkRocketEntity(Level pLevel, ItemStack pStack, double pX, double pY, double pZ, boolean pShotAtAngle) {
       this(pLevel, pX, pY, pZ, pStack);
       this.entityData.set(DATA_SHOT_AT_ANGLE, pShotAtAngle);
@@ -78,26 +63,24 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
       this.setOwner(pShooter);
    }
 
+   @Override
    protected void defineSynchedData() {
       this.entityData.define(DATA_ID_FIREWORKS_ITEM, ItemStack.EMPTY);
       this.entityData.define(DATA_ATTACHED_TO_TARGET, OptionalInt.empty());
       this.entityData.define(DATA_SHOT_AT_ANGLE, false);
    }
 
-   /**
-    * Checks if the entity is in range to render.
-    */
+   @Override
    public boolean shouldRenderAtSqrDistance(double pDistance) {
       return pDistance < 4096.0D && !this.isAttachedToEntity();
    }
 
+   @Override
    public boolean shouldRender(double pX, double pY, double pZ) {
       return super.shouldRender(pX, pY, pZ) && !this.isAttachedToEntity();
    }
 
-   /**
-    * Called to update the entity's position/logic.
-    */
+   @Override
    public void tick() {
       super.tick();
       if (this.isAttachedToEntity()) {
@@ -118,7 +101,7 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
                double d0 = 1.5D;
                double d1 = 0.1D;
                Vec3 vec32 = this.attachedToEntity.getDeltaMovement();
-               this.attachedToEntity.setDeltaMovement(vec32.add(vec31.x * 0.1D + (vec31.x * 1.5D - vec32.x) * 0.5D, vec31.y * 0.1D + (vec31.y * 1.5D - vec32.y) * 0.5D, vec31.z * 0.1D + (vec31.z * 1.5D - vec32.z) * 0.5D));
+               this.attachedToEntity.setDeltaMovement(vec32.add(vec31.x * d1 + (vec31.x * d0 - vec32.x) * 0.5D, vec31.y * d1 + (vec31.y * d0 - vec32.y) * 0.5D, vec31.z * d1 + (vec31.z * d0 - vec32.z) * 0.5D));
                vec3 = this.attachedToEntity.getHandHoldingItemAngle(Items.FIREWORK_ROCKET);
             } else {
                vec3 = Vec3.ZERO;
@@ -146,7 +129,7 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
 
       this.updateRotation();
       if (this.life == 0 && !this.isSilent()) {
-         this.level().playSound((Player)null, this.getX(), this.getY(), this.getZ(), SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.AMBIENT, 3.0F, 1.0F);
+         this.level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.AMBIENT, 3.0F, 1.0F);
       }
 
       ++this.life;
@@ -160,9 +143,6 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
 
    }
 
-   /**
-    * Called when this EntityFireball hits a block or entity.
-    */
    @Override
    protected void onHit(HitResult result) {
       if (result.getType() == HitResult.Type.MISS || !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, result)) {
@@ -177,16 +157,15 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
       this.discard();
    }
 
-   /**
-    * Called when the arrow hits an entity
-    */
-   protected void onHitEntity(EntityHitResult pResult) {
+   @Override
+   protected void onHitEntity(@NotNull EntityHitResult pResult) {
       super.onHitEntity(pResult);
       if (!this.level().isClientSide) {
          this.explode();
       }
    }
 
+   @Override
    protected void onHitBlock(BlockHitResult pResult) {
       BlockPos blockpos = new BlockPos(pResult.getBlockPos());
       this.level().getBlockState(blockpos).entityInside(this.level(), blockpos, this);
@@ -221,7 +200,7 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
          double d0 = 5.0D;
          Vec3 vec3 = this.position();
 
-         for(LivingEntity livingentity : this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(5.0D))) {
+         for(LivingEntity livingentity : this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(d0))) {
             if (livingentity != this.attachedToEntity && !(this.distanceToSqr(livingentity) > 25.0D)) {
                boolean flag = false;
 
@@ -235,7 +214,7 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
                }
 
                if (flag) {
-                  float f1 = damage * (float)Math.sqrt((5.0D - (double)this.distanceTo(livingentity)) / 5.0D);
+                  float f1 = damage * (float)Math.sqrt((d0 - (double)this.distanceTo(livingentity)) / d0);
                   livingentity.hurt(this.damageSources().explosion(this, this.getOwner()), f1);
                }
             }
@@ -252,9 +231,7 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
       return this.entityData.get(DATA_SHOT_AT_ANGLE);
    }
 
-   /**
-    * Handles an entity event received from a {@link net.minecraft.network.protocol.game.ClientboundEntityEventPacket}.
-    */
+   @Override
    public void handleEntityEvent(byte pId) {
       if (pId == 17 && this.level().isClientSide) {
          if (!this.hasExplosion()) {
@@ -272,7 +249,8 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
       super.handleEntityEvent(pId);
    }
 
-   public void addAdditionalSaveData(CompoundTag pCompound) {
+   @Override
+   public void addAdditionalSaveData(@NotNull CompoundTag pCompound) {
       super.addAdditionalSaveData(pCompound);
       pCompound.putInt("Life", this.life);
       pCompound.putInt("LifeTime", this.lifetime);
@@ -284,10 +262,8 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
       pCompound.putBoolean("ShotAtAngle", this.entityData.get(DATA_SHOT_AT_ANGLE));
    }
 
-   /**
-    * (abstract) Protected helper method to read subclass entity data from NBT.
-    */
-   public void readAdditionalSaveData(CompoundTag pCompound) {
+   @Override
+   public void readAdditionalSaveData(@NotNull CompoundTag pCompound) {
       super.readAdditionalSaveData(pCompound);
       this.life = pCompound.getInt("Life");
       this.lifetime = pCompound.getInt("LifeTime");
@@ -299,17 +275,15 @@ public class CustomFireworkRocketEntity extends Projectile implements ItemSuppli
       if (pCompound.contains("ShotAtAngle")) {
          this.entityData.set(DATA_SHOT_AT_ANGLE, pCompound.getBoolean("ShotAtAngle"));
       }
-
    }
 
-   public ItemStack getItem() {
+   @Override
+   public @NotNull ItemStack getItem() {
       ItemStack itemstack = this.entityData.get(DATA_ID_FIREWORKS_ITEM);
       return itemstack.isEmpty() ? new ItemStack(Items.FIREWORK_ROCKET) : itemstack;
    }
 
-   /**
-    * Returns {@code true} if it's possible to attack this entity with an item.
-    */
+   @Override
    public boolean isAttackable() {
       return false;
    }

@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.jetbrains.annotations.NotNull;
 
 @OnlyIn(Dist.CLIENT)
 public class DefaultWebweaverArrowRenderer extends ArrowRenderer<DefaultWebweaverArrowEntity> {
@@ -16,7 +17,7 @@ public class DefaultWebweaverArrowRenderer extends ArrowRenderer<DefaultWebweave
     }
 
     @Override
-    public ResourceLocation getTextureLocation(DefaultWebweaverArrowEntity pEntity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull DefaultWebweaverArrowEntity pEntity) {
         return WEBWEAVER_ARROW_LOCATION;
     }
 }

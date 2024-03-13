@@ -5,9 +5,9 @@ import net.Lucas.endgameenhanced.entity.projectile.SapphireArrowEntity;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.jetbrains.annotations.NotNull;
 
 @OnlyIn(Dist.CLIENT)
 public class SapphireArrowRenderer extends ArrowRenderer<SapphireArrowEntity> {
@@ -17,7 +17,7 @@ public class SapphireArrowRenderer extends ArrowRenderer<SapphireArrowEntity> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(SapphireArrowEntity pEntity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull SapphireArrowEntity pEntity) {
         return SAPPHIRE_ARROW_LOCATION;
     }
 }

@@ -41,7 +41,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> GOLDEN_MELON = registerFireProofBlock("golden_melon",
             () -> new GoldenMelon(BlockBehaviour.Properties.ofFullCopy(Blocks.MELON)));
     public static final RegistryObject<Block> GEM_ORE = registerBlock("gem_ore",
-            () -> new DropExperienceBlock(UniformInt.of(2, 5), BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_EMERALD_ORE)
+            () -> new DropExperienceBlock(UniformInt.of(2, 5),
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_EMERALD_ORE)
                     .strength(4, 3).requiresCorrectToolForDrops()));
 
 

@@ -13,7 +13,4 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     protected void start() {
 
     }
-    public float oneInNumber(float a, float b) {
-
-        return a/b; }
 }

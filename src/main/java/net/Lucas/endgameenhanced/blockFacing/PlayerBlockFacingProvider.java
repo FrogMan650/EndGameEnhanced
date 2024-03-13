@@ -12,7 +12,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class PlayerBlockFacingProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-    public static Capability<PlayerBlockFacing> PLAYER_BLOCK_FACING = CapabilityManager.get(new CapabilityToken<PlayerBlockFacing>() { });
+    public static Capability<PlayerBlockFacing> PLAYER_BLOCK_FACING = CapabilityManager.get(new CapabilityToken<>() {
+    });
     
     private PlayerBlockFacing blockFacing = null;
     private final LazyOptional<PlayerBlockFacing> optional = LazyOptional.of(this::createPlayerBlockFacing);

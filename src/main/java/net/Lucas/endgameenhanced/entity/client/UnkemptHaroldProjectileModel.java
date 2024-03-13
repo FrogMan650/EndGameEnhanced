@@ -11,9 +11,11 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
+import org.jetbrains.annotations.NotNull;
 
 public class UnkemptHaroldProjectileModel<T extends Entity> extends EntityModel<T> {
-    public static final ModelLayerLocation UNKEMPT_HAROLD_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EndGameEnhanced.MOD_ID, "unkempt_harold_projectile"), "main");
+    public static final ModelLayerLocation UNKEMPT_HAROLD_LAYER_LOCATION = new ModelLayerLocation(
+            new ResourceLocation(EndGameEnhanced.MOD_ID, "unkempt_harold_projectile"), "main");
     private final ModelPart root;
     protected final ModelPart head;
 
@@ -30,24 +32,18 @@ public class UnkemptHaroldProjectileModel<T extends Entity> extends EntityModel<
         return meshdefinition;
     }
 
-    public static LayerDefinition createHumanoidHeadLayer() {
-        MeshDefinition meshdefinition = createHeadModel();
-        PartDefinition partdefinition = meshdefinition.getRoot();
-        partdefinition.getChild("head").addOrReplaceChild("hat", CubeListBuilder.create().texOffs(32, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.25F)), PartPose.ZERO);
-        return LayerDefinition.create(meshdefinition, 64, 64);
-    }
-
     public static LayerDefinition createMobHeadLayer() {
         MeshDefinition meshdefinition = createHeadModel();
         return LayerDefinition.create(meshdefinition, 64, 32);
     }
 
-    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pBuffer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
+    @Override
+    public void renderToBuffer(@NotNull PoseStack pPoseStack, @NotNull VertexConsumer pBuffer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
         this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
     }
 
     @Override
-    public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+    public void setupAnim(@NotNull T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
 
     }
 }

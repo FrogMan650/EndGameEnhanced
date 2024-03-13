@@ -12,7 +12,9 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("rawtypes")
 public class TideBreakerRenderer extends EntityRenderer<TideBreakerEntity> {
     public static final ResourceLocation TIDE_BREAKER_LOCATION = new ResourceLocation(EndGameEnhanced.MOD_ID, "textures/entity/tide_breaker.png");
     private final TideBreakerModel model;
@@ -22,7 +24,8 @@ public class TideBreakerRenderer extends EntityRenderer<TideBreakerEntity> {
         this.model = new TideBreakerModel<>(pContext.bakeLayer(TideBreakerModel.TIDE_BREAKER_LAYER_LOCATION));
     }
 
-    public void render(TideBreakerEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+    @Override
+    public void render(TideBreakerEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
         pMatrixStack.pushPose();
         pMatrixStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot()) - 90.0F));
         pMatrixStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot()) + 90.0F));
@@ -32,10 +35,7 @@ public class TideBreakerRenderer extends EntityRenderer<TideBreakerEntity> {
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
     }
 
-    /**
-     * Returns the location of an entity's texture.
-     */
-    public ResourceLocation getTextureLocation(TideBreakerEntity pEntity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull TideBreakerEntity pEntity) {
         return TIDE_BREAKER_LOCATION;
     }
 }

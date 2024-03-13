@@ -11,6 +11,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import org.jetbrains.annotations.NotNull;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     public ModRecipeProvider(PackOutput pOutput) {
@@ -18,11 +19,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     @Override
-    protected void buildRecipes(RecipeOutput pRecipeOutput) {
+    protected void buildRecipes(@NotNull RecipeOutput pRecipeOutput) {
 
 
         //build shaped recipes like below, being sure to use '' for the .define method
-        //the .unlockedBy method changes the names and images for the in game recipe (i think?)
+        //the .unlockedBy method changes what item adds the recipe to the recipe book
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SAPPHIRE_BLOCK.get())
                 .pattern("SSS")
                 .pattern("SSS")
@@ -1612,25 +1613,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pRecipeOutput);
         
 
-        netheriteSmithing(pRecipeOutput, ModItems.VOIDWAKER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_END_ESSENCE.get(), RecipeCategory.MISC, ModItems.VOIDWAKER.get());
-        netheriteSmithing(pRecipeOutput, ModItems.NETHERRATH_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_NETHER_ESSENCE.get(), RecipeCategory.MISC, ModItems.NETHERRATH.get());
-        netheriteSmithing(pRecipeOutput, ModItems.SCULK_BRINGER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_SCULK_ESSENCE.get(), RecipeCategory.MISC, ModItems.SCULK_BRINGER.get());
-        netheriteSmithing(pRecipeOutput, ModItems.SCULK_SLINGER_UPGRADE_SMITHING_TEMPLATE.get(), Items.CROSSBOW, ModItems.PURE_EVIL_ESSENCE.get(), RecipeCategory.MISC, ModItems.SCULK_SLINGER.get());
-        netheriteSmithing(pRecipeOutput, ModItems.WEBWEAVER_UPGRADE_SMITHING_TEMPLATE.get(), Items.BOW, ModItems.PURE_SPIDER_ESSENCE.get(), RecipeCategory.MISC, ModItems.WEBWEAVER_BOW.get());
-        netheriteSmithing(pRecipeOutput, ModItems.TIDE_BREAKER_UPGRADE_SMITHING_TEMPLATE.get(), Items.TRIDENT, ModItems.PURE_OCEAN_ESSENCE.get(), RecipeCategory.MISC, ModItems.TIDE_BREAKER.get());
-        netheriteSmithing(pRecipeOutput, ModItems.INFERNAL_PICKAXE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_PICKAXE, ModItems.PURE_FIRE_ESSENCE.get(), RecipeCategory.MISC, ModItems.INFERNAL_PICKAXE.get());
-        netheriteSmithing(pRecipeOutput, ModItems.UNKEMPT_HAROLD_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SHOVEL, ModItems.PURE_EXPLOSIVE_ESSENCE.get(), RecipeCategory.MISC, ModItems.UNKEMPT_HAROLD.get());
-        netheriteSmithing(pRecipeOutput, ModItems.LEVIATHANS_AXE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_AXE, ModItems.PURE_NATURE_ESSENCE.get(), RecipeCategory.MISC, ModItems.LEVIATHANS_AXE.get());
-        netheriteSmithing(pRecipeOutput, ModItems.SCYTHE_OF_VITUR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_HOE, ModItems.PURE_BLOOD_ESSENCE.get(), RecipeCategory.MISC, ModItems.SCYTHE_OF_VITUR.get());
-        netheriteSmithing(pRecipeOutput, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_HELMET, ModItems.PURE_RESOLUTE_ESSENCE.get(), RecipeCategory.MISC, ModItems.INEVITABLE_HELMET.get());
-        netheriteSmithing(pRecipeOutput, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_CHESTPLATE, ModItems.PURE_TOUGH_ESSENCE.get(), RecipeCategory.MISC, ModItems.INEVITABLE_CHESTPLATE.get());
-        netheriteSmithing(pRecipeOutput, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_LEGGINGS, ModItems.PURE_RESILIENT_ESSENCE.get(), RecipeCategory.MISC, ModItems.INEVITABLE_LEGGINGS.get());
-        netheriteSmithing(pRecipeOutput, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_BOOTS, ModItems.PURE_RESISTANT_ESSENCE.get(), RecipeCategory.MISC, ModItems.INEVITABLE_BOOTS.get());
+        netheriteSmithing(pRecipeOutput, ModItems.VOIDWAKER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_END_ESSENCE.get(), ModItems.VOIDWAKER.get());
+        netheriteSmithing(pRecipeOutput, ModItems.NETHERRATH_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_NETHER_ESSENCE.get(), ModItems.NETHERRATH.get());
+        netheriteSmithing(pRecipeOutput, ModItems.SCULK_BRINGER_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ModItems.PURE_SCULK_ESSENCE.get(), ModItems.SCULK_BRINGER.get());
+        netheriteSmithing(pRecipeOutput, ModItems.SCULK_SLINGER_UPGRADE_SMITHING_TEMPLATE.get(), Items.CROSSBOW, ModItems.PURE_EVIL_ESSENCE.get(), ModItems.SCULK_SLINGER.get());
+        netheriteSmithing(pRecipeOutput, ModItems.WEBWEAVER_UPGRADE_SMITHING_TEMPLATE.get(), Items.BOW, ModItems.PURE_SPIDER_ESSENCE.get(), ModItems.WEBWEAVER_BOW.get());
+        netheriteSmithing(pRecipeOutput, ModItems.TIDE_BREAKER_UPGRADE_SMITHING_TEMPLATE.get(), Items.TRIDENT, ModItems.PURE_OCEAN_ESSENCE.get(), ModItems.TIDE_BREAKER.get());
+        netheriteSmithing(pRecipeOutput, ModItems.INFERNAL_PICKAXE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_PICKAXE, ModItems.PURE_FIRE_ESSENCE.get(), ModItems.INFERNAL_PICKAXE.get());
+        netheriteSmithing(pRecipeOutput, ModItems.UNKEMPT_HAROLD_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SHOVEL, ModItems.PURE_EXPLOSIVE_ESSENCE.get(), ModItems.UNKEMPT_HAROLD.get());
+        netheriteSmithing(pRecipeOutput, ModItems.LEVIATHANS_AXE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_AXE, ModItems.PURE_NATURE_ESSENCE.get(), ModItems.LEVIATHANS_AXE.get());
+        netheriteSmithing(pRecipeOutput, ModItems.SCYTHE_OF_VITUR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_HOE, ModItems.PURE_BLOOD_ESSENCE.get(), ModItems.SCYTHE_OF_VITUR.get());
+        netheriteSmithing(pRecipeOutput, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_HELMET, ModItems.PURE_RESOLUTE_ESSENCE.get(), ModItems.INEVITABLE_HELMET.get());
+        netheriteSmithing(pRecipeOutput, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_CHESTPLATE, ModItems.PURE_TOUGH_ESSENCE.get(), ModItems.INEVITABLE_CHESTPLATE.get());
+        netheriteSmithing(pRecipeOutput, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_LEGGINGS, ModItems.PURE_RESILIENT_ESSENCE.get(), ModItems.INEVITABLE_LEGGINGS.get());
+        netheriteSmithing(pRecipeOutput, ModItems.OBSIDIAN_ARMOR_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_BOOTS, ModItems.PURE_RESISTANT_ESSENCE.get(), ModItems.INEVITABLE_BOOTS.get());
 
     }
 
 
-    protected static void netheriteSmithing(RecipeOutput pRecipeOutput, Item modTemplate, Item itemToUpgrade, Item itemToUpgradeWith, RecipeCategory pCategory, Item pResultItem) {
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(modTemplate), Ingredient.of(itemToUpgrade), Ingredient.of(itemToUpgradeWith), pCategory, pResultItem).unlocks("has_netherite_ingot", has(itemToUpgradeWith)).save(pRecipeOutput, getItemName(pResultItem) + "_smithing");
+    protected static void netheriteSmithing(RecipeOutput pRecipeOutput, Item modTemplate, Item itemToUpgrade, Item itemToUpgradeWith, Item pResultItem) {
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(modTemplate), Ingredient.of(itemToUpgrade), Ingredient.of(itemToUpgradeWith), RecipeCategory.MISC, pResultItem).unlocks("has_netherite_ingot", has(itemToUpgradeWith)).save(pRecipeOutput, getItemName(pResultItem) + "_smithing");
     }
 }

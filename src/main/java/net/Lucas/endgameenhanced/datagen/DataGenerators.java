@@ -14,7 +14,6 @@ import java.util.concurrent.CompletableFuture;
 @Mod.EventBusSubscriber(modid = EndGameEnhanced.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
 
-    //To run the data gen go to the gradle tab on the right > forgegradle runs > rundata
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
