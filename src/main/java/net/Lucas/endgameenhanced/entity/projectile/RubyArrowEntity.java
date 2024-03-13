@@ -7,20 +7,18 @@ import net.Lucas.endgameenhanced.item.ModItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
-import net.minecraft.world.entity.animal.Cow;
-import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
@@ -36,7 +34,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -70,13 +67,13 @@ public class RubyArrowEntity extends AbstractArrow {
         this.baseDamage = baseDamage;
     }
 
+    @Override
     protected void onHitEntity(EntityHitResult pResult) {
         Entity entity = pResult.getEntity();
-        float f = (float)this.getDeltaMovement().length();
         float randomInt = RandomSource.create().nextIntBetweenInclusive(3, 4);
         float randomFloat = RandomSource.create().nextFloat();
         float randomCombined = randomInt+randomFloat;
-        int i = Mth.ceil(Mth.clamp((double)randomCombined * this.baseDamage, 0.0D, (double)Integer.MAX_VALUE));
+        int i = Mth.ceil(Mth.clamp((double)randomCombined * this.baseDamage, 0.0D, Integer.MAX_VALUE));
         if (this.getPierceLevel() > 0) {
             if (this.piercingIgnoreEntityIds == null) {
                 this.piercingIgnoreEntityIds = new IntOpenHashSet(5);
@@ -95,7 +92,7 @@ public class RubyArrowEntity extends AbstractArrow {
         }
 
         if (this.isCritArrow()) {
-            long j = (long)this.random.nextInt(i / 2 + 2);
+            long j = this.random.nextInt(i / 2 + 2);
             i = (int)Math.min(j + (long)i, 2147483647L);
         }
 
@@ -122,8 +119,7 @@ public class RubyArrowEntity extends AbstractArrow {
                 return;
             }
 
-            if (entity instanceof LivingEntity) {
-                LivingEntity livingentity = (LivingEntity)entity;
+            if (entity instanceof LivingEntity livingentity) {
                 if (!this.level().isClientSide && this.getPierceLevel() <= 0) {
                     livingentity.setArrowCount(livingentity.getArrowCount() + 1);
                 }
@@ -142,7 +138,7 @@ public class RubyArrowEntity extends AbstractArrow {
                 }
 
                 this.doPostHurtEffects(livingentity);
-                if (entity1 != null && livingentity != entity1 && livingentity instanceof Player && entity1 instanceof ServerPlayer && !this.isSilent()) {
+                if (livingentity != entity1 && livingentity instanceof Player && entity1 instanceof ServerPlayer && !this.isSilent()) {
                     ((ServerPlayer)entity1).connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.ARROW_HIT_PLAYER, 0.0F));
                 }
 
@@ -150,8 +146,7 @@ public class RubyArrowEntity extends AbstractArrow {
                     this.piercedAndKilledEntities.add(livingentity);
                 }
 
-                if (!this.level().isClientSide && entity1 instanceof ServerPlayer) {
-                    ServerPlayer serverplayer = (ServerPlayer)entity1;
+                if (!this.level().isClientSide && entity1 instanceof ServerPlayer serverplayer) {
                     if (this.piercedAndKilledEntities != null && this.shotFromCrossbow()) {
                         CriteriaTriggers.KILLED_BY_CROSSBOW.trigger(serverplayer, this.piercedAndKilledEntities);
                     } else if (!entity.isAlive() && this.shotFromCrossbow()) {
@@ -181,6 +176,8 @@ public class RubyArrowEntity extends AbstractArrow {
         }
 
     }
+
+    @Override
     public void tick() {
         boolean flag = this.isNoPhysics();
         Vec3 vec3 = this.getDeltaMovement();
@@ -242,6 +239,7 @@ public class RubyArrowEntity extends AbstractArrow {
                 }
 
                 if (hitresult != null && hitresult.getType() == HitResult.Type.ENTITY) {
+                    assert hitresult instanceof EntityHitResult;
                     Entity entity = ((EntityHitResult)hitresult).getEntity();
                     Entity entity1 = this.getOwner();
                     if (entity instanceof Player && entity1 instanceof Player && !((Player)entity1).canHarmPlayer((Player)entity)) {
@@ -258,6 +256,7 @@ public class RubyArrowEntity extends AbstractArrow {
                                 this.hasImpulse = true;
                                 break;
                             }
+                            assert entityhitresult != null;
                             ignoredEntities.add(entityhitresult.getEntity().getId());
                             entityhitresult = null; // Don't process any further
                             break;
@@ -329,15 +328,15 @@ public class RubyArrowEntity extends AbstractArrow {
                 if (this.wasTouchingWater) {
                     for(int j = 0; j < 4; ++j) {
                         float f2 = 0.25F;
-                        this.level().addParticle(ParticleTypes.BUBBLE, d7 - d5 * 0.25D, d2 - d6 * 0.25D, d3 - d1 * 0.25D, d5, d6, d1);
+                        this.level().addParticle(ParticleTypes.BUBBLE, d7 - d5 * f2, d2 - d6 * f2, d3 - d1 * f2, d5, d6, d1);
                     }
                     f = this.getWaterInertia();
                 }
 
-                this.setDeltaMovement(vec3.scale((double)f));
+                this.setDeltaMovement(vec3.scale(f));
                 if (!this.isNoGravity() && !flag) {
                     Vec3 vec34 = this.getDeltaMovement();
-                    this.setDeltaMovement(vec34.x, vec34.y - (double)0.05F, vec34.z);
+                    this.setDeltaMovement(vec34.x, vec34.y - (double)f1, vec34.z);
                 }
 
                 this.setPos(d7, d2, d3);
@@ -371,15 +370,15 @@ public class RubyArrowEntity extends AbstractArrow {
                 if (this.wasTouchingWater) {
                     for(int j = 0; j < 4; ++j) {
                         float f2 = 0.25F;
-                        this.level().addParticle(ParticleTypes.BUBBLE, d7 - d5 * 0.25D, d2 - d6 * 0.25D, d3 - d1 * 0.25D, d5, d6, d1);
+                        this.level().addParticle(ParticleTypes.BUBBLE, d7 - d5 * f2, d2 - d6 * f2, d3 - d1 * f2, d5, d6, d1);
                     }
                     f = this.getWaterInertia();
                 }
 
-                this.setDeltaMovement(vec3.scale((double)f));
+                this.setDeltaMovement(vec3.scale(f));
                 if (!this.isNoGravity() && !flag) {
                     Vec3 vec34 = this.getDeltaMovement();
-                    this.setDeltaMovement(vec34.x, vec34.y - (double)0.05F, vec34.z);
+                    this.setDeltaMovement(vec34.x, vec34.y - (double)f1, vec34.z);
                 }
 
                 this.setPos(d7, d2, d3);
@@ -399,10 +398,6 @@ public class RubyArrowEntity extends AbstractArrow {
         return Math.sqrt((triangleOne*triangleOne)+(diffY*diffY));
     }
 
-    protected float getWaterInertia() {
-        return 0.6F;
-    }
-
     private boolean shouldFall() {
         return this.inGround && this.level().noCollision((new AABB(this.position(), this.position())).inflate(0.06D));
     }
@@ -410,7 +405,7 @@ public class RubyArrowEntity extends AbstractArrow {
     private void startFalling() {
         this.inGround = false;
         Vec3 vec3 = this.getDeltaMovement();
-        this.setDeltaMovement(vec3.multiply((double)(this.random.nextFloat() * 0.2F), (double)(this.random.nextFloat() * 0.2F), (double)(this.random.nextFloat() * 0.2F)));
+        this.setDeltaMovement(vec3.multiply(this.random.nextFloat() * 0.2F, this.random.nextFloat() * 0.2F, this.random.nextFloat() * 0.2F));
         this.life = 0;
     }
 }

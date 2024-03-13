@@ -2,18 +2,10 @@ package net.Lucas.endgameenhanced.entity.projectile;
 
 import net.Lucas.endgameenhanced.entity.ModEntities;
 import net.Lucas.endgameenhanced.item.ModItems;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.tags.EntityTypeTags;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -22,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 public class OnyxArrowEntity extends AbstractArrow {
     private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(ModItems.ONYX_ARROW.get());
@@ -35,21 +28,23 @@ public class OnyxArrowEntity extends AbstractArrow {
     }
 
     @Override
-    public ItemStack getPickupItem() {
+    public @NotNull ItemStack getPickupItem() {
         return new ItemStack(ModItems.ONYX_ARROW.get());
     }
 
     @Override
-    public void onHitEntity(EntityHitResult pResult) {
+    public void onHitEntity(@NotNull EntityHitResult pResult) {
         super.onHitEntity(pResult);
         LivingEntity entity = (LivingEntity) pResult.getEntity();
         Player player = (Player) this.getOwner();
-        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 300, 1, false, true, true));
-        entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 1, false, true, true));
+        if (player != null) {
+            player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 300, 1, false, true, true));
+            entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 1, false, true, true));
+        }
     }
 
     @Override
-    protected void onHit(HitResult pResult) {
+    protected void onHit(@NotNull HitResult pResult) {
         super.onHit(pResult);
     }
 

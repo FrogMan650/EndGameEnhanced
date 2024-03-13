@@ -5,19 +5,14 @@ import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.Lucas.endgameenhanced.entity.ModEntities;
 import net.Lucas.endgameenhanced.item.ModItems;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -67,7 +62,7 @@ public class EmeraldArrowEntity extends AbstractArrow {
     protected void onHitEntity(@NotNull EntityHitResult pResult) {
         Entity entity = pResult.getEntity();
         float f = (float)this.getDeltaMovement().length();
-        int i = Mth.ceil(Mth.clamp((double)f * this.baseDamage, 0.0D, (double)Integer.MAX_VALUE));
+        int i = Mth.ceil(Mth.clamp((double)f * this.baseDamage, 0.0D, Integer.MAX_VALUE));
         if (this.getPierceLevel() > 0) {
             if (this.piercingIgnoreEntityIds == null) {
                 this.piercingIgnoreEntityIds = new IntOpenHashSet(5);
@@ -86,7 +81,7 @@ public class EmeraldArrowEntity extends AbstractArrow {
         }
 
         if (this.isCritArrow()) {
-            long j = (long)this.random.nextInt(i / 2 + 2);
+            long j = this.random.nextInt(i / 2 + 2);
             i = (int)Math.min(j + (long)i, 2147483647L);
         }
 
@@ -113,8 +108,7 @@ public class EmeraldArrowEntity extends AbstractArrow {
                 return;
             }
 
-            if (entity instanceof LivingEntity) {
-                LivingEntity livingentity = (LivingEntity)entity;
+            if (entity instanceof LivingEntity livingentity) {
                 if (!this.level().isClientSide && this.getPierceLevel() <= 0) {
                     livingentity.setArrowCount(livingentity.getArrowCount() + 1);
                 }
@@ -133,7 +127,7 @@ public class EmeraldArrowEntity extends AbstractArrow {
                 }
 
                 this.doPostHurtEffects(livingentity);
-                if (entity1 != null && livingentity != entity1 && livingentity instanceof Player && entity1 instanceof ServerPlayer && !this.isSilent()) {
+                if (livingentity != entity1 && livingentity instanceof Player && entity1 instanceof ServerPlayer && !this.isSilent()) {
                     ((ServerPlayer)entity1).connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.ARROW_HIT_PLAYER, 0.0F));
                 }
 
@@ -141,8 +135,7 @@ public class EmeraldArrowEntity extends AbstractArrow {
                     this.piercedAndKilledEntities.add(livingentity);
                 }
 
-                if (!this.level().isClientSide && entity1 instanceof ServerPlayer) {
-                    ServerPlayer serverplayer = (ServerPlayer)entity1;
+                if (!this.level().isClientSide && entity1 instanceof ServerPlayer serverplayer) {
                     if (this.piercedAndKilledEntities != null && this.shotFromCrossbow()) {
                         CriteriaTriggers.KILLED_BY_CROSSBOW.trigger(serverplayer, this.piercedAndKilledEntities);
                     } else if (!entity.isAlive() && this.shotFromCrossbow()) {

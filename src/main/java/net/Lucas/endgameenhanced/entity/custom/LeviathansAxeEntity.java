@@ -20,13 +20,12 @@ import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
@@ -47,15 +46,14 @@ public class LeviathansAxeEntity extends AbstractArrow {
         this.entityData.set(ID_FOIL, pStack.hasFoil());
     }
 
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(ID_LOYALTY, (byte)0);
         this.entityData.define(ID_FOIL, false);
     }
 
-    /**
-     * Called to update the entity's position/logic.
-     */
+    @Override
     public void tick() {
         if (this.inGroundTime > 4) {
             this.dealtDamage = true;
@@ -104,17 +102,12 @@ public class LeviathansAxeEntity extends AbstractArrow {
         return this.entityData.get(ID_FOIL);
     }
 
-    /**
-     * Gets the EntityHitResult representing the entity hit
-     */
-    @Nullable
-    protected EntityHitResult findHitEntity(Vec3 pStartVec, Vec3 pEndVec) {
+    @Override @Nullable
+    protected EntityHitResult findHitEntity(@NotNull Vec3 pStartVec, @NotNull Vec3 pEndVec) {
         return this.dealtDamage ? null : super.findHitEntity(pStartVec, pEndVec);
     }
 
-    /**
-     * Called when the arrow hits an entity
-     */
+    @Override
     protected void onHitEntity(EntityHitResult pResult) {
         Entity entity = pResult.getEntity();
         float f = 18.0F;
@@ -123,7 +116,7 @@ public class LeviathansAxeEntity extends AbstractArrow {
         }
 
         Entity entity1 = this.getOwner();
-        DamageSource damagesource = this.damageSources().trident(this, (Entity)(entity1 == null ? this : entity1));
+        DamageSource damagesource = this.damageSources().trident(this, entity1 == null ? this : entity1);
         this.dealtDamage = true;
         SoundEvent soundevent = SoundEvents.TRIDENT_HIT;
         if (entity.hurt(damagesource, f)) {
@@ -131,8 +124,7 @@ public class LeviathansAxeEntity extends AbstractArrow {
                 return;
             }
 
-            if (entity instanceof LivingEntity) {
-                LivingEntity livingentity1 = (LivingEntity)entity;
+            if (entity instanceof LivingEntity livingentity1) {
                 if (entity1 instanceof LivingEntity) {
                     EnchantmentHelper.doPostHurtEffects(livingentity1, entity1);
                     EnchantmentHelper.doPostDamageEffects((LivingEntity)entity1, livingentity1);
@@ -165,41 +157,38 @@ public class LeviathansAxeEntity extends AbstractArrow {
         this.playSound(soundevent, f1, 1.0F);
     }
 
-    protected boolean tryPickup(Player pPlayer) {
+    @Override
+    protected boolean tryPickup(@NotNull Player pPlayer) {
         return super.tryPickup(pPlayer) || this.isNoPhysics() && this.ownedBy(pPlayer) && pPlayer.getInventory().add(this.getPickupItem());
     }
 
-    /**
-     * The sound made when an entity is hit by this projectile
-     */
-    protected SoundEvent getDefaultHitGroundSoundEvent() {
+    @Override
+    protected @NotNull SoundEvent getDefaultHitGroundSoundEvent() {
         return SoundEvents.TRIDENT_HIT_GROUND;
     }
 
-    /**
-     * Called by a player entity when they collide with an entity
-     */
-    public void playerTouch(Player pEntity) {
+    @Override
+    public void playerTouch(@NotNull Player pEntity) {
         if (this.ownedBy(pEntity) || this.getOwner() == null) {
             super.playerTouch(pEntity);
         }
 
     }
 
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
-    public void readAdditionalSaveData(CompoundTag pCompound) {
+    @Override
+    public void readAdditionalSaveData(@NotNull CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         this.dealtDamage = pCompound.getBoolean("DealtDamage");
         this.entityData.set(ID_LOYALTY, (byte)EnchantmentHelper.getLoyalty(this.getPickupItemStackOrigin()));
     }
 
-    public void addAdditionalSaveData(CompoundTag pCompound) {
+    @Override
+    public void addAdditionalSaveData(@NotNull CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
         pCompound.putBoolean("DealtDamage", this.dealtDamage);
     }
 
+    @Override
     public void tickDespawn() {
         int i = this.entityData.get(ID_LOYALTY);
         if (this.pickup != AbstractArrow.Pickup.ALLOWED || i <= 0) {
@@ -208,10 +197,12 @@ public class LeviathansAxeEntity extends AbstractArrow {
 
     }
 
+    @Override
     protected float getWaterInertia() {
         return 0.5F;
     }
 
+    @Override
     public boolean shouldRender(double pX, double pY, double pZ) {
         return true;
     }
