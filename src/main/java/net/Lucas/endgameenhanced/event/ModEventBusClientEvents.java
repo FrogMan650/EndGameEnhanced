@@ -2,18 +2,10 @@ package net.Lucas.endgameenhanced.event;
 
 import net.Lucas.endgameenhanced.EndGameEnhanced;
 import net.Lucas.endgameenhanced.entity.client.*;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ElytraModel;
-import net.minecraft.client.model.PlayerModel;
-import net.minecraft.client.model.SkullModel;
 import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.client.resources.PlayerSkin;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.WitherSkull;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,7 +21,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(UnkemptHaroldProjectileModel.UNKEMPT_HAROLD_LAYER_LOCATION, UnkemptHaroldProjectileModel::createMobHeadLayer);
     }
 
-    @SubscribeEvent @SuppressWarnings({"unchecked"})
+    @SubscribeEvent @SuppressWarnings({"unchecked", "rawtypes"})
     public static void addPlayerLayers(EntityRenderersEvent.AddLayers event) {
         for (PlayerSkin.Model skin : event.getSkins()) {
 

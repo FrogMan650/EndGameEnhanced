@@ -1,12 +1,10 @@
 package net.Lucas.endgameenhanced.entity.projectile;
 
-import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.Lucas.endgameenhanced.entity.ModEntities;
 import net.Lucas.endgameenhanced.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -18,8 +16,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 public class SapphireArrowEntity extends AbstractArrow {
     private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(ModItems.SAPPHIRE_ARROW.get());

@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = EndGameEnhanced.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBusEvents {
+
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
 

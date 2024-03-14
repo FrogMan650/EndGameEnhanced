@@ -1,23 +1,14 @@
 package net.Lucas.endgameenhanced.entity.projectile;
 
 import net.Lucas.endgameenhanced.entity.ModEntities;
-import net.Lucas.endgameenhanced.item.ModItems;
-import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 public class UnkemptHaroldProjectileEntity extends AbstractArrow {
     private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(Items.TNT);
@@ -31,7 +22,7 @@ public class UnkemptHaroldProjectileEntity extends AbstractArrow {
     }
 
     @Override
-    protected void onHit(HitResult pResult) {
+    protected void onHit(@NotNull HitResult pResult) {
         super.onHit(pResult);
         if (!this.level().isClientSide) {
             this.level().explode(this, this.getX(), this.getY(), this.getZ(), 5.0F, false, Level.ExplosionInteraction.BLOCK);

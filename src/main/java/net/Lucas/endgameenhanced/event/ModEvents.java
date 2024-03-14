@@ -59,16 +59,12 @@ public class ModEvents {
     @SubscribeEvent
     public static void endGameEnhancedOnPlayerCloned(PlayerEvent.Clone event) {
         if (event.isWasDeath()) {
-            event.getOriginal().getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).ifPresent(oldStore -> {
-                event.getOriginal().getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).ifPresent(newStore -> {
-                    newStore.copyFrom(oldStore);
-                });
-            });
-            event.getOriginal().getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(oldStore -> {
-                event.getOriginal().getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(newStore -> {
-                    newStore.copyFrom(oldStore);
-                });
-            });
+            event.getOriginal().getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).ifPresent(
+                    oldStore -> event.getOriginal().getCapability(PlayerToolChangeProvider.PLAYER_TOOL_CHANGE).ifPresent(
+                            newStore -> newStore.copyFrom(oldStore)));
+            event.getOriginal().getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(
+                    oldStore -> event.getOriginal().getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(
+                            newStore -> newStore.copyFrom(oldStore)));
         }
     }
     @SubscribeEvent
@@ -250,6 +246,7 @@ public class ModEvents {
         //changes the player stored value for which face of the block they were last hitting
         Player player = event.getEntity();
         Direction blockDirection = event.getFace();
+        assert blockDirection != null;
         String facing = blockDirection.getName();
         player.getCapability(PlayerBlockFacingProvider.PLAYER_BLOCK_FACING).ifPresent(blockFacing -> {
             if (facing.equals("up") || facing.equals("down")) {
@@ -511,9 +508,6 @@ public class ModEvents {
             }
         }
     }
-
-
-
 
     @SubscribeEvent
     public static void endGameEnhancedCropFixes(BlockEvent.CropGrowEvent.Post event) {
