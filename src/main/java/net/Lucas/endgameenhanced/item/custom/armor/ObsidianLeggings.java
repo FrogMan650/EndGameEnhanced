@@ -16,6 +16,7 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class ObsidianLeggings extends ArmorItem {
     }
 
     @Override
-    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+    public void inventoryTick(@NotNull ItemStack pStack, @NotNull Level pLevel, @NotNull Entity pEntity, int pSlotId, boolean pIsSelected) {
         if (pEntity instanceof Player player) {
             if (player.getItemBySlot(EquipmentSlot.LEGS).getItem() == ModItems.INEVITABLE_LEGGINGS.get()) {
                 player.addEffect(new MobEffectInstance(MobEffects.JUMP, 220, 0, false, false, true));
@@ -38,7 +39,7 @@ public class ObsidianLeggings extends ArmorItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting ITALIC_TEXT = ChatFormatting.ITALIC;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;

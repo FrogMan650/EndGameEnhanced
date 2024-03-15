@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class MediumFlaskItem extends BottleItem {
     public MediumFlaskItem(Properties pProperties) {
@@ -17,7 +18,7 @@ public class MediumFlaskItem extends BottleItem {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand pHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand pHand) {
         ItemStack flaskStack = player.getItemInHand(pHand);
         ItemStack potionStack = null;
         for (ItemStack itemStack : player.getInventory().items) {

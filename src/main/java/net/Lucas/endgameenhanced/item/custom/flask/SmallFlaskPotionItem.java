@@ -4,7 +4,6 @@ import net.Lucas.endgameenhanced.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -24,8 +23,8 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -36,7 +35,7 @@ public class SmallFlaskPotionItem extends PotionItem {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand pHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand pHand) {
         ItemStack flaskStack = player.getItemInHand(pHand);
         ItemStack potionStack = null;
         if (flaskStack.getDamageValue() != 0) {
@@ -58,9 +57,10 @@ public class SmallFlaskPotionItem extends PotionItem {
         } else return ItemUtils.startUsingInstantly(level, player, pHand);
     }
 
-    public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
+    public @NotNull ItemStack finishUsingItem(@NotNull ItemStack pStack, @NotNull Level pLevel, @NotNull LivingEntity pEntityLiving) {
         InteractionHand pHand;
         Player player = pEntityLiving instanceof Player ? (Player)pEntityLiving : null;
+        assert player != null;
         if (player.getItemInHand(InteractionHand.MAIN_HAND) == pStack) {
             pHand = InteractionHand.MAIN_HAND;
         } else {
@@ -80,17 +80,12 @@ public class SmallFlaskPotionItem extends PotionItem {
             }
         }
 
-        if (player != null) {
-            player.awardStat(Stats.ITEM_USED.get(this));
-            if (!player.getAbilities().instabuild) {
-                pStack.setDamageValue(pStack.getDamageValue()+1);
-                if (pStack.getDamageValue() == pStack.getMaxDamage()) {
-                    pStack.shrink(1);
-                }
+        player.awardStat(Stats.ITEM_USED.get(this));
+        if (!player.getAbilities().instabuild) {
+            pStack.setDamageValue(pStack.getDamageValue()+1);
+            if (pStack.getDamageValue() == pStack.getMaxDamage()) {
+                pStack.shrink(1);
             }
-        }
-
-        if (player == null || !player.getAbilities().instabuild) {
             if (pStack.isEmpty()) {
                 if (pHand == InteractionHand.MAIN_HAND) {
                     player.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.SMALL_FLASK.get()));
@@ -106,12 +101,13 @@ public class SmallFlaskPotionItem extends PotionItem {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext pContext) {
+    public @NotNull InteractionResult useOn(UseOnContext pContext) {
         //empty the flask by using it on a water cauldron (works with any water level)
         InteractionHand pHand;
         Level level = pContext.getLevel();
         Player player = pContext.getPlayer();
         ItemStack itemStack = pContext.getItemInHand();
+        assert player != null;
         if (player.getItemInHand(InteractionHand.MAIN_HAND) == itemStack) {
             pHand = InteractionHand.MAIN_HAND;
         } else {
@@ -124,13 +120,13 @@ public class SmallFlaskPotionItem extends PotionItem {
             } else {
                 player.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(ModItems.SMALL_FLASK.get()));
             }
-            level.playSound((Player)null, pContext.getClickedPos(), SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+            level.playSound(null, pContext.getClickedPos(), SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
             return InteractionResult.sidedSuccess(level.isClientSide);
         } else return InteractionResult.PASS;
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pFlag) {
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pFlag) {
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         ChatFormatting VARIABLE_TEXT = ChatFormatting.DARK_GREEN;
         int currentCharges = pStack.getDamageValue();

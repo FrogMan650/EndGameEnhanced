@@ -2,6 +2,7 @@ package net.Lucas.endgameenhanced.item.custom.essence;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class PureToughEssence extends Item {
     public PureToughEssence(Properties pProperties) {
@@ -9,7 +10,7 @@ public class PureToughEssence extends Item {
     }
 
     @Override
-    public boolean isFoil(ItemStack pStack) {
+    public boolean isFoil(@NotNull ItemStack pStack) {
         return true;
     }
 }
