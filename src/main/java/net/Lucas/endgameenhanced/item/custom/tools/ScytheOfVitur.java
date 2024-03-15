@@ -47,15 +47,14 @@ public class ScytheOfVitur extends HoeItem {
     @Override
     public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
         final Set<ToolAction> SCYTHE_ACTIONS = of(ToolActions.SHEARS_DIG, ToolActions.SHEARS_HARVEST,
-                ToolActions.SHEARS_CARVE, ToolActions.SHEARS_DISARM, ToolActions.HOE_TILL, ToolActions.HOE_TILL,
+                ToolActions.SHEARS_CARVE, ToolActions.SHEARS_DISARM, ToolActions.HOE_DIG, ToolActions.HOE_TILL,
                 ToolActions.SWORD_SWEEP);
         return SCYTHE_ACTIONS.contains(toolAction);
     }
 
+    @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-        pStack.hurtAndBreak(0, pAttacker, (p_41007_) -> {
-            p_41007_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-        });
+        pStack.hurtAndBreak(0, pAttacker, (p_41007_) -> p_41007_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         return true;
     }
 
@@ -63,10 +62,9 @@ public class ScytheOfVitur extends HoeItem {
         return Stream.of(actions).collect(Collectors.toCollection(Sets::newIdentityHashSet));
     }
 
+    @Override
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
-        pStack.hurtAndBreak(0, pEntityLiving, (p_40992_) -> {
-            p_40992_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-        });
+        pStack.hurtAndBreak(0, pEntityLiving, (p_40992_) -> p_40992_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         return true;
     }
 
@@ -96,7 +94,9 @@ public class ScytheOfVitur extends HoeItem {
                 java.util.Random rand = new java.util.Random();
                 drops.forEach(d -> {
                     net.minecraft.world.entity.item.ItemEntity ent = entity.spawnAtLocation(d, 1.0F);
-                    ent.setDeltaMovement(ent.getDeltaMovement().add((double)((rand.nextFloat() - rand.nextFloat()) * 0.1F), (double)(rand.nextFloat() * 0.05F), (double)((rand.nextFloat() - rand.nextFloat()) * 0.1F)));
+                    if (ent != null) {
+                        ent.setDeltaMovement(ent.getDeltaMovement().add((rand.nextFloat() - rand.nextFloat()) * 0.1F, rand.nextFloat() * 0.05F, (rand.nextFloat() - rand.nextFloat()) * 0.1F));
+                    }
                 });
                 stack.hurtAndBreak(0, playerIn, e -> e.broadcastBreakEvent(hand));
             }
@@ -105,6 +105,7 @@ public class ScytheOfVitur extends HoeItem {
         return net.minecraft.world.InteractionResult.PASS;
     }
 
+    @Override
     public @NotNull InteractionResult useOn(UseOnContext pContext) {
         ItemStack itemInHand = pContext.getItemInHand();
         Player player = pContext.getPlayer();
@@ -119,61 +120,33 @@ public class ScytheOfVitur extends HoeItem {
         BlockState toolModifiedState = level.getBlockState(blockpos).getToolModifiedState(pContext, net.minecraftforge.common.ToolActions.HOE_TILL, false);
         Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = toolModifiedState == null ? null : Pair.of(ctx -> true, changeIntoState(toolModifiedState));
         //breaks the crop and drops loot based on fortune level, then resets it to its default state
-        if (block instanceof CropBlock) {
-            int cropAge = ((CropBlock) block).getAge(blockstate);
-            int cropMaxAge = ((CropBlock) block).getMaxAge();
-            boolean cropGrown = cropAge == cropMaxAge;
-            if (cropGrown) {
-                Block.dropResources(blockstate, level, blockpos, blockentity, null, fortuneHoe);
-                level.destroyBlock(blockpos, false);
-                level.setBlockAndUpdate(blockpos, block.defaultBlockState());
-                return InteractionResult.sidedSuccess(level.isClientSide);
-            }
-
+        int cropAge = 0;
+        int cropMaxAge = 10;
+        if (block instanceof CropBlock cropBlock) {
+            cropAge = cropBlock.getAge(blockstate);
+            cropMaxAge = cropBlock.getMaxAge();
         }
-        if (block instanceof PotatoBlock) {
-            int cropAge = ((PotatoBlock) block).getAge(blockstate);
-            int cropMaxAge = ((PotatoBlock) block).getMaxAge();
-            boolean cropGrown = cropAge == cropMaxAge;
-            if (cropGrown) {
-                Block.dropResources(blockstate, level, blockpos, blockentity, null, fortuneHoe);
-                level.destroyBlock(blockpos, false);
-                level.setBlockAndUpdate(blockpos, block.defaultBlockState());
-                return InteractionResult.sidedSuccess(level.isClientSide);
-            }
+        if (block instanceof PotatoBlock potatoBlock) {
+            cropAge = potatoBlock.getAge(blockstate);
+            cropMaxAge = potatoBlock.getMaxAge();
         }
-        if (block instanceof BeetrootBlock) {
-            int cropAge = ((BeetrootBlock) block).getAge(blockstate);
-            int cropMaxAge = ((BeetrootBlock) block).getMaxAge();
-            boolean cropGrown = cropAge == cropMaxAge;
-            if (cropGrown) {
-                Block.dropResources(blockstate, level, blockpos, blockentity, null, fortuneHoe);
-                level.destroyBlock(blockpos, false);
-                level.setBlockAndUpdate(blockpos, block.defaultBlockState());
-                return InteractionResult.sidedSuccess(level.isClientSide);
-            }
+        if (block instanceof BeetrootBlock beetrootBlock) {
+            cropAge = beetrootBlock.getAge(blockstate);
+            cropMaxAge = beetrootBlock.getMaxAge();
         }
-        if (block instanceof CarrotBlock) {
-            int cropAge = ((CarrotBlock) block).getAge(blockstate);
-            int cropMaxAge = ((CarrotBlock) block).getMaxAge();
-            boolean cropGrown = cropAge == cropMaxAge;
-            if (cropGrown) {
-                Block.dropResources(blockstate, level, blockpos, blockentity, null, fortuneHoe);
-                level.destroyBlock(blockpos, false);
-                level.setBlockAndUpdate(blockpos, block.defaultBlockState());
-                return InteractionResult.sidedSuccess(level.isClientSide);
-            }
+        if (block instanceof CarrotBlock carrotBlock) {
+            cropAge = carrotBlock.getAge(blockstate);
+            cropMaxAge = carrotBlock.getMaxAge();
         }
         if (block instanceof NetherWartBlock) {
-            int cropAge = blockstate.getValue(NetherWartBlock.AGE);
-            int cropMaxAge = 3;
-            boolean cropGrown = cropAge == cropMaxAge;
-            if (cropGrown) {
-                Block.dropResources(blockstate, level, blockpos, blockentity, null, fortuneHoe);
-                level.destroyBlock(blockpos, false);
-                level.setBlockAndUpdate(blockpos, block.defaultBlockState());
-                return InteractionResult.sidedSuccess(level.isClientSide);
-            }
+            cropAge = blockstate.getValue(NetherWartBlock.AGE);
+            cropMaxAge = 3;
+        }
+        if (cropAge == cropMaxAge) {
+            Block.dropResources(blockstate, level, blockpos, blockentity, null, fortuneHoe);
+            level.destroyBlock(blockpos, false);
+            level.setBlockAndUpdate(blockpos, block.defaultBlockState());
+            return InteractionResult.sidedSuccess(level.isClientSide);
         }
         if (block instanceof GrowingPlantHeadBlock growingplantheadblock) {//shears
             if (!growingplantheadblock.isMaxAge(blockstate)) {
@@ -187,9 +160,7 @@ public class ScytheOfVitur extends HoeItem {
                 level.setBlockAndUpdate(blockpos, blockstate1);
                 level.gameEvent(GameEvent.BLOCK_CHANGE, blockpos, GameEvent.Context.of(pContext.getPlayer(), blockstate1));
                 if (player != null) {
-                    itemstack.hurtAndBreak(0, player, (p_186374_) -> {
-                        p_186374_.broadcastBreakEvent(pContext.getHand());
-                    });
+                    itemstack.hurtAndBreak(0, player, (p_186374_) -> p_186374_.broadcastBreakEvent(pContext.getHand()));
                 }
 
                 return InteractionResult.sidedSuccess(level.isClientSide);
@@ -205,9 +176,7 @@ public class ScytheOfVitur extends HoeItem {
                 if (!level.isClientSide) {
                     consumer.accept(pContext);
                     if (player != null) {
-                        pContext.getItemInHand().hurtAndBreak(0, player, (p_150845_) -> {
-                            p_150845_.broadcastBreakEvent(pContext.getHand());
-                        });
+                        pContext.getItemInHand().hurtAndBreak(0, player, (p_150845_) -> p_150845_.broadcastBreakEvent(pContext.getHand()));
                     }
                 }
 
