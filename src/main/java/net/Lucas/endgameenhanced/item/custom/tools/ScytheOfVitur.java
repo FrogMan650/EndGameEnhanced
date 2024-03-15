@@ -47,7 +47,7 @@ public class ScytheOfVitur extends HoeItem {
     @Override
     public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
         final Set<ToolAction> SCYTHE_ACTIONS = of(ToolActions.SHEARS_DIG, ToolActions.SHEARS_HARVEST,
-                ToolActions.SHEARS_CARVE, ToolActions.SHEARS_DISARM, ToolActions.HOE_TILL, ToolActions.HOE_TILL,
+                ToolActions.SHEARS_CARVE, ToolActions.SHEARS_DISARM, ToolActions.HOE_DIG, ToolActions.HOE_TILL,
                 ToolActions.SWORD_SWEEP);
         return SCYTHE_ACTIONS.contains(toolAction);
     }
