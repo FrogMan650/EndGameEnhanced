@@ -11,20 +11,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.WitherSkull;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -33,25 +27,22 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.function.Predicate;
 
 public class UnkemptHarold extends ShovelItem {
     public UnkemptHarold(Tier pTier, float pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
 
-    public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
+    public void releaseUsing(@NotNull ItemStack pStack, @NotNull Level pLevel, @NotNull LivingEntity pEntityLiving, int pTimeLeft) {
         if (pEntityLiving instanceof Player player) {
             ItemStack itemstack = new ItemStack(Items.TNT);
             if (player.getInventory().contains(Items.TNT.getDefaultInstance())) {
                 itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.TNT.getDefaultInstance()));
             }
-
             int i = this.getUseDuration(pStack) - pTimeLeft;
             if (i < 10) return;
 
             if (!itemstack.isEmpty() || player.getAbilities().instabuild) {
-
                 float velocity = getPowerForTime(i);
                 if (!((double)velocity < 0.1D)) {
                     if (!pLevel.isClientSide) {
@@ -59,15 +50,13 @@ public class UnkemptHarold extends ShovelItem {
                         proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, velocity * 3.0F, 0.5F);
                         pLevel.addFreshEntity(proj);
                     }
-
-                    pLevel.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.WITHER_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.4F + 1.2F) + velocity * 0.5F);
+                    pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.WITHER_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.4F + 1.2F) + velocity * 0.5F);
                     if (!player.getAbilities().instabuild) {
                         itemstack.shrink(1);
                         if (itemstack.isEmpty()) {
                             player.getInventory().removeItem(itemstack);
                         }
                     }
-
                     player.awardStat(Stats.ITEM_USED.get(this));
                 }
             }
@@ -79,18 +68,21 @@ public class UnkemptHarold extends ShovelItem {
         if (f > 1.0F) {
             f = 1.0F;
         }
-
         return f;
     }
 
-    public int getUseDuration(ItemStack pStack) {
+    @Override
+    public int getUseDuration(@NotNull ItemStack pStack) {
         return 72000;
     }
-    public @NotNull UseAnim getUseAnimation(ItemStack pStack) {
+
+    @Override
+    public @NotNull UseAnim getUseAnimation(@NotNull ItemStack pStack) {
         return UseAnim.BOW;
     }
 
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
+    @Override
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, Player player, @NotNull InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
 
         if (player.getInventory().contains(Items.TNT.getDefaultInstance()) || player.getAbilities().instabuild) {
@@ -100,6 +92,7 @@ public class UnkemptHarold extends ShovelItem {
         return InteractionResultHolder.fail(itemstack);
     }
 
+    @Override
     public @NotNull InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
@@ -115,11 +108,11 @@ public class UnkemptHarold extends ShovelItem {
                 blockstate2 = blockstate1;
             } else if (blockstate.getBlock() instanceof CampfireBlock && blockstate.getValue(CampfireBlock.LIT)) {
                 if (!level.isClientSide()) {
-                    level.levelEvent((Player)null, 1009, blockpos, 0);
+                    level.levelEvent(null, 1009, blockpos, 0);
                 }
 
                 CampfireBlock.dowse(pContext.getPlayer(), level, blockpos, blockstate);
-                blockstate2 = blockstate.setValue(CampfireBlock.LIT, Boolean.valueOf(false));
+                blockstate2 = blockstate.setValue(CampfireBlock.LIT, Boolean.FALSE);
             }
 
             if (blockstate2 != null) {
@@ -127,9 +120,7 @@ public class UnkemptHarold extends ShovelItem {
                     level.setBlock(blockpos, blockstate2, 11);
                     level.gameEvent(GameEvent.BLOCK_CHANGE, blockpos, GameEvent.Context.of(player, blockstate2));
                     if (player != null) {
-                        pContext.getItemInHand().hurtAndBreak(0, player, (p_43122_) -> {
-                            p_43122_.broadcastBreakEvent(pContext.getHand());
-                        });
+                        pContext.getItemInHand().hurtAndBreak(0, player, (p_43122_) -> p_43122_.broadcastBreakEvent(pContext.getHand()));
                     }
                 }
 
@@ -140,18 +131,16 @@ public class UnkemptHarold extends ShovelItem {
         }
     }
 
-    public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-        pStack.hurtAndBreak(0, pAttacker, (p_41007_) -> {
-            p_41007_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-        });
+    @Override
+    public boolean hurtEnemy(ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
+        pStack.hurtAndBreak(0, pAttacker, (p_41007_) -> p_41007_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         return true;
     }
 
-    public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
+    @Override
+    public boolean mineBlock(@NotNull ItemStack pStack, Level pLevel, @NotNull BlockState pState, @NotNull BlockPos pPos, @NotNull LivingEntity pEntityLiving) {
         if (!pLevel.isClientSide && pState.getDestroySpeed(pLevel, pPos) != 0.0F) {
-            pStack.hurtAndBreak(0, pEntityLiving, (p_40992_) -> {
-                p_40992_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-            });
+            pStack.hurtAndBreak(0, pEntityLiving, (p_40992_) -> p_40992_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         }
 
         return true;

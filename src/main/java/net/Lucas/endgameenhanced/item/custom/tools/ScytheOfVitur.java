@@ -45,7 +45,7 @@ public class ScytheOfVitur extends HoeItem {
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
+    public boolean canPerformAction(@NotNull ItemStack stack, net.minecraftforge.common.@NotNull ToolAction toolAction) {
         final Set<ToolAction> SCYTHE_ACTIONS = of(ToolActions.SHEARS_DIG, ToolActions.SHEARS_HARVEST,
                 ToolActions.SHEARS_CARVE, ToolActions.SHEARS_DISARM, ToolActions.HOE_DIG, ToolActions.HOE_TILL,
                 ToolActions.SWORD_SWEEP);
@@ -53,7 +53,7 @@ public class ScytheOfVitur extends HoeItem {
     }
 
     @Override
-    public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
+    public boolean hurtEnemy(ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
         pStack.hurtAndBreak(0, pAttacker, (p_41007_) -> p_41007_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         return true;
     }
@@ -63,18 +63,18 @@ public class ScytheOfVitur extends HoeItem {
     }
 
     @Override
-    public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
+    public boolean mineBlock(ItemStack pStack, @NotNull Level pLevel, @NotNull BlockState pState, @NotNull BlockPos pPos, @NotNull LivingEntity pEntityLiving) {
         pStack.hurtAndBreak(0, pEntityLiving, (p_40992_) -> p_40992_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         return true;
     }
 
     @Override
-    public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
+    public boolean isCorrectToolForDrops(@NotNull ItemStack stack, @NotNull BlockState state) {
         return super.isCorrectToolForDrops(stack, state) || state.is(Blocks.COBWEB) || state.is(Blocks.REDSTONE_WIRE) || state.is(Blocks.TRIPWIRE);
     }
 
     @Override
-    public float getDestroySpeed(ItemStack pStack, BlockState pState) {
+    public float getDestroySpeed(@NotNull ItemStack pStack, BlockState pState) {
         if (pState.is(Blocks.COBWEB) || pState.is(BlockTags.LEAVES)) {
             return 15.0F;
         }
@@ -84,7 +84,7 @@ public class ScytheOfVitur extends HoeItem {
     }
 
     @Override
-    public @NotNull InteractionResult interactLivingEntity(ItemStack stack, net.minecraft.world.entity.player.Player playerIn, LivingEntity entity, net.minecraft.world.InteractionHand hand) {
+    public @NotNull InteractionResult interactLivingEntity(@NotNull ItemStack stack, net.minecraft.world.entity.player.@NotNull Player playerIn, @NotNull LivingEntity entity, net.minecraft.world.@NotNull InteractionHand hand) {
         if (entity instanceof net.minecraftforge.common.IForgeShearable target) {//shears
             if (entity.level().isClientSide) return net.minecraft.world.InteractionResult.SUCCESS;
             BlockPos pos = BlockPos.containing(entity.position());
@@ -154,7 +154,6 @@ public class ScytheOfVitur extends HoeItem {
                 if (player instanceof ServerPlayer) {
                     CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer)player, blockpos, itemstack);
                 }
-
                 level.playSound(player, blockpos, SoundEvents.GROWING_PLANT_CROP, SoundSource.BLOCKS, 1.0F, 1.0F);
                 BlockState blockstate1 = growingplantheadblock.getMaxAgeState(blockstate);
                 level.setBlockAndUpdate(blockpos, blockstate1);
@@ -162,7 +161,6 @@ public class ScytheOfVitur extends HoeItem {
                 if (player != null) {
                     itemstack.hurtAndBreak(0, player, (p_186374_) -> p_186374_.broadcastBreakEvent(pContext.getHand()));
                 }
-
                 return InteractionResult.sidedSuccess(level.isClientSide);
             }
         }
@@ -179,13 +177,11 @@ public class ScytheOfVitur extends HoeItem {
                         pContext.getItemInHand().hurtAndBreak(0, player, (p_150845_) -> p_150845_.broadcastBreakEvent(pContext.getHand()));
                     }
                 }
-
                 return InteractionResult.sidedSuccess(level.isClientSide);
             } else {
                 return InteractionResult.PASS;
             }
         }
-
     }
 
     @Override
