@@ -20,6 +20,9 @@ public class NourishingTotem extends Item {
             int foodLevel = player.getFoodData().getFoodLevel();
             if (saturate() && saturationLevel < foodLevel) {
                 player.getFoodData().setSaturation(saturationLevel+1);
+                pStack.hurtAndBreak(1, player, (p_289501_) -> {
+                    p_289501_.broadcastBreakEvent(player.getUsedItemHand());
+                });
             }
         }
     }

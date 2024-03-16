@@ -59,7 +59,7 @@ public class ModItems {
     public static final RegistryObject<Item> CHARGING_TOTEM_OF_UNDYING = ITEMS.register("charging_totem_of_undying", () -> new ChargingTotemOfUndying(new Item.Properties().durability(6001).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> RAPID_TOTEM_OF_UNDYING = ITEMS.register("rapid_totem_of_undying", () -> new RapidTotemOfUndying(new Item.Properties().durability(3001).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> OVERCLOCKED_TOTEM_OF_UNDYING = ITEMS.register("overclocked_totem_of_undying", () -> new OverclockedTotemOfUndying(new Item.Properties().durability(1201).rarity(Rarity.EPIC).fireResistant()));
-    public static final RegistryObject<Item> TOTEM_OF_NOURISHING = ITEMS.register("totem_of_nourishing", () -> new NourishingTotem(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> TOTEM_OF_NOURISHING = ITEMS.register("totem_of_nourishing", () -> new NourishingTotem(new Item.Properties().rarity(Rarity.UNCOMMON).durability(50).stacksTo(1)));
     public static final RegistryObject<Item> BOUNTIFUL_TOTEM_OF_NOURISHING = ITEMS.register("bountiful_totem_of_nourishing", () -> new BountifulTotemOfNourishing(new Item.Properties().durability(101).rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> PLENTIFUL_TOTEM_OF_NOURISHING = ITEMS.register("plentiful_totem_of_nourishing", () -> new PlentifulTotemOfNourishing(new Item.Properties().durability(81).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> ABUNDANT_TOTEM_OF_NOURISHING = ITEMS.register("abundant_totem_of_nourishing", () -> new AbundantTotemOfNourishing(new Item.Properties().durability(61).rarity(Rarity.UNCOMMON)));

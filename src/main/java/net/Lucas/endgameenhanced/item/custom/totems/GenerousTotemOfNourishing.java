@@ -57,23 +57,19 @@ public class GenerousTotemOfNourishing extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand pHand) {
         ItemStack totemStack = player.getItemInHand(pHand);
+        ItemStack itemstack;
         if (player.getInventory().contains(Items.APPLE.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
-            ItemStack itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.APPLE.getDefaultInstance()));
-            totemStack.setDamageValue(totemStack.getDamageValue()-1);
-            itemstack.shrink(1);
-            if (itemstack.isEmpty()) {
-                player.getInventory().removeItem(itemstack);
-            }
-            return InteractionResultHolder.consume(totemStack);
+            itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.APPLE.getDefaultInstance()));
         } else if (player.getInventory().contains(Items.CARROT.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
-            ItemStack itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.CARROT.getDefaultInstance()));
-            totemStack.setDamageValue(totemStack.getDamageValue()-1);
-            itemstack.shrink(1);
-            if (itemstack.isEmpty()) {
-                player.getInventory().removeItem(itemstack);
-            }
-            return InteractionResultHolder.consume(totemStack);
+            itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.CARROT.getDefaultInstance()));
         } else return InteractionResultHolder.fail(totemStack);
+
+        totemStack.setDamageValue(totemStack.getDamageValue()-1);
+        itemstack.shrink(1);
+        if (itemstack.isEmpty()) {
+            player.getInventory().removeItem(itemstack);
+        }
+        return InteractionResultHolder.consume(totemStack);
     }
 
     public boolean saturate() {
