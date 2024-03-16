@@ -58,31 +58,21 @@ public class AmpleTotemOfNourishing extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand pHand) {
         ItemStack totemStack = player.getItemInHand(pHand);
+        ItemStack itemStack;
         if (player.getInventory().contains(Items.POTATO.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
-            ItemStack itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.POTATO.getDefaultInstance()));
-            totemStack.setDamageValue(totemStack.getDamageValue()-1);
-            itemstack.shrink(1);
-            if (itemstack.isEmpty()) {
-                player.getInventory().removeItem(itemstack);
-            }
-            return InteractionResultHolder.consume(totemStack);
+            itemStack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.POTATO.getDefaultInstance()));
         } else if (player.getInventory().contains(Items.BEETROOT.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
-            ItemStack itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.BEETROOT.getDefaultInstance()));
-            totemStack.setDamageValue(totemStack.getDamageValue()-1);
-            itemstack.shrink(1);
-            if (itemstack.isEmpty()) {
-                player.getInventory().removeItem(itemstack);
-            }
-            return InteractionResultHolder.consume(totemStack);
+            itemStack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.BEETROOT.getDefaultInstance()));
         } else if (player.getInventory().contains(Items.MELON_SLICE.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
-            ItemStack itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.MELON_SLICE.getDefaultInstance()));
-            totemStack.setDamageValue(totemStack.getDamageValue()-1);
-            itemstack.shrink(1);
-            if (itemstack.isEmpty()) {
-                player.getInventory().removeItem(itemstack);
-            }
-            return InteractionResultHolder.consume(totemStack);
+            itemStack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.MELON_SLICE.getDefaultInstance()));
         } else return InteractionResultHolder.fail(totemStack);
+
+        totemStack.setDamageValue(totemStack.getDamageValue()-1);
+        itemStack.shrink(1);
+        if (itemStack.isEmpty()) {
+            player.getInventory().removeItem(itemStack);
+        }
+        return InteractionResultHolder.consume(totemStack);
     }
 
     public boolean saturate() {

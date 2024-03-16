@@ -57,31 +57,21 @@ public class PlentifulTotemOfNourishing extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand pHand) {
         ItemStack totemStack = player.getItemInHand(pHand);
+        ItemStack itemStack;
         if (player.getInventory().contains(Items.COOKED_SALMON.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
-            ItemStack itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.COOKED_SALMON.getDefaultInstance()));
-            totemStack.setDamageValue(totemStack.getDamageValue()-1);
-            itemstack.shrink(1);
-            if (itemstack.isEmpty()) {
-                player.getInventory().removeItem(itemstack);
-            }
-            return InteractionResultHolder.consume(totemStack);
+            itemStack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.COOKED_SALMON.getDefaultInstance()));
         } else if (player.getInventory().contains(Items.COOKED_CHICKEN.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
-            ItemStack itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.COOKED_CHICKEN.getDefaultInstance()));
-            totemStack.setDamageValue(totemStack.getDamageValue()-1);
-            itemstack.shrink(1);
-            if (itemstack.isEmpty()) {
-                player.getInventory().removeItem(itemstack);
-            }
-            return InteractionResultHolder.consume(totemStack);
+            itemStack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.COOKED_CHICKEN.getDefaultInstance()));
         } else if (player.getInventory().contains(Items.COOKED_MUTTON.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
-            ItemStack itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.COOKED_MUTTON.getDefaultInstance()));
-            totemStack.setDamageValue(totemStack.getDamageValue()-1);
-            itemstack.shrink(1);
-            if (itemstack.isEmpty()) {
-                player.getInventory().removeItem(itemstack);
-            }
-            return InteractionResultHolder.consume(totemStack);
+            itemStack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.COOKED_MUTTON.getDefaultInstance()));
         } else return InteractionResultHolder.fail(totemStack);
+
+        totemStack.setDamageValue(totemStack.getDamageValue()-1);
+        itemStack.shrink(1);
+        if (itemStack.isEmpty()) {
+            player.getInventory().removeItem(itemStack);
+        }
+        return InteractionResultHolder.consume(totemStack);
     }
 
     public boolean saturate() {

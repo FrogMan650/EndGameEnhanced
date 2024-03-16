@@ -57,39 +57,23 @@ public class AbundantTotemOfNourishing extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand pHand) {
         ItemStack totemStack = player.getItemInHand(pHand);
+        ItemStack itemStack;
         if (player.getInventory().contains(Items.BAKED_POTATO.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
-            ItemStack itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.BAKED_POTATO.getDefaultInstance()));
-            totemStack.setDamageValue(totemStack.getDamageValue()-1);
-            itemstack.shrink(1);
-            if (itemstack.isEmpty()) {
-                player.getInventory().removeItem(itemstack);
-            }
-            return InteractionResultHolder.consume(totemStack);
+            itemStack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.BAKED_POTATO.getDefaultInstance()));
         } else if (player.getInventory().contains(Items.BREAD.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
-            ItemStack itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.BREAD.getDefaultInstance()));
-            totemStack.setDamageValue(totemStack.getDamageValue()-1);
-            itemstack.shrink(1);
-            if (itemstack.isEmpty()) {
-                player.getInventory().removeItem(itemstack);
-            }
-            return InteractionResultHolder.consume(totemStack);
+            itemStack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.BREAD.getDefaultInstance()));
         } else if (player.getInventory().contains(Items.COOKED_COD.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
-            ItemStack itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.COOKED_COD.getDefaultInstance()));
-            totemStack.setDamageValue(totemStack.getDamageValue()-1);
-            itemstack.shrink(1);
-            if (itemstack.isEmpty()) {
-                player.getInventory().removeItem(itemstack);
-            }
-            return InteractionResultHolder.consume(totemStack);
+            itemStack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.COOKED_COD.getDefaultInstance()));
         } else if (player.getInventory().contains(Items.COOKED_RABBIT.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
-            ItemStack itemstack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.COOKED_RABBIT.getDefaultInstance()));
-            totemStack.setDamageValue(totemStack.getDamageValue()-1);
-            itemstack.shrink(1);
-            if (itemstack.isEmpty()) {
-                player.getInventory().removeItem(itemstack);
-            }
-            return InteractionResultHolder.consume(totemStack);
+            itemStack = player.getInventory().getItem(player.getInventory().findSlotMatchingItem(Items.COOKED_RABBIT.getDefaultInstance()));
         } else return InteractionResultHolder.fail(totemStack);
+
+        totemStack.setDamageValue(totemStack.getDamageValue()-1);
+        itemStack.shrink(1);
+        if (itemStack.isEmpty()) {
+            player.getInventory().removeItem(itemStack);
+        }
+        return InteractionResultHolder.consume(totemStack);
     }
 
     public boolean saturate() {
