@@ -28,7 +28,7 @@ public class VoidwakerSword extends CustomSwordItem implements Vanishable{
     }
 
     @Override
-    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+    public void inventoryTick(@NotNull ItemStack pStack, @NotNull Level pLevel, @NotNull Entity pEntity, int pSlotId, boolean pIsSelected) {
         if (pEntity instanceof Player player) {
             if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.VOIDWAKER.get() && player.level().dimension().toString().contains("the_end")) {
                 if (player.hasEffect(MobEffects.WITHER)) {

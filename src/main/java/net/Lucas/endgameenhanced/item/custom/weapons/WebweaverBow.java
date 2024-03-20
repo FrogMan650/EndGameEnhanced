@@ -1,7 +1,6 @@
 package net.Lucas.endgameenhanced.item.custom.weapons;
 
 import net.Lucas.endgameenhanced.item.ModItems;
-import net.Lucas.endgameenhanced.item.custom.arrows.SapphireArrow;
 import net.Lucas.endgameenhanced.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
@@ -21,6 +20,9 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.player.ArrowLooseEvent;
+import net.minecraftforge.eventbus.api.Event;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -31,14 +33,15 @@ public class WebweaverBow extends BowItem {
         super(pProperties);
     }
 
-    public void releaseUsing(ItemStack bowStack, Level worldIn, LivingEntity entityLiving, int pTimeLeft) {
+    @Override
+    public void releaseUsing(@NotNull ItemStack bowStack, @NotNull Level worldIn, @NotNull LivingEntity entityLiving, int pTimeLeft) {
         if (entityLiving instanceof Player player) {
             boolean hasCreative = player.getAbilities().instabuild;
             boolean hasInfinity = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.INFINITY_ARROWS, bowStack) > 0;
             boolean hasInfinityOrCreative = hasCreative || hasInfinity;
             ItemStack ammoStack = player.getProjectile(bowStack);
             int timeDrawn = this.getUseDuration(bowStack) - pTimeLeft;
-            timeDrawn = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(bowStack, worldIn, player, timeDrawn, !ammoStack.isEmpty() || hasInfinityOrCreative);
+            timeDrawn = onArrowLoose(bowStack, worldIn, player, timeDrawn, !ammoStack.isEmpty() || hasInfinityOrCreative);
             if (timeDrawn < 0) return;
             boolean shouldRoll = true;
             if (ammoStack.isEmpty()) {
@@ -47,7 +50,6 @@ public class WebweaverBow extends BowItem {
             }
             float velocity = getPowerForTime(timeDrawn);
             if (!((double)velocity < 0.1D)) {
-                boolean flag1 = hasCreative || (ammoStack.getItem() instanceof ArrowItem && ((ArrowItem)ammoStack.getItem()).isInfinite(ammoStack, bowStack, player));
                 boolean isTippedArrow = ammoStack.is(ModTags.Items.NO_PICKUP_ARROWS);
                 if (!worldIn.isClientSide) {
                     ArrowItem arrowitem = (ArrowItem)(ammoStack.getItem() instanceof ArrowItem ? ammoStack.getItem() : Items.ARROW);
@@ -61,16 +63,14 @@ public class WebweaverBow extends BowItem {
                     double damage = getArrowDamage(bowStack, ammoStack, hasInfinityOrCreative);
                     arrowEntity.setBaseDamage(damage);
                     //knockback
-                    int knockback = getArrowKnockback(bowStack, arrowEntity);
+                    int knockback = getArrowKnockback(bowStack);
                     arrowEntity.setKnockback(knockback);
                     //fire
                     if (EnchantmentHelper.getTagEnchantmentLevel(Enchantments.FLAMING_ARROWS, bowStack) > 0) {
                         arrowEntity.setSecondsOnFire(100);
                     }
 
-                    bowStack.hurtAndBreak(0, player, (p_289501_) -> {
-                        p_289501_.broadcastBreakEvent(player.getUsedItemHand());
-                    });
+                    bowStack.hurtAndBreak(0, player, (p_289501_) -> p_289501_.broadcastBreakEvent(player.getUsedItemHand()));
                     if (hasInfinityOrCreative || isTippedArrow) {
                         arrowEntity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                     }
@@ -78,7 +78,7 @@ public class WebweaverBow extends BowItem {
                     worldIn.addFreshEntity(arrowEntity);
                 }
 
-                worldIn.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (worldIn.getRandom().nextFloat() * 0.4F + 1.2F) + velocity * 0.5F);
+                worldIn.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (worldIn.getRandom().nextFloat() * 0.4F + 1.2F) + velocity * 0.5F);
                 boolean shouldConsumeArrow = !hasInfinityOrCreative || isTippedArrow;
 
                 //25% chance to save ammo
@@ -100,7 +100,19 @@ public class WebweaverBow extends BowItem {
         }
     }
 
-    public @NotNull InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
+    public static int onArrowLoose(ItemStack stack, Level level, Player player, int charge, boolean hasAmmo) {
+        var event = new ArrowLooseEvent(player, stack, level, charge, hasAmmo);
+        if (post(event))
+            return -1;
+        return event.getCharge();
+    }
+
+    private static boolean post(Event e) {
+        return MinecraftForge.EVENT_BUS.post(e);
+    }
+
+    @Override
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, Player pPlayer, @NotNull InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         pPlayer.startUsingItem(pHand);
         return InteractionResultHolder.consume(itemstack);
@@ -120,9 +132,8 @@ public class WebweaverBow extends BowItem {
         return arrowitem.createArrow(worldIn, ammoStack, player);
     }
 
-    protected int getArrowKnockback(ItemStack bowStack, AbstractArrow arrowEntity) {
-        int bowKnockback = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.PUNCH_ARROWS, bowStack);
-        return bowKnockback;
+    protected int getArrowKnockback(ItemStack bowStack) {
+        return EnchantmentHelper.getTagEnchantmentLevel(Enchantments.PUNCH_ARROWS, bowStack);
     }
 
     protected double getArrowDamage(ItemStack bowStack, ItemStack ammoStack, boolean hasInfinityOrCreative) {
@@ -139,7 +150,7 @@ public class WebweaverBow extends BowItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GOLD_TEXT = ChatFormatting.GOLD;

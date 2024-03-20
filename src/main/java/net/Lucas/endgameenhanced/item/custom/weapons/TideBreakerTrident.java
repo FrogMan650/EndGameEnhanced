@@ -29,7 +29,6 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.TridentItem;
-import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -47,12 +46,12 @@ public class TideBreakerTrident extends TridentItem {
         super(pProperties);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", BASE_DAMAGE, AttributeModifier.Operation.ADDITION));
-        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", (double)-2.4F, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -2.4F, AttributeModifier.Operation.ADDITION));
         this.defaultModifiers = builder.build();
     }
 
     @Override
-    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+    public void inventoryTick(@NotNull ItemStack pStack, @NotNull Level pLevel, @NotNull Entity pEntity, int pSlotId, boolean pIsSelected) {
         if (pEntity instanceof Player player) {
             if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.TIDE_BREAKER.get() && player.isInWater()) {
                 player.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 20, 0, false, true, true));
@@ -60,16 +59,15 @@ public class TideBreakerTrident extends TridentItem {
         }
     }
 
-    public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
+    @Override
+    public void releaseUsing(@NotNull ItemStack pStack, @NotNull Level pLevel, @NotNull LivingEntity pEntityLiving, int pTimeLeft) {
         if (pEntityLiving instanceof Player player) {
             int i = this.getUseDuration(pStack) - pTimeLeft;
             if (i >= 7) {
                 int j = EnchantmentHelper.getRiptide(pStack);
                 if (j <= 0 || player.isInWaterOrRain()) {
                     if (!pLevel.isClientSide) {
-                        pStack.hurtAndBreak(0, player, (p_43388_) -> {
-                            p_43388_.broadcastBreakEvent(pEntityLiving.getUsedItemHand());
-                        });
+                        pStack.hurtAndBreak(0, player, (p_43388_) -> p_43388_.broadcastBreakEvent(pEntityLiving.getUsedItemHand()));
                         if (j == 0) {
                             TideBreakerEntity throwntidebreaker = new TideBreakerEntity(pLevel, player, pStack);
                             throwntidebreaker.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 4.5F + (float)j * 0.5F, 0.5F);
@@ -78,7 +76,7 @@ public class TideBreakerTrident extends TridentItem {
                             }
 
                             pLevel.addFreshEntity(throwntidebreaker);
-                            pLevel.playSound((Player)null, throwntidebreaker, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+                            pLevel.playSound(null, throwntidebreaker, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
                             if (!player.getAbilities().instabuild) {
                                 player.getInventory().removeItem(pStack);
                             }
@@ -97,11 +95,11 @@ public class TideBreakerTrident extends TridentItem {
                         f1 *= f5 / f4;
                         f2 *= f5 / f4;
                         f3 *= f5 / f4;
-                        player.push((double)f1, (double)f2, (double)f3);
+                        player.push(f1, f2, f3);
                         player.startAutoSpinAttack(20);
                         if (player.onGround()) {
                             float f6 = 1.1999999F;
-                            player.move(MoverType.SELF, new Vec3(0.0D, (double)1.1999999F, 0.0D));
+                            player.move(MoverType.SELF, new Vec3(0.0D, f6, 0.0D));
                         }
 
                         SoundEvent soundevent;
@@ -113,7 +111,7 @@ public class TideBreakerTrident extends TridentItem {
                             soundevent = SoundEvents.TRIDENT_RIPTIDE_1;
                         }
 
-                        pLevel.playSound((Player)null, player, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
+                        pLevel.playSound(null, player, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
                     }
 
                 }
@@ -121,29 +119,28 @@ public class TideBreakerTrident extends TridentItem {
         }
     }
 
-    public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
+    @Override
+    public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot pEquipmentSlot) {
         return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
     }
 
-    public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-        pStack.hurtAndBreak(0, pAttacker, (p_43414_) -> {
-            p_43414_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-        });
+    @Override
+    public boolean hurtEnemy(ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
+        pStack.hurtAndBreak(0, pAttacker, (p_43414_) -> p_43414_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         return true;
     }
 
-    public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
+    @Override
+    public boolean mineBlock(@NotNull ItemStack pStack, @NotNull Level pLevel, BlockState pState, @NotNull BlockPos pPos, @NotNull LivingEntity pEntityLiving) {
         if ((double)pState.getDestroySpeed(pLevel, pPos) != 0.0D) {
-            pStack.hurtAndBreak(0, pEntityLiving, (p_43385_) -> {
-                p_43385_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-            });
+            pStack.hurtAndBreak(0, pEntityLiving, (p_43385_) -> p_43385_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         }
 
         return true;
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GOLD_TEXT = ChatFormatting.GOLD;

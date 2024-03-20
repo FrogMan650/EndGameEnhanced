@@ -19,7 +19,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -27,14 +26,15 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.CrossbowAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.FireworkRocketEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.player.ArrowLooseEvent;
+import net.minecraftforge.eventbus.api.Event;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
@@ -49,21 +49,23 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     }
     private boolean startSoundPlayed = false;
     private boolean midLoadSoundPlayed = false;
-    private static final float FIREWORK_POWER = 1.6F;
+    private static final float FIREWORK_VELOCITY = 1.6F;
+    private static final float ARROW_VELOCITY = 3F;
     private static final float ARROW_POWER = 3.75F;
     private static final float DEFAULT_ARROW_POWER = 2.75F;
 
 
-
+    @Override
     public @NotNull Predicate<ItemStack> getSupportedHeldProjectiles() {
         return ARROW_OR_FIREWORK;
     }
 
+    @Override
     public @NotNull Predicate<ItemStack> getAllSupportedProjectiles() {
         return ARROW_ONLY;
     }
 
-
+    @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, Player pPlayer, @NotNull InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         if (isCharged(itemstack)) {
@@ -85,16 +87,17 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     }
 
     private static float getShootingPower(ItemStack pCrossbowStack) {//velocity of projectile
-        return containsChargedProjectile(pCrossbowStack, Items.FIREWORK_ROCKET) ? 1.6F : 3.0F;
+        return containsChargedProjectile(pCrossbowStack, Items.FIREWORK_ROCKET) ? FIREWORK_VELOCITY : ARROW_VELOCITY;
     }
 
-    public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
+    @Override
+    public void releaseUsing(@NotNull ItemStack pStack, @NotNull Level pLevel, @NotNull LivingEntity pEntityLiving, int pTimeLeft) {
         int i = this.getUseDuration(pStack) - pTimeLeft;
         float f = getPowerForTime(i, pStack);
         if (f >= 1.0F && !isCharged(pStack) && tryLoadProjectiles(pEntityLiving, pStack)) {
             setCharged(pStack, true);
             SoundSource soundsource = pEntityLiving instanceof Player ? SoundSource.PLAYERS : SoundSource.HOSTILE;
-            pLevel.playSound((Player)null, pEntityLiving.getX(), pEntityLiving.getY(), pEntityLiving.getZ(), SoundEvents.CROSSBOW_LOADING_END, soundsource, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+            pLevel.playSound(null, pEntityLiving.getX(), pEntityLiving.getY(), pEntityLiving.getZ(), SoundEvents.CROSSBOW_LOADING_END, soundsource, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
         }
 
     }
@@ -189,11 +192,9 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         CompoundTag compoundtag = pCrossbowStack.getTag();
         if (compoundtag != null && compoundtag.contains("ChargedProjectiles", 9)) {
             ListTag listtag = compoundtag.getList("ChargedProjectiles", 10);
-            if (listtag != null) {
-                for(int i = 0; i < listtag.size(); ++i) {
-                    CompoundTag compoundtag1 = listtag.getCompound(i);
-                    list.add(ItemStack.of(compoundtag1));
-                }
+            for (int i = 0; i < listtag.size(); ++i) {
+                CompoundTag compoundtag1 = listtag.getCompound(i);
+                list.add(ItemStack.of(compoundtag1));
             }
         }
 
@@ -211,9 +212,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     }
 
     public static boolean containsChargedProjectile(ItemStack pCrossbowStack, Item pAmmoItem) {
-        return getChargedProjectiles(pCrossbowStack).stream().anyMatch((p_40870_) -> {
-            return p_40870_.is(pAmmoItem);
-        });
+        return getChargedProjectiles(pCrossbowStack).stream().anyMatch((p_40870_) -> p_40870_.is(pAmmoItem));
     }
 
     public static void shootProjectile(Level pLevel, LivingEntity pShooter, InteractionHand pHand, ItemStack pCrossbowStack, ItemStack pAmmoStack, float pSoundPitch, boolean pIsCreativeMode, float pVelocity, float pInaccuracy, float pProjectileAngle) {
@@ -231,15 +230,17 @@ public class SculkSlingerCrossbow extends CrossbowItem {
                 }
             }
 
-            if (pShooter instanceof CrossbowAttackMob) {
-                CrossbowAttackMob crossbowattackmob = (CrossbowAttackMob)pShooter;
-                crossbowattackmob.shootCrossbowProjectile(crossbowattackmob.getTarget(), pCrossbowStack, projectile, pProjectileAngle);
+            if (pShooter instanceof CrossbowAttackMob crossbowattackmob) {
+                LivingEntity mobTarget = crossbowattackmob.getTarget();
+                if (mobTarget != null) {
+                    crossbowattackmob.shootCrossbowProjectile(mobTarget, pCrossbowStack, projectile, pProjectileAngle);
+                }
             } else {
                 Vec3 vec31 = pShooter.getUpVector(1.0F);
-                Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double)(pProjectileAngle * ((float)Math.PI / 180F)), vec31.x, vec31.y, vec31.z);
+                Quaternionf quaternionf = (new Quaternionf()).setAngleAxis(pProjectileAngle * ((float)Math.PI / 180F), vec31.x, vec31.y, vec31.z);
                 Vec3 vec3 = pShooter.getViewVector(1.0F);
                 Vector3f vector3f = vec3.toVector3f().rotate(quaternionf);
-                projectile.shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), pVelocity, pInaccuracy);
+                projectile.shoot(vector3f.x(), vector3f.y(), vector3f.z(), pVelocity, pInaccuracy);
 
                 //spawn warden ranged attack particles when you shoot
                 Vec3 playerEyes = player.getEyePosition();
@@ -253,12 +254,10 @@ public class SculkSlingerCrossbow extends CrossbowItem {
                 }
             }
             //durability
-            pCrossbowStack.hurtAndBreak(0, pShooter, (p_40858_) -> {
-                p_40858_.broadcastBreakEvent(pHand);
-            });
+            pCrossbowStack.hurtAndBreak(0, pShooter, (p_40858_) -> p_40858_.broadcastBreakEvent(pHand));
             //arrow entity is created
             pLevel.addFreshEntity(projectile);
-            pLevel.playSound((Player)null, pShooter.getX(), pShooter.getY(), pShooter.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, pSoundPitch);
+            pLevel.playSound(null, pShooter.getX(), pShooter.getY(), pShooter.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, pSoundPitch);
 
         }
     }
@@ -285,8 +284,19 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         return abstractarrow;
     }
 
-    public static void performShooting(Level pLevel, LivingEntity pShooter, InteractionHand pUsedHand, ItemStack pCrossbowStack, float pVelocity, float pInaccuracy) {
-        if (pShooter instanceof Player player && net.minecraftforge.event.ForgeEventFactory.onArrowLoose(pCrossbowStack, pShooter.level(), player, 1, true) < 0) return;
+    public static int onArrowLoose(ItemStack stack, Level level, Player player, int charge, boolean hasAmmo) {
+        var event = new ArrowLooseEvent(player, stack, level, charge, hasAmmo);
+        if (post(event))
+            return -1;
+        return event.getCharge();
+    }
+
+    private static boolean post(Event e) {
+        return MinecraftForge.EVENT_BUS.post(e);
+    }
+
+    public static void performShooting(@NotNull Level pLevel, LivingEntity pShooter, @NotNull InteractionHand pUsedHand, @NotNull ItemStack pCrossbowStack, float pVelocity, float pInaccuracy) {
+        if (pShooter instanceof Player player && onArrowLoose(pCrossbowStack, pShooter.level(), player, 1, true) < 0) return;
         List<ItemStack> list = getChargedProjectiles(pCrossbowStack);
         float[] afloat = getShotPitches(pShooter.getRandom());
 
@@ -329,7 +339,8 @@ public class SculkSlingerCrossbow extends CrossbowItem {
         clearChargedProjectiles(pCrossbowStack);
     }
 
-    public void onUseTick(Level pLevel, LivingEntity pLivingEntity, ItemStack pStack, int pCount) {
+    @Override
+    public void onUseTick(Level pLevel, @NotNull LivingEntity pLivingEntity, @NotNull ItemStack pStack, int pCount) {
         if (!pLevel.isClientSide) {
             int i = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.QUICK_CHARGE, pStack)+1;
             SoundEvent soundevent = this.getStartSound(i);
@@ -342,17 +353,19 @@ public class SculkSlingerCrossbow extends CrossbowItem {
 
             if (f >= 0.2F && !this.startSoundPlayed) {
                 this.startSoundPlayed = true;
-                pLevel.playSound((Player)null, pLivingEntity.getX(), pLivingEntity.getY(), pLivingEntity.getZ(), soundevent, SoundSource.PLAYERS, 0.5F, 1.0F);
+                pLevel.playSound(null, pLivingEntity.getX(), pLivingEntity.getY(), pLivingEntity.getZ(), soundevent, SoundSource.PLAYERS, 0.5F, 1.0F);
             }
 
             if (f >= 0.5F && soundevent1 != null && !this.midLoadSoundPlayed) {
                 this.midLoadSoundPlayed = true;
-                pLevel.playSound((Player)null, pLivingEntity.getX(), pLivingEntity.getY(), pLivingEntity.getZ(), soundevent1, SoundSource.PLAYERS, 0.5F, 1.0F);
+                pLevel.playSound(null, pLivingEntity.getX(), pLivingEntity.getY(), pLivingEntity.getZ(), soundevent1, SoundSource.PLAYERS, 0.5F, 1.0F);
             }
         }
 
     }
-    public int getUseDuration(ItemStack pStack) {
+
+    @Override
+    public int getUseDuration(@NotNull ItemStack pStack) {
         return getChargeDuration(pStack) + 3;
     }
 
@@ -362,16 +375,12 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     }
 
     private SoundEvent getStartSound(int pEnchantmentLevel) {
-        switch (pEnchantmentLevel) {
-            case 1:
-                return SoundEvents.CROSSBOW_QUICK_CHARGE_1;
-            case 2:
-                return SoundEvents.CROSSBOW_QUICK_CHARGE_2;
-            case 3:
-                return SoundEvents.CROSSBOW_QUICK_CHARGE_3;
-            default:
-                return SoundEvents.CROSSBOW_LOADING_START;
-        }
+        return switch (pEnchantmentLevel) {
+            case 1 -> SoundEvents.CROSSBOW_QUICK_CHARGE_1;
+            case 2 -> SoundEvents.CROSSBOW_QUICK_CHARGE_2;
+            case 3 -> SoundEvents.CROSSBOW_QUICK_CHARGE_3;
+            default -> SoundEvents.CROSSBOW_LOADING_START;
+        };
     }
 
     private static float getPowerForTime(int pUseTime, ItemStack pCrossbowStack) {
@@ -384,7 +393,7 @@ public class SculkSlingerCrossbow extends CrossbowItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         final ChatFormatting RED_TEXT = ChatFormatting.DARK_RED;
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         final ChatFormatting GREEN_TEXT = ChatFormatting.DARK_GREEN;
