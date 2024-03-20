@@ -14,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class BountifulTotemOfNourishing extends Item {
     }
 
     @Override
-    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+    public void inventoryTick(@NotNull ItemStack pStack, @NotNull Level pLevel, @NotNull Entity pEntity, int pSlotId, boolean pIsSelected) {
         if (pEntity instanceof Player player && player.getItemInHand(InteractionHand.OFF_HAND).is(this) && player.getItemInHand(InteractionHand.OFF_HAND).getDamageValue() < player.getItemInHand(InteractionHand.OFF_HAND).getMaxDamage()-1) {
             int foodLevel = player.getFoodData().getFoodLevel();
             float saturationLevel = player.getFoodData().getSaturationLevel();
@@ -42,20 +43,18 @@ public class BountifulTotemOfNourishing extends Item {
                 if (player.getFoodData().getSaturationLevel() > player.getFoodData().getFoodLevel()) {
                     player.getFoodData().setSaturation(player.getFoodData().getFoodLevel());
                 }
-                pStack.hurtAndBreak(1, player, (p_289501_) -> {
-                    p_289501_.broadcastBreakEvent(player.getUsedItemHand());
-                });
+                pStack.hurtAndBreak(1, player, (p_289501_) -> p_289501_.broadcastBreakEvent(player.getUsedItemHand()));
             }
         }
     }
 
     @Override
-    public void onCraftedBy(ItemStack pStack, Level pLevel, Player pPlayer) {
+    public void onCraftedBy(ItemStack pStack, @NotNull Level pLevel, @NotNull Player pPlayer) {
         pStack.setDamageValue(pStack.getMaxDamage()-1);
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand pHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand pHand) {
         ItemStack totemStack = player.getItemInHand(pHand);
         ItemStack itemStack;
         if (player.getInventory().contains(Items.COOKED_PORKCHOP.getDefaultInstance()) && player.getItemInHand(pHand).getDamageValue() != 0) {
@@ -80,12 +79,12 @@ public class BountifulTotemOfNourishing extends Item {
     }
 
     @Override
-    public boolean isFoil(ItemStack pStack) {
+    public boolean isFoil(@NotNull ItemStack pStack) {
         return true;
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         ChatFormatting VARIABLE_TEXT = ChatFormatting.DARK_GREEN;
         int currentCharges = pStack.getDamageValue();

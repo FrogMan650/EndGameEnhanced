@@ -14,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class OverclockedTotemOfUndying extends Item {
     }
 
     @Override
-    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+    public void inventoryTick(@NotNull ItemStack pStack, @NotNull Level pLevel, @NotNull Entity pEntity, int pSlotId, boolean pIsSelected) {
         if (pEntity instanceof Player player && pStack.getDamageValue() > 0 && player.getItemInHand(InteractionHand.OFF_HAND).is(this)) {
             Level level = player.level();
             pStack.setDamageValue(pStack.getDamageValue()-1);
@@ -40,7 +41,7 @@ public class OverclockedTotemOfUndying extends Item {
     }
 
     @Override
-    public boolean isFoil(ItemStack pStack) {
+    public boolean isFoil(@NotNull ItemStack pStack) {
         return true;
     }
 
@@ -55,7 +56,7 @@ public class OverclockedTotemOfUndying extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         final ChatFormatting GREY_TEXT = ChatFormatting.GRAY;
         ChatFormatting VARIABLE_TEXT = ChatFormatting.DARK_GREEN;
         int secondsLeft = pStack.getDamageValue()/20;
