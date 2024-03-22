@@ -12,7 +12,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class PlayerToolChangeProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-    public static Capability<PlayerToolChange> PLAYER_TOOL_CHANGE = CapabilityManager.get(new CapabilityToken<PlayerToolChange>() { });
+    public static Capability<PlayerToolChange> PLAYER_TOOL_CHANGE = CapabilityManager.get(new CapabilityToken<>() {
+    });
     
     private PlayerToolChange toolChange = null;
     private final LazyOptional<PlayerToolChange> optional = LazyOptional.of(this::createPlayerToolChange);

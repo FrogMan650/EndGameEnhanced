@@ -6,16 +6,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.common.brewing.IBrewingRecipe;
+import org.jetbrains.annotations.NotNull;
 
 public class ExperienceBottleThreeOfThree implements IBrewingRecipe {
-    private final Item input;
     private final Item output;
-    private final Item ingredient;
 
-    public ExperienceBottleThreeOfThree(Item input, Item output, Item ingredient) {
-        this.input = input;
+    public ExperienceBottleThreeOfThree(Item output) {
         this.output = output;
-        this.ingredient = ingredient;
     }
     @Override
     public boolean isInput(ItemStack input) {
@@ -28,7 +25,7 @@ public class ExperienceBottleThreeOfThree implements IBrewingRecipe {
     }
 
     @Override
-    public ItemStack getOutput(ItemStack input, ItemStack ingredient) {
+    public @NotNull ItemStack getOutput(@NotNull ItemStack input, @NotNull ItemStack ingredient) {
         if (!this.isInput(input) || !this.isIngredient(ingredient)) {
             return ItemStack.EMPTY;
         }

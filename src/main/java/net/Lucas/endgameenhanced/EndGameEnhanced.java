@@ -13,7 +13,6 @@ import net.Lucas.endgameenhanced.potions.ExperienceBottleThreeOfThree;
 import net.Lucas.endgameenhanced.potions.ExperienceBottleTwoOfThree;
 import net.Lucas.endgameenhanced.util.ModItemProperties;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -62,12 +61,10 @@ public class EndGameEnhanced {
         event.enqueueWork(() -> {
             ModMessages.register();
 
-            BrewingRecipeRegistry.addRecipe(new ExperienceBottleOneOfThree(Items.EXPERIENCE_BOTTLE,
-                    ModItems.EXPERIENCE_BOTTLE_NETHER_WART.get(), Items.NETHER_WART));
-            BrewingRecipeRegistry.addRecipe(new ExperienceBottleTwoOfThree(ModItems.EXPERIENCE_BOTTLE_NETHER_WART.get(),
-                    ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT.get(), Items.CHORUS_FRUIT));
-            BrewingRecipeRegistry.addRecipe(new ExperienceBottleThreeOfThree(ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT.get(),
-                    ModItems.BASIC_ESSENCE.get(), Items.WHEAT));
+            BrewingRecipeRegistry.addRecipe(new ExperienceBottleOneOfThree(
+                    ModItems.EXPERIENCE_BOTTLE_NETHER_WART.get()));
+            BrewingRecipeRegistry.addRecipe(new ExperienceBottleTwoOfThree(ModItems.EXPERIENCE_BOTTLE_NETHER_WART_CHORUS_FRUIT.get()));
+            BrewingRecipeRegistry.addRecipe(new ExperienceBottleThreeOfThree(ModItems.BASIC_ESSENCE.get()));
         });
     }
 

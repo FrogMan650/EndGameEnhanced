@@ -11,7 +11,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.SimpleChannel;
 
 public class ModMessages {
-    private static SimpleChannel INSTANCE = ChannelBuilder
+    private static final SimpleChannel INSTANCE = ChannelBuilder
             .named(new ResourceLocation(EndGameEnhanced.MOD_ID, "messages"))
             .clientAcceptedVersions((status, version) -> true)
             .serverAcceptedVersions((status, version) -> true)
@@ -41,7 +41,4 @@ public class ModMessages {
         INSTANCE.send(message, PacketDistributor.SERVER.noArg());
     }
 
-    public static <MSG> void sendToPlayer(MSG message, ServerPlayer player) {
-        INSTANCE.send(message, PacketDistributor.PLAYER.with(player));
-    }
 }
